@@ -3,19 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sword
+  - Ennemi
+  - ActivePuzzle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ice
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Block
+  - Piege
+  - PostProcessing
+  - Not in Reflection
+  - Collectable
   - 
   - 
   - 
