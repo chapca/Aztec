@@ -40,9 +40,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Deplacement();
-    }
-    void LateUpdate()
-    {
+
         if (!battle.degaine)
             RotationPlayer();
         else
@@ -50,12 +48,14 @@ public class PlayerController : MonoBehaviour
             Vector3 ennemiPos;
 
             ennemiPos.x = ennemi.transform.position.x;
-            ennemiPos.y = 0;
+            ennemiPos.y = 0f;
             ennemiPos.z = ennemi.transform.position.z;
 
             SmoothLookAt(ennemiPos);
-            //transform.LookAt(ennemiPos);
         }
+    }
+    void LateUpdate()
+    {
     }
 
     void SmoothLookAt(Vector3 target)
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
         lookEnnemi = Quaternion.LookRotation(target - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookEnnemi, 10 * Time.deltaTime);
     }
+
 
     void Deplacement()
     {
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour
                 //Jump
                 if (Input.GetButtonDown("Jump"))
                 {
-                    move.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                    move.y += Mathf.Sqrt(jumpHeight */* -3.0f **/ -gravityValue);
                 }
 
                 move = transform.TransformDirection(move);
@@ -90,8 +91,9 @@ public class PlayerController : MonoBehaviour
 
 
         //Run
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetButton("RunButton"))
         {
+            Debug.Log("Cour connard");
             currentSpeed = runSpeed;
         }
         else
