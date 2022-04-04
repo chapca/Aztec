@@ -9,14 +9,19 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     public Vector3 move;
 
+    [Header("Speed param")]
     [SerializeField] float currentSpeed = 2.0f;
     [SerializeField] float baseSpeed;
     [SerializeField] float runSpeed;
-
     [SerializeField] float speedRot = 100;
+    [SerializeField] float playerVelocity;
+
     [SerializeField] float rotY;
+
     [SerializeField] float jumpHeight = 1.0f;
     [SerializeField] float gravityValue = -10f;
+
+    [SerializeField] float smoothRun, smoothWalk;
 
     public static Transform ennemi;
 
@@ -24,11 +29,13 @@ public class PlayerController : MonoBehaviour
 
     Quaternion lookEnnemi;
 
+    public bool isRunning;
+
     // Start is called before the first frame update
     void Start()
     {
         currentSpeed = baseSpeed;
-        runSpeed = baseSpeed * 1.5f;
+        runSpeed = baseSpeed * 2f;
 
         controller = GetComponent<CharacterController>();
         battle = transform.GetChild(0).GetComponent<Battle>();
@@ -39,6 +46,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerVelocity = controller.velocity.magnitude;
+        if(playerVelocity==0)
+        {
+            TargetCam.canTurnCamAroundPlayer = true;
+        }
+        else
+        {
+            TargetCam.canTurnCamAroundPlayer = false;
+        }
+
         Deplacement();
 
         if (!battle.degaine)
@@ -91,21 +108,45 @@ public class PlayerController : MonoBehaviour
 
 
         //Run
-        if (Input.GetButton("RunButton"))
+        RunMovement();
+    }
+
+    void RunMovement()
+    {
+        if (Input.GetButtonDown("RunButton"))
         {
-            Debug.Log("Cour connard");
-            currentSpeed = runSpeed;
+            if(!isRunning)
+            {
+                isRunning = true;
+            }
+            else
+            {
+                isRunning = false;
+            }
+        }
+
+        if(isRunning)
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, smoothRun);
         }
         else
         {
-            currentSpeed = baseSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, baseSpeed, smoothWalk);
+        }
+
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
+            isRunning = false;
         }
     }
 
     void RotationPlayer()
     {
-        rotY += Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
-        transform.localRotation = Quaternion.Euler(0, rotY, 0);
+        if(playerVelocity >0)
+        {
+            rotY += Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
+            transform.localRotation = Quaternion.Euler(0, rotY, 0);
+        }
     }
 
 

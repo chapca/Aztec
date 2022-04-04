@@ -1202,25 +1202,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8283120810980229919, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
   m_PrefabInstance: {fileID: 8283120809336151732}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &613460456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613460449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d438363a703f243a6e9118b432de1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCam: {fileID: 1169672408}
-  canvasPuzzle: {fileID: 1504283495}
-  camBase: {fileID: 1953805348}
-  camPuzzle: {fileID: 1521228521}
-  camIsZooming: 0
-  camIsAdjuting: 0
-  speedTransitionCam: 0.05
 --- !u!1 &619690681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &794437233
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3241,53 +3222,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150800347}
   m_CullTransparentMesh: 1
---- !u!1 &1169672406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1169672407}
-  - component: {fileID: 1169672408}
-  m_Layer: 0
-  m_Name: TargetCam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1169672407
+--- !u!4 &1169672407 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1169672407, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+  m_PrefabInstance: {fileID: 8283120809336151732}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169672406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 697922200}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1169672408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169672406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72219d49bfe8bd84daa22ef8f7cbbf29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationX: 0
-  rotSpeed: 100
-  clampAxeMin: -15
-  clampAxeMax: 45
 --- !u!1 &1202260726
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,7 +4206,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -5715,9 +5654,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpEndActionPlayer
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartActionPlayer
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286915, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpEndActionPlayer
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartActionPlayer
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445527, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpEndActionPlayer
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartActionPlayer
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: player
@@ -5780,6 +5755,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613460456, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: camBase
+      value: 
+      objectReference: {fileID: 1953805348}
+    - target: {fileID: 613460456, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: camPuzzle
+      value: 
+      objectReference: {fileID: 1521228521}
+    - target: {fileID: 613460456, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: canvasPuzzle
+      value: 
+      objectReference: {fileID: 1504283495}
     - target: {fileID: 8283120810034064430, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: camBase
       value: 
@@ -5831,14 +5818,6 @@ PrefabInstance:
     - target: {fileID: 8283120810980229912, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
-      propertyPath: speedRot
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
-      propertyPath: gravityValue
-      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8283120810980229919, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_Name

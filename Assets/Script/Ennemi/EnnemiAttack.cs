@@ -34,6 +34,13 @@ public class EnnemiAttack : MonoBehaviour
 
     public static bool startBattle;
 
+    float convertion;
+
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartActionPlayer, setUpEndActionPlayer;
+
+    [Range(0.0f, 3f)]
+    [SerializeField] float baseSetUpTimerSliderNormal, baseSetUpSliderPerfect, setUpTimerSliderNormal, setUpSliderPerfect;
     void Start()
     {
         ennemiHp = GetComponent<EnnemiHp>();
@@ -43,6 +50,20 @@ public class EnnemiAttack : MonoBehaviour
         battleScript = GameObject.FindWithTag("Player").GetComponent<Battle>();
 
         state = 0;
+
+        convertion = 10f / 6f;
+
+        baseSetUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
+        setUpSliderPerfect = setUpTimerSliderNormal / 4f;
+
+        setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) *10f) / convertion;
+        setUpSliderPerfect = setUpTimerSliderNormal / 4f;
+
+        sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        Debug.Log((setUpEndActionPlayer - setUpStartActionPlayer) * 10f);
     }
 
     void Update()
@@ -104,28 +125,32 @@ public class EnnemiAttack : MonoBehaviour
         {
             TimingCounter();
         }
+
+
     }
 
     void DelayInput()
     {
+        setUpTimerSliderNormal -= Time.unscaledDeltaTime;
+
         TimingAttack();
         TimingEsquive();
         TimingBlock();
     }
 
-    [SerializeField] float i = 1f;
-    [SerializeField] float j = 0.25f;
+    [SerializeField] float sliderPerfectAttack;
     void TimingAttack()
     {
-        if (i > 0)
+        if (setUpTimerSliderNormal > 0)
         {
-            i -= Time.unscaledDeltaTime;
-            UIManager.UpdateSliderAttack(i);
+            UIManager.UpdateSliderAttack(setUpTimerSliderNormal * (1f/ baseSetUpTimerSliderNormal));
 
-            if (i <= 0.75f && j > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 0.25f && sliderPerfectAttack > 0)
             {
-                j -= Time.unscaledDeltaTime;
-                UIManager.UpdateSliderAttackPerfect(j);
+                sliderPerfectAttack -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
+
+                Debug.Log(sliderPerfectAttack);
                 if (Input.GetAxis("VerticalLeftButtonY") > 0)
                 {
                     AnimationEvent.attackPerfect = true;
@@ -153,27 +178,28 @@ public class EnnemiAttack : MonoBehaviour
     }
     void ResetAttackSlider()
     {
-        i = 1;
-        j = 0.25f;
-        UIManager.UpdateSliderAttackPerfect(j);
-        UIManager.UpdateSliderAttack(i);
+        setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
+
+        sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        UIManager.UpdateSliderAttack(setUpTimerSliderNormal);
+        UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
         startQTE = false;
     }
 
 
-    [SerializeField] float k = 1;
-    [SerializeField] float l = 0.25f;
+    [SerializeField] float sliderPerfectEsquive;
     void TimingEsquive()
     {
-        if (k > 0)
+        if (setUpTimerSliderNormal > 0)
         {
-            k -= Time.unscaledDeltaTime;
-            UIManager.UpdateSliderEsquive(k);
+            UIManager.UpdateSliderEsquive(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
 
-            if (k <= 0.9f && l > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 0.25f && sliderPerfectEsquive > 0)
             {
-                l -= Time.unscaledDeltaTime;
-                UIManager.UpdateSliderEsquivePerfect(l);
+                sliderPerfectEsquive -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
+
                 if (Input.GetAxis("HorizontalLeftButtonX") != 0)
                 {
                     canApplyDamage = false;
@@ -203,27 +229,28 @@ public class EnnemiAttack : MonoBehaviour
     }
     void ResetEsquiveSlider()
     {
-        k = 1;
-        l = 0.25f;
-        UIManager.UpdateSliderEsquive(k);
-        UIManager.UpdateSliderEsquivePerfect(l);
+        setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
+
+        sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        UIManager.UpdateSliderEsquive(setUpTimerSliderNormal);
+        UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
         startQTE = false;
     }
 
 
-    [SerializeField] float m = 1;
-    [SerializeField] float n = 0.25f;
+    [SerializeField] float sliderPerfectBlock;
     void TimingBlock()
     {
-        if (m > 0)
+        if (setUpTimerSliderNormal > 0)
         {
-            m -= Time.unscaledDeltaTime;
-            UIManager.UpdateSliderBlock(m);
+            UIManager.UpdateSliderBlock(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
 
-            if (m <= 0.35f && n > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 0.25f && sliderPerfectBlock > 0)
             {
-                n -= Time.unscaledDeltaTime;
-                UIManager.UpdateSliderBlockPerfect(n);
+                sliderPerfectBlock -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
+
                 if (Input.GetAxis("VerticalLeftButtonY") < 0)
                 {
                     canApplyDamage = false;
@@ -249,24 +276,21 @@ public class EnnemiAttack : MonoBehaviour
     }
     void ResetBlockSlider()
     {
-        m = 1;
-        n = 0.25f;
+        setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
 
-        UIManager.UpdateSliderBlock(m);
-        UIManager.UpdateSliderBlockPerfect(n);
+        sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        UIManager.UpdateSliderBlock(setUpTimerSliderNormal);
+        UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
         startQTE = false;
     }
 
-
-    [SerializeField] float o = 1;
-    [SerializeField] float p = 0.25f;
     void TimingCounter()
     {
         Debug.Log("Counter");
-        if (o > 0 && startQTECounter)
+        if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) > 0 && startQTECounter)
         {
-            o -= Time.unscaledDeltaTime;
-            UIManager.UpdateSliderCounter(o);
+            UIManager.UpdateSliderCounter(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
             if (Input.GetAxis("VerticalLeftButtonY") > 0)
             {
                 counterReussi = true;
@@ -282,9 +306,10 @@ public class EnnemiAttack : MonoBehaviour
     }
     void ResetCounterSlider()
     {
-        o = 1;
-        p = 0.25f;
-        UIManager.UpdateSliderCounter(o);
+        setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
+        setUpSliderPerfect = setUpTimerSliderNormal / 4f;
+
+        UIManager.UpdateSliderCounter(setUpTimerSliderNormal);
         UIManager.ActiveUICounter(false);
         startQTECounter = false;
     }
@@ -298,6 +323,8 @@ public class EnnemiAttack : MonoBehaviour
         ResetBlockSlider();
         ResetEsquiveSlider();
         ResetAttackSlider();
+
+        SetUpEndFenetreAttack();
     }
 
     void StateWaitingPlayer()
@@ -413,7 +440,7 @@ public class EnnemiAttack : MonoBehaviour
             StartCoroutine("StartAttack");
         }
 
-        if(distPlayer >2.5f)
+        if(distPlayer > 2.5f)
         {
             if (!isAttacking)
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 7 * Time.deltaTime);
@@ -439,6 +466,8 @@ public class EnnemiAttack : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(0.1f);
         myAnimator.SetBool("Attack", true);
+        BeginAttack();
+        StopLookAt();
         attackReussiperfect = false;
         StopCoroutine("StartAttack");
         yield break;
@@ -446,7 +475,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void StopLookAt()
     {
-        lookat = false;
+       // lookat = false;
     }
 
     void LookAtPlayer()
@@ -486,161 +515,13 @@ public class EnnemiAttack : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-   /* IEnumerator delayAttak()
-    {
-        yield return new WaitForSecondsRealtime(0.01f);
-
-        Debug.Log("pd");
-
-        if (playerAction)
-        {
-            i -= 0.015f;
-            UIManager.UpdateSliderAttack(i);
-        }
-        else
-        {
-            ResetSliderAttackValue();
-            yield break;
-        }
-
-        if (i <= 0.75f && j > 0)
-        {
-            Debug.Log("perfect");
-            if (Input.GetAxisRaw("Vertical") > 0)
-            {
-                Debug.Log("perfect");
-                attackReussiperfect = true;
-                state = 3;
-                PlayerDoSomething();
-                ResetSliderAttackValue();
-                yield break;
-            }
-            j -= 0.015f;
-            UIManager.UpdateSliderAttackPerfect(j);
-        }
-        if (i <= 0)
-        {
-            ResetSliderAttackValue();
-            StopCoroutine("delayAttak");
-            yield break;
-        }
-        else
-        {
-            StartCoroutine("delayAttak");
-        }
-    }
-    void ResetSliderAttackValue()
-    {
-        i = 1f;
-        j = 0.25f;
-        UIManager.UpdateSliderAttackPerfect(j);
-        UIManager.UpdateSliderAttack(i);
-    }
-
-    IEnumerator delayEsquive()
-    {
-        yield return new WaitForSecondsRealtime(0.01f);
-
-        Debug.Log("b");
-
-        k -= 0.015f;
-        UIManager.UpdateSliderEsquive(k);
-
-        if (k <= 0.9f && l > 0)
-        {
-            if (Input.GetAxisRaw("Horizontal") !=0)
-            {
-                esquiveReussiPerfect = true;
-                state = 4;
-                StartCoroutine("DelayCounter");
-                PlayerDoSomething();
-                EndAttack();
-                ResetSliderEsquiveValue();
-                yield break;
-            }
-            l -= 0.015f;
-            UIManager.UpdateSliderEsquivePerfect(l);
-        }
-        if (k <= 0)
-        {
-            ResetSliderEsquiveValue();
-            StopCoroutine("delayEsquive");
-            yield break;
-        }
-        else
-        {
-            StartCoroutine("delayEsquive");
-        }
-    }
-    void ResetSliderEsquiveValue()
-    {
-        k = 1f;
-        l = 0.25f;
-        UIManager.UpdateSliderEsquivePerfect(l);
-        UIManager.UpdateSliderEsquive(k);
-    }
-
-    IEnumerator DelayCounter()
-    {
-        Battle.canCounter = true;
-        playerAction = true;
-        UIManager.ActiveUICounter(true);
-        yield return new WaitForSeconds(0.01f);
-
-        m -= 0.015f;
-        UIManager.UpdateSliderCounter(m);
-
-        if (m <= 0.5f && n > 0)
-        {
-            n -= 0.015f;
-            UIManager.UpdateSliderCounterPerfect(n);
-
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                StartCoroutine("DelayCounter");
-                state = 3;
-                counterReussi = true;
-                PlayerDoSomething();
-                EndAttack();
-                ResetSliderCounter();
-                yield break;
-            }
-        }
-        if (m <= 0)
-        {
-            StartCoroutine("DelayBeforReturnPatrol");
-            ResetSliderCounter();
-            StopCoroutine("DelayCounter");
-            yield break;
-        }
-        else
-        {
-            StartCoroutine("DelayCounter");
-        }
-    }
-    void ResetSliderCounter()
-    {
-        UIManager.ActiveUICounter(false);
-        Battle.canCounter = false;
-
-        m = 1f;
-        n = 0.25f;
-        UIManager.UpdateSliderCounterPerfect(n);
-        UIManager.UpdateSliderCounter(m);
-    }
-
-    IEnumerator DelayBeforReturnPatrol()
-    {
-        yield return new WaitForSecondsRealtime(0.75f);
-        ReturnToStatePatrol();
-        yield break;
-    }*/
-
     // Animation event
     void BeginAttack()
     {
         isAttacking = true;
+        Invoke("SetUpStartActionPlayer", setUpStartActionPlayer);
     }
+
     void EndAttack()
     {
         if (!attackReussiperfect && !esquiveReussiPerfect)
@@ -649,7 +530,7 @@ public class EnnemiAttack : MonoBehaviour
         isAttacking = false;
     }
 
-    void FenetreStartActionPlayer()
+    void SetUpStartActionPlayer()
     {
         Debug.Log("Choix action");
 
@@ -660,13 +541,12 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.ActiveUIBlock(true);
         UIManager.ActiveUIEsquive(true);
 
-        //StartCoroutine("delayEsquive");
-        //StartCoroutine("delayAttak");
-        startQTE = true;
         Time.timeScale = 0.25f;
+        startQTE = true;
         playerAction = true;
     }
-    void FenetreEndActionPlayer()
+
+    void SetUpEndFenetreAttack()
     {
         Time.timeScale = 1f;
         playerAction = false;
