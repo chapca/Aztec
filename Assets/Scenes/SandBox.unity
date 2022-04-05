@@ -302,13 +302,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19579027}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 269837638}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -377,7 +377,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218708590}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1174,7 +1174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &601512072
 Transform:
   m_ObjectHideFlags: 0
@@ -5659,11 +5659,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfect
+      value: 
+      objectReference: {fileID: 19579028}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpEndActionPlayer
-      value: 0.4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartActionPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameAttack
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286915, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
@@ -5675,11 +5683,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfect
+      value: 
+      objectReference: {fileID: 19579028}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpEndActionPlayer
-      value: 0.3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartActionPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameAttack
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445527, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
@@ -5687,11 +5703,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfect
+      value: 
+      objectReference: {fileID: 19579028}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpEndActionPlayer
-      value: 0.4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartActionPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameAttack
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}

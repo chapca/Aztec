@@ -36,11 +36,30 @@ public class EnnemiAttack : MonoBehaviour
 
     float convertion;
 
+    [Header("Defini la durée du qte en scd(min:0 / max:1)")]
+    [Range(0f, 10f)]
+    [SerializeField] float setUpStartActionPlayer;
+    [Range(0.0f, 10f)]
+    [SerializeField] float setUpEndActionPlayer;
+
+    [Header("Defini la durée des frame perfect(min:0 / max:1)")]
+    [Range(0.1f, 1/6f)]
+    [SerializeField] float setUpStartPerfectFrameAttack;
     [Range(0.0f, 1f)]
-    [SerializeField] float setUpStartActionPlayer, setUpEndActionPlayer;
+    [SerializeField] float setUpEndPerfectFrameAttack;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartPerfectFrameEsquive;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpEndPerfectFrameEsquive;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartPerfectFrameBlock;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpEndPerfectFrameBlock;
 
     [Range(0.0f, 3f)]
     [SerializeField] float baseSetUpTimerSliderNormal, baseSetUpSliderPerfect, setUpTimerSliderNormal, setUpSliderPerfect;
+
+    [SerializeField] Transform sliderPerfect;
     void Start()
     {
         ennemiHp = GetComponent<EnnemiHp>();
@@ -51,7 +70,13 @@ public class EnnemiAttack : MonoBehaviour
 
         state = 0;
 
+        setUpStartActionPlayer /= 10;
+        setUpEndActionPlayer /= 10;
+
         convertion = 10f / 6f;
+
+        sliderPerfect.rotation = Quaternion.Euler(0,0, Mathf.Round(((360f * 0.25f) / setUpStartPerfectFrameAttack)) + 90f);
+
 
         baseSetUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / 4f;
@@ -68,6 +93,9 @@ public class EnnemiAttack : MonoBehaviour
 
     void Update()
     {
+        sliderPerfect.rotation = Quaternion.Euler(0, 0, Mathf.Round(((360f * 0.25f) / setUpStartPerfectFrameAttack)) + 90f);
+        Debug.Log(sliderPerfect.rotation.z);
+
         distPlayer = Vector3.Distance(transform.position, player.position);
 
         if(retrunState1 && state !=1)
@@ -125,8 +153,6 @@ public class EnnemiAttack : MonoBehaviour
         {
             TimingCounter();
         }
-
-
     }
 
     void DelayInput()
@@ -187,7 +213,6 @@ public class EnnemiAttack : MonoBehaviour
         startQTE = false;
     }
 
-
     [SerializeField] float sliderPerfectEsquive;
     void TimingEsquive()
     {
@@ -237,7 +262,6 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
         startQTE = false;
     }
-
 
     [SerializeField] float sliderPerfectBlock;
     void TimingBlock()
