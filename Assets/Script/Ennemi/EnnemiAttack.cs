@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -36,30 +38,56 @@ public class EnnemiAttack : MonoBehaviour
 
     float convertion;
 
-    [Header("Defini la durée du qte en scd(min:0 / max:1)")]
+    [Header("MANUELLE Defini la durée du qte en scd(min:0 / max:1)")]
     [Range(0f, 10f)]
     [SerializeField] float setUpStartActionPlayer;
     [Range(0.0f, 10f)]
     [SerializeField] float setUpEndActionPlayer;
 
-    [Header("Defini la durée des frame perfect(min:0 / max:1)")]
-    [Range(0.1f, 1/6f)]
-    [SerializeField] float setUpStartPerfectFrameAttack;
+    [Header("MANUELLE Defini la position des frames perfect(min:90° / max:359.99°)")]
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAnglePerfectFrameAttack;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAnglePerfectFrameEsquive;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAnglePerfectFrameBlock;
+
+    [Header("AUTO Valeur à laquel la frame perfect démare par rapport au slider normal")]
     [Range(0.0f, 1f)]
-    [SerializeField] float setUpEndPerfectFrameAttack;
+    [SerializeField] float setUpStartPerfectFrameAttack;
     [Range(0.0f, 1f)]
     [SerializeField] float setUpStartPerfectFrameEsquive;
     [Range(0.0f, 1f)]
-    [SerializeField] float setUpEndPerfectFrameEsquive;
-    [Range(0.0f, 1f)]
     [SerializeField] float setUpStartPerfectFrameBlock;
-    [Range(0.0f, 1f)]
-    [SerializeField] float setUpEndPerfectFrameBlock;
 
+    [Header("AUTO durée au slider normal")]
     [Range(0.0f, 3f)]
-    [SerializeField] float baseSetUpTimerSliderNormal, baseSetUpSliderPerfect, setUpTimerSliderNormal, setUpSliderPerfect;
+    [SerializeField] float baseSetUpTimerSliderNormal;
+    [Range(0.0f, 3f)]
+    [SerializeField] float setUpTimerSliderNormal;
+    [Range(0.0f, 3f)]
+    [SerializeField] float setUpSliderPerfect;
 
-    [SerializeField] Transform sliderPerfect;
+    [Header("Reference slider")]
+    [SerializeField] Transform sliderAttackPerfect, sliderAttackNormal;
+    [SerializeField] Transform sliderEsquivePerfect, sliderEsquiveNormal;
+    [SerializeField] Transform sliderBlockPerfect, sliderBlockNormal;
+
+    //(fillAmountSliderNormal *360f) +90f = angleSliderPerfect
+    //(fillAmountSliderNormal *360f) = angleSliderPerfect - 90f
+    //(fillAmountSliderNormal) = (angleSliderPerfect - 90f) /360f
+
+
+    [Header("MANUAL Taille/durée slider")]
+    [Range(0.0f, 1f)]
+    [SerializeField] float sliderPerfectSize;
+    float sliderPerfectAttack;
+    float sliderPerfectEsquive;
+    float sliderPerfectBlock;
+
+    [Header("Execute code en hors Game (DESACTIVER AVANT DE LANCER)")]
+    [SerializeField] bool active;
+
     void Start()
     {
         ennemiHp = GetComponent<EnnemiHp>();
@@ -73,28 +101,35 @@ public class EnnemiAttack : MonoBehaviour
         setUpStartActionPlayer /= 10;
         setUpEndActionPlayer /= 10;
 
+        SetPositionFramePerfect();
+
         convertion = 10f / 6f;
 
-        sliderPerfect.rotation = Quaternion.Euler(0,0, Mathf.Round(((360f * 0.25f) / setUpStartPerfectFrameAttack)) + 90f);
-
-
         baseSetUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
-        setUpSliderPerfect = setUpTimerSliderNormal / 4f;
+        setUpSliderPerfect = setUpTimerSliderNormal /(1f/sliderPerfectSize);
 
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) *10f) / convertion;
-        setUpSliderPerfect = setUpTimerSliderNormal / 4f;
+        setUpSliderPerfect = setUpTimerSliderNormal / (1f / sliderPerfectSize);
 
         sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
         sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
         sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+    }
 
-        Debug.Log((setUpEndActionPlayer - setUpStartActionPlayer) * 10f);
+    void SetPositionFramePerfect()
+    {
+        sliderAttackPerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameAttack);
+        sliderEsquivePerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameEsquive);
+        sliderBlockPerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameBlock);
     }
 
     void Update()
     {
-        sliderPerfect.rotation = Quaternion.Euler(0, 0, Mathf.Round(((360f * 0.25f) / setUpStartPerfectFrameAttack)) + 90f);
-        Debug.Log(sliderPerfect.rotation.z);
+        if(active)
+        {
+            UpdateSliderPosition();
+            SetFramePerfectSize();
+        }
 
         distPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -155,6 +190,35 @@ public class EnnemiAttack : MonoBehaviour
         }
     }
 
+    void UpdateSliderPosition()
+    {
+        sliderAttackPerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameAttack);
+        setUpStartPerfectFrameAttack = Mathf.Abs((sliderAttackPerfect.eulerAngles.z - (360f* sliderPerfectSize)) / 360f);
+
+        sliderEsquivePerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameEsquive);
+        setUpStartPerfectFrameEsquive = Mathf.Abs((sliderEsquivePerfect.eulerAngles.z - (360f * sliderPerfectSize)) / 360f);
+
+        sliderBlockPerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameBlock);
+        setUpStartPerfectFrameBlock = Mathf.Abs((sliderBlockPerfect.eulerAngles.z - (360f * sliderPerfectSize)) / 360f);
+    }
+
+    void SetFramePerfectSize()
+    {
+        baseSetUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
+        setUpSliderPerfect = setUpTimerSliderNormal / (1f / sliderPerfectSize);
+
+        setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
+        setUpSliderPerfect = setUpTimerSliderNormal / (1f / sliderPerfectSize);
+
+        sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        sliderAttackPerfect.GetComponent<Image>().fillAmount = sliderPerfectAttack;
+        sliderEsquivePerfect.GetComponent<Image>().fillAmount = sliderPerfectEsquive;
+        sliderBlockPerfect.GetComponent<Image>().fillAmount = sliderPerfectBlock;
+    }
+
     void DelayInput()
     {
         setUpTimerSliderNormal -= Time.unscaledDeltaTime;
@@ -164,19 +228,19 @@ public class EnnemiAttack : MonoBehaviour
         TimingBlock();
     }
 
-    [SerializeField] float sliderPerfectAttack;
     void TimingAttack()
     {
         if (setUpTimerSliderNormal > 0)
         {
             UIManager.UpdateSliderAttack(setUpTimerSliderNormal * (1f/ baseSetUpTimerSliderNormal));
+            Debug.Log("Démarage Slider Attack" + (1 - setUpStartPerfectFrameAttack));
 
-            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 0.25f && sliderPerfectAttack > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameAttack && sliderPerfectAttack > 0)
             {
                 sliderPerfectAttack -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
-
                 Debug.Log(sliderPerfectAttack);
+
                 if (Input.GetAxis("VerticalLeftButtonY") > 0)
                 {
                     AnimationEvent.attackPerfect = true;
@@ -213,17 +277,17 @@ public class EnnemiAttack : MonoBehaviour
         startQTE = false;
     }
 
-    [SerializeField] float sliderPerfectEsquive;
     void TimingEsquive()
     {
         if (setUpTimerSliderNormal > 0)
         {
             UIManager.UpdateSliderEsquive(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
 
-            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 0.25f && sliderPerfectEsquive > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameEsquive && sliderPerfectEsquive > 0)
             {
                 sliderPerfectEsquive -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
+                Debug.Log(sliderPerfectEsquive);
 
                 if (Input.GetAxis("HorizontalLeftButtonX") != 0)
                 {
@@ -263,17 +327,17 @@ public class EnnemiAttack : MonoBehaviour
         startQTE = false;
     }
 
-    [SerializeField] float sliderPerfectBlock;
     void TimingBlock()
     {
         if (setUpTimerSliderNormal > 0)
         {
             UIManager.UpdateSliderBlock(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
 
-            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 0.25f && sliderPerfectBlock > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartPerfectFrameBlock && sliderPerfectBlock > 0)
             {
                 sliderPerfectBlock -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
+                Debug.Log(sliderPerfectBlock);
 
                 if (Input.GetAxis("VerticalLeftButtonY") < 0)
                 {

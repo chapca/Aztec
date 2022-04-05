@@ -302,7 +302,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19579027}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000004371139}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -972,6 +972,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427314228}
   m_CullTransparentMesh: 1
+--- !u!95 &492054581 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4069360846601445522, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 4069360847512400814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &511504426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &601512072
 Transform:
   m_ObjectHideFlags: 0
@@ -1603,7 +1608,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686081605}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2676,6 +2681,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009031927}
   m_CullTransparentMesh: 1
+--- !u!95 &1011621847 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4069360846009286942, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 4069360847512400814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1022307553
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,6 +3232,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150800347}
   m_CullTransparentMesh: 1
+--- !u!95 &1167147182 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4069360846962946562, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 4069360847512400814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1169672407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1169672407, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
@@ -4095,7 +4110,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541157031}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0000874122, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5654,69 +5669,445 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4069360846009286912, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286912, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -51.252594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286912, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99660295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286912, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.005444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286912, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0821757
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286912, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00044892615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: startQTE
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: moveRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: distPlayer
+      value: 7.2306786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: myAnimator
+      value: 
+      objectReference: {fileID: 1011621847}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: sliderPerfect
       value: 
       objectReference: {fileID: 19579028}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: canApplyDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderBlockNormal
+      value: 
+      objectReference: {fileID: 1602912168}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectSize
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpSliderPerfect
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderAttackNormal
+      value: 
+      objectReference: {fileID: 218708591}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderBlockPerfect
+      value: 
+      objectReference: {fileID: 1541157032}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectBlock
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderAttackPerfect
+      value: 
+      objectReference: {fileID: 19579028}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderEsquiveNormal
+      value: 
+      objectReference: {fileID: 620584057}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectAttack
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpEndActionPlayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderEsquivePerfect
+      value: 
+      objectReference: {fileID: 686081606}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectEsquive
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: randomTimeBeforeAttack
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartActionPlayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpTimerSliderNormal
+      value: 1.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: baseSetUpTimerSliderNormal
+      value: 1.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameBlock
+      value: 359.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameBlock
+      value: 0.7499722
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameAttack
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartPerfectFrameAttack
-      value: 0.1
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameEsquive
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846009286913, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameEsquive
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846009286915, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445524, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.7792673
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445524, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.90674
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445524, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98116094
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445524, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00528443
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445524, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.19311695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445524, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0010401078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: startQTE
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: moveRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: distPlayer
+      value: 7.3341894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: myAnimator
+      value: 
+      objectReference: {fileID: 492054581}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: sliderPerfect
       value: 
       objectReference: {fileID: 19579028}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: canApplyDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderBlockNormal
+      value: 
+      objectReference: {fileID: 1602912168}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectSize
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpSliderPerfect
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderAttackNormal
+      value: 
+      objectReference: {fileID: 218708591}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderBlockPerfect
+      value: 
+      objectReference: {fileID: 1541157032}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectBlock
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderAttackPerfect
+      value: 
+      objectReference: {fileID: 19579028}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderEsquiveNormal
+      value: 
+      objectReference: {fileID: 620584057}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectAttack
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpEndActionPlayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderEsquivePerfect
+      value: 
+      objectReference: {fileID: 686081606}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectEsquive
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: randomTimeBeforeAttack
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartActionPlayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpTimerSliderNormal
+      value: 1.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: baseSetUpTimerSliderNormal
+      value: 1.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameBlock
+      value: 359.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameBlock
+      value: 0.7499722
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameAttack
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartPerfectFrameAttack
-      value: 0.1
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameEsquive
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846601445525, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameEsquive
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846601445527, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: startQTE
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: moveRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: distPlayer
+      value: 7.5717187
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: myAnimator
+      value: 
+      objectReference: {fileID: 1167147182}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: sliderPerfect
       value: 
       objectReference: {fileID: 19579028}
     - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: canApplyDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderBlockNormal
+      value: 
+      objectReference: {fileID: 1602912168}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectSize
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpSliderPerfect
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderAttackNormal
+      value: 
+      objectReference: {fileID: 218708591}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderBlockPerfect
+      value: 
+      objectReference: {fileID: 1541157032}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectBlock
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderAttackPerfect
+      value: 
+      objectReference: {fileID: 19579028}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderEsquiveNormal
+      value: 
+      objectReference: {fileID: 620584057}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectAttack
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpEndActionPlayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderEsquivePerfect
+      value: 
+      objectReference: {fileID: 686081606}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: sliderPerfectEsquive
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: randomTimeBeforeAttack
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartActionPlayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpTimerSliderNormal
+      value: 1.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: baseSetUpTimerSliderNormal
+      value: 1.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameBlock
+      value: 359.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameBlock
+      value: 0.7499722
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameAttack
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: setUpStartPerfectFrameAttack
-      value: 0.1
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpAnglePerfectFrameEsquive
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946563, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: setUpStartPerfectFrameEsquive
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946565, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5227703
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946565, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -51.53659
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946565, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9948649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946565, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.005190141
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946565, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.10107828
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069360846962946565, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0005273183
       objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: player
