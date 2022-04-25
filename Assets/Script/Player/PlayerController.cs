@@ -93,10 +93,10 @@ public class PlayerController : MonoBehaviour
                 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
                 //Jump
-                if (Input.GetButtonDown("Jump"))
+                /*if (Input.GetButtonDown("Jump"))
                 {
-                    move.y += Mathf.Sqrt(jumpHeight */* -3.0f **/ -gravityValue);
-                }
+                    move.y += Mathf.Sqrt(jumpHeight **//* -3.0f **//* -gravityValue);
+                }*/
 
                 move = transform.TransformDirection(move);
                 controller.Move(move * Time.deltaTime * currentSpeed);

@@ -11,12 +11,13 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] GameObject canvasPuzzle;
 
-    [SerializeField] CinemachineVirtualCamera camBase, camPuzzle;
+    [SerializeField] CinemachineVirtualCamera camBase, camInteraction;
 
     [SerializeField] bool camIsZooming, camIsAdjuting;
 
     [SerializeField] float speedTransitionCam;
 
+    [SerializeField] bool activeCamInteraction;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,39 +28,75 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.GetAxisRaw("VerticalLeftButtonY"));
-
-        if(canvasPuzzle.activeInHierarchy)
-        {
-            if(Input.GetButtonDown("CancelButton"))
-            {
-                canvasPuzzle.SetActive(false);
-                playerController.enabled = true;
-                targetCam.enabled = true;
-                camPuzzle.Priority = 9;
-            }
-        }
-
-        if(camIsAdjuting)
+        if (camIsAdjuting)
         {
             SetCamPosition();
         }
 
         if(camIsZooming)
         {
-            camPuzzle.Priority = 10;
+            camInteraction.Priority = 10;
             camIsZooming = false;
-            StartCoroutine("ActivePuzzle");
+        }
+
+        if(activeCamInteraction)
+        {
+            playerController.enabled = false;
+            targetCam.enabled = false;
+            camIsAdjuting = true;
+
+            if(Input.GetButtonDown("CancelButton"))
+            {
+                EnableCamInteraction(false);
+            }
+        }
+        else
+        {
+            playerController.enabled = true;
+            targetCam.enabled = true;
+            camInteraction.Priority = 9;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("ActivePuzzle"))
+        if (other.CompareTag("Interactable"))
         {
-            playerController.enabled = false;
-            targetCam.enabled = false;
-            camIsAdjuting = true;
+            UIManager.ActiveManetteInputInteract(true);
+
+            if (PlayerBlood.bloodQuantity < 100)
+            {
+                UIManager.ActiveTextCantInteract(true);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Interactable"))
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (PlayerBlood.bloodQuantity >= 100)
+                {
+                    UIManager.ActiveManetteInputInteract(false);
+                    StartCoroutine(OpenDoor(other));
+                    PlayerBlood.LooseBlood(100);
+                    EnableCamInteraction(true);
+                    playerController.enabled = false;
+                    targetCam.enabled = false;
+                    camIsAdjuting = true;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            UIManager.ActiveTextCantInteract(false);
+            UIManager.ActiveManetteInputInteract(false);
         }
     }
 
@@ -74,10 +111,15 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    IEnumerator ActivePuzzle()
+    public void EnableCamInteraction(bool activate)
     {
-        yield return new WaitForSeconds(2f);
-        canvasPuzzle.SetActive(true);
+        activeCamInteraction = activate;
+    }
+
+    IEnumerator OpenDoor(Collider other)
+    {
+        yield return new WaitForSeconds(3f);
+        other.transform.GetComponent<Levier>().isActive = true;
         yield break;
     }
 }

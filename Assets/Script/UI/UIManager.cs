@@ -5,42 +5,68 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    static public GameObject UIEsquive, UIBlock, UICounter, UIAttack;
+    static public GameObject UIManette, UIEsquiveRight, UIEsquiveLeft, UIBlock, UICounter, UIAttack;
 
-    static public Image sliderEsquive, sliderBlock, sliderCounter, sliderAttack;
+    static public Image sliderEsquiveRight, sliderEsquiveLeft, sliderBlock, sliderCounter, sliderAttack;
 
-    static public Image sliderAttackPerfect, sliderEsquivePerfect, sliderCounterPerfect, sliderBlockPerfect;
+    static public Image sliderAttackPerfect, sliderEsquivePerfectRight, sliderEsquivePerfectLeft, sliderCounterPerfect, sliderBlockPerfect;
+
+    static public Text textCantinteract;
+
+    static public GameObject manetteValidateInteraction;
 
     // Start is called before the first frame update
     void Start()
     {
-        UIEsquive = GameObject.Find("EmptyEsquiveUI");
+        UIManette = GameObject.Find("ManetteSprite");
+
+        UIEsquiveRight = GameObject.Find("EmptyEsquiveUIRight");
+        UIEsquiveLeft = GameObject.Find("EmptyEsquiveUILeft");
+
         UIBlock = GameObject.Find("EmptyBlockUI");
         UICounter = GameObject.Find("EmptyCounterUI");
         UIAttack = GameObject.Find("EmptyAttackUI");
 
-        sliderEsquive = GameObject.Find("SliderEsquive").GetComponent<Image>();
+        sliderEsquiveRight = GameObject.Find("SliderEsquiveRight").GetComponent<Image>();
+        sliderEsquiveLeft = GameObject.Find("SliderEsquiveLeft").GetComponent<Image>();
+
         sliderBlock = GameObject.Find("SliderBlock").GetComponent<Image>();
         sliderCounter = GameObject.Find("SliderCounter").GetComponent<Image>();
         sliderAttack = GameObject.Find("SliderAttack").GetComponent<Image>();
 
         sliderAttackPerfect = GameObject.Find("SliderAttackPerfect").GetComponent<Image>();
-        sliderEsquivePerfect = GameObject.Find("SliderEsquivePerfect").GetComponent<Image>();
+        sliderEsquivePerfectRight = GameObject.Find("SliderEsquivePerfectRight").GetComponent<Image>();
+        sliderEsquivePerfectLeft = GameObject.Find("SliderEsquivePerfectLeft").GetComponent<Image>();
         sliderCounterPerfect = GameObject.Find("SliderCounterPerfect").GetComponent<Image>();
         sliderBlockPerfect = GameObject.Find("SliderBlockPerfect").GetComponent<Image>();
 
-        UIEsquive.SetActive(false);
+
+        textCantinteract = GameObject.Find("TextCantInteract").GetComponent<Text>();
+
+        manetteValidateInteraction = GameObject.Find("ManetteValidateInteraction");
+
+        UIManette.SetActive(false);
+        UIEsquiveRight.SetActive(false);
+        UIEsquiveLeft.SetActive(false);
         UIBlock.SetActive(false);
         UICounter.SetActive(false);
         UIAttack.SetActive(false);
+
+        textCantinteract.gameObject.SetActive(false);
+        manetteValidateInteraction.gameObject.SetActive(false);
+
     }
+
+    //slider :
 
     static public void UpdateSliderEsquive(float value)
     {
-        sliderEsquive.fillAmount = value;
+        sliderEsquiveRight.fillAmount = value;
+        sliderEsquiveLeft.fillAmount = value;
     } static public void UpdateSliderEsquivePerfect(float value)
     {
-        sliderEsquivePerfect.fillAmount = value;
+        sliderEsquivePerfectRight.fillAmount = value;
+        sliderEsquivePerfectLeft.fillAmount = value;
     }
 
     static public void UpdateSliderBlock(float value)
@@ -70,6 +96,18 @@ public class UIManager : MonoBehaviour
 
 
 
+    static public void ActiveManetteUI(bool active)
+    {
+        if (active)
+        {
+            UIManette.SetActive(true);
+        }
+        else
+        {
+            UIManette.SetActive(false);
+        }
+    }
+
     static public void ActiveUIBlock(bool active)
     {
         if (active)
@@ -86,11 +124,13 @@ public class UIManager : MonoBehaviour
     {
         if(active)
         {
-            UIEsquive.SetActive(true);
+            UIEsquiveRight.SetActive(true);
+            UIEsquiveLeft.SetActive(true);
         }
         else
         {
-            UIEsquive.SetActive(false);
+            UIEsquiveRight.SetActive(false);
+            UIEsquiveLeft.SetActive(false);
         }
     }
 
@@ -116,5 +156,18 @@ public class UIManager : MonoBehaviour
         {
             UIAttack.SetActive(false);
         }
+    }
+
+
+
+    // text info 
+
+    static public void ActiveTextCantInteract(bool active)
+    {
+        textCantinteract.gameObject.SetActive(active);
+    }
+    static public void ActiveManetteInputInteract(bool active)
+    {
+        manetteValidateInteraction.gameObject.SetActive(active);
     }
 }

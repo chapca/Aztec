@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -77,7 +76,6 @@ public class EnnemiAttack : MonoBehaviour
     //(fillAmountSliderNormal *360f) = angleSliderPerfect - 90f
     //(fillAmountSliderNormal) = (angleSliderPerfect - 90f) /360f
 
-
     [Header("MANUAL Taille/durée slider")]
     [Range(0.0f, 1f)]
     [SerializeField] float sliderPerfectSize;
@@ -86,7 +84,7 @@ public class EnnemiAttack : MonoBehaviour
     float sliderPerfectBlock;
 
     [Header("Execute code en hors Game (DESACTIVER AVANT DE LANCER)")]
-    [SerializeField] bool active;
+    [SerializeField] bool activeThisinEditor, ManetteSpriteIsActive;
 
     void Start()
     {
@@ -98,8 +96,11 @@ public class EnnemiAttack : MonoBehaviour
 
         state = 0;
 
-        setUpStartActionPlayer /= 10;
-        setUpEndActionPlayer /= 10;
+        if(!activeThisinEditor)
+        {
+            setUpStartActionPlayer /= 10;
+            setUpEndActionPlayer /= 10;
+        }
 
         SetPositionFramePerfect();
 
@@ -125,7 +126,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void Update()
     {
-        if(active)
+        if(activeThisinEditor)
         {
             UpdateSliderPosition();
             SetFramePerfectSize();
@@ -186,6 +187,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         if (startQTECounter)
         {
+            setUpTimerSliderNormal -= Time.unscaledDeltaTime;
             TimingCounter();
         }
     }
@@ -219,10 +221,19 @@ public class EnnemiAttack : MonoBehaviour
         sliderBlockPerfect.GetComponent<Image>().fillAmount = sliderPerfectBlock;
     }
 
+    void ActiveManetteUI()
+    {
+        if (!ManetteSpriteIsActive)
+            UIManager.ActiveManetteUI(true);
+        else
+            UIManager.ActiveManetteUI(false);
+    }
+
     void DelayInput()
     {
         setUpTimerSliderNormal -= Time.unscaledDeltaTime;
 
+        ActiveManetteUI();
         TimingAttack();
         TimingEsquive();
         TimingBlock();
@@ -239,16 +250,15 @@ public class EnnemiAttack : MonoBehaviour
             {
                 sliderPerfectAttack -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
-                Debug.Log(sliderPerfectAttack);
 
                 if (Input.GetAxis("VerticalLeftButtonY") > 0)
                 {
+                    PlayerDoSomething();
+                    ResetAllSlider();
                     AnimationEvent.attackPerfect = true;
                     canApplyDamage = false;
                     attackReussiperfect = true;
                     state = 4;
-                    PlayerDoSomething();
-                    ResetAllSlider();
                 }
             }
             else
@@ -287,7 +297,6 @@ public class EnnemiAttack : MonoBehaviour
             {
                 sliderPerfectEsquive -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
-                Debug.Log(sliderPerfectEsquive);
 
                 if (Input.GetAxis("HorizontalLeftButtonX") != 0)
                 {
@@ -337,13 +346,12 @@ public class EnnemiAttack : MonoBehaviour
             {
                 sliderPerfectBlock -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
-                Debug.Log(sliderPerfectBlock);
 
                 if (Input.GetAxis("VerticalLeftButtonY") < 0)
                 {
-                    canApplyDamage = false;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    canApplyDamage = false;
                 }
             }
             else
@@ -397,8 +405,10 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / 4f;
 
+        Battle.canCounter = false;
         UIManager.UpdateSliderCounter(setUpTimerSliderNormal);
         UIManager.ActiveUICounter(false);
+        UIManager.ActiveManetteUI(false);
         startQTECounter = false;
     }
 
@@ -580,12 +590,15 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator BlockPlayerAction()
     {
-        UIManager.ActiveUIAttack(false);
-        UIManager.ActiveUIBlock(false);
-        UIManager.ActiveUIEsquive(false);
+        if(!esquiveReussiPerfect)
+            UIManager.ActiveManetteUI(false);
+
         Battle.canEsquive = false;
         Battle.canBlock = false;
         Battle.canAttack = false;
+        UIManager.ActiveUIAttack(false);
+        UIManager.ActiveUIBlock(false);
+        UIManager.ActiveUIEsquive(false);
         yield return new WaitForSecondsRealtime(0.1f);
         yield break;
     }
@@ -625,6 +638,8 @@ public class EnnemiAttack : MonoBehaviour
         Battle.canEsquive = true;
         Battle.canBlock = true;
         Battle.canAttack = true;
+
+        UIManager.ActiveManetteUI(true);
         UIManager.ActiveUIAttack(true);
         UIManager.ActiveUIBlock(true);
         UIManager.ActiveUIEsquive(true);
@@ -642,6 +657,9 @@ public class EnnemiAttack : MonoBehaviour
         Battle.canEsquive = false;
         Battle.canBlock = false;
         Battle.canAttack = false;
+
+        if(!esquiveReussiPerfect)
+            UIManager.ActiveManetteUI(false);
 
         UIManager.ActiveUIAttack(false);
         UIManager.ActiveUIBlock(false);
