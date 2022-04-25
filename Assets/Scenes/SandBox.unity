@@ -2860,7 +2860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.72, y: -8.8}
+  m_AnchoredPosition: {x: 26.72, y: 9.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965057602
@@ -6253,7 +6253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.6, y: -72.6}
+  m_AnchoredPosition: {x: 4.6, y: 66}
   m_SizeDelta: {x: 112.3418, y: 52.7458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081133200
@@ -7349,6 +7349,10 @@ PrefabInstance:
       propertyPath: camInteraction
       value: 
       objectReference: {fileID: 1761495345}
+    - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: rotSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: returnRotBase
       value: 0.05

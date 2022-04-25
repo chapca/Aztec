@@ -75,7 +75,7 @@ public class Interaction : MonoBehaviour
     {
         if(other.CompareTag("Interactable"))
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("InteractButton"))
             {
                 if (PlayerBlood.bloodQuantity >= 100)
                 {
