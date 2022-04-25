@@ -13,20 +13,18 @@ public class MenuManager : MonoBehaviour
     [SerializeField] int archivesSceneIndex;
 
     [Header("ControllerTool")]
-    [SerializeField] int buttonIndex;
-
     [SerializeField] List<GameObject> ButonsList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        EventSystem.current.SetSelectedGameObject(ButonsList[buttonIndex]);
+        
     }
 
     #region ButonsFonctions
