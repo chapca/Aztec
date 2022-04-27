@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public List<AudioClip> audioClipList = new List<AudioClip>();
+    public static List<AudioClip> audioClipsListStatic = new List<AudioClip>();
+    public List<AudioClip> audioClipsList = new List<AudioClip>();
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        audioClipsListStatic = audioClipsList;
+    }
     void Start()
     {
-        audioClipList[0].ToString();
+
     }
 
     // Update is called once per frame

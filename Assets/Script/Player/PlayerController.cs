@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isRunning;
 
+    AudioSource myAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
         battle = transform.GetChild(0).GetComponent<Battle>();
 
         swordCollider = transform.GetChild(0).transform.GetChild(1).GetComponent<BoxCollider>();
+
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -92,14 +96,14 @@ public class PlayerController : MonoBehaviour
                 // move basic
                 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-                //Jump
-                /*if (Input.GetButtonDown("Jump"))
-                {
-                    move.y += Mathf.Sqrt(jumpHeight **//* -3.0f **//* -gravityValue);
-                }*/
-
                 move = transform.TransformDirection(move);
                 controller.Move(move * Time.deltaTime * currentSpeed);
+
+                if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") !=0)
+                {
+                    if(!myAudioSource.isPlaying)
+                        ActiveSound();
+                }
             }
         }
 
@@ -149,6 +153,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Sound 
+
+    void ActiveSound()
+    {
+        SoundManager.PlaySoundStepFoot(myAudioSource, SoundManager.audioClipsListStatic[Random.Range(0,2)]);
+    }
 
     //Animation Event : 
 
