@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookEnnemi, 10 * Time.deltaTime);
     }
 
-
     void Deplacement()
     {
         //movement
@@ -154,7 +153,6 @@ public class PlayerController : MonoBehaviour
     }
 
     //Sound 
-
     void ActiveSound()
     {
         SoundManager.PlaySoundStepFoot(myAudioSource, SoundManager.audioClipsListStatic[Random.Range(0,2)]);

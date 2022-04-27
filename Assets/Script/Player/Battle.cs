@@ -35,22 +35,6 @@ public class Battle : MonoBehaviour
             camBattle.Priority = 9;
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            if(!degaine)
-            {
-                myAnimator.SetBool("Degaine", true);
-                degaine = true;
-                camBattle.Priority = 11;
-            }
-            else
-            {
-                myAnimator.SetBool("Degaine", false);
-                degaine = false;
-                camBattle.Priority = 9;
-            }
-        }
-
         if(canEsquive)
         {
             if (Input.GetAxisRaw("HorizontalLeftButtonX") >0)
