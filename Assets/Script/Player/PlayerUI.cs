@@ -35,7 +35,6 @@ public class PlayerUI : MonoBehaviour
 
     static public void UpdateSliderBlood()
     {
-        Debug.Log(textBlood);
         textBlood.text = PlayerBlood.bloodQuantity.ToString();
         sliderBlood.fillAmount = PlayerBlood.bloodQuantity/100;
         sliderBloodPuzzle.fillAmount = PlayerBlood.bloodQuantity/100; 

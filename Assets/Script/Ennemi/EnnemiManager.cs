@@ -63,14 +63,11 @@ public class EnnemiManager : MonoBehaviour
         int nbrSelected = 0;
         for (int i = 0; i < transform.childCount; i++)
         {
-            Debug.Log(nbrSelected);
-
             if (transform.GetChild(i).gameObject.GetComponent<EnnemiAttack>().thisSelected == true)
             {
                 nbrSelected++;
                 attackLaunched = true;
                 indexSelected = indexEnnemi;
-                Debug.Log(nbrSelected);
             }
 
             if(i == transform.childCount-1 && nbrSelected ==0)
@@ -102,7 +99,6 @@ public class EnnemiManager : MonoBehaviour
         }
         if (indexEnnemi != indexSelected)
         {
-            Debug.Log(indexEnnemi);
             transform.GetChild(indexEnnemi).gameObject.GetComponent<EnnemiAttack>().thisSelected = true;
 
             for (int j = 0; j < transform.childCount; j++)

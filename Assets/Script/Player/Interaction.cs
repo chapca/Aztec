@@ -9,8 +9,6 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] TargetCam targetCam;
 
-    [SerializeField] GameObject canvasPuzzle;
-
     [SerializeField] CinemachineVirtualCamera camBase, camInteraction;
 
     [SerializeField] bool camIsZooming, camIsAdjuting;

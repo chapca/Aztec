@@ -35,34 +35,59 @@ public class Battle : MonoBehaviour
             camBattle.Priority = 9;
         }
 
+       
         if(canEsquive)
         {
             if (Input.GetAxisRaw("HorizontalLeftButtonX") >0)
             {
                 myAnimator.SetBool("EsquiveDroite", true);
+
+                canEsquive = false;
+                canBlock = false;
+                canAttack = false;
             }
             else if (Input.GetAxisRaw("HorizontalLeftButtonX") <0)
             {
                 myAnimator.SetBool("EsquiveGauche", true);
+                canEsquive = false;
+                canBlock = false;
+                canAttack = false;
             }
         }
 
         if(canBlock)
         {
             if(Input.GetAxisRaw("VerticalLeftButtonY") < 0)
+            {
                 myAnimator.SetBool("Block", true);
+
+                canEsquive = false;
+                canBlock = false;
+                canAttack = false;
+            }
         }
         
         if(canCounter)
         {
             if (Input.GetAxisRaw("VerticalLeftButtonY") > 0)
+            {
                 myAnimator.SetBool("Estoc", true);
+                canCounter = false;
+                canEsquive = false;
+                canBlock = false;
+                canAttack = false;
+            }
         }
 
         if (canAttack)
         {
             if (Input.GetAxisRaw("VerticalLeftButtonY") > 0)
+            {
                 myAnimator.SetBool("Taille", true);
+                canEsquive = false;
+                canBlock = false;
+                canAttack = false;
+            }
         }
     }
 }

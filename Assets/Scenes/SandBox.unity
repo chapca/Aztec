@@ -7535,6 +7535,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1761495345}
     - target: {fileID: 613460456, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 613460456, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: canvasPuzzle
       value: 
       objectReference: {fileID: 1504283495}
@@ -7618,5 +7622,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmptyPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8283120810034064429, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+    - {fileID: 8283120810034064417, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}

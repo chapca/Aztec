@@ -142,7 +142,6 @@ public class EnnemiAttack : MonoBehaviour
         if(distPlayer <10)
         {
             startBattle = true;
-            Debug.Log("Start battle" + startBattle);
         }
         else if(!startBattle)
         {
@@ -175,7 +174,7 @@ public class EnnemiAttack : MonoBehaviour
         {
             if (Input.GetAxisRaw("VerticalLeftButtonY") !=0 || Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
             {
-                PlayerDoSomething();
+                //PlayerDoSomething();
                 TimeScaleNormal();
                 playerAction = false;
             }
@@ -295,11 +294,13 @@ public class EnnemiAttack : MonoBehaviour
 
             if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameEsquive && sliderPerfectEsquive > 0)
             {
+                Debug.Log("Esquive");
                 sliderPerfectEsquive -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
 
                 if (Input.GetAxis("HorizontalLeftButtonX") != 0)
                 {
+                    Debug.Log("Esquive Perfect");
                     canApplyDamage = false;
                     esquiveReussiPerfect = true;
                     UIManager.ActiveUICounter(true);
@@ -405,7 +406,6 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / 4f;
 
-        Battle.canCounter = false;
         UIManager.UpdateSliderCounter(setUpTimerSliderNormal);
         UIManager.ActiveUICounter(false);
         UIManager.ActiveManetteUI(false);
@@ -414,10 +414,6 @@ public class EnnemiAttack : MonoBehaviour
 
     void ResetAllSlider()
     {
-        Battle.canEsquive = false;
-        Battle.canBlock = false;
-        Battle.canAttack = false;
-        playerAction = false;
         ResetBlockSlider();
         ResetEsquiveSlider();
         ResetAttackSlider();
@@ -590,15 +586,13 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator BlockPlayerAction()
     {
-        if(!esquiveReussiPerfect)
+        if (!esquiveReussiPerfect)
             UIManager.ActiveManetteUI(false);
 
-        Battle.canEsquive = false;
-        Battle.canBlock = false;
-        Battle.canAttack = false;
         UIManager.ActiveUIAttack(false);
         UIManager.ActiveUIBlock(false);
         UIManager.ActiveUIEsquive(false);
+
         yield return new WaitForSecondsRealtime(0.1f);
         yield break;
     }
@@ -612,7 +606,6 @@ public class EnnemiAttack : MonoBehaviour
 
     void TimeScaleNormal()
     {
-        Debug.Log("Time scale 1");
         Time.timeScale = 1f;
     }
 
@@ -635,14 +628,14 @@ public class EnnemiAttack : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        Battle.canEsquive = true;
-        Battle.canBlock = true;
-        Battle.canAttack = true;
-
         UIManager.ActiveManetteUI(true);
         UIManager.ActiveUIAttack(true);
         UIManager.ActiveUIBlock(true);
         UIManager.ActiveUIEsquive(true);
+
+        Battle.canEsquive = true;
+        Battle.canBlock = true;
+        Battle.canAttack = true;
 
         Time.timeScale = 0.25f;
         startQTE = true;
@@ -652,18 +645,9 @@ public class EnnemiAttack : MonoBehaviour
     void SetUpEndFenetreAttack()
     {
         Time.timeScale = 1f;
-        playerAction = false;
-
-        Battle.canEsquive = false;
+       /* Battle.canEsquive = false;
         Battle.canBlock = false;
-        Battle.canAttack = false;
-
-        if(!esquiveReussiPerfect)
-            UIManager.ActiveManetteUI(false);
-
-        UIManager.ActiveUIAttack(false);
-        UIManager.ActiveUIBlock(false);
-        UIManager.ActiveUIEsquive(false);
+        Battle.canAttack = false;*/
     }
 
     void EndHit()
