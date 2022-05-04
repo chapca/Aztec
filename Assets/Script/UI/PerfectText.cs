@@ -10,7 +10,7 @@ public class PerfectText : MonoBehaviour
     static float r, g, b, a;
 
     static bool makeTransparent;
-    // Start is called before the first frame update
+    
     void Start()
     {
         thisText = GetComponent<Text>();

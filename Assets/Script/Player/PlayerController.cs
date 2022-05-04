@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     bool camRight;
 
+    public static bool CamXInverser, CamYInverser;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -181,10 +183,21 @@ public class PlayerController : MonoBehaviour
 
     void RotationPlayer()
     {
-        if(playerVelocity >0)
+        if(CamXInverser)
         {
-            rotY += Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
-            transform.localRotation = Quaternion.Euler(0, rotY, 0);
+            if (playerVelocity > 0)
+            {
+                rotY -= Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
+                transform.localRotation = Quaternion.Euler(0, rotY, 0);
+            }
+        }
+        else
+        {
+            if (playerVelocity > 0)
+            {
+                rotY -= Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
+                transform.localRotation = Quaternion.Euler(0, rotY, 0);
+            }
         }
     }
 

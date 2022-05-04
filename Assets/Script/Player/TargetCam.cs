@@ -24,14 +24,32 @@ public class TargetCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotationX -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickY");
-        rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
-        transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        if(PlayerController.CamXInverser)
+        {
+            rotationX += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickY");
+            rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
+            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        }
+        else
+        {
+            rotationX -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickY");
+            rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
+            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        }
+
 
         if(canTurnCamAroundPlayer)
         {
-            rotationY += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
-            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+            if(PlayerController.CamYInverser)
+            {
+                rotationY += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
+                transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+            }
+            else
+            {
+                rotationY -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
+                transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+            }
         }
         else
         {

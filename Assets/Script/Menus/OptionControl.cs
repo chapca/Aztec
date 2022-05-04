@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class OptionControl : MonoBehaviour
 {
@@ -28,20 +29,7 @@ public class OptionControl : MonoBehaviour
             SwitchSprite();
         }
 
-        if(m_EventSystem.currentSelectedGameObject.transform.GetSiblingIndex() ==1)
-        {
-            if (Input.GetButtonDown("Submit"))
-            {
-                if(m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra           < Normal >")
-                {
-                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra           < Inversé >";
-                }
-                else if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra           < Inversé >")
-                {
-                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra           < Normal >";
-                }
-            }
-        }
+        ChangeInputAxes();
 
         if (Input.GetAxis("HorizontalLeftButtonX") == 0)
             canSwitchOnglet = true;
@@ -52,6 +40,43 @@ public class OptionControl : MonoBehaviour
             transform.parent.transform.GetChild(1).gameObject.SetActive(true);
 
             canSwitchOnglet = false;
+        }
+    }
+
+    void ChangeInputAxes()
+    {
+        if (m_EventSystem.currentSelectedGameObject.transform.GetSiblingIndex() == 1)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra X          < Normal >")
+                {
+                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra X          < Inversé >";
+                    PlayerController.CamXInverser = true;
+                }
+                else if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra X          < Inversé >")
+                {
+                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra X          < Normal >";
+                    PlayerController.CamXInverser = false;
+                }
+            }
+        }
+
+        if (m_EventSystem.currentSelectedGameObject.transform.GetSiblingIndex() == 2)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra Y          < Normal >")
+                {
+                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra Y          < Inversé >";
+                    PlayerController.CamYInverser = true;
+                }
+                else if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra Y          < Inversé >")
+                {
+                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra Y          < Normal >";
+                    PlayerController.CamYInverser = false;
+                }
+            }
         }
     }
 
@@ -66,5 +91,10 @@ public class OptionControl : MonoBehaviour
                 listSprite.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
+    }
+
+    public void GoToSandboxScene()
+    {
+        SceneManager.LoadScene("SandBox");
     }
 }
