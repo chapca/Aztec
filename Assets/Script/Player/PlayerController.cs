@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
         if(camRight && camBaseThirdPersonFollow.CameraSide < 0.85f)
             camBaseThirdPersonFollow.CameraSide += Time.deltaTime;
-        else if(!camRight && camBaseThirdPersonFollow.CameraSide > 0.25f)
+        else if(!camRight && camBaseThirdPersonFollow.CameraSide > 0.15f)
             camBaseThirdPersonFollow.CameraSide -= Time.deltaTime;
     }
 

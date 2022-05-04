@@ -258,6 +258,7 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamage = false;
                     attackReussiperfect = true;
                     state = 4;
+                    PerfectText.ActiveText();
                 }
             }
             else
@@ -309,6 +310,7 @@ public class EnnemiAttack : MonoBehaviour
                     state = 4;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    PerfectText.ActiveText();
                 }
             }
             else
@@ -353,6 +355,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     canApplyDamage = false;
+                    PerfectText.ActiveText();
                 }
             }
             else
@@ -645,9 +648,6 @@ public class EnnemiAttack : MonoBehaviour
     void SetUpEndFenetreAttack()
     {
         Time.timeScale = 1f;
-       /* Battle.canEsquive = false;
-        Battle.canBlock = false;
-        Battle.canAttack = false;*/
     }
 
     void EndHit()
