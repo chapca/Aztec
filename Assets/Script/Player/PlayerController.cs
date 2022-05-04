@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +35,13 @@ public class PlayerController : MonoBehaviour
 
     AudioSource myAudioSource;
 
+    [SerializeField]
+    CinemachineVirtualCamera camBase;
+
+    Cinemachine3rdPersonFollow camBaseThirdPersonFollow;
+
+    bool camRight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,20 +54,18 @@ public class PlayerController : MonoBehaviour
         swordCollider = transform.GetChild(0).transform.GetChild(1).GetComponent<BoxCollider>();
 
         myAudioSource = GetComponent<AudioSource>();
+
+        camRight = true;
+
+        camBaseThirdPersonFollow = camBase.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerVelocity = controller.velocity.magnitude;
-        if(playerVelocity==0)
-        {
-            TargetCam.canTurnCamAroundPlayer = true;
-        }
-        else
-        {
-            TargetCam.canTurnCamAroundPlayer = false;
-        }
+        CameraLibreNoMove();
+
+        ChangeCamCenterView();
 
         Deplacement();
 
@@ -77,6 +84,35 @@ public class PlayerController : MonoBehaviour
     }
     void LateUpdate()
     {
+    }
+
+    void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
+    {
+        playerVelocity = controller.velocity.magnitude;
+        if (playerVelocity == 0)
+        {
+            TargetCam.canTurnCamAroundPlayer = true;
+        }
+        else
+        {
+            TargetCam.canTurnCamAroundPlayer = false;
+        }
+    }
+
+    void ChangeCamCenterView()
+    {
+        if(Input.GetButtonDown("ChangeViewCenter"))
+        {
+            if (camRight)
+                camRight = false;
+            else
+                camRight = true;
+        }
+
+        if(camRight && camBaseThirdPersonFollow.CameraSide < 0.85f)
+            camBaseThirdPersonFollow.CameraSide += Time.deltaTime;
+        else if(!camRight && camBaseThirdPersonFollow.CameraSide > 0.25f)
+            camBaseThirdPersonFollow.CameraSide -= Time.deltaTime;
     }
 
     void SmoothLookAt(Vector3 target)
