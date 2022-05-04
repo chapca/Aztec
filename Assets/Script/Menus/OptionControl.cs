@@ -10,10 +10,14 @@ public class OptionControl : MonoBehaviour
 
     [SerializeField] Transform listButton, listSprite;
 
+    bool canSwitchOnglet;
     void Start()
     {
         m_EventSystem = EventSystem.current;
+    }
 
+    private void OnEnable()
+    {
         m_EventSystem.SetSelectedGameObject(listButton.GetChild(0).gameObject);
     }
 
@@ -37,6 +41,17 @@ public class OptionControl : MonoBehaviour
                     m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra           < Normal >";
                 }
             }
+        }
+
+        if (Input.GetAxis("HorizontalLeftButtonX") == 0)
+            canSwitchOnglet = true;
+
+        if (Input.GetAxis("HorizontalLeftButtonX") != 0 && canSwitchOnglet)
+        {
+            transform.parent.transform.GetChild(0).gameObject.SetActive(false);
+            transform.parent.transform.GetChild(1).gameObject.SetActive(true);
+
+            canSwitchOnglet = false;
         }
     }
 
