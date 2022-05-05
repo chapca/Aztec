@@ -22,7 +22,7 @@ public class Levier : MonoBehaviour
     {
         if(isActive)
         {
-            if(door.transform.position.y <6)
+            if(door.transform.localPosition.y <6)
                 door.Translate(Vector3.up * 5 * Time.deltaTime);
             else
             {

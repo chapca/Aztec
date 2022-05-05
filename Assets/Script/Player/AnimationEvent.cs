@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimationEvent : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class AnimationEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = transform.GetChild(0).GetComponent<PlayerController>();
+        playerController = GetComponent<PlayerController>();
 
         player = transform.GetChild(0).transform;
     }
@@ -106,5 +107,26 @@ public class AnimationEvent : MonoBehaviour
         }
         else
             yield break;
+    }
+
+    void StartDeath()
+    {
+        DeathText.ActiveText();
+        PlayerController.ennemi = null;
+        PlayerBlood.deadWastage = true;
+    }
+
+    void Death()
+    {
+        Debug.Log("Launch RestartScene");
+        StartCoroutine("RestartScene");
+    }
+
+    IEnumerator RestartScene()
+    {
+        Debug.Log("Launch RestartScene");
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("AlphaScene");
+        yield break;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnnemiHp : MonoBehaviour
 {
-    public int hp;
+    public int hp, nbrBlood;
     EnnemiAttack ennemiAttack;
     Animator myAnimator;
 
@@ -30,7 +30,7 @@ public class EnnemiHp : MonoBehaviour
         {
             transform.parent = null;
             ennemiAttack.enabled = false;
-            PlayerBlood.GetBlood(10);
+            PlayerBlood.GetBlood(nbrBlood);
             myAnimator.SetBool("Die", true);
         }
     }

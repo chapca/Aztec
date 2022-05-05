@@ -42,12 +42,12 @@ public class TargetCam : MonoBehaviour
         {
             if(PlayerController.CamYInverser)
             {
-                rotationY += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
+                rotationY -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
                 transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
             }
             else
             {
-                rotationY -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
+                rotationY += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
                 transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
             }
         }

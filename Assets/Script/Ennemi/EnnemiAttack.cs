@@ -7,6 +7,8 @@ public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
 
+    EnnemiManager ennemiManager;
+
     public Animator myAnimator;
 
     [SerializeField] float distPlayer;
@@ -33,7 +35,7 @@ public class EnnemiAttack : MonoBehaviour
 
     public bool thisSelected, resetEnnemiSelected;
 
-    public static bool startBattle;
+    public bool startBattle;
 
     float convertion;
 
@@ -86,9 +88,20 @@ public class EnnemiAttack : MonoBehaviour
     [Header("Execute code en hors Game (DESACTIVER AVANT DE LANCER)")]
     [SerializeField] bool activeThisinEditor, ManetteSpriteIsActive;
 
+    [Header("Dégat du mob")]
+    [SerializeField] float damage, blockDamage;
+
     void Start()
     {
+        sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
+        sliderAttackNormal = UIManager.sliderAttack.transform;
+        sliderEsquivePerfect = UIManager.sliderEsquivePerfectLeft.transform;
+        sliderEsquiveNormal = UIManager.sliderEsquiveLeft.transform;
+        sliderBlockPerfect = UIManager.sliderBlockPerfect.transform;
+        sliderBlockNormal = UIManager.sliderBlock.transform;
+
         ennemiHp = GetComponent<EnnemiHp>();
+        ennemiManager = GetComponentInParent<EnnemiManager>();
         myAnimator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
 
@@ -142,6 +155,7 @@ public class EnnemiAttack : MonoBehaviour
         if(distPlayer <10)
         {
             startBattle = true;
+            ennemiManager.startBattle = true;
         }
         else if(!startBattle)
         {
@@ -273,6 +287,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         else
         {
+            PlayerDoSomething();
             ResetAllSlider();
         }
     }
@@ -435,9 +450,15 @@ public class EnnemiAttack : MonoBehaviour
 
         RandomAttack();
 
-        if(!randomAttack && thisSelected)
+        if(!randomAttack && thisSelected && PlayerHp.hp >0)
         {
             RandomAttack();
+        }
+
+        if(PlayerHp.hp <= 0)
+        {
+            startBattle = false;
+            ReturnToStatePatrol();
         }
 
         SmoothLookAt(player);
@@ -659,11 +680,11 @@ public class EnnemiAttack : MonoBehaviour
     void ApplyDamageToPlayer()
     {
         if(canApplyDamage)
-            PlayerHp.TakeDamage(20);
+            PlayerHp.TakeDamage(damage);
 
         if(canApplyDamageBlock)
         {
-            PlayerHp.TakeDamage(10);
+            PlayerHp.TakeDamage(blockDamage);
         }
     }
 }

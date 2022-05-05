@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PerfectText : MonoBehaviour
+public class DeathText : MonoBehaviour
 {
     static public Text thisText;
 
     static float r, g, b, a;
 
-    static bool makeTransparent;
-    
+    static bool makeTxtVisible;
+
     void Start()
     {
         thisText = GetComponent<Text>();
@@ -26,24 +26,23 @@ public class PerfectText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (makeTransparent)
-            MakeTextTRandparent();
+        if (makeTxtVisible)
+            MakeTextVisible();
     }
 
     public static void ActiveText()
     {
-        a = 1;
         thisText.color = new Color(r, g, b, a);
-        makeTransparent = true;
+        makeTxtVisible = true;
     }
 
-    void MakeTextTRandparent()
+    void MakeTextVisible()
     {
-        if (a <= 0)
-            makeTransparent = false;
+        if (a >= 1)
+            makeTxtVisible = false;
         else
         {
-            a -= Time.deltaTime;
+            a += Time.deltaTime;
             thisText.color = new Color(r, g, b, a);
         }
     }

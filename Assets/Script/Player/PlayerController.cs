@@ -69,23 +69,27 @@ public class PlayerController : MonoBehaviour
 
         ChangeCamCenterView();
 
-        Deplacement();
+        //Deplacement();
 
         if (!battle.degaine)
             RotationPlayer();
         else
         {
-            Vector3 ennemiPos;
+            if(PlayerHp.hp >0)
+            {
+                Vector3 ennemiPos;
 
-            ennemiPos.x = ennemi.transform.position.x;
-            ennemiPos.y = 0f;
-            ennemiPos.z = ennemi.transform.position.z;
+                ennemiPos.x = ennemi.transform.position.x;
+                ennemiPos.y = 0f;
+                ennemiPos.z = ennemi.transform.position.z;
 
-            SmoothLookAt(ennemiPos);
+                SmoothLookAt(ennemiPos);
+            }
         }
     }
     void LateUpdate()
     {
+        Deplacement();
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
@@ -195,7 +199,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerVelocity > 0)
             {
-                rotY -= Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
+                rotY += Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
                 transform.localRotation = Quaternion.Euler(0, rotY, 0);
             }
         }

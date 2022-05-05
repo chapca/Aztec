@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4069360846975368236
+--- !u!1 &3706399511371490600
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4069360846975368237}
-  - component: {fileID: 4069360846975368234}
+  - component: {fileID: 3706399511371490606}
+  - component: {fileID: 3706399511371490601}
   m_Layer: 0
-  m_Name: EnnemiManager
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4069360846975368237
+--- !u!4 &3706399511371490606
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4069360846975368236}
+  m_GameObject: {fileID: 3706399511371490600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 21.2}
+  m_LocalPosition: {x: -1.4275888, y: 4.546258, z: -24.72227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4069360846975368234
+--- !u!114 &3706399511371490601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4069360846975368236}
+  m_GameObject: {fileID: 3706399511371490600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f951962ded3e4ed439b770f67530c118, type: 3}
+  m_Script: {fileID: 11500000, guid: 17eddd523a8008a4a8d6da2859cec95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexSelected: 0
-  launchSelectAttaker: 0
-  checkEnnemiAttaker: 0
-  indexEnnemi: 0
-  attackLaunched: 0
-  distPlayer: 0
-  player: {fileID: 0}
-  inFight: 0
-  endFight: 0
-  prefabEnnemi: {fileID: 0}
+  audioClipsList:
+  - {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+  - {fileID: 8300000, guid: 11870e7f4994d5e4abddbb59c54a9f3a, type: 3}

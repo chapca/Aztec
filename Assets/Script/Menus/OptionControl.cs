@@ -95,6 +95,6 @@ public class OptionControl : MonoBehaviour
 
     public void GoToSandboxScene()
     {
-        SceneManager.LoadScene("SandBox");
+        SceneManager.LoadScene("AlphaScene");
     }
 }

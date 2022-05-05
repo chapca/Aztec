@@ -9,9 +9,9 @@ public class PlayerHp : MonoBehaviour
 
     [SerializeField] Battle battle;
 
-    void Start()
+    private void Awake()
     {
-        //hp = 100;
+        hp = 100;
     }
 
     void Update()
@@ -19,6 +19,11 @@ public class PlayerHp : MonoBehaviour
         if (Input.GetButton("HealthButton") && hp < 100 && PlayerBlood.bloodQuantity >0 && !battle.isAttacked)
         {
             ManualHealth();
+        }
+
+        if(hp <=0)
+        {
+            DeathPlayer();
         }
     }
 
@@ -33,5 +38,10 @@ public class PlayerHp : MonoBehaviour
         hp += Time.deltaTime * 5f;
         PlayerUI.UpdateSliderHp();
         PlayerBlood.LooseBlood(Time.deltaTime * 10f);
+    }
+
+    void DeathPlayer()
+    {
+        Battle.myAnimator.SetBool("Death", true);
     }
 }

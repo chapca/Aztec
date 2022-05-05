@@ -19,8 +19,25 @@ public class EnnemiManager : MonoBehaviour
 
     Battle battle;
 
+    [SerializeField] int nombreEnnemi;
+
+    [SerializeField] GameObject prefabEnnemi;
+
+    [SerializeField] float x, y, z;
+
+    public bool startBattle;
+
     void Start()
     {
+        for (int i =0; i<nombreEnnemi; i++)
+        {
+            GameObject clone= Instantiate(prefabEnnemi);
+            clone.transform.parent = gameObject.transform;
+            clone.transform.localPosition = new Vector3(x, y, z);
+            x += 2;
+            z += Random.Range(-2,2);
+        }
+
         battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
     }
 
@@ -34,7 +51,7 @@ public class EnnemiManager : MonoBehaviour
             endFight = true;
         }
 
-        if (EnnemiAttack.startBattle)
+        if (startBattle)
         {
             if (!checkEnnemiAttaker)
             {
