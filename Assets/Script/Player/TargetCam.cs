@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetCam : MonoBehaviour
 {
     [Header("Rotation sur l'axe X")]
-    [SerializeField] float rotSpeed, rotationX, clampAxeMin, clampAxeMax;
+    [SerializeField] float rotSpeedX, rotSpeedY, rotationX, clampAxeMin, clampAxeMax;
 
     [Header("Rotation sur l'axe Y")]
     [SerializeField] float rotationY;
@@ -24,36 +24,37 @@ public class TargetCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerController.CamXInverser)
-        {
-            rotationX += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickY");
-            rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
-            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
-        }
-        else
-        {
-            rotationX -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickY");
-            rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
-            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
-        }
+        Debug.Log(canTurnCamAroundPlayer);
 
-
-        if(canTurnCamAroundPlayer)
+        if (canTurnCamAroundPlayer)
         {
             if(PlayerController.CamYInverser)
             {
-                rotationY -= rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
+                rotationY -= rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
                 transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
             }
             else
             {
-                rotationY += rotSpeed * Time.deltaTime * Input.GetAxis("RightJoystickX");
+                rotationY += rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
                 transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
             }
         }
         else
         {
             rotationY = Mathf.Lerp(rotationY, 0, returnRotBase);
+            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        }
+
+        if (PlayerController.CamXInverser)
+        {
+            rotationX += rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
+            rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
+            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        }
+        else
+        {
+            rotationX -= rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
+            rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
             transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
     }

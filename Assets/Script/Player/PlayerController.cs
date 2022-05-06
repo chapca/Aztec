@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
             if (playerVelocity > 0)
             {
                 rotY -= Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
-                transform.localRotation = Quaternion.Euler(0, rotY, 0);
+                transform.rotation = Quaternion.Euler(0, rotY, 0);
             }
         }
         else
@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
             if (playerVelocity > 0)
             {
                 rotY += Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
-                transform.localRotation = Quaternion.Euler(0, rotY, 0);
+                transform.rotation = Quaternion.Euler(0, rotY, 0);
             }
         }
     }

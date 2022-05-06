@@ -5765,6 +5765,18 @@ PrefabInstance:
       propertyPath: camInteraction
       value: 
       objectReference: {fileID: 712111617}
+    - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: rotSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: rotSpeedX
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: rotSpeedY
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8283120809939855024, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.95
@@ -5933,6 +5945,10 @@ PrefabInstance:
       propertyPath: camBase
       value: 
       objectReference: {fileID: 712111618}
+    - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: speedRot
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8283120810980229919, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_Name
       value: EmptyPlayer
