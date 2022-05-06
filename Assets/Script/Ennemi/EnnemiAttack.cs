@@ -91,6 +91,10 @@ public class EnnemiAttack : MonoBehaviour
     [Header("Dégat du mob")]
     [SerializeField] float damage, blockDamage;
 
+    int countRoundAttack;
+
+    bool playerCanEsquive;
+
     void Start()
     {
         sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
@@ -247,9 +251,28 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal -= Time.unscaledDeltaTime;
 
         ActiveManetteUI();
-        TimingAttack();
-        TimingEsquive();
+        if(countRoundAttack>0)
+        {
+            TimingAttack();
+        }
+        else
+        {
+            Battle.canAttack = false;
+        }
+        if(playerCanEsquive)
+        {
+            TimingEsquive();
+        }
+        else
+        {
+            Battle.canEsquive = false;
+        }
         TimingBlock();
+
+        if(setUpTimerSliderNormal <=0)
+        {
+            PlayerDoSomething();
+        }
     }
 
     void TimingAttack()
@@ -287,6 +310,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         else
         {
+            Debug.Log("REset UI");
             PlayerDoSomething();
             ResetAllSlider();
         }
@@ -371,6 +395,7 @@ public class EnnemiAttack : MonoBehaviour
                     ResetAllSlider();
                     canApplyDamage = false;
                     PerfectText.ActiveText();
+                    countRoundAttack = 2;
                 }
             }
             else
@@ -381,11 +406,13 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamageBlock = true;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    countRoundAttack = 1;
                 }
             }
         }
         else
         {
+            PlayerDoSomething();
             ResetAllSlider();
         }
     }
@@ -398,6 +425,7 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.UpdateSliderBlock(setUpTimerSliderNormal);
         UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
         startQTE = false;
+        countRoundAttack--;
     }
 
     void TimingCounter()
@@ -506,6 +534,15 @@ public class EnnemiAttack : MonoBehaviour
             randomTimeBeforeAttack = Random.Range(2, 5);
             state = 2;
             canAttack = true;
+
+            if(Random.Range(0, 2) == 0)
+            {
+                playerCanEsquive = true;
+            }
+            else
+            {
+                playerCanEsquive = false;
+            }
         }
     }
 
@@ -610,6 +647,8 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator BlockPlayerAction()
     {
+        Debug.Log("Desable UI");
+
         if (!esquiveReussiPerfect)
             UIManager.ActiveManetteUI(false);
 
@@ -652,14 +691,32 @@ public class EnnemiAttack : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        UIManager.ActiveManetteUI(true);
-        UIManager.ActiveUIAttack(true);
-        UIManager.ActiveUIBlock(true);
-        UIManager.ActiveUIEsquive(true);
+        if(!playerCanEsquive)
+        {
+            UIManager.ActiveUIEsquive(false);
+            Battle.canEsquive = false;
+        }
+        else
+        {
+            UIManager.ActiveUIEsquive(true);
+            Battle.canEsquive = true;
+        }
 
-        Battle.canEsquive = true;
+        if (countRoundAttack>0)
+        {
+            UIManager.ActiveUIAttack(true);
+            Battle.canAttack = true;
+        }
+        else
+        {
+            UIManager.ActiveUIAttack(false);
+            Battle.canAttack = false;
+        }
+
+        UIManager.ActiveManetteUI(true);
+        UIManager.ActiveUIBlock(true);
+
         Battle.canBlock = true;
-        Battle.canAttack = true;
 
         Time.timeScale = 0.25f;
         startQTE = true;

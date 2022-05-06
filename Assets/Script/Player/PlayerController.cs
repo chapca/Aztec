@@ -151,7 +151,6 @@ public class PlayerController : MonoBehaviour
         move.y += gravityValue * Time.deltaTime;
         controller.Move(move * Time.deltaTime);
 
-
         //Run
         RunMovement();
     }
