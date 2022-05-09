@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     CinemachineVirtualCamera camBase;
 
-    Cinemachine3rdPersonFollow camBaseThirdPersonFollow;
+    CinemachineComposer cinemachineComposer;
 
     bool camRight;
 
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         camRight = true;
 
-        camBaseThirdPersonFollow = camBase.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+        cinemachineComposer = camBase.GetCinemachineComponent<CinemachineComposer>();
     }
 
     // Update is called once per frame
@@ -115,10 +115,10 @@ public class PlayerController : MonoBehaviour
                 camRight = true;
         }
 
-        if(camRight && camBaseThirdPersonFollow.CameraSide < 0.85f)
-            camBaseThirdPersonFollow.CameraSide += Time.deltaTime;
-        else if(!camRight && camBaseThirdPersonFollow.CameraSide > 0.15f)
-            camBaseThirdPersonFollow.CameraSide -= Time.deltaTime;
+        if(camRight && cinemachineComposer.m_TrackedObjectOffset.x < 1f)
+            cinemachineComposer.m_TrackedObjectOffset.x += Time.deltaTime*2;
+        else if(!camRight && cinemachineComposer.m_TrackedObjectOffset.x > -1f)
+            cinemachineComposer.m_TrackedObjectOffset.x -= Time.deltaTime*2;
     }
 
     void SmoothLookAt(Vector3 target)
