@@ -171,15 +171,14 @@ public class UIManager : MonoBehaviour
     static public void ActiveTextCantInteract(bool active)
     {
         textCantinteract.gameObject.SetActive(active);
-
-        if (!active)
-            cursor.SetActive(false);
-        else
-            cursor.SetActive(true);
     }
     static public void ActiveManetteInputInteract(bool active)
     {
         manetteValidateInteraction.gameObject.SetActive(active);
+        if (!active)
+            cursor.SetActive(false);
+        else
+            cursor.SetActive(true);
     }
     
     static public void ActiveManetteInputInteractLeaveGame(bool active)

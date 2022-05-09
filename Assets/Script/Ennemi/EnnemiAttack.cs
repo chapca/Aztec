@@ -656,6 +656,10 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.ActiveUIBlock(false);
         UIManager.ActiveUIEsquive(false);
 
+        Battle.canEsquive = false;
+        Battle.canAttack = false;
+        Battle.canBlock = false;
+
         yield return new WaitForSecondsRealtime(0.1f);
         yield break;
     }

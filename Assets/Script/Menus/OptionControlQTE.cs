@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class OptionControlQTE : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class OptionControlQTE : MonoBehaviour
             transform.parent.transform.GetChild(1).gameObject.SetActive(false);
             transform.parent.transform.GetChild(0).gameObject.SetActive(true);
             canSwitchOnglet = false;
+        }
+
+        if (Input.GetButtonDown("CancelButton"))
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 

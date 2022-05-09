@@ -34,7 +34,7 @@ public class MenuManager : MonoBehaviour
     }
     public void Options()
     {
-        SceneManager.LoadScene(optionSceneIndex);
+        SceneManager.LoadScene("TestOptionController");
     }
     public void Archives()
     {

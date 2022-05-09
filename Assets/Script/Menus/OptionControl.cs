@@ -11,6 +11,8 @@ public class OptionControl : MonoBehaviour
 
     [SerializeField] Transform listButton, listSprite;
 
+    [SerializeField] Text buttonInverseX, buttonInverseY;
+
     bool canSwitchOnglet;
     void Start()
     {
@@ -40,6 +42,11 @@ public class OptionControl : MonoBehaviour
             transform.parent.transform.GetChild(1).gameObject.SetActive(true);
 
             canSwitchOnglet = false;
+        }
+
+        if(Input.GetButtonDown("CancelButton"))
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 
@@ -77,6 +84,24 @@ public class OptionControl : MonoBehaviour
                     PlayerController.CamYInverser = false;
                 }
             }
+        }
+
+        if(PlayerController.CamXInverser)
+        {
+            buttonInverseX.GetComponent<Text>().text = "Caméra X          < Inversé >";
+        }
+        else
+        {
+            buttonInverseX.GetComponent<Text>().text = "Caméra X          < Normal >";
+        }
+
+        if(PlayerController.CamYInverser)
+        {
+            buttonInverseY.GetComponent<Text>().text = "Caméra Y          < Inversé >";
+        }
+        else
+        {
+            buttonInverseY.GetComponent<Text>().text = "Caméra Y          < Normal >";
         }
     }
 

@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &267143157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5780879202492770038, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
+  m_PrefabInstance: {fileID: 604612988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &335271709
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +440,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866576817, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
+      propertyPath: buttonInverseX
+      value: 
+      objectReference: {fileID: 267143157}
+    - target: {fileID: 866576817, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
+      propertyPath: buttonInverseY
+      value: 
+      objectReference: {fileID: 2078026136}
     - target: {fileID: 1031660425064919062, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -923,7 +942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2003963170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1038,6 +1057,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003963169}
   m_CullTransparentMesh: 1
+--- !u!114 &2078026136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7995578304435493666, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
+  m_PrefabInstance: {fileID: 604612988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143613903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5780879202329767089, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
