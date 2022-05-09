@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class TargetCam : MonoBehaviour
 {
@@ -15,10 +16,26 @@ public class TargetCam : MonoBehaviour
 
     public static bool canTurnCamAroundPlayer;
 
+    [SerializeField] AnimationCurve animCurve;
+
+    [SerializeField] float maxOffsetCam;
+
+    float baseOffset;
+
+    [SerializeField] CinemachineVirtualCamera cam1;
+
+    Cinemachine3rdPersonFollow camBaseThirdPersonFollow;
+
+    Transform follow;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        follow = cam1.Follow;
+
+        camBaseThirdPersonFollow = cam1.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+
+        baseOffset = camBaseThirdPersonFollow.CameraDistance;
     }
 
     // Update is called once per frame
@@ -26,9 +43,16 @@ public class TargetCam : MonoBehaviour
     {
         Debug.Log(canTurnCamAroundPlayer);
 
+        Rotation();
+
+        ZoomOverRotation();
+    }
+
+    void Rotation()
+    {
         if (canTurnCamAroundPlayer)
         {
-            if(PlayerController.CamYInverser)
+            if (PlayerController.CamYInverser)
             {
                 rotationY -= rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
                 transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
@@ -57,5 +81,14 @@ public class TargetCam : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
             transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
+    }
+
+    void ZoomOverRotation()
+    {
+        float yDiff = Mathf.Abs(follow.position.y - cam1.transform.position.y);
+
+        float ratio = animCurve.Evaluate(Mathf.Clamp01(yDiff / maxOffsetCam));
+
+        camBaseThirdPersonFollow.CameraDistance = baseOffset * ratio;
     }
 }
