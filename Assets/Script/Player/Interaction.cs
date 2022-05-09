@@ -65,7 +65,6 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
-            cursor.SetActive(true);
             UIManager.ActiveManetteInputInteract(true);
 
             if (PlayerBlood.bloodQuantity < 100)
@@ -96,15 +95,28 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
+        if (other.CompareTag("End"))
+        {
+            Vector3 screenPoint = cam.WorldToScreenPoint(other.transform.position);
+            cursor.transform.position = screenPoint;
+
+            UIManager.ActiveManetteInputInteractLeaveGame(true);
+
+            if (Input.GetButtonDown("InteractButton"))
+                Application.Quit();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Interactable"))
         {
-            cursor.SetActive(false);
             UIManager.ActiveTextCantInteract(false);
             UIManager.ActiveManetteInputInteract(false);
+        }
+        if (other.CompareTag("End"))
+        {
+            UIManager.ActiveManetteInputInteractLeaveGame(false);
         }
     }
 

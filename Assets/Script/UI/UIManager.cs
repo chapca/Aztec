@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
 
     static public Text textCantinteract;
 
-    static public GameObject manetteValidateInteraction;
+    static public GameObject manetteValidateInteraction, manetteValidateLeaveGame, cursor;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +45,11 @@ public class UIManager : MonoBehaviour
 
         manetteValidateInteraction = GameObject.Find("ManetteValidateInteraction");
 
+        manetteValidateLeaveGame = GameObject.Find("ManetteValidateLeaveGame");
+
+        cursor = GameObject.Find("Cursor");
+
+
         UIManette.SetActive(false);
         UIEsquiveRight.SetActive(false);
         UIEsquiveLeft.SetActive(false);
@@ -54,7 +59,8 @@ public class UIManager : MonoBehaviour
 
         textCantinteract.gameObject.SetActive(false);
         manetteValidateInteraction.gameObject.SetActive(false);
-
+        manetteValidateLeaveGame.gameObject.SetActive(false);
+        cursor.SetActive(false);
     }
 
     //slider :
@@ -165,9 +171,24 @@ public class UIManager : MonoBehaviour
     static public void ActiveTextCantInteract(bool active)
     {
         textCantinteract.gameObject.SetActive(active);
+
+        if (!active)
+            cursor.SetActive(false);
+        else
+            cursor.SetActive(true);
     }
     static public void ActiveManetteInputInteract(bool active)
     {
         manetteValidateInteraction.gameObject.SetActive(active);
+    }
+    
+    static public void ActiveManetteInputInteractLeaveGame(bool active)
+    {
+        manetteValidateLeaveGame.gameObject.SetActive(active);
+
+        if (!active)
+            cursor.SetActive(false);
+        else
+            cursor.SetActive(true);
     }
 }

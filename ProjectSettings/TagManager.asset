@@ -8,6 +8,7 @@ TagManager:
   - Ennemi
   - ActivePuzzle
   - Interactable
+  - End
   layers:
   - Default
   - TransparentFX

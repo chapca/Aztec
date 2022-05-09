@@ -35,6 +35,9 @@ public class PlayerBlood : MonoBehaviour
     static public void GetBlood(float blood)
     {
         bloodQuantity += blood;
+        if (bloodQuantity > 100)
+            bloodQuantity = 100;
+
         PlayerUI.UpdateSliderBlood();
     }
 
