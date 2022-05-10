@@ -138,7 +138,7 @@ public class Interaction : MonoBehaviour
 
     IEnumerator OpenDoor(Collider other)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         other.transform.GetComponent<Levier>().isActive = true;
         yield break;
     }

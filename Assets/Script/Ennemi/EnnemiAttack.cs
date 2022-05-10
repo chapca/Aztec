@@ -156,7 +156,7 @@ public class EnnemiAttack : MonoBehaviour
             ReturnToStatePatrol();
         }
 
-        if(distPlayer <10)
+        if(distPlayer < 10 || ennemiManager.startBattle)
         {
             startBattle = true;
             ennemiManager.startBattle = true;
@@ -589,13 +589,13 @@ public class EnnemiAttack : MonoBehaviour
 
     void LaunchAttack()
     {
-        if (distPlayer <= 2.5f && !isAttacking)
+        if (distPlayer <= 5f && !isAttacking)
         {
             battleScript.isAttacked = true;
             StartCoroutine("StartAttack");
         }
 
-        if(distPlayer > 2.5f)
+        if(distPlayer > 5f)
         {
             if (!isAttacking)
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 7 * Time.deltaTime);
