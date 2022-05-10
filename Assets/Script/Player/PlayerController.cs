@@ -76,13 +76,20 @@ public class PlayerController : MonoBehaviour
         {
             if(PlayerHp.hp >0)
             {
-                Vector3 ennemiPos;
+                /*Vector3 ennemiPos;
 
                 ennemiPos.x = ennemi.transform.position.x;
                 ennemiPos.y = 0f;
                 ennemiPos.z = ennemi.transform.position.z;
 
-                SmoothLookAt(ennemiPos);
+                SmoothLookAt(ennemiPos);*/
+
+                Vector3 relativePos = ennemi.position - transform.position;
+
+                // the second argument, upwards, defaults to Vector3.up
+                Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+                transform.rotation = rotation;
+
             }
         }
     }
