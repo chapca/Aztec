@@ -28,6 +28,8 @@ public class TargetCam : MonoBehaviour
 
     Transform follow;
 
+    [SerializeField] Transform targetCamPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,8 @@ public class TargetCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = targetCamPlayer.position;
+
         Debug.Log(canTurnCamAroundPlayer);
 
         Rotation();
@@ -50,36 +54,36 @@ public class TargetCam : MonoBehaviour
 
     void Rotation()
     {
-        if (canTurnCamAroundPlayer)
+        if (canTurnCamAroundPlayer || !canTurnCamAroundPlayer)
         {
             if (PlayerController.CamYInverser)
             {
                 rotationY -= rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
-                transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+                transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
             }
             else
             {
                 rotationY += rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
-                transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+                transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
             }
         }
-        else
+        /*else
         {
             rotationY = Mathf.Lerp(rotationY, 0, returnRotBase);
             transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
-        }
+        }*/
 
         if (PlayerController.CamXInverser)
         {
             rotationX += rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
             rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
-            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
         else
         {
             rotationX -= rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
             rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
-            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
     }
 

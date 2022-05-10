@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speedRot = 100;
     [SerializeField] float playerVelocity;
 
+    float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
+    float targetAngle;
+    float angle;
+
     [SerializeField] float rotY;
 
     [SerializeField] float jumpHeight = 1.0f;
@@ -129,28 +134,34 @@ public class PlayerController : MonoBehaviour
 
     void Deplacement()
     {
+        float horizontalAxis = Input.GetAxisRaw("Horizontal");
+        float verticalAxis = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis).normalized;
+
         //movement
         if (!battle.degaine)
         {
-            if (controller.isGrounded)
+            if (!controller.isGrounded)
             {
-                // move basic
-                move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                //controller.Move(direction * Time.deltaTime * currentSpeed);
 
-                move = transform.TransformDirection(move);
-                controller.Move(move * Time.deltaTime * currentSpeed);
+            }
+            if (direction.magnitude >=0.1f)
+            {
+                targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camBase.transform.eulerAngles.y; ;
+                angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0, angle, 0);
 
-                if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") !=0)
-                {
-                    if(!myAudioSource.isPlaying)
-                        ActiveSound();
-                }
+                move = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+                controller.Move(move.normalized * currentSpeed * Time.deltaTime);
+
+                if (!myAudioSource.isPlaying)
+                    ActiveSound();
             }
         }
-
         move.y += gravityValue * Time.deltaTime;
-        controller.Move(move * Time.deltaTime);
-
+        controller.Move(move.normalized * currentSpeed * Time.deltaTime);
         //Run
         RunMovement();
     }
@@ -186,14 +197,14 @@ public class PlayerController : MonoBehaviour
 
     void RotationPlayer()
     {
-        if(CamXInverser)
+        /*if(CamXInverser)
         {
             if (playerVelocity > 0)
             {
                 rotY -= Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
                 transform.rotation = Quaternion.Euler(0, rotY, 0);
             }
-        }
+        }   
         else
         {
             if (playerVelocity > 0)
@@ -201,7 +212,7 @@ public class PlayerController : MonoBehaviour
                 rotY += Input.GetAxis("RightJoystickX") * speedRot * Time.deltaTime;
                 transform.rotation = Quaternion.Euler(0, rotY, 0);
             }
-        }
+        }*/
     }
 
     //Sound 
