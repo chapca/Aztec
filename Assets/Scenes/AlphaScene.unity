@@ -7150,6 +7150,10 @@ PrefabInstance:
       propertyPath: gravityValue
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: turnSmoothTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8283120810980229919, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_Name
       value: EmptyPlayer
