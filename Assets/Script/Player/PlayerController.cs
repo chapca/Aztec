@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 relativePos = ennemi.position - transform.position;
 
                 // the second argument, upwards, defaults to Vector3.up
-                Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+                Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 0.1f);
                 transform.rotation = rotation;
 
             }
