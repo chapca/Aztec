@@ -190,7 +190,7 @@ public class EnnemiAttack : MonoBehaviour
 
         if (playerAction)
         {
-            if (Input.GetAxisRaw("VerticalLeftButtonY") !=0 || Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
+            if (Input.GetButtonDown("HealthButton") || Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetButtonDown("CancelButton"))
             {
                 //PlayerDoSomething();
                 TimeScaleNormal();
@@ -287,7 +287,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectAttack -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
 
-                if (Input.GetAxis("VerticalLeftButtonY") > 0)
+                if (Input.GetButtonDown("HealthButton"))
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -300,7 +300,7 @@ public class EnnemiAttack : MonoBehaviour
             }
             else
             {
-                if (Input.GetAxis("VerticalLeftButtonY") > 0)
+                if (Input.GetButtonDown("HealthButton"))
                 {
                     AnimationEvent.attackStandard = true;
                     PlayerDoSomething();
@@ -338,7 +338,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectEsquive -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
 
-                if (Input.GetAxis("HorizontalLeftButtonX") != 0)
+                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton"))
                 {
                     Debug.Log("Esquive Perfect");
                     canApplyDamage = false;
@@ -354,7 +354,7 @@ public class EnnemiAttack : MonoBehaviour
             }
             else
             {
-                if (Input.GetAxis("HorizontalLeftButtonX") != 0)
+                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton"))
                 {
                     canApplyDamage = false;
                     PlayerDoSomething();
@@ -389,7 +389,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectBlock -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
 
-                if (Input.GetAxis("VerticalLeftButtonY") < 0)
+                if (Input.GetButtonDown("CancelButton"))
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -400,7 +400,7 @@ public class EnnemiAttack : MonoBehaviour
             }
             else
             {
-                if (Input.GetAxis("VerticalLeftButtonY") < 0)
+                if (Input.GetButtonDown("CancelButton"))
                 {
                     canApplyDamage = false;
                     canApplyDamageBlock = true;
@@ -434,7 +434,7 @@ public class EnnemiAttack : MonoBehaviour
         if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) > 0 && startQTECounter)
         {
             UIManager.UpdateSliderCounter(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
-            if (Input.GetAxis("VerticalLeftButtonY") > 0)
+            if (Input.GetButtonDown("HealthButton"))
             {
                 counterReussi = true;
                 ResetCounterSlider();

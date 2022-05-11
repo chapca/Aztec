@@ -38,7 +38,7 @@ public class Battle : MonoBehaviour
        
         if(canEsquive)
         {
-            if (Input.GetAxisRaw("HorizontalLeftButtonX") >0)
+            if (Input.GetButtonDown("InteractButton"))
             {
                 myAnimator.SetBool("EsquiveDroite", true);
 
@@ -46,7 +46,7 @@ public class Battle : MonoBehaviour
                 canBlock = false;
                 canAttack = false;
             }
-            else if (Input.GetAxisRaw("HorizontalLeftButtonX") <0)
+            else if (Input.GetButtonDown("EsquiveLeftButton"))
             {
                 myAnimator.SetBool("EsquiveGauche", true);
                 canEsquive = false;
@@ -57,7 +57,7 @@ public class Battle : MonoBehaviour
 
         if(canBlock)
         {
-            if(Input.GetAxisRaw("VerticalLeftButtonY") < 0)
+            if(Input.GetButtonDown("CancelButton"))
             {
                 myAnimator.SetBool("Block", true);
 
@@ -69,7 +69,7 @@ public class Battle : MonoBehaviour
         
         if(canCounter)
         {
-            if (Input.GetAxisRaw("VerticalLeftButtonY") > 0)
+            if (Input.GetButtonDown("HealthButton"))
             {
                 myAnimator.SetBool("Estoc", true);
                 canCounter = false;
@@ -81,7 +81,7 @@ public class Battle : MonoBehaviour
 
         if (canAttack)
         {
-            if (Input.GetAxisRaw("VerticalLeftButtonY") > 0)
+            if (Input.GetButtonDown("HealthButton"))
             {
                 myAnimator.SetBool("Taille", true);
                 canEsquive = false;

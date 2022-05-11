@@ -11,7 +11,7 @@ public class UIMenuPause : MonoBehaviour
 
     [SerializeField] GameObject buttonResume, buttonOption, buttonQuit;
 
-    [SerializeField] GameObject optionMenu;
+    [SerializeField] GameObject menuPause, optionMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +29,18 @@ public class UIMenuPause : MonoBehaviour
             Debug.Log(m_EventSystem.currentSelectedGameObject);
             menuPauseIsActive = true;
         }
+
+        if(optionMenu.activeInHierarchy && Input.GetButtonDown("CancelButton"))
+        {
+            optionMenu.SetActive(false);
+            EnableButton(buttonQuit, buttonResume, null, true);
+        }
+
+        if(!optionMenu.activeInHierarchy && menuPause.activeInHierarchy && Input.GetButtonDown("CancelButton"))
+        {
+            menuPause.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     public void ClickOption()
@@ -43,5 +55,17 @@ public class UIMenuPause : MonoBehaviour
         button1.SetActive(active);
         button2.SetActive(active);
         button3.SetActive(active);
+    }
+
+    public void ResumeButton()
+    {
+        menuPause.SetActive(false);
+
+        Time.timeScale = 1;
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 }

@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     public static bool CamXInverser, CamYInverser;
 
+    [SerializeField] float speedCameraSwitchSide;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,9 +124,9 @@ public class PlayerController : MonoBehaviour
         }
 
         if(camRight && cinemachineComposer.m_TrackedObjectOffset.x < 1f)
-            cinemachineComposer.m_TrackedObjectOffset.x += Time.deltaTime*2;
+            cinemachineComposer.m_TrackedObjectOffset.x += Time.deltaTime* speedCameraSwitchSide;
         else if(!camRight && cinemachineComposer.m_TrackedObjectOffset.x > -1f)
-            cinemachineComposer.m_TrackedObjectOffset.x -= Time.deltaTime*2;
+            cinemachineComposer.m_TrackedObjectOffset.x -= Time.deltaTime* speedCameraSwitchSide;
     }
 
     void SmoothLookAt(Vector3 target)

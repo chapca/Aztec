@@ -21,6 +21,7 @@ public class OptionControlQTE : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log(listButton.GetChild(0).gameObject);
         m_EventSystem.SetSelectedGameObject(listButton.GetChild(0).gameObject);
     }
 

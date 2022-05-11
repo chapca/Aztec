@@ -268,7 +268,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24394
+  m_Name: pb_Mesh41412
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2371,7 +2371,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24254
+  m_Name: pb_Mesh41266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2645,6 +2645,7 @@ MonoBehaviour:
   buttonResume: {fileID: 1381346106}
   buttonOption: {fileID: 2120662019}
   buttonQuit: {fileID: 1738109956}
+  menuPause: {fileID: 2104411245}
   optionMenu: {fileID: 626690233}
 --- !u!1 &626690233 stripped
 GameObject:
@@ -2719,6 +2720,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2130396931105948489, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2130396931116451924, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: Damping.y
       value: 0.5
@@ -2738,6 +2743,14 @@ PrefabInstance:
     - target: {fileID: 2130396931116451924, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: ShoulderOffset.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130396931232341162, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: m_FollowOffset.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130396931232341162, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2130396931591841880, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_Name
@@ -2823,6 +2836,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1718085663}
+    - target: {fileID: 2130396931963381322, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: m_Priority
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2130396931963381323, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: player
       value: 
@@ -2873,11 +2890,11 @@ PrefabInstance:
       objectReference: {fileID: 1718085661}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.3
+      value: 27.3
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.6099997
+      value: 8.309999
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2885,19 +2902,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7825505
+      value: 0.74845225
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.121348254
+      value: 0.17406991
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6034347
+      value: 0.6233014
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280157, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0935732
+      value: -0.14496316
       objectReference: {fileID: 0}
     - target: {fileID: 2130396932189280158, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_Follow
@@ -3112,6 +3129,82 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7528264222584425995, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264222584425995, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223201493400, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 137
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223201493400, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223360680989, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223360680989, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223716652965, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -141
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223716652965, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223831278292, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223831278292, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264223913056810, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224145014554, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.599995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224145014554, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.410004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224163079416, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224163079416, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224196594444, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224196594444, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224378673410, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528264224378673410, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74
+      objectReference: {fileID: 0}
     - target: {fileID: 7528264224549189840, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_Name
       value: CanvasSlider
@@ -3242,7 +3335,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24318
+  m_Name: pb_Mesh41330
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5232,7 +5325,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176610950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72219d49bfe8bd84daa22ef8f7cbbf29, type: 3}
   m_Name: 
@@ -5604,7 +5697,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24372
+  m_Name: pb_Mesh41384
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5962,7 +6055,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1381346109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 595305076}
+        m_TargetAssemblyTypeName: UIMenuPause, Assembly-CSharp
+        m_MethodName: ResumeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1381346109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6320,7 +6425,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24424
+  m_Name: pb_Mesh41442
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6596,7 +6701,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24492
+  m_Name: pb_Mesh41510
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6834,6 +6939,10 @@ PrefabInstance:
       propertyPath: camInteraction
       value: 
       objectReference: {fileID: 712111617}
+    - target: {fileID: 613460456, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: speedTransitionCam
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1169672406, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_Name
       value: RefTargetCam
@@ -6876,7 +6985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1169672408, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: rotSpeedX
@@ -7154,6 +7263,10 @@ PrefabInstance:
       propertyPath: turnSmoothTime
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
+      propertyPath: speedCameraSwitchSide
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8283120810980229919, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: m_Name
       value: EmptyPlayer
@@ -7352,7 +7465,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1738109959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 595305076}
+        m_TargetAssemblyTypeName: UIMenuPause, Assembly-CSharp
+        m_MethodName: QuitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1738109959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8307,7 +8432,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24360
+  m_Name: pb_Mesh41372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
