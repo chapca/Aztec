@@ -158,9 +158,9 @@ public class PlayerController : MonoBehaviour
                         ActiveSound();
                 }
             }
+            move.y += gravityValue * Time.deltaTime;
+            controller.Move(move.normalized * currentSpeed * Time.deltaTime);
         }
-        move.y += gravityValue * Time.deltaTime;
-        controller.Move(move.normalized * currentSpeed * Time.deltaTime);
 
         //Run
         RunMovement();

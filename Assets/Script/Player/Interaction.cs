@@ -38,7 +38,7 @@ public class Interaction : MonoBehaviour
 
         if(camIsZooming)
         {
-            camInteraction.Priority = 10;
+            camInteraction.Priority = 11;
             camIsZooming = false;
         }
 
