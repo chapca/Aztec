@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -53,6 +54,16 @@ public class EnnemiAttack : MonoBehaviour
     [Range(90f, 359.99f)]
     [SerializeField] float setUpAnglePerfectFrameBlock;
 
+    [Header("MANUELLE Defini la position des frames Loose(min:90° / max:359.99°)")]
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLooseFrameAttack;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLooseFrameCounter;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLooseFrameEsquive;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLooseFrameBlock;
+
     [Header("AUTO Valeur à laquel la frame perfect démare par rapport au slider normal")]
     [Range(0.0f, 1f)]
     [SerializeField] float setUpStartPerfectFrameAttack;
@@ -60,6 +71,16 @@ public class EnnemiAttack : MonoBehaviour
     [SerializeField] float setUpStartPerfectFrameEsquive;
     [Range(0.0f, 1f)]
     [SerializeField] float setUpStartPerfectFrameBlock;
+
+    [Header("AUTO Valeur à laquel la frame loose démare par rapport au slider normal")]
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartLooseFrameAttack;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartLooseFrameCounter;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartLooseFrameEsquive;
+    [Range(0.0f, 1f)]
+    [SerializeField] float setUpStartLooseFrameBlock;
 
     [Header("AUTO durée au slider normal")]
     [Range(0.0f, 3f)]
@@ -69,21 +90,41 @@ public class EnnemiAttack : MonoBehaviour
     [Range(0.0f, 3f)]
     [SerializeField] float setUpSliderPerfect;
 
+    [Header("AUTO durée au slider loose")]
+    [Range(0.0f, 3f)]
+    [SerializeField] float setUpSliderLooseAttack;
+    [Range(0.0f, 3f)]
+    [SerializeField] float setUpSliderLooseCounter;
+    [Range(0.0f, 3f)]
+    [SerializeField] float setUpSliderLooseEsquive;
+    [Range(0.0f, 3f)]
+    [SerializeField] float setUpSliderLooseBlock;
+
     [Header("Reference slider")]
-    [SerializeField] Transform sliderAttackPerfect, sliderAttackNormal;
-    [SerializeField] Transform sliderEsquivePerfect, sliderEsquiveNormal;
-    [SerializeField] Transform sliderBlockPerfect, sliderBlockNormal;
+    [SerializeField] Transform sliderAttackPerfect, sliderAttackNormal, sliderAttackLoose, sliderCounterLoose;
+    [SerializeField] Transform sliderEsquivePerfect, sliderEsquiveNormal, sliderEsquiveLoose;
+    [SerializeField] Transform sliderBlockPerfect, sliderBlockNormal, sliderBlockLoose;
 
     //(fillAmountSliderNormal *360f) +90f = angleSliderPerfect
     //(fillAmountSliderNormal *360f) = angleSliderPerfect - 90f
     //(fillAmountSliderNormal) = (angleSliderPerfect - 90f) /360f
 
     [Header("MANUAL Taille/durée slider")]
-    [Range(0.0f, 1f)]
-    [SerializeField] float sliderPerfectSize;
-    float sliderPerfectAttack;
-    float sliderPerfectEsquive;
-    float sliderPerfectBlock;
+    [Range(0.0f, 1f)] [SerializeField] float sliderPerfectSize;
+    float sliderPerfectAttacSize;
+    float sliderPerfectEsquiveSize;
+    float sliderPerfectBlockSize;
+
+    [Header("MANUAL Taille/durée slider Loose")]
+    [Range(0.0f, 1f)] [SerializeField] float sliderLooseCounterSize;
+    [Range(0.0f, 1f)] [SerializeField] float sliderLooseAttackSize;
+    [Range(0.0f, 1f)] [SerializeField] float sliderLooseEsquiveSize;
+    [Range(0.0f, 1f)] [SerializeField] float sliderLooseBlockSize;
+
+    [Range(0.0f, 1f)]  float baseSliderLooseCounterSize;
+    [Range(0.0f, 1f)]  float baseSliderLooseAttackSize;
+    [Range(0.0f, 1f)]  float baseSliderLooseEsquiveSize;
+    [Range(0.0f, 1f)]  float baseSliderLooseBlockSize;
 
     [Header("Execute code en hors Game (DESACTIVER AVANT DE LANCER)")]
     [SerializeField] bool activeThisinEditor, ManetteSpriteIsActive;
@@ -97,12 +138,12 @@ public class EnnemiAttack : MonoBehaviour
 
     void Start()
     {
-        sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
+        /*sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
         sliderAttackNormal = UIManager.sliderAttack.transform;
         sliderEsquivePerfect = UIManager.sliderEsquivePerfectLeft.transform;
         sliderEsquiveNormal = UIManager.sliderEsquiveLeft.transform;
         sliderBlockPerfect = UIManager.sliderBlockPerfect.transform;
-        sliderBlockNormal = UIManager.sliderBlock.transform;
+        sliderBlockNormal = UIManager.sliderBlock.transform;*/
 
         ennemiHp = GetComponent<EnnemiHp>();
         ennemiManager = GetComponentInParent<EnnemiManager>();
@@ -120,6 +161,7 @@ public class EnnemiAttack : MonoBehaviour
         }
 
         SetPositionFramePerfect();
+        SetPositionFrameLoose();
 
         convertion = 10f / 6f;
 
@@ -129,9 +171,25 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) *10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / (1f / sliderPerfectSize);
 
-        sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
-        sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
-        sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectAttacSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectBlockSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectEsquiveSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+
+        setUpSliderLooseAttack = setUpTimerSliderNormal / (1f / sliderPerfectAttacSize);
+        setUpSliderLooseCounter = setUpTimerSliderNormal / (1f / sliderLooseCounterSize);
+        setUpSliderLooseEsquive = setUpTimerSliderNormal / (1f / sliderLooseEsquiveSize);
+        setUpSliderLooseBlock = setUpTimerSliderNormal / (1f / sliderLooseBlockSize);
+
+        sliderLooseAttackSize = setUpSliderLooseAttack / baseSetUpTimerSliderNormal;
+        sliderLooseCounterSize = setUpSliderLooseCounter / baseSetUpTimerSliderNormal;
+        sliderLooseEsquiveSize = setUpSliderLooseEsquive / baseSetUpTimerSliderNormal;
+        sliderLooseBlockSize = setUpSliderLooseBlock / baseSetUpTimerSliderNormal;
+
+        baseSliderLooseAttackSize = sliderLooseAttackSize;
+        baseSliderLooseCounterSize = sliderLooseCounterSize;
+        baseSliderLooseEsquiveSize = sliderLooseEsquiveSize;
+        baseSliderLooseBlockSize = sliderLooseBlockSize;
     }
 
     void SetPositionFramePerfect()
@@ -141,12 +199,23 @@ public class EnnemiAttack : MonoBehaviour
         sliderBlockPerfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameBlock);
     }
 
+    void SetPositionFrameLoose()
+    {
+        sliderAttackLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameAttack);
+        sliderCounterLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameCounter);
+        sliderEsquiveLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameEsquive); 
+        sliderBlockLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameBlock);
+    }
+
     void Update()
     {
         if(activeThisinEditor)
         {
             UpdateSliderPosition();
+            UpdateSliderLoosePosition();
+
             SetFramePerfectSize();
+            SetFrameLooseSize();
         }
 
         distPlayer = Vector3.Distance(transform.position, player.position);
@@ -190,7 +259,8 @@ public class EnnemiAttack : MonoBehaviour
 
         if (playerAction)
         {
-            if (Input.GetButtonDown("HealthButton") || Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetButtonDown("CancelButton"))
+            if (Input.GetButtonDown("HealthButton") || Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetButtonDown("CancelButton") 
+                || Input.GetAxisRaw("HorizontalLeftButtonX") != 0 || Input.GetAxisRaw("VerticalLeftButtonY") != 0)
             {
                 //PlayerDoSomething();
                 TimeScaleNormal();
@@ -221,6 +291,21 @@ public class EnnemiAttack : MonoBehaviour
         setUpStartPerfectFrameBlock = Mathf.Abs((sliderBlockPerfect.eulerAngles.z - (360f * sliderPerfectSize)) / 360f);
     }
 
+     void UpdateSliderLoosePosition()
+     {
+        sliderAttackLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameAttack);
+        setUpStartLooseFrameAttack = Mathf.Abs((sliderAttackLoose.eulerAngles.z - (360f* sliderLooseAttackSize)) / 360f);
+
+        sliderCounterLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameCounter);
+        setUpStartLooseFrameCounter = Mathf.Abs((sliderCounterLoose.eulerAngles.z - (360f * sliderLooseCounterSize)) / 360f);
+
+        sliderEsquiveLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameEsquive);
+        setUpStartLooseFrameEsquive = Mathf.Abs((sliderEsquiveLoose.eulerAngles.z - (360f * sliderLooseEsquiveSize)) / 360f);
+
+        sliderBlockLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameBlock);
+        setUpStartLooseFrameBlock = Mathf.Abs((sliderBlockLoose.eulerAngles.z - (360f * sliderLooseBlockSize)) / 360f);
+     }
+
     void SetFramePerfectSize()
     {
         baseSetUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
@@ -229,13 +314,34 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / (1f / sliderPerfectSize);
 
-        sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
-        sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
-        sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectAttacSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectBlockSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectEsquiveSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
 
-        sliderAttackPerfect.GetComponent<Image>().fillAmount = sliderPerfectAttack;
-        sliderEsquivePerfect.GetComponent<Image>().fillAmount = sliderPerfectEsquive;
-        sliderBlockPerfect.GetComponent<Image>().fillAmount = sliderPerfectBlock;
+        sliderAttackPerfect.GetComponent<Image>().fillAmount = sliderPerfectAttacSize;
+        sliderEsquivePerfect.GetComponent<Image>().fillAmount = sliderPerfectEsquiveSize;
+        sliderBlockPerfect.GetComponent<Image>().fillAmount = sliderPerfectBlockSize;
+    }
+
+    void SetFrameLooseSize()
+    {
+        setUpSliderLooseAttack = setUpTimerSliderNormal / (1f / sliderLooseAttackSize);
+
+        setUpSliderLooseCounter = setUpTimerSliderNormal / (1f / sliderLooseCounterSize);
+
+        setUpSliderLooseEsquive = setUpTimerSliderNormal / (1f / sliderLooseEsquiveSize);
+
+        setUpSliderLooseBlock = setUpTimerSliderNormal / (1f / sliderLooseBlockSize);
+
+        sliderLooseAttackSize = setUpSliderLooseAttack / baseSetUpTimerSliderNormal;
+        sliderLooseCounterSize = setUpSliderLooseCounter / baseSetUpTimerSliderNormal;
+        sliderLooseEsquiveSize = setUpSliderLooseEsquive / baseSetUpTimerSliderNormal;
+        sliderLooseBlockSize = setUpSliderLooseBlock / baseSetUpTimerSliderNormal;
+
+        sliderAttackLoose.GetComponent<Image>().fillAmount = sliderLooseAttackSize;
+        sliderCounterLoose.GetComponent<Image>().fillAmount = sliderLooseCounterSize;
+        sliderEsquiveLoose.GetComponent<Image>().fillAmount = sliderLooseEsquiveSize;
+        sliderBlockLoose.GetComponent<Image>().fillAmount = sliderLooseBlockSize;
     }
 
     void ActiveManetteUI()
@@ -255,17 +361,9 @@ public class EnnemiAttack : MonoBehaviour
         {
             TimingAttack();
         }
-        else
-        {
-            Battle.canAttack = false;
-        }
         if(playerCanEsquive)
         {
             TimingEsquive();
-        }
-        else
-        {
-            Battle.canEsquive = false;
         }
         TimingBlock();
 
@@ -282,12 +380,14 @@ public class EnnemiAttack : MonoBehaviour
             UIManager.UpdateSliderAttack(setUpTimerSliderNormal * (1f/ baseSetUpTimerSliderNormal));
             Debug.Log("Démarage Slider Attack" + (1 - setUpStartPerfectFrameAttack));
 
-            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameAttack && sliderPerfectAttack > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameAttack && sliderPerfectAttacSize > 0)
             {
-                sliderPerfectAttack -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
-                UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
+                Battle.canAttack = true;
 
-                if (Input.GetButtonDown("HealthButton"))
+                sliderPerfectAttacSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderAttackPerfect(sliderPerfectAttacSize);
+
+                if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -298,9 +398,25 @@ public class EnnemiAttack : MonoBehaviour
                     PerfectText.ActiveText();
                 }
             }
+            else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameAttack && sliderLooseAttackSize > 0)
+            {
+                Battle.canAttack = false;
+
+                sliderLooseAttackSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderAttackLoose(sliderLooseAttackSize);
+
+                if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                {
+                    PlayerDoSomething();
+                    ResetAllSlider();
+                    FailText.ActiveText();
+                    Time.timeScale = 1;
+                }
+            }
             else
             {
-                if (Input.GetButtonDown("HealthButton"))
+                Battle.canAttack = true;
+                if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
                 {
                     AnimationEvent.attackStandard = true;
                     PlayerDoSomething();
@@ -319,10 +435,13 @@ public class EnnemiAttack : MonoBehaviour
     {
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
 
-        sliderPerfectAttack = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectAttacSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        sliderLooseAttackSize = baseSliderLooseAttackSize;
 
         UIManager.UpdateSliderAttack(setUpTimerSliderNormal);
-        UIManager.UpdateSliderAttackPerfect(sliderPerfectAttack);
+        UIManager.UpdateSliderAttackPerfect(sliderPerfectAttacSize);
+        UIManager.UpdateSliderAttackLoose(sliderLooseAttackSize);
         startQTE = false;
     }
 
@@ -332,13 +451,15 @@ public class EnnemiAttack : MonoBehaviour
         {
             UIManager.UpdateSliderEsquive(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
 
-            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameEsquive && sliderPerfectEsquive > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1-setUpStartPerfectFrameEsquive && sliderPerfectEsquiveSize > 0)
             {
-                Debug.Log("Esquive");
-                sliderPerfectEsquive -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
-                UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
+                Battle.canEsquive = true;
 
-                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton"))
+                Debug.Log("Esquive");
+                sliderPerfectEsquiveSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquiveSize);
+
+                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") !=0)
                 {
                     Debug.Log("Esquive Perfect");
                     canApplyDamage = false;
@@ -352,9 +473,26 @@ public class EnnemiAttack : MonoBehaviour
                     PerfectText.ActiveText();
                 }
             }
+            else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameEsquive && sliderLooseEsquiveSize > 0)
+            {
+                Battle.canEsquive = false;
+
+                sliderLooseEsquiveSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderEsquiveLoose(sliderLooseEsquiveSize);
+
+                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") != 0)
+                {
+                    PlayerDoSomething();
+                    ResetAllSlider();
+                    FailText.ActiveText();
+                    Time.timeScale = 1;
+                }
+            }
             else
             {
-                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton"))
+                Battle.canEsquive = true;
+
+                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") != 0)
                 {
                     canApplyDamage = false;
                     PlayerDoSomething();
@@ -364,6 +502,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         else
         {
+            PlayerDoSomething();
             ResetAllSlider();
         }
     }
@@ -371,10 +510,13 @@ public class EnnemiAttack : MonoBehaviour
     {
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
 
-        sliderPerfectEsquive = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectEsquiveSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        sliderLooseEsquiveSize = baseSliderLooseEsquiveSize;
 
         UIManager.UpdateSliderEsquive(setUpTimerSliderNormal);
-        UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquive);
+        UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquiveSize);
+        UIManager.UpdateSliderEsquiveLoose(sliderLooseEsquiveSize);
         startQTE = false;
     }
 
@@ -384,13 +526,16 @@ public class EnnemiAttack : MonoBehaviour
         {
             UIManager.UpdateSliderBlock(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
 
-            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartPerfectFrameBlock && sliderPerfectBlock > 0)
+            if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartPerfectFrameBlock && sliderPerfectBlockSize > 0)
             {
-                sliderPerfectBlock -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
-                UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
+                Battle.canBlock = true;
 
-                if (Input.GetButtonDown("CancelButton"))
+                sliderPerfectBlockSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderBlockPerfect(sliderPerfectBlockSize);
+
+                if (Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
                 {
+                    Debug.Log("Block");
                     PlayerDoSomething();
                     ResetAllSlider();
                     canApplyDamage = false;
@@ -398,9 +543,26 @@ public class EnnemiAttack : MonoBehaviour
                     countRoundAttack = 2;
                 }
             }
+            else if(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameBlock && sliderLooseBlockSize > 0)
+            {
+                Battle.canBlock = false;
+
+                sliderLooseBlockSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+                UIManager.UpdateSliderBlockLoose(sliderLooseBlockSize);
+
+                if (Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                {
+                    PlayerDoSomething();
+                    ResetAllSlider();
+                    FailText.ActiveText();
+                    Time.timeScale = 1;
+                }
+            }
             else
             {
-                if (Input.GetButtonDown("CancelButton"))
+                Battle.canBlock = true;
+
+                if (Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
                 {
                     canApplyDamage = false;
                     canApplyDamageBlock = true;
@@ -420,10 +582,13 @@ public class EnnemiAttack : MonoBehaviour
     {
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
 
-        sliderPerfectBlock = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+        sliderPerfectBlockSize = setUpSliderPerfect / baseSetUpTimerSliderNormal;
+
+        sliderLooseBlockSize = baseSliderLooseBlockSize;
 
         UIManager.UpdateSliderBlock(setUpTimerSliderNormal);
-        UIManager.UpdateSliderBlockPerfect(sliderPerfectBlock);
+        UIManager.UpdateSliderBlockPerfect(sliderPerfectBlockSize);
+        UIManager.UpdateSliderBlockLoose(sliderLooseBlockSize);
         startQTE = false;
         countRoundAttack--;
     }
@@ -431,10 +596,28 @@ public class EnnemiAttack : MonoBehaviour
     void TimingCounter()
     {
         Debug.Log("Counter");
-        if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) > 0 && startQTECounter)
+        UIManager.UpdateSliderCounter(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
+
+        if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameCounter && sliderLooseCounterSize > 0)
         {
-            UIManager.UpdateSliderCounter(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal));
-            if (Input.GetButtonDown("HealthButton"))
+            Battle.canCounter = false;
+
+            sliderLooseCounterSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+            UIManager.UpdateSliderCounterLoose(sliderLooseCounterSize);
+
+            if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+            {
+                ResetCounterSlider();
+                ReturnToStatePatrol();
+                FailText.ActiveText();
+                Time.timeScale = 1;
+            }
+        }
+        else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) >= 0 && startQTECounter)
+        {
+            Battle.canCounter = true;
+
+            if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
             {
                 counterReussi = true;
                 ResetCounterSlider();
@@ -442,6 +625,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         else
         {
+            PlayerDoSomething();
             ResetCounterSlider();
             ReturnToStatePatrol();
             thisSelected = false;
@@ -452,7 +636,10 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / 4f;
 
+        sliderLooseCounterSize = baseSliderLooseCounterSize;
+
         UIManager.UpdateSliderCounter(setUpTimerSliderNormal);
+        UIManager.UpdateSliderCounterLoose(sliderLooseCounterSize);
         UIManager.ActiveUICounter(false);
         UIManager.ActiveManetteUI(false);
         startQTECounter = false;
@@ -647,8 +834,6 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator BlockPlayerAction()
     {
-        Debug.Log("Desable UI");
-
         if (!esquiveReussiPerfect)
             UIManager.ActiveManetteUI(false);
 
@@ -656,11 +841,12 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.ActiveUIBlock(false);
         UIManager.ActiveUIEsquive(false);
 
+        yield return new WaitForSecondsRealtime(0.1f);
+        Debug.Log("Desable UI");
+
         Battle.canEsquive = false;
         Battle.canAttack = false;
         Battle.canBlock = false;
-
-        yield return new WaitForSecondsRealtime(0.1f);
         yield break;
     }
 

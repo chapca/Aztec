@@ -28,7 +28,7 @@ public class EnnemiManager : MonoBehaviour
     public bool startBattle;
 
     void Start()
-    {
+    {/*
         for (int i =0; i<nombreEnnemi; i++)
         {
             GameObject clone= Instantiate(prefabEnnemi);
@@ -36,7 +36,7 @@ public class EnnemiManager : MonoBehaviour
             clone.transform.localPosition = new Vector3(x, y, z);
             x += 2;
             z += Random.Range(-2,2);
-        }
+        }*/
 
         battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
     }
@@ -49,10 +49,13 @@ public class EnnemiManager : MonoBehaviour
         {
             StartCoroutine("EndFight");
             endFight = true;
+            startBattle = false;
         }
 
         if (startBattle)
         {
+            battle.isAttacked = true;
+
             if (!checkEnnemiAttaker)
             {
                 StartCoroutine("CheckEnnemiAttacker");

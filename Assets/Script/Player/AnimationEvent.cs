@@ -85,6 +85,7 @@ public class AnimationEvent : MonoBehaviour
 
     void ParadeReussi()
     {
+        Debug.Log("parade anim start");
         DodgeBlock = true;
     }
     void EndParade()

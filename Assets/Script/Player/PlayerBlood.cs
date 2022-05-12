@@ -10,7 +10,6 @@ public class PlayerBlood : MonoBehaviour
     public static bool deadWastage;
     void Start()
     {
-        GetBlood(100);
     }
 
     private void Update()

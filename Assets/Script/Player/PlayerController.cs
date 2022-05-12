@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float gravityValue = -10f;
 
-    [SerializeField] float smoothRun, smoothWalk;
+    [SerializeField] float smoothRun, smoothWalk, smoothRotateToEnnemi;
 
     public static Transform ennemi;
 
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
         if (battle.degaine)
         {
-            if(PlayerHp.hp >0)
+            if(PlayerHp.hp >0 && ennemi != null)
             {
                 /*Vector3 ennemiPos;
 
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 relativePos = ennemi.position - transform.position;
 
                 // the second argument, upwards, defaults to Vector3.up
-                Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 0.1f);
+                Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), smoothRotateToEnnemi);
                 transform.rotation = rotation;
 
             }
@@ -97,7 +97,8 @@ public class PlayerController : MonoBehaviour
     }
     void LateUpdate()
     {
-        Deplacement();
+        if(PlayerHp.hp >0)
+            Deplacement();
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas

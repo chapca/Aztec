@@ -22,11 +22,15 @@ public class Battle : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(canBlock);
+
         if(isAttacked)
         {
             myAnimator.SetBool("Degaine", true);
             degaine = true;
             camBattle.Priority = 11;
+
+            camBase.transform.position = Vector3.zero;
         }
         else
         {
@@ -38,7 +42,7 @@ public class Battle : MonoBehaviour
        
         if(canEsquive)
         {
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 myAnimator.SetBool("EsquiveDroite", true);
 
@@ -46,7 +50,7 @@ public class Battle : MonoBehaviour
                 canBlock = false;
                 canAttack = false;
             }
-            else if (Input.GetButtonDown("EsquiveLeftButton"))
+            else if (Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
             {
                 myAnimator.SetBool("EsquiveGauche", true);
                 canEsquive = false;
@@ -57,8 +61,9 @@ public class Battle : MonoBehaviour
 
         if(canBlock)
         {
-            if(Input.GetButtonDown("CancelButton"))
+            if(Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
             {
+                Debug.Log("Launch Block");
                 myAnimator.SetBool("Block", true);
 
                 canEsquive = false;
@@ -69,7 +74,7 @@ public class Battle : MonoBehaviour
         
         if(canCounter)
         {
-            if (Input.GetButtonDown("HealthButton"))
+            if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0 )
             {
                 myAnimator.SetBool("Estoc", true);
                 canCounter = false;
@@ -81,7 +86,7 @@ public class Battle : MonoBehaviour
 
         if (canAttack)
         {
-            if (Input.GetButtonDown("HealthButton"))
+            if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
             {
                 myAnimator.SetBool("Taille", true);
                 canEsquive = false;

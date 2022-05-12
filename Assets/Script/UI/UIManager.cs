@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
 
     static public Image sliderAttackPerfect, sliderEsquivePerfectRight, sliderEsquivePerfectLeft, sliderCounterPerfect, sliderBlockPerfect;
 
+    static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter;
+
     static public Text textCantinteract;
 
     static public GameObject manetteValidateInteraction, manetteValidateLeaveGame, cursor;
@@ -40,6 +42,11 @@ public class UIManager : MonoBehaviour
         sliderCounterPerfect = GameObject.Find("SliderCounterPerfect").GetComponent<Image>();
         sliderBlockPerfect = GameObject.Find("SliderBlockPerfect").GetComponent<Image>();
 
+        sliderLooseAttack = GameObject.Find("SliderAttackLoose").GetComponent<Image>();
+        sliderLooseEsquiveRight = GameObject.Find("SliderEsquiveLooseRight").GetComponent<Image>();
+        sliderLooseEsquiveLeft = GameObject.Find("SliderEsquiveLooseLeft").GetComponent<Image>();
+        sliderLooseBlock = GameObject.Find("SliderBlockLoose").GetComponent<Image>();
+        sliderLooseCounter = GameObject.Find("SliderCounterLoose").GetComponent<Image>();
 
         textCantinteract = GameObject.Find("TextCantInteract").GetComponent<Text>();
 
@@ -48,7 +55,6 @@ public class UIManager : MonoBehaviour
         manetteValidateLeaveGame = GameObject.Find("ManetteValidateLeaveGame");
 
         cursor = GameObject.Find("Cursor");
-
 
         UIManette.SetActive(false);
         UIEsquiveRight.SetActive(false);
@@ -61,6 +67,9 @@ public class UIManager : MonoBehaviour
         manetteValidateInteraction.gameObject.SetActive(false);
         manetteValidateLeaveGame.gameObject.SetActive(false);
         cursor.SetActive(false);
+
+        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+
     }
 
     //slider :
@@ -74,6 +83,11 @@ public class UIManager : MonoBehaviour
         sliderEsquivePerfectRight.fillAmount = value;
         sliderEsquivePerfectLeft.fillAmount = value;
     }
+    static public void UpdateSliderEsquiveLoose(float value)
+    {
+        sliderLooseEsquiveRight.fillAmount = value;
+        sliderLooseEsquiveLeft.fillAmount = value;
+    }
 
     static public void UpdateSliderBlock(float value)
     {
@@ -83,13 +97,17 @@ public class UIManager : MonoBehaviour
     {
         sliderBlockPerfect.fillAmount = value;
     }
+    static public void UpdateSliderBlockLoose(float value)
+    {
+        sliderLooseBlock.fillAmount = value;
+    }
 
     static public void UpdateSliderCounter(float value)
     {
         sliderCounter.fillAmount = value;
-    }static public void UpdateSliderCounterPerfect(float value)
+    }static public void UpdateSliderCounterLoose(float value)
     {
-        sliderCounterPerfect.fillAmount = value;
+        sliderLooseCounter.fillAmount = value;
     }
 
     static public void UpdateSliderAttack(float value)
@@ -99,7 +117,11 @@ public class UIManager : MonoBehaviour
     {
         sliderAttackPerfect.fillAmount = value;
     }
-
+    static public void UpdateSliderAttackLoose(float value)
+    {
+        Debug.Log(sliderLooseAttack.fillAmount);
+        sliderLooseAttack.fillAmount = value;
+    }
 
 
     static public void ActiveManetteUI(bool active)
