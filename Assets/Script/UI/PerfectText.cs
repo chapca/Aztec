@@ -35,7 +35,10 @@ public class PerfectText : MonoBehaviour
         a = 1;
         thisText.color = new Color(r, g, b, a);
         makeTransparent = true;
+
+        Debug.Log("va te faire enculé");
     }
+
 
     void MakeTextTRandparent()
     {

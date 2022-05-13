@@ -330,8 +330,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -370,8 +374,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -379,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -387,11 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -399,11 +407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -411,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -419,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -427,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -454,7 +462,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24412
+  m_Name: pb_Mesh24434
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2439,6 +2447,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5780879203783872582, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9116387001757868908, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2551,177 +2563,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f83c7ae5b6decd3408b93594282f1e3b, type: 3}
---- !u!43 &523038864
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24374
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 36
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 24
-    localAABB:
-      m_Center: {x: 40.911022, y: 15, z: -5}
-      m_Extent: {x: 42.088978, y: 15, z: 5}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 24
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 40
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 1152
-    _typelessdata: 00000000000000000000000000000000000000000000803f000080bf0000000000000000000080bf00000000000000000000a642000000000000000000000000000000000000803f000080bf0000000000000000000080bf0000a6c200000000000000000000f0410000000000000000000000000000803f000080bf0000000000000000000080bf000000000000f0410000a6420000f0410000000000000000000000000000803f000080bf0000000000000000000080bf0000a6c20000f0410000a64200000000000000000000803f000000000000000000000000000000000000803f000080bf00000000000000000000a64200000000000020c148067f3fc49a9f3c25686fbd0be96f3d710693b67e8f7f3f000080bf000020c1000000000000a6420000f0410000000048067f3fc49a9f3c25686fbd0be96f3d710693b67e8f7f3f000080bf000000000000f041e3a4a3420000f041000020c1900c7e3fc49a1f3d2568efbdba96ef3d36829eafff3d7e3f000080bf000020c10000f0410000a64200000000000020c10000000000000000000080bf0000803f0000000000000000000080bf0000a642000000000000000000000000000020c10000000000000000000080bf0000803f0000000000000000000080bf0000000000000000e3a4a3420000f041000020c10000000000000000000080bf0000803f0000000000000000000080bfe3a4a3420000f04140c796bf0000f041000020c10000000000000000000080bf0000803f0000000000000000000080bf40c796bf0000f0410000000000000000000020c18acd7fbfd5b420bd000000000000000000000000000080bf000080bf0000204100000000000000000000000000000000c4057fbfd5b4a0bcbc966f3d60e86fbd130217bb508f7fbf000080bf000000000000000040c796bf0000f041000020c1c4057fbfd5b4a0bcbc966f3d60e86fbd130217bb508f7fbf000080bf00002041582ff041000000000000f04100000000ff3d7ebf00000000bc96ef3d1696efbda78496bb4f3d7ebf000080bf00000000b1d0ef41000000000000f04100000000000000000000803f000000000000803f0000000000000000000080bf00000000000000000000a6420000f04100000000000000000000803f000000000000803f0000000000000000000080bf0000a6420000000040c796bf0000f041000020c1000000000000803f000000000000803f0000000000000000000080bf40c796bf000020c1e3a4a3420000f041000020c1000000000000803f000000000000803f0000000000000000000080bfe3a4a342000020c10000000000000000000020c100000000000080bf00000000000080bf0000000000000000000080bf00000000000020c10000a64200000000000020c100000000000080bf00000000000080bf0000000000000000000080bf0000a6c2000020c100000000000000000000000000000000000080bf00000000000080bf0000000000000000000080bf00000000000000000000a642000000000000000000000000000080bf00000000000080bf0000000000000000000080bf0000a6c200000000
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 40.911022, y: 15, z: -5}
-    m_Extent: {x: 42.088978, y: 15, z: 5}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!43 &572023729
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24258
+  m_Name: pb_Mesh24268
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2997,6 +2845,170 @@ MonoBehaviour:
   buttonQuit: {fileID: 1738109956}
   menuPause: {fileID: 2104411245}
   optionMenu: {fileID: 626690233}
+--- !u!43 &597274854
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: pb_Mesh24396
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 36
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 24
+    localAABB:
+      m_Center: {x: 40.911022, y: 15, z: -5}
+      m_Extent: {x: 42.088978, y: 15, z: 5}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00100011001200110013001200140015001600150017001600
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 24
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 1152
+    _typelessdata: 00000000000000000000000000000000000000000000803f000080bf0000000000000000000080bf00000000000000000000a642000000000000000000000000000000000000803f000080bf0000000000000000000080bf0000a6c200000000000000000000f0410000000000000000000000000000803f000080bf0000000000000000000080bf000000000000f0410000a6420000f0410000000000000000000000000000803f000080bf0000000000000000000080bf0000a6c20000f0410000a64200000000000000000000803f000000000000000000000000000000000000803f000080bf00000000000000000000a64200000000000020c148067f3fc49a9f3c25686fbd0be96f3d710693b67e8f7f3f000080bf000020c1000000000000a6420000f0410000000048067f3fc49a9f3c25686fbd0be96f3d710693b67e8f7f3f000080bf000000000000f041e3a4a3420000f041000020c1900c7e3fc49a1f3d2568efbdba96ef3d36829eafff3d7e3f000080bf000020c10000f0410000a64200000000000020c10000000000000000000080bf0000803f0000000000000000000080bf0000a642000000000000000000000000000020c10000000000000000000080bf0000803f0000000000000000000080bf0000000000000000e3a4a3420000f041000020c10000000000000000000080bf0000803f0000000000000000000080bfe3a4a3420000f04140c796bf0000f041000020c10000000000000000000080bf0000803f0000000000000000000080bf40c796bf0000f0410000000000000000000020c18acd7fbfd5b420bd000000000000000000000000000080bf000080bf0000204100000000000000000000000000000000c4057fbfd5b4a0bcbc966f3d60e86fbd130217bb508f7fbf000080bf000000000000000040c796bf0000f041000020c1c4057fbfd5b4a0bcbc966f3d60e86fbd130217bb508f7fbf000080bf00002041582ff041000000000000f04100000000ff3d7ebf00000000bc96ef3d1696efbda78496bb4f3d7ebf000080bf00000000b1d0ef41000000000000f04100000000000000000000803f000000000000803f0000000000000000000080bf00000000000000000000a6420000f04100000000000000000000803f000000000000803f0000000000000000000080bf0000a6420000000040c796bf0000f041000020c1000000000000803f000000000000803f0000000000000000000080bf40c796bf000020c1e3a4a3420000f041000020c1000000000000803f000000000000803f0000000000000000000080bfe3a4a342000020c10000000000000000000020c100000000000080bf00000000000080bf0000000000000000000080bf00000000000020c10000a64200000000000020c100000000000080bf00000000000080bf0000000000000000000080bf0000a6c2000020c100000000000000000000000000000000000080bf00000000000080bf0000000000000000000080bf00000000000000000000a642000000000000000000000000000080bf00000000000080bf0000000000000000000080bf0000a6c200000000
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 40.911022, y: 15, z: -5}
+    m_Extent: {x: 42.088978, y: 15, z: 5}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &626690233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5780879203783872580, guid: 571f3b0d5767a734fa6021977618bfba, type: 3}
@@ -3131,8 +3143,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -3171,8 +3187,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -3180,7 +3200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -3188,11 +3208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -3200,11 +3220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -3212,7 +3232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -3220,7 +3240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -3228,7 +3248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -3730,8 +3750,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -3770,8 +3794,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -3779,7 +3807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -3787,11 +3815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -3799,11 +3827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -3811,7 +3839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -3819,7 +3847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -3827,7 +3855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -3897,7 +3925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236535718290383863, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: 6236535718290383863, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3909,7 +3937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236535718290383863, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6236535718290383863, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4276,7 +4304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.45000002
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -4320,7 +4348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.45000002
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -4328,7 +4356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.45000002
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -4336,7 +4364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 1.8000001
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderCounterLooseSize
@@ -4344,7 +4372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.249
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -4352,11 +4380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.44820002
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.45000002
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSliderLooseBlockSize
@@ -4376,7 +4404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 1.8000001
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSliderLooseCounterSize
@@ -4396,7 +4424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -4404,7 +4432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -4434,7 +4462,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24512
+  m_Name: pb_Mesh24552
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4598,7 +4626,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24332
+  m_Name: pb_Mesh24354
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5885,7 +5913,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 523038864}
+  m_Mesh: {fileID: 597274854}
 --- !u!33 &1064679126
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -5893,7 +5921,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064679124}
-  m_Mesh: {fileID: 523038864}
+  m_Mesh: {fileID: 597274854}
 --- !u!23 &1064679127
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6146,7 +6174,7 @@ MonoBehaviour:
     m_AreaError: 15
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
-  m_Mesh: {fileID: 523038864}
+  m_Mesh: {fileID: 597274854}
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6918,7 +6946,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24386
+  m_Name: pb_Mesh24408
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7391,8 +7419,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -7431,8 +7463,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -7440,7 +7476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -7448,11 +7484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -7460,11 +7496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -7472,7 +7508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -7480,7 +7516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -7488,7 +7524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -7890,8 +7926,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -7930,8 +7970,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -7939,7 +7983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -7947,11 +7991,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -7959,11 +8003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -7971,7 +8015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -7979,7 +8023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -7987,7 +8031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -8014,7 +8058,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24444
+  m_Name: pb_Mesh24470
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8352,8 +8396,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -8392,8 +8440,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -8401,7 +8453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -8409,11 +8461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -8421,11 +8473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -8433,7 +8485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -8441,7 +8493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -8449,7 +8501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -9195,8 +9247,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -9235,8 +9291,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -9244,7 +9304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -9252,11 +9312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -9264,11 +9324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -9276,7 +9336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -9284,7 +9344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -9292,7 +9352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
@@ -9381,8 +9441,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734668597}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: activeThisinEditor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderPerfect
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderAttackNormal
@@ -9421,8 +9485,12 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: ManetteSpriteIsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseBlock
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseAttackSize
@@ -9430,7 +9498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseAttack
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartActionPlayer
@@ -9438,11 +9506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseCounterSize
-      value: 0.24900001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderLooseEsquiveSize
@@ -9450,11 +9518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseCounter
-      value: 0.044820003
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpSliderLooseEsquive
-      value: 0.045
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameBlock
@@ -9462,7 +9530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: baseSetUpTimerSliderNormal
-      value: 0.18
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameAttack
@@ -9470,7 +9538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameCounter
-      value: 90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpAngleLooseFrameEsquive
@@ -9478,7 +9546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameCounter
-      value: 0.001000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartLooseFrameEsquive
