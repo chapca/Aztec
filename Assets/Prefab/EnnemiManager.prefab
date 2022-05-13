@@ -52,4 +52,9 @@ MonoBehaviour:
   player: {fileID: 0}
   inFight: 0
   endFight: 0
-  prefabEnnemi: {fileID: 0}
+  nombreEnnemi: 1
+  prefabEnnemi: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  x: -5
+  y: 1
+  z: -5
+  startBattle: 0

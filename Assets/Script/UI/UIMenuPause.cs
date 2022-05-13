@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.SceneManagement;
 public class UIMenuPause : MonoBehaviour
 {
     public static bool menuPauseIsActive;
@@ -25,7 +25,7 @@ public class UIMenuPause : MonoBehaviour
         {
             Time.timeScale = 0;
             transform.GetChild(0).gameObject.SetActive(true);
-            m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(1).gameObject);
+            m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(2).gameObject);
             Debug.Log(m_EventSystem.currentSelectedGameObject);
             menuPauseIsActive = true;
         }
@@ -33,10 +33,10 @@ public class UIMenuPause : MonoBehaviour
         if(optionMenu.activeInHierarchy && Input.GetButtonDown("CancelButton"))
         {
             optionMenu.SetActive(false);
-            EnableButton(buttonQuit, buttonResume, null, true);
+            EnableButton(buttonQuit, buttonResume, true);
+            m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(2).gameObject);
         }
-
-        if(!optionMenu.activeInHierarchy && menuPause.activeInHierarchy && Input.GetButtonDown("CancelButton"))
+        else if(!optionMenu.activeInHierarchy && menuPause.activeInHierarchy && Input.GetButtonDown("CancelButton"))
         {
             menuPause.SetActive(false);
             Time.timeScale = 1;
@@ -46,15 +46,14 @@ public class UIMenuPause : MonoBehaviour
     public void ClickOption()
     {
         optionMenu.SetActive(true);
-        EnableButton(buttonResume, buttonQuit, null, false);
+        EnableButton(buttonResume, buttonQuit, false);
 
     }
 
-    void EnableButton(GameObject button1, GameObject button2, GameObject button3, bool active)
+    void EnableButton(GameObject button1, GameObject button2, bool active)
     {
         button1.SetActive(active);
         button2.SetActive(active);
-        button3.SetActive(active);
     }
 
     public void ResumeButton()
@@ -62,6 +61,12 @@ public class UIMenuPause : MonoBehaviour
         menuPause.SetActive(false);
 
         Time.timeScale = 1;
+    }
+    
+    public void RestartButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("AlphaScene");
     }
 
     public void QuitButton()

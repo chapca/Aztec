@@ -159,8 +159,11 @@ public class PlayerController : MonoBehaviour
                         ActiveSound();
                 }
             }
-            move.y += gravityValue * Time.deltaTime;
-            controller.Move(move.normalized * currentSpeed * Time.deltaTime);
+            if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") != 0)
+            {
+                move.y += gravityValue * Time.deltaTime;
+                controller.Move(move.normalized * currentSpeed * Time.deltaTime);
+            }
         }
 
         //Run

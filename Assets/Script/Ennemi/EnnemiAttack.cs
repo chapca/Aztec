@@ -573,6 +573,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         else
         {
+            Battle.canBlock = false;
             PlayerDoSomething();
             ResetAllSlider();
         }
@@ -624,6 +625,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         else
         {
+            Battle.canCounter = false;
             PlayerDoSomething();
             ResetCounterSlider();
             ReturnToStatePatrol();

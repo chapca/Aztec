@@ -21,8 +21,15 @@ public class OptionControlQTE : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log(listButton.GetChild(0).gameObject);
-        m_EventSystem.SetSelectedGameObject(listButton.GetChild(0).gameObject);
+        StartCoroutine("SelectFirstButton");
+    }
+
+    IEnumerator SelectFirstButton()
+    {
+       // m_EventSystem.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        //m_EventSystem.SetSelectedGameObject(listButton.GetChild(0).gameObject);
+        listButton.GetChild(0).transform.GetComponent<Button>().Select();
     }
 
     void Update()
