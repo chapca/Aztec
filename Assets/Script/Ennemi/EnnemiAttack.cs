@@ -259,8 +259,7 @@ public class EnnemiAttack : MonoBehaviour
 
         if (playerAction)
         {
-            if (Input.GetButtonDown("HealthButton") || Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetButtonDown("CancelButton") 
-                || Input.GetAxisRaw("HorizontalLeftButtonX") != 0 || Input.GetAxisRaw("VerticalLeftButtonY") != 0)
+            if (Input.GetButtonDown("BlockButton") || Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
             {
                 //PlayerDoSomething();
                 TimeScaleNormal();
@@ -274,7 +273,7 @@ public class EnnemiAttack : MonoBehaviour
         }
         if (startQTECounter)
         {
-            setUpTimerSliderNormal -= Time.unscaledDeltaTime;
+            setUpTimerSliderNormal -= Time.unscaledDeltaTime*1.5f;
             TimingCounter();
         }
     }
@@ -387,7 +386,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectAttacSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackPerfect(sliderPerfectAttacSize);
 
-                if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                if (Input.GetButtonDown("InteractButton"))
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -405,7 +404,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderLooseAttackSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackLoose(sliderLooseAttackSize);
 
-                if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                if (Input.GetButtonDown("InteractButton"))
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -416,7 +415,7 @@ public class EnnemiAttack : MonoBehaviour
             else
             {
                 Battle.canAttack = true;
-                if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                if (Input.GetButtonDown("InteractButton"))
                 {
                     AnimationEvent.attackStandard = true;
                     PlayerDoSomething();
@@ -459,7 +458,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectEsquiveSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquiveSize);
 
-                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") !=0)
+                if (Input.GetAxisRaw("HorizontalLeftButtonX") !=0)
                 {
                     Debug.Log("Esquive Perfect");
                     canApplyDamage = false;
@@ -480,7 +479,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderLooseEsquiveSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquiveLoose(sliderLooseEsquiveSize);
 
-                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") != 0)
+                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -492,7 +491,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 Battle.canEsquive = true;
 
-                if (Input.GetButtonDown("InteractButton") || Input.GetButtonDown("EsquiveLeftButton") || Input.GetAxisRaw("VerticalLeftButtonY") != 0)
+                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
                 {
                     canApplyDamage = false;
                     PlayerDoSomething();
@@ -533,7 +532,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectBlockSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockPerfect(sliderPerfectBlockSize);
 
-                if (Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                if (Input.GetButtonDown("BlockButton"))
                 {
                     Debug.Log("Block");
                     PlayerDoSomething();
@@ -550,7 +549,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderLooseBlockSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockLoose(sliderLooseBlockSize);
 
-                if (Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                if (Input.GetButtonDown("BlockButton"))
                 {
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -562,7 +561,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 Battle.canBlock = true;
 
-                if (Input.GetButtonDown("CancelButton") || Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                if (Input.GetButtonDown("BlockButton"))
                 {
                     canApplyDamage = false;
                     canApplyDamageBlock = true;
@@ -602,10 +601,10 @@ public class EnnemiAttack : MonoBehaviour
         {
             Battle.canCounter = false;
 
-            sliderLooseCounterSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
+            sliderLooseCounterSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal*1.5f;
             UIManager.UpdateSliderCounterLoose(sliderLooseCounterSize);
 
-            if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+            if (Input.GetButtonDown("InteractButton"))
             {
                 ResetCounterSlider();
                 ReturnToStatePatrol();
@@ -617,7 +616,7 @@ public class EnnemiAttack : MonoBehaviour
         {
             Battle.canCounter = true;
 
-            if (Input.GetButtonDown("HealthButton") || Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+            if (Input.GetButtonDown("InteractButton"))
             {
                 counterReussi = true;
                 ResetCounterSlider();

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float runSpeed;
     [SerializeField] float playerVelocity;
 
-    [SerializeField] float turnSmoothTime = 0.1f;
+    [SerializeField] float turnSmoothTime = 0.7f;
     float turnSmoothVelocity;
     float targetAngle;
     float angle;
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         CameraLibreNoMove();
 
-        ChangeCamCenterView();
+        //ChangeCamCenterView();
 
         //Deplacement();
 
