@@ -11,7 +11,10 @@ public class UIMenuPause : MonoBehaviour
 
     [SerializeField] GameObject buttonResume, buttonOption, buttonQuit;
 
-    [SerializeField] GameObject menuPause, optionMenu;
+    [SerializeField] GameObject canvasSlider, menuPause, optionMenu;
+
+    [SerializeField] Battle battle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +24,10 @@ public class UIMenuPause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Pause"))
+        if(Input.GetButtonDown("Pause") && !battle.degaine)
         {
             Time.timeScale = 0;
+            canvasSlider.SetActive(false);
             transform.GetChild(0).gameObject.SetActive(true);
             m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(2).gameObject);
             Debug.Log(m_EventSystem.currentSelectedGameObject);
@@ -38,6 +42,7 @@ public class UIMenuPause : MonoBehaviour
         }
         else if(!optionMenu.activeInHierarchy && menuPause.activeInHierarchy && Input.GetButtonDown("CancelButton"))
         {
+            canvasSlider.SetActive(true);
             menuPause.SetActive(false);
             Time.timeScale = 1;
         }

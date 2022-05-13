@@ -590,7 +590,9 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.UpdateSliderBlockPerfect(sliderPerfectBlockSize);
         UIManager.UpdateSliderBlockLoose(sliderLooseBlockSize);
         startQTE = false;
-        countRoundAttack--;
+
+        if(countRoundAttack>0)
+            countRoundAttack--;
     }
 
     void TimingCounter()

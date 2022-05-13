@@ -94,11 +94,12 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+
+        if (PlayerHp.hp > 0)
+            Deplacement();
     }
     void LateUpdate()
     {
-        if(PlayerHp.hp >0)
-            Deplacement();
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
