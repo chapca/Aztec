@@ -151,11 +151,22 @@ public class PlayerController : MonoBehaviour
             {
                 if (direction.magnitude >= 0.1f)
                 {
-                    targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camBase.transform.eulerAngles.y; ;
-                    angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                    transform.rotation = Quaternion.Euler(0, angle, 0);
+                    if (direction.z < 0 || direction.x !=0)
+                    {
+                        targetAngle = Mathf.Atan2(direction.x, direction.z) / Mathf.Rad2Deg + camBase.transform.eulerAngles.y;
+                        angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
 
-                    move = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+                        transform.rotation = Quaternion.Euler(0, angle, 0);
+                        move = Quaternion.Euler(0, targetAngle, 0) * direction;
+                    }
+                    else if(direction.z > 0)
+                    {
+                        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camBase.transform.eulerAngles.y;
+                        angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+
+                        transform.rotation = Quaternion.Euler(0, angle, 0);
+                        move = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+                    }
                     if (!myAudioSource.isPlaying)
                         ActiveSound();
                 }
