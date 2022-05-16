@@ -41,9 +41,9 @@ public class TargetCam : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = targetCamPlayer.position;
+        //transform.position = targetCamPlayer.position;
 
         Debug.Log(canTurnCamAroundPlayer);
 
@@ -54,18 +54,15 @@ public class TargetCam : MonoBehaviour
 
     void Rotation()
     {
-        if (canTurnCamAroundPlayer || !canTurnCamAroundPlayer)
+        if (PlayerController.CamYInverser)
         {
-            if (PlayerController.CamYInverser)
-            {
-                rotationY -= rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
-                transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
-            }
-            else
-            {
-                rotationY += rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
-                transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
-            }
+            rotationY -= rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
+            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+        }
+        else
+        {
+            rotationY += rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
+            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
         /*else
         {

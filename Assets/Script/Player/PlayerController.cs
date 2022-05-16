@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
         {
             if (controller.isGrounded)
             {
-                if (direction.magnitude >= 0.1f)
+                if (direction.magnitude >= 0f)
                 {
                     if (direction.z < 0 || direction.x !=0)
                     {
