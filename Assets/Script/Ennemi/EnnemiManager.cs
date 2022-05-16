@@ -56,6 +56,11 @@ public class EnnemiManager : MonoBehaviour
         {
             battle.isAttacked = true;
 
+            if(PlayerController.ennemi ==null)
+            {
+                PlayerController.ennemi = transform.GetChild(Random.Range(0, transform.childCount));
+            }
+
             if (!checkEnnemiAttaker)
             {
                 StartCoroutine("CheckEnnemiAttacker");

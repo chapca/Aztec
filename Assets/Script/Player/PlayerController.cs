@@ -74,9 +74,14 @@ public class PlayerController : MonoBehaviour
 
         //Deplacement();
 
+        if (PlayerHp.hp > 0)
+            Deplacement();
+    }
+    void LateUpdate()
+    {
         if (battle.degaine)
         {
-            if(PlayerHp.hp >0 && ennemi != null)
+            if (PlayerHp.hp > 0 && ennemi != null)
             {
                 /*Vector3 ennemiPos;
 
@@ -94,12 +99,6 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
-        if (PlayerHp.hp > 0)
-            Deplacement();
-    }
-    void LateUpdate()
-    {
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas

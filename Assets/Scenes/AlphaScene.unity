@@ -10058,7 +10058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: smoothRotateToEnnemi
-      value: 0.05
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
       propertyPath: speedCameraSwitchSide

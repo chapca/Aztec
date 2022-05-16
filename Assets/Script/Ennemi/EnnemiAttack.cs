@@ -682,7 +682,7 @@ public class EnnemiAttack : MonoBehaviour
         SmoothLookAt(player);
 
         if (distPlayer < 10f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - player.position.x, transform.position.y, transform.position.z - player.position.z), 2f * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - player.position.x, transform.position.y, transform.position.z - player.position.z), 1f * Time.deltaTime);
         else if(distPlayer > 12f)
             transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 1 * Time.deltaTime);
 
