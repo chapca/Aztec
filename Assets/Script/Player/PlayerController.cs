@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         CameraLibreNoMove();
 
-        //ChangeCamCenterView();
+        ChangeCamCenterView();
 
         //Deplacement();
 
