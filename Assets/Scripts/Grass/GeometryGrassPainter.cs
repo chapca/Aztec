@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEditor;
+using System;
+using Random = UnityEngine.Random;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
@@ -11,7 +14,10 @@ public class GeometryGrassPainter : MonoBehaviour
 {
 
     private Mesh mesh;
+    private Mesh submesh;
+
     MeshFilter filter;
+    MeshFilter subfilter;
 
     public Color AdjustedColor;
 
@@ -36,6 +42,7 @@ public class GeometryGrassPainter : MonoBehaviour
     public bool painting;
     public bool removing;
     public bool editing;
+    public bool textured;
 
     public int i = 0;
 
@@ -70,6 +77,8 @@ public class GeometryGrassPainter : MonoBehaviour
         SceneView.duringSceneGui -= this.OnScene;
         // Add (or re-add) the delegate.
         SceneView.duringSceneGui += this.OnScene;
+
+        toolbarInt = 0;
     }
 
     void OnDestroy()
@@ -83,6 +92,19 @@ public class GeometryGrassPainter : MonoBehaviour
     {
         filter = GetComponent<MeshFilter>();
         SceneView.duringSceneGui += this.OnScene;
+
+        if (transform.childCount == 0)
+        {
+            GameObject go = new GameObject("Grass Renderer");
+            go.transform.parent = transform;
+            subfilter = go.AddComponent<MeshFilter>();
+
+            go.AddComponent<MeshRenderer>();
+        }
+        else
+        {
+            subfilter = transform.GetChild(0).GetComponent<MeshFilter>();
+        }
     }
 
     public void ClearMesh()
@@ -97,8 +119,11 @@ public class GeometryGrassPainter : MonoBehaviour
 
     void OnScene(SceneView scene)
     {
+        if (toolbarInt == 0)
+            return;
+
         // only allow painting while this object is selected
-        if ((Selection.Contains(gameObject)))
+        if (gameObject && (Selection.Contains(gameObject)))
         {
 
             Event e = Event.current;
@@ -117,7 +142,7 @@ public class GeometryGrassPainter : MonoBehaviour
                 hitPosGizmo = hitGizmo.point;
             }
 
-            if (e.type == EventType.MouseDrag && e.button == 1 && toolbarInt == 0)
+            if (e.type == EventType.MouseDrag && e.button == 1 && toolbarInt == 1)
             {
                 // place based on density
                 for (int k = 0; k < density; k++)
@@ -193,7 +218,7 @@ public class GeometryGrassPainter : MonoBehaviour
                 e.Use();
             }
             // removing mesh points
-            if (e.type == EventType.MouseDrag && e.button == 1 && toolbarInt == 1)
+            if (e.type == EventType.MouseDrag && e.button == 1 && toolbarInt == 2)
             {
                 Ray ray = scene.camera.ScreenPointToRay(mousePos);
 
@@ -228,7 +253,7 @@ public class GeometryGrassPainter : MonoBehaviour
                 e.Use();
             }
 
-            if (e.type == EventType.MouseDrag && e.button == 1 && toolbarInt == 2)
+            if (e.type == EventType.MouseDrag && e.button == 1 && toolbarInt == 3)
             {
                 Ray ray = scene.camera.ScreenPointToRay(mousePos);
 
@@ -258,16 +283,93 @@ public class GeometryGrassPainter : MonoBehaviour
                 e.Use();
             }
             // set all info to mesh
-            mesh = new Mesh();
+            mesh = filter.mesh;
+            mesh.Clear();
             mesh.SetVertices(positions);
             indi = indicies.ToArray();
             mesh.SetIndices(indi, MeshTopology.Points, 0);
             mesh.SetUVs(0, length);
             mesh.SetColors(colors);
             mesh.SetNormals(normals);
-            filter.mesh = mesh;
+
+            CreateSubmesh();
 
         }
     }
+
+    private void CreateSubmesh()
+    {
+        submesh = subfilter.mesh;
+        submesh.Clear();
+        int pointcount = (textured ? 4 : 5), tris = (textured ? 2 : 3);
+        List<Vector3> subpos = new List<Vector3>(positions.Count * pointcount);
+        List<Color> subcolors = new List<Color>(positions.Count * pointcount);
+        List<Vector2> subuv = new List<Vector2>(positions.Count * pointcount);
+        List<SubMeshDescriptor> subquad = new List<SubMeshDescriptor>(positions.Count);
+        int[] subindices = new int[positions.Count * pointcount * 3];
+        
+        int ncount = 0, tcount = 0;
+        for (int n = 0; n < positions.Count; n++)
+        {
+            ncount = n * pointcount;
+            tcount = n * tris * 3;
+
+            Vector3 direction = Quaternion.Euler(0, positions[n].x*100 + positions[n].z*37f + tcount, 0) * Vector3.forward;
+            direction.Normalize();
+
+            if (!textured)
+            {
+                subpos.Add(positions[n] + direction * (-1) * sizeWidth * 0.25f);
+                subpos.Add(positions[n] + direction * (-1) * sizeWidth * 0.5f + normals[n] * sizeLength * 0.25f);
+                subpos.Add(positions[n] + direction * sizeWidth * 0.5f + normals[n] * sizeLength * 0.25f);
+                subpos.Add(positions[n] + direction * sizeWidth * 0.25f);
+                subpos.Add(positions[n] + normals[n] * sizeLength);
+
+                subuv.Add(new Vector2(0, 0));
+                subuv.Add(new Vector2(0.25f, 0.25f));
+                subuv.Add(new Vector2(0.75f, 0.25f));
+                subuv.Add(new Vector2(1, 0f));
+                subuv.Add(new Vector2(0.5f, 1));
+
+                subcolors.Add(colors[n]);
+                
+                subindices[tcount + 6] = ncount + 1;
+                subindices[tcount + 7] = ncount + 4;
+                subindices[tcount + 8] = ncount + 2;
+            }
+            else
+            {
+                subpos.Add(positions[n] + direction * (-1) * sizeWidth * 0.5f);
+                subpos.Add(positions[n] + direction * (-1) * sizeWidth * 0.5f + normals[n] * sizeLength );
+                subpos.Add(positions[n] + direction * sizeWidth * 0.5f + normals[n] * sizeLength);
+                subpos.Add(positions[n] + direction * sizeWidth * 0.5f);
+
+                subuv.Add(new Vector2(0.25f, 0.25f));
+                subuv.Add(new Vector2(0.5f, 1));
+                subuv.Add(new Vector2(0.75f, 0.25f));
+                subuv.Add(new Vector2(1, 0f));
+            }
+
+            subindices[tcount] = ncount;
+            subindices[tcount+1] = ncount+1;
+            subindices[tcount + 2] = ncount+2;
+
+            subindices[tcount + 3] = ncount;
+            subindices[tcount + 4] = ncount + 2;
+            subindices[tcount + 5] = ncount + 3;
+
+            subcolors.Add(colors[n]);
+            subcolors.Add(colors[n]);
+            subcolors.Add(colors[n]);
+            subcolors.Add(colors[n]);
+        }
+
+        submesh.SetVertices(subpos);
+        submesh.SetTriangles(subindices, 0);
+        submesh.SetUVs(0, subuv);
+        submesh.SetColors(subcolors);
+        
+    }
+    
 #endif
 }
