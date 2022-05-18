@@ -9,9 +9,16 @@ public class PlayerHp : MonoBehaviour
 
     [SerializeField] Battle battle;
 
+    AudioSource playerGainHpAudioSource;
+
     private void Awake()
     {
         hp = 100;
+    }
+
+    private void Start()
+    {
+        playerGainHpAudioSource = GameObject.Find("PlayerGainHPSound").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -19,7 +26,14 @@ public class PlayerHp : MonoBehaviour
         if (Input.GetButton("HealthButton") && hp < 100 && PlayerBlood.bloodQuantity >0 && !battle.isAttacked)
         {
             ManualHealth();
+            SoundManager.PlaySound2DContinue(playerGainHpAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[0], true);
         }
+        else
+        {
+            SoundManager.PlaySound2DContinue(playerGainHpAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[0], false);
+        }
+
+
 
         if(hp <=0)
         {

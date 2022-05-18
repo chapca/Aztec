@@ -92,9 +92,13 @@ public class Interaction : MonoBehaviour
                     playerController.enabled = false;
                     targetCam.enabled = false;
                     camIsAdjuting = true;
+
+                    SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
+                    SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
                 }
             }
         }
+
         if (other.CompareTag("End"))
         {
             Vector3 screenPoint = cam.WorldToScreenPoint(other.transform.position);

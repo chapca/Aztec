@@ -10,6 +10,10 @@ public class EnnemiAttack : MonoBehaviour
 
     EnnemiManager ennemiManager;
 
+    AudioSource myAudioSource;
+
+    public AudioSource bulletTimeAudioSource, qteTimerAudioSource, qteValidationAudioSource, playerAudioSource;
+
     public Animator myAnimator;
 
     [SerializeField] float distPlayer;
@@ -149,6 +153,7 @@ public class EnnemiAttack : MonoBehaviour
         ennemiManager = GetComponentInParent<EnnemiManager>();
         myAnimator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+        myAudioSource = GetComponent<AudioSource>();
 
         battleScript = GameObject.FindWithTag("Player").GetComponent<Battle>();
 
@@ -190,6 +195,11 @@ public class EnnemiAttack : MonoBehaviour
         baseSliderLooseCounterSize = sliderLooseCounterSize;
         baseSliderLooseEsquiveSize = sliderLooseEsquiveSize;
         baseSliderLooseBlockSize = sliderLooseBlockSize;
+
+        bulletTimeAudioSource = GameObject.Find("BattleBulletTimeMusic").GetComponent<AudioSource>();
+        qteTimerAudioSource = GameObject.Find("QTETimerMusic").GetComponent<AudioSource>();
+        qteValidationAudioSource = GameObject.Find("QTEValidationMusic").GetComponent<AudioSource>();
+        playerAudioSource = GameObject.Find("EmptyPlayer").GetComponent<AudioSource>();
     }
 
     void SetPositionFramePerfect()
@@ -395,6 +405,8 @@ public class EnnemiAttack : MonoBehaviour
                     attackReussiperfect = true;
                     state = 4;
                     PerfectText.ActiveText();
+
+                    PlayQTEValidationSound(2);
                 }
             }
             else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameAttack && sliderLooseAttackSize > 0)
@@ -410,6 +422,7 @@ public class EnnemiAttack : MonoBehaviour
                     ResetAllSlider();
                     FailText.ActiveText();
                     Time.timeScale = 1;
+                    PlayQTEValidationSound(0);
                 }
             }
             else
@@ -420,6 +433,7 @@ public class EnnemiAttack : MonoBehaviour
                     AnimationEvent.attackStandard = true;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    PlayQTEValidationSound(1);
                 }
             }
         }
@@ -470,6 +484,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     PerfectText.ActiveText();
+                    PlayQTEValidationSound(2);
                 }
             }
             else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameEsquive && sliderLooseEsquiveSize > 0)
@@ -485,6 +500,7 @@ public class EnnemiAttack : MonoBehaviour
                     ResetAllSlider();
                     FailText.ActiveText();
                     Time.timeScale = 1;
+                    PlayQTEValidationSound(0);
                 }
             }
             else
@@ -496,6 +512,7 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamage = false;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    PlayQTEValidationSound(1);
                 }
             }
         }
@@ -540,6 +557,7 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamage = false;
                     PerfectText.ActiveText();
                     countRoundAttack = 2;
+                    PlayQTEValidationSound(2);
                 }
             }
             else if(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameBlock && sliderLooseBlockSize > 0)
@@ -555,6 +573,7 @@ public class EnnemiAttack : MonoBehaviour
                     ResetAllSlider();
                     FailText.ActiveText();
                     Time.timeScale = 1;
+                    PlayQTEValidationSound(0);
                 }
             }
             else
@@ -568,6 +587,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     countRoundAttack = 1;
+                    PlayQTEValidationSound(1);
                 }
             }
         }
@@ -613,6 +633,7 @@ public class EnnemiAttack : MonoBehaviour
                 ReturnToStatePatrol();
                 FailText.ActiveText();
                 Time.timeScale = 1;
+                PlayQTEValidationSound(0);
             }
         }
         else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) >= 0 && startQTECounter)
@@ -623,6 +644,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 counterReussi = true;
                 ResetCounterSlider();
+                PlayQTEValidationSound(1);
             }
         }
         else
@@ -636,6 +658,9 @@ public class EnnemiAttack : MonoBehaviour
     }
     void ResetCounterSlider()
     {
+        StopPlayQTETimerSound();
+        StopPlayBulletTimeSound();
+
         setUpTimerSliderNormal = ((setUpEndActionPlayer - setUpStartActionPlayer) * 10f) / convertion;
         setUpSliderPerfect = setUpTimerSliderNormal / 4f;
 
@@ -650,6 +675,9 @@ public class EnnemiAttack : MonoBehaviour
 
     void ResetAllSlider()
     {
+        StopPlayQTETimerSound();
+        StopPlayBulletTimeSound();
+
         ResetBlockSlider();
         ResetEsquiveSlider();
         ResetAttackSlider();
@@ -838,7 +866,10 @@ public class EnnemiAttack : MonoBehaviour
     IEnumerator BlockPlayerAction()
     {
         if (!esquiveReussiPerfect)
+        {
             UIManager.ActiveManetteUI(false);
+            PlayQTETimerSound();
+        }
 
         UIManager.ActiveUIAttack(false);
         UIManager.ActiveUIBlock(false);
@@ -914,6 +945,9 @@ public class EnnemiAttack : MonoBehaviour
         Time.timeScale = 0.25f;
         startQTE = true;
         playerAction = true;
+
+        PlayBulletTimeSound();
+        PlayQTETimerSound();
     }
 
     void SetUpEndFenetreAttack()
@@ -930,11 +964,41 @@ public class EnnemiAttack : MonoBehaviour
     void ApplyDamageToPlayer()
     {
         if(canApplyDamage)
+        {
             PlayerHp.TakeDamage(damage);
+            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
+        }
 
         if(canApplyDamageBlock)
         {
             PlayerHp.TakeDamage(blockDamage);
+            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
+            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
         }
+    }
+
+
+    // Launch Sound
+    void PlayBulletTimeSound()
+    {
+        SoundManager.PlaySound2DContinue(bulletTimeAudioSource, SoundManager.soundAndVolume2DStatic[3], true);
+    }
+    void PlayQTETimerSound()
+    {
+        SoundManager.PlaySound2DContinue(qteTimerAudioSource, SoundManager.soundAndVolume2DStatic[4], true);
+    }
+    void PlayQTEValidationSound(int reussite)
+    {
+        SoundManager.PlaySoundPlayerInteraction(qteValidationAudioSource, SoundManager.soundAndVolume2DStatic[reussite]);
+    }
+
+    // Stop sound
+    void StopPlayBulletTimeSound()
+    {
+        SoundManager.PlaySound2DContinue(bulletTimeAudioSource, SoundManager.soundAndVolume2DStatic[3], false);
+    }
+    void StopPlayQTETimerSound()
+    {
+        SoundManager.PlaySound2DContinue(qteTimerAudioSource, SoundManager.soundAndVolume2DStatic[4], false);
     }
 }

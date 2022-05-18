@@ -7,6 +7,8 @@ public class Battle : MonoBehaviour
 {
     [SerializeField] public static Animator myAnimator;
 
+    AudioSource parentAudioSource, battleAudioSource, explorationAudioSource;
+
     [SerializeField]
     CinemachineVirtualCamera camBase, camBattle;
 
@@ -18,6 +20,12 @@ public class Battle : MonoBehaviour
     void Start()
     {
         myAnimator = transform.parent.GetComponent<Animator>();
+
+        parentAudioSource = transform.parent.GetComponent<AudioSource>();
+        battleAudioSource = GameObject.Find("BattleMusic").GetComponent<AudioSource>();
+        explorationAudioSource = GameObject.Find("ExplorationMusic").GetComponent<AudioSource>();
+
+        SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], true);
     }
 
     void Update()
@@ -26,14 +34,28 @@ public class Battle : MonoBehaviour
 
         if(isAttacked)
         {
-            myAnimator.SetBool("Degaine", true);
-            degaine = true;
-            camBattle.Priority = 11;
+            if(!degaine)
+            {
+               SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], false);
+               SoundManager.PlaySoundPlayerBattle(parentAudioSource, SoundManager.soundAndVolume2DStatic[0]);
+               SoundManager.PlaySound2DContinue(battleAudioSource, SoundManager.soundAndVolume2DStatic[6], true);
 
-            camBase.transform.position = Vector3.zero;
+
+                myAnimator.SetBool("Degaine", true);
+                degaine = true;
+                camBattle.Priority = 11;
+
+                camBase.transform.position = Vector3.zero;
+            }
         }
         else
         {
+            if (degaine)
+            {
+                SoundManager.PlaySound2DContinue(battleAudioSource, SoundManager.soundAndVolume2DStatic[6], false);
+                SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], true);
+            }
+
             myAnimator.SetBool("Degaine", false);
             degaine = false;
             camBattle.Priority = 9;
