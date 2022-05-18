@@ -166,14 +166,15 @@ public class PlayerController : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, angle, 0);
                         move = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
                     }
-                    if (!myAudioSource.isPlaying)
-                        ActiveSound();
                 }
             }
             if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") != 0)
             {
                 move.y += gravityValue * Time.deltaTime;
                 controller.Move(move.normalized * currentSpeed * Time.deltaTime);
+
+                if (!myAudioSource.isPlaying && controller.isGrounded)
+                    ActiveSound();
             }
         }
 
