@@ -63,6 +63,7 @@ public class UIMenuPause : MonoBehaviour
 
     public void ResumeButton()
     {
+        canvasSlider.SetActive(true);
         menuPause.SetActive(false);
 
         Time.timeScale = 1;

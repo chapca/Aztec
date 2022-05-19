@@ -5454,7 +5454,7 @@ MonoBehaviour:
   canvasSlider: {fileID: 268314106}
   menuPause: {fileID: 2104411245}
   optionMenu: {fileID: 626690233}
-  battle: {fileID: 1718085659}
+  battle: {fileID: 1646696722}
 --- !u!1 &596662265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6035651953432206167, guid: f207f7cd154afe642bbbca637320ecf8, type: 3}
