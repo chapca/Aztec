@@ -7,11 +7,9 @@ public class AnimationEvent : MonoBehaviour
 {
     PlayerController playerController;
 
-    [SerializeField] float speedEsquive, currentSpeedEsquive;
+    [SerializeField] float speedEsquive, currentSpeedEsquive, esquiveAngleRot, rotationY, rotSpeedY;
 
-    Transform player;
-
-    [SerializeField] bool esquiveLeft, esquiveRight;
+    [SerializeField] bool esquiveLeft, esquiveRight, returnBaseRotation;
 
     public static bool DodgeBlock, attackStandard, attackPerfect;
 
@@ -21,8 +19,6 @@ public class AnimationEvent : MonoBehaviour
     void Start()
     {
         playerController = GetComponent<PlayerController>();
-
-        player = transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
@@ -33,10 +29,51 @@ public class AnimationEvent : MonoBehaviour
     private void LateUpdate()
     {
         if (esquiveRight)
-            transform.Translate(Vector3.right * currentSpeedEsquive * Time.deltaTime);
+        {
+            transform.parent.transform.Translate(Vector3.right * currentSpeedEsquive * Time.deltaTime);
+            
+            if (transform.localRotation.y < esquiveAngleRot)
+            {
+                rotationY += rotSpeedY * Time.deltaTime;
+                transform.localRotation = Quaternion.Euler(0, rotationY, 0);
+            }
+        }
+        else if (esquiveLeft)
+        {
+            transform.parent.transform.Translate(Vector3.right * -currentSpeedEsquive * Time.deltaTime);
 
-        if (esquiveLeft)
-            transform.Translate(Vector3.right * -currentSpeedEsquive * Time.deltaTime);
+            if (transform.localRotation.y > -esquiveAngleRot)
+            {
+                rotationY -= rotSpeedY * Time.deltaTime;
+                transform.localRotation = Quaternion.Euler(0, rotationY, 0);
+            }
+        }
+
+        if(returnBaseRotation)
+        {
+            if (transform.localRotation.y > 0)
+            {
+                rotationY -= rotSpeedY * Time.deltaTime;
+                transform.localRotation = Quaternion.Euler(0, rotationY, 0);
+
+                if(transform.localRotation.y < 2)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    returnBaseRotation = false;
+                }
+            }
+            if (transform.localRotation.y < 0)
+            {
+                rotationY += rotSpeedY * Time.deltaTime;
+                transform.localRotation = Quaternion.Euler(0, rotationY, 0);
+
+                if (transform.localRotation.y > -2)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    returnBaseRotation = false;
+                }
+            }
+        }
     }
 
     void EsquiveDroite()
@@ -49,6 +86,8 @@ public class AnimationEvent : MonoBehaviour
         Battle.myAnimator.SetBool("EsquiveDroite", false);
         esquiveRight = false;
         currentSpeedEsquive = 0;
+
+        returnBaseRotation = false;
     }
 
     void EsquiveGauche()
@@ -61,6 +100,8 @@ public class AnimationEvent : MonoBehaviour
     {
         esquiveLeft = false;
         currentSpeedEsquive = 0;
+
+        returnBaseRotation = false;
     }
 
     void AttackStart()
@@ -78,6 +119,8 @@ public class AnimationEvent : MonoBehaviour
     }
     void AttackEnd()
     {
+        Debug.Log("StopAttack");
+
         if(attackPerfect)
         {
             ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
@@ -89,7 +132,8 @@ public class AnimationEvent : MonoBehaviour
                         ShakeCam.shakeCamParametersAttackNormalStatic[0].frequence, ShakeCam.shakeCamParametersAttackNormalStatic[0].duration);
         }
 
-        Battle.myAnimator.SetBool("Taille", false);
+        Battle.myAnimator.SetBool("AttackNormal", false);
+        Battle.myAnimator.SetBool("AttackPerfect", false);
         Battle.isAttacking = false;
         StartCoroutine("StopFuckingAttack");
     }
@@ -101,8 +145,15 @@ public class AnimationEvent : MonoBehaviour
     }
     void EndParade()
     {
-        Battle.myAnimator.SetBool("Block", false);
+        Battle.myAnimator.SetBool("IsHit", false);
+        Battle.myAnimator.SetBool("BlockNormal", false);
+        Battle.myAnimator.SetBool("BlockPerfect", false);
         DodgeBlock = false;
+    }
+
+    void EndPerfectParade()
+    {
+        Battle.myAnimator.SetBool("BlockPerfectEnd", false);
     }
 
     IEnumerator StopFuckingAttack()
@@ -139,6 +190,39 @@ public class AnimationEvent : MonoBehaviour
         Debug.Log("Launch RestartScene");
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("AlphaScene");
+        yield break;
+    }
+
+    void AnimCounter()
+    {
+        if (!Battle.isCounter)
+        {
+            Battle.isCounter = true;
+            ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
+            ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
+            Debug.Log(Battle.isCounter);
+        }
+    }
+
+    void AnimCounterEnd()
+    {
+        ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
+
+        StartCoroutine("StopCounter");
+
+        Battle.myAnimator.SetBool("Counter", false);
+        Battle.canCounter = false;
+        Battle.isCounter = false;
+        Debug.Log(Battle.isCounter);
+    }
+
+    IEnumerator StopCounter()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        Battle.isCounter = false;
+        Debug.Log(Battle.isCounter);
         yield break;
     }
 }

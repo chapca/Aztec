@@ -286,7 +286,7 @@ public class EnnemiAttack : MonoBehaviour
         if (!thisSelected && startBattle)
             StateWaitingPlayer();
 
-        if (playerAction)
+        /*if (playerAction)
         {
             if (Input.GetButtonDown("BlockButton") || Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
             {
@@ -294,7 +294,7 @@ public class EnnemiAttack : MonoBehaviour
                 TimeScaleNormal();
                 playerAction = false;
             }
-        }
+        }*/
 
         if(startQTE)
         {
@@ -420,6 +420,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     AnimationEvent.attackPerfect = true;
+                    Battle.myAnimator.SetBool("AttackPerfect", true);
                     canApplyDamage = false;
                     attackReussiperfect = true;
                     state = 4;
@@ -450,6 +451,7 @@ public class EnnemiAttack : MonoBehaviour
                 if (Input.GetButtonDown("InteractButton"))
                 {
                     AnimationEvent.attackStandard = true;
+                    Battle.myAnimator.SetBool("AttackNormal", true);
                     PlayerDoSomething();
                     ResetAllSlider();
                     PlayQTEValidationSound(1);
@@ -570,6 +572,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("BlockButton"))
                 {
+                    Battle.myAnimator.SetBool("BlockPerfect", true);
                     Debug.Log("Block");
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -740,14 +743,13 @@ public class EnnemiAttack : MonoBehaviour
 
         if (distPlayer < 10f)
         {
-            Physics.Raycast(this.transform.position, -transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask); // Si l'angle est plus petit que l'angle de vision du bot, on tire un rayon vers le joueur
-            Debug.DrawRay(this.transform.position, -transform.TransformDirection(Vector3.forward) * 100f, Color.blue);
-
-            Debug.LogWarning(hit.transform.gameObject + "  /  " + transform.position + "  /  " + hit.point);
+            Physics.Raycast(this.transform.position, Quaternion.AngleAxis(-30, transform.right)* -transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask); // Si l'angle est plus petit que l'angle de vision du bot, on tire un rayon vers le joueur
+            Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-30, transform.right) * -transform.TransformDirection(Vector3.forward) * 100f, Color.blue);
 
             if (hit.collider != null)
             {
                 agent.SetDestination(hit.point);
+                //Debug.LogWarning(hit.transform.gameObject + "  /  " + transform.position + "  /  " + hit.point);
             }
         }
         else if (distPlayer > 12f)
@@ -1047,7 +1049,10 @@ public class EnnemiAttack : MonoBehaviour
     {
         if(canApplyDamage)
         {
+            Battle.myAnimator.SetBool("IsHit", true);
+
             PlayerHp.TakeDamage(damage);
+            Debug.LogError(SoundManager.soundAndVolumePlayerBattleStatic[0]);
             SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
 
             ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersFailBlockStatic, ShakeCam.shakeCamParametersFailBlockStatic[0].axeShake, ShakeCam.shakeCamParametersFailBlockStatic[0].amplitude,
@@ -1056,9 +1061,10 @@ public class EnnemiAttack : MonoBehaviour
 
         if(canApplyDamageBlock)
         {
+            Battle.myAnimator.SetBool("BlockNormal", true);
+            
             PlayerHp.TakeDamage(blockDamage);
-            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
-            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
+            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[4]);
 
             ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersBlockNormalStatic, ShakeCam.shakeCamParametersBlockNormalStatic[0].axeShake, ShakeCam.shakeCamParametersBlockNormalStatic[0].amplitude,
                         ShakeCam.shakeCamParametersBlockNormalStatic[0].frequence, ShakeCam.shakeCamParametersBlockNormalStatic[0].duration);
@@ -1066,6 +1072,10 @@ public class EnnemiAttack : MonoBehaviour
         
         if(!canApplyDamageBlock && !canApplyDamage)
         {
+            Battle.myAnimator.SetBool("BlockPerfectEnd", true);
+
+            SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[5]);
+
             ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamparametersBlockPerfectStatic, ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude,
                         ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence, ShakeCam.shakeCamparametersBlockPerfectStatic[0].duration);
         }

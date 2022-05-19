@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     Battle battle;
 
+    [SerializeField] Animator myAnimator;
+
     CharacterController controller;
     public Vector3 move;
 
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     Quaternion lookEnnemi;
 
-    public bool isRunning;
+    public bool isRunning, isWalking;
 
     AudioSource myAudioSource;
 
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         runSpeed = baseSpeed * 2f;
 
         controller = GetComponent<CharacterController>();
-        battle = transform.GetChild(0).GetComponent<Battle>();
+        battle = transform.Find("PlayerAnim").GetComponent<Battle>();
 
         swordCollider = transform.GetChild(0).transform.GetChild(1).GetComponent<BoxCollider>();
 
@@ -76,7 +78,10 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerHp.hp > 0)
             Deplacement();
+
+        AnimationDeclancheur();
     }
+
     void LateUpdate()
     {
         if (battle.degaine)
@@ -99,6 +104,12 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+    }
+
+    void AnimationDeclancheur()
+    {
+        myAnimator.SetBool("Walk", isWalking);
+        myAnimator.SetBool("Run", isRunning);
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
@@ -138,6 +149,13 @@ public class PlayerController : MonoBehaviour
 
     void Deplacement()
     {
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
+            isRunning = false;
+            isWalking = false;
+        }
+
+
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
 
@@ -170,6 +188,9 @@ public class PlayerController : MonoBehaviour
             }
             if(Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") != 0)
             {
+                if (!isRunning)
+                    isWalking = true;
+
                 move.y += gravityValue * Time.deltaTime;
                 controller.Move(move.normalized * currentSpeed * Time.deltaTime);
 
@@ -186,9 +207,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("RunButton"))
         {
-            if(!isRunning)
+            if(!isRunning && Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
             {
                 isRunning = true;
+                isWalking = false;
             }
             else
             {
@@ -205,10 +227,6 @@ public class PlayerController : MonoBehaviour
             currentSpeed = Mathf.Lerp(currentSpeed, baseSpeed, smoothWalk);
         }
 
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-        {
-            isRunning = false;
-        }
     }
     //Sound 
     void ActiveSound()
@@ -218,7 +236,7 @@ public class PlayerController : MonoBehaviour
 
     //Animation Event : 
 
-    void AnimCounter()
+    /*void AnimCounter()
     {
         if(!Battle.isCounter)
         {
@@ -249,5 +267,5 @@ public class PlayerController : MonoBehaviour
         Battle.isCounter = false;
         Debug.Log(Battle.isCounter);
         yield break;
-    }
+    }*/
 }

@@ -19,7 +19,7 @@ public class Battle : MonoBehaviour
 
     void Start()
     {
-        myAnimator = transform.parent.GetComponent<Animator>();
+        myAnimator = GetComponent<Animator>();
 
         parentAudioSource = transform.parent.GetComponent<AudioSource>();
         battleAudioSource = GameObject.Find("BattleMusic").GetComponent<AudioSource>();
@@ -86,7 +86,7 @@ public class Battle : MonoBehaviour
             if(Input.GetButtonDown("BlockButton"))
             {
                 Debug.Log("Launch Block");
-                myAnimator.SetBool("Block", true);
+                //myAnimator.SetBool("Block", true);
 
                 canEsquive = false;
                 canBlock = false;
@@ -98,7 +98,7 @@ public class Battle : MonoBehaviour
         {
             if (Input.GetButtonDown("InteractButton"))
             {
-                myAnimator.SetBool("Estoc", true);
+                myAnimator.SetBool("Counter", true);
                 canCounter = false;
                 canEsquive = false;
                 canBlock = false;
@@ -110,7 +110,17 @@ public class Battle : MonoBehaviour
         {
             if (Input.GetButtonDown("InteractButton"))
             {
-                myAnimator.SetBool("Taille", true);
+               /* if(AnimationEvent.attackPerfect)
+                {
+                    myAnimator.SetBool("AttackPerfect", true);
+                    Debug.LogWarning("AttackPerfect");
+                }
+                else
+                {
+                    myAnimator.SetBool("AttackNormal", true);
+                    Debug.LogWarning("AttackNormal");
+                }*/
+
                 canEsquive = false;
                 canBlock = false;
                 canAttack = false;
