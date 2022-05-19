@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
-[ExecuteInEditMode]
+
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -26,7 +27,7 @@ public class EnnemiAttack : MonoBehaviour
 
     Quaternion lookPlayer;
 
-    [SerializeField] int state;
+    public int state;
 
     [SerializeField] bool moveRight;
 
@@ -140,6 +141,18 @@ public class EnnemiAttack : MonoBehaviour
 
     bool playerCanEsquive;
 
+    [Header("Patrouille NavMesh")]
+    [SerializeField] float circleRadius;
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] bool findPosition = false;
+    bool patrolIsActive;
+    Vector3 basePos;
+    Vector2 pos2D;
+    Vector3 pos3D;
+
+    RaycastHit hit;
+    [SerializeField] LayerMask layerMask;
+
     void Start()
     {
         /*sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
@@ -154,6 +167,7 @@ public class EnnemiAttack : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
         myAudioSource = GetComponent<AudioSource>();
+        agent = GetComponent<NavMeshAgent>();
 
         battleScript = GameObject.FindWithTag("Player").GetComponent<Battle>();
 
@@ -200,6 +214,8 @@ public class EnnemiAttack : MonoBehaviour
         qteTimerAudioSource = GameObject.Find("QTETimerMusic").GetComponent<AudioSource>();
         qteValidationAudioSource = GameObject.Find("QTEValidationMusic").GetComponent<AudioSource>();
         playerAudioSource = GameObject.Find("EmptyPlayer").GetComponent<AudioSource>();
+
+        basePos = transform.position;
     }
 
     void SetPositionFramePerfect()
@@ -230,7 +246,7 @@ public class EnnemiAttack : MonoBehaviour
 
         distPlayer = Vector3.Distance(transform.position, player.position);
 
-        if(retrunState1 && state !=1)
+        if(retrunState1 && state !=0)
         {
             ReturnToStatePatrol();
         }
@@ -264,8 +280,11 @@ public class EnnemiAttack : MonoBehaviour
                 break;
         }
 
-        if (!thisSelected)
-            ReturnToStatePatrol();
+        /*if (!thisSelected)
+            ReturnToStatePatrol(); */
+        
+        if (!thisSelected && startBattle)
+            StateWaitingPlayer();
 
         if (playerAction)
         {
@@ -558,6 +577,8 @@ public class EnnemiAttack : MonoBehaviour
                     PerfectText.ActiveText();
                     countRoundAttack = 2;
                     PlayQTEValidationSound(2);
+
+                    ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude, ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence);
                 }
             }
             else if(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameBlock && sliderLooseBlockSize > 0)
@@ -685,8 +706,13 @@ public class EnnemiAttack : MonoBehaviour
         SetUpEndFenetreAttack();
     }
 
+    bool launchGoBack;
+
     void StateWaitingPlayer()
     {
+        agent.enabled = true;
+        agent.angularSpeed = 0;
+
         canApplyDamageBlock = false;
         canApplyDamage = true;
         paradeReussi = false;
@@ -709,10 +735,27 @@ public class EnnemiAttack : MonoBehaviour
 
         SmoothLookAt(player);
 
+        /* if (distPlayer < 10f)
+             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - player.position.x, transform.position.y, transform.position.z - player.position.z), 1f * Time.deltaTime);
+         else if(distPlayer > 12f)
+             transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 1 * Time.deltaTime);*/
+
         if (distPlayer < 10f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - player.position.x, transform.position.y, transform.position.z - player.position.z), 1f * Time.deltaTime);
-        else if(distPlayer > 12f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 1 * Time.deltaTime);
+        {
+            Physics.Raycast(this.transform.position, -transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask); // Si l'angle est plus petit que l'angle de vision du bot, on tire un rayon vers le joueur
+            Debug.DrawRay(this.transform.position, -transform.TransformDirection(Vector3.forward) * 100f, Color.blue);
+
+            Debug.LogWarning(hit.transform.gameObject + "  /  " + transform.position + "  /  " + hit.point);
+
+            if (hit.collider != null)
+            {
+                agent.SetDestination(hit.point);
+            }
+        }
+        else if (distPlayer > 12f)
+        {
+            agent.SetDestination(player.position);
+        }
 
         if (time >=0)
         {
@@ -731,8 +774,6 @@ public class EnnemiAttack : MonoBehaviour
 
             time = 2;
         }
-
-        transform.RotateAround(player.position, Vector3.up, 20 * Time.deltaTime);
     }
 
     void RandomAttack()
@@ -769,11 +810,48 @@ public class EnnemiAttack : MonoBehaviour
         if(startBattle)
         {
             state = 1;
+            patrolIsActive = false;
+        }
+        else
+        {
+            if(!patrolIsActive)
+            {
+                StartCoroutine("Walk");
+                patrolIsActive = true;
+                agent.angularSpeed = 120f;
+            }
+        }
+    }
+
+    IEnumerator Walk()
+    {
+        while (gameObject.activeSelf && state ==0)
+        {
+            Debug.Log("ennemi patrolling");
+
+            Vector2 pos2D = Random.insideUnitCircle * circleRadius;
+            Vector3 pos3D = basePos + new Vector3(pos2D.x, 0, pos2D.y);
+
+            agent.SetDestination(pos3D);
+
+            if (!agent.isStopped)
+            {
+                Debug.Log("!is stopped");
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+                Debug.Log("is stopped");
+            }
+            yield return new WaitForSeconds(3f);
         }
     }
 
     void StateAttack()
     {
+        agent.enabled = false;
+        findPosition = false;
+        launchGoBack = false;
         PlayerController.ennemi = this.transform;
         AnimationEvent.ennemi = this.gameObject;
 
@@ -800,9 +878,15 @@ public class EnnemiAttack : MonoBehaviour
     }
 
     void SmoothLookAt(Transform target)
-    {
+    {/*
         lookPlayer = Quaternion.LookRotation(target.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookPlayer, 10 * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookPlayer, 10 * Time.deltaTime);*/
+
+        Vector3 relativePos = player.position - transform.position;
+
+        // the second argument, upwards, defaults to Vector3.up
+        Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 0.5f);
+        transform.rotation = rotation;
     }
 
     void LaunchAttack()
@@ -887,7 +971,7 @@ public class EnnemiAttack : MonoBehaviour
     // fonction en lien avec les action du joueur
     void ReturnToStatePatrol()
     {
-        state = 1;
+        state = 0;
         thisSelected = false;
     }
 

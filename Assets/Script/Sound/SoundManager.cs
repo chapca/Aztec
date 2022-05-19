@@ -67,32 +67,38 @@ public class SoundManager : MonoBehaviour
     //Player Sound
     public static void PlaySoundStepFoot(AudioSource sourceAudio, SoundVolume soundVolume)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.clip = soundVolume.clip;
         sourceAudio.Play();
     }
     public static void PlaySoundPlayerBattle(AudioSource sourceAudio, SoundVolume soundVolume)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);
     }
     public static void PlaySoundPlayerInteraction(AudioSource sourceAudio, SoundVolume soundVolume)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);
     }
 
     //Ennemi Sound
     public static void PlaySoundEnnemiStepFoot(AudioSource sourceAudio, SoundVolume soundVolume)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.clip = soundVolume.clip;
         sourceAudio.Play();
     }
     public static void PlaySoundEnnemiBattle(AudioSource sourceAudio, SoundVolume soundVolume)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);
     }
 
     //Interactive props Sound
     public static void PlaySoundInteractProps(AudioSource sourceAudio, SoundVolume soundVolume)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);
     }
 
@@ -102,6 +108,7 @@ public class SoundManager : MonoBehaviour
     {
         if(active)
         {
+            sourceAudio.volume = soundVolume.volume;
             sourceAudio.clip = soundVolume.clip;
             sourceAudio.loop = active;
             sourceAudio.Play();
@@ -115,6 +122,7 @@ public class SoundManager : MonoBehaviour
     //2D sound one shot
     public static void PlaySound2DOneShot(AudioSource sourceAudio, SoundVolume soundVolume, bool active)
     {
+        sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);
     }
 }

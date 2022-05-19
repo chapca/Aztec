@@ -50,6 +50,7 @@ public class EnnemiManager : MonoBehaviour
             StartCoroutine("EndFight");
             endFight = true;
             startBattle = false;
+            //StartCoroutine("RespawnEnnemi");
         }
 
         if (startBattle)
@@ -144,6 +145,17 @@ public class EnnemiManager : MonoBehaviour
 
         transform.GetChild(0).gameObject.GetComponent<EnnemiAttack>().thisSelected = true;
 
+        yield break;
+    }
+
+    IEnumerator RespawnEnnemi()
+    {
+        yield return new WaitForSeconds(5f);
+
+        GameObject clone = Instantiate(prefabEnnemi);
+
+        clone.transform.position = transform.position;
+        clone.SetActive(true);
         yield break;
     }
 }

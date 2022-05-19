@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1628035993282820533}
   - component: {fileID: 1628035993282820532}
   - component: {fileID: 1628035993282820531}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ennemi
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1628035993895848994}
   - component: {fileID: 1628035993895848993}
   - component: {fileID: 1628035993895848992}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: truc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,8 @@ GameObject:
   - component: {fileID: 1628035994328776771}
   - component: {fileID: 1628035994328776773}
   - component: {fileID: 7662175206186956467}
-  m_Layer: 0
+  - component: {fileID: 4374566857877698995}
+  m_Layer: 11
   m_Name: EmptyEnnemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +281,7 @@ MonoBehaviour:
   qteValidationAudioSource: {fileID: 0}
   playerAudioSource: {fileID: 0}
   myAnimator: {fileID: 1628035994328776772}
-  distPlayer: 46.45468
+  distPlayer: 83.19188
   lookat: 1
   isAttacking: 0
   goBack: 1
@@ -304,8 +305,8 @@ MonoBehaviour:
   thisSelected: 0
   resetEnnemiSelected: 0
   startBattle: 0
-  setUpStartActionPlayer: 0.01
-  setUpEndActionPlayer: 0.04
+  setUpStartActionPlayer: 0.0000009999999
+  setUpEndActionPlayer: 0.0000039999995
   setUpAnglePerfectFrameAttack: 270
   setUpAnglePerfectFrameEsquive: 359.99
   setUpAnglePerfectFrameBlock: 270
@@ -346,6 +347,12 @@ MonoBehaviour:
   ManetteSpriteIsActive: 0
   damage: 30
   blockDamage: 10
+  circleRadius: 10
+  agent: {fileID: 4374566857877698995}
+  findPosition: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2047
 --- !u!114 &1628035994328776773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3dc6e53a4c20942a8a4fb9d60d64e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 100
   hp: 100
   nbrBlood: 100
 --- !u!82 &7662175206186956467
@@ -456,6 +464,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &4374566857877698995
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628035994328776769}
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
+  m_Radius: 1.2
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.77
+  m_BaseOffset: 0.6
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &624050935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,9 +549,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7474476262888739179, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
       propertyPath: m_Name
       value: M_lizard_low
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266408974079192264, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
