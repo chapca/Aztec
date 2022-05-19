@@ -164,6 +164,9 @@ public class PlayerController : MonoBehaviour
         //movement
         if (!battle.degaine)
         {
+            //Run
+            RunMovement();
+
             if (controller.isGrounded)
             {
                 if (direction.magnitude >= 0f)
@@ -198,9 +201,12 @@ public class PlayerController : MonoBehaviour
                     ActiveSound();
             }
         }
+        else
+        {
+            isWalking = false;
+            isRunning = false;
+        }
 
-        //Run
-        RunMovement();
     }
 
     void RunMovement()

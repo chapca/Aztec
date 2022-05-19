@@ -72,13 +72,13 @@ public class TargetCam : MonoBehaviour
 
         if (PlayerController.CamXInverser)
         {
-            rotationX += rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
+            rotationX -= rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
             rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
             transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
         else
         {
-            rotationX -= rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
+            rotationX += rotSpeedX * Time.deltaTime * Input.GetAxis("RightJoystickY");
             rotationX = Mathf.Clamp(rotationX, clampAxeMin, clampAxeMax);
             transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
