@@ -578,7 +578,8 @@ public class EnnemiAttack : MonoBehaviour
                     countRoundAttack = 2;
                     PlayQTEValidationSound(2);
 
-                    ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude, ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence);
+                    ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude, 
+                        ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence);
                 }
             }
             else if(setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameBlock && sliderLooseBlockSize > 0)

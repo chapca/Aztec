@@ -130,6 +130,7 @@ public class SoundManager : MonoBehaviour
 [System.Serializable]
 public class SoundVolume
 {
+    public string nameSound;
     public AudioClip clip;
     [Range(0.0f, 1f)] public float volume;
 }

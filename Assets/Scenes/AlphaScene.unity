@@ -3898,7 +3898,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2178
+  m_Name: pb_Mesh-96736
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4125,7 +4125,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2202
+  m_Name: pb_Mesh-96760
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9698,7 +9698,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2190
+  m_Name: pb_Mesh-96748
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11248,7 +11248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2166
+  m_Name: pb_Mesh-96724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12409,8 +12409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 1
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
   mNoiseOffsets: {x: 344.29855, y: 38.59485, z: 349.441}
 --- !u!1 &1363536639
 GameObject:
@@ -15188,7 +15188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: audioClipsList2D.Array.data[0]
@@ -15247,6 +15247,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 3adc101c1223ed04db9177ee32b72699, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3adc101c1223ed04db9177ee32b72699, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: audioClipsListInteraction.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -15283,8 +15287,12 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[7].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: audioClipsListInteraction.Array.data[0]
@@ -15310,6 +15318,38 @@ PrefabInstance:
       propertyPath: audioClipsListPlayerBattle.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 11870e7f4994d5e4abddbb59c54a9f3a, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[0].nameSound
+      value: sound fail QTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[1].nameSound
+      value: Sound reusite normal QTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[2].nameSound
+      value: Sound reussite perfect QTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[3].nameSound
+      value: Sound Bulllet time
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[4].nameSound
+      value: Sound tik tak QTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[5].nameSound
+      value: musique d exploration
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[6].nameSound
+      value: musique de combat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[7].nameSound
+      value: Sound start fight
+      objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumeListInteraction.Array.size
       value: 3
@@ -15347,6 +15387,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[0].volume
       value: 1
       objectReference: {fileID: 0}
@@ -15356,6 +15416,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[7].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
@@ -15379,6 +15459,38 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[0].nameSound
+      value: sound player receive damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[1].nameSound
+      value: sound player attack normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[2].nameSound
+      value: sound player attack perfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[3].nameSound
+      value: sound player counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[4].nameSound
+      value: sound player block normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[5].nameSound
+      value: sound player block perfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[6].nameSound
+      value: sound player esquive normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[7].nameSound
+      value: sound player esquive perfect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerExploration.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
@@ -15390,6 +15502,30 @@ PrefabInstance:
       propertyPath: soundAndVolumePlayerExploration.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumeListInteraction.Array.data[0].nameSound
+      value: "son de sang suc\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumeListInteraction.Array.data[1].nameSound
+      value: son de porte qui s ouvre
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumeListInteraction.Array.data[2].nameSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerExploration.Array.data[0].nameSound
+      value: sound footstep 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerExploration.Array.data[1].nameSound
+      value: sound footstep 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerExploration.Array.data[2].nameSound
+      value: sound footstep 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490606, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -16906,7 +17042,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2214
+  m_Name: pb_Mesh-96772
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18509,7 +18645,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2226
+  m_Name: pb_Mesh-96784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

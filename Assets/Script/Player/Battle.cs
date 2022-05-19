@@ -37,7 +37,7 @@ public class Battle : MonoBehaviour
             if(!degaine)
             {
                SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], false);
-               SoundManager.PlaySoundPlayerBattle(parentAudioSource, SoundManager.soundAndVolume2DStatic[0]);
+               SoundManager.PlaySoundPlayerBattle(parentAudioSource, SoundManager.soundAndVolume2DStatic[7]);
                SoundManager.PlaySound2DContinue(battleAudioSource, SoundManager.soundAndVolume2DStatic[6], true);
 
 
