@@ -7,7 +7,6 @@ public class EnnemiHp : MonoBehaviour
 {
     public int maxHp, hp, nbrBlood;
     EnnemiAttack ennemiAttack;
-    Animator myAnimator;
 
     Transform parentObject;
 
@@ -15,7 +14,6 @@ public class EnnemiHp : MonoBehaviour
     void Start()
     {
         ennemiAttack = GetComponent<EnnemiAttack>();
-        myAnimator = GetComponent<Animator>();
 
         hp = maxHp;
 
@@ -37,7 +35,7 @@ public class EnnemiHp : MonoBehaviour
             transform.parent = null;
             ennemiAttack.enabled = false;
             PlayerBlood.GetBlood(nbrBlood);
-            myAnimator.SetBool("Die", true);
+            Battle.myAnimator.SetBool("Death", true);
 
             //StartCoroutine("RespawnEnnemi");
         }
