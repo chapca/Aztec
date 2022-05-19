@@ -78,6 +78,17 @@ public class AnimationEvent : MonoBehaviour
     }
     void AttackEnd()
     {
+        if(attackPerfect)
+        {
+            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
+        }
+        else
+        {
+            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackNormalStatic, ShakeCam.shakeCamParametersAttackNormalStatic[0].axeShake, ShakeCam.shakeCamParametersAttackNormalStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackNormalStatic[0].frequence, ShakeCam.shakeCamParametersAttackNormalStatic[0].duration);
+        }
+
         Battle.myAnimator.SetBool("Taille", false);
         Battle.isAttacking = false;
         StartCoroutine("StopFuckingAttack");

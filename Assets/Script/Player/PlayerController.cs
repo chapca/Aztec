@@ -231,6 +231,9 @@ public class PlayerController : MonoBehaviour
 
     void AnimCounterEnd()
     {
+        ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
+
         StartCoroutine("StopCounter");
 
         Battle.myAnimator.SetBool("Estoc", false);

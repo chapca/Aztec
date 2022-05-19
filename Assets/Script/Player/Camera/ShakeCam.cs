@@ -5,21 +5,31 @@ using Cinemachine;
 
 public class ShakeCam : MonoBehaviour
 {
-    public static List<ShakeController> shakeCamparametersBlockNormalStatic = new List<ShakeController>();
-    public List<ShakeController> shakeCamparametersBlockNormal = new List<ShakeController>();
+    static public ShakeCam instance;
+
+    public static List<ShakeController> shakeCamParametersBlockNormalStatic = new List<ShakeController>();
+    public List<ShakeController> shakeCamParametersBlockNormal = new List<ShakeController>();
 
     public static List<ShakeController> shakeCamparametersBlockPerfectStatic = new List<ShakeController>();
-    public List<ShakeController> shakeCamparametersBlockPerfect = new List<ShakeController>();
+    public List<ShakeController> shakeCamParametersBlockPerfect = new List<ShakeController>();
 
-    public static List<ShakeController> shakeCamparametersAttackNormalStatic = new List<ShakeController>();
-    public List<ShakeController> shakeCamparametersAttackNormal = new List<ShakeController>();
+    public static List<ShakeController> shakeCamParametersAttackNormalStatic = new List<ShakeController>();
+    public List<ShakeController> shakeCamParametersAttackNormal = new List<ShakeController>();
 
-    public static List<ShakeController> shakeCamparametersAttackPerfectStatic = new List<ShakeController>();
-    public List<ShakeController> shakeCamparametersAttackPerfect = new List<ShakeController>();
+    public static List<ShakeController> shakeCamParametersAttackPerfectStatic = new List<ShakeController>();
+    public List<ShakeController> shakeCamParametersAttackPerfect = new List<ShakeController>();
+
+    public static List<ShakeController> shakeCamParametersFailBlockStatic = new List<ShakeController>();
+    public List<ShakeController> shakeCamParametersFailBlock = new List<ShakeController>();
 
     static CinemachineVirtualCamera cinemachineVirtualCamera;
 
     static CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannel;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,26 +37,41 @@ public class ShakeCam : MonoBehaviour
         cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
         cinemachineBasicMultiChannel = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-        shakeCamparametersBlockNormalStatic = shakeCamparametersBlockNormal;
+        shakeCamParametersBlockNormalStatic = shakeCamParametersBlockNormal;
 
-        shakeCamparametersBlockPerfectStatic = shakeCamparametersBlockPerfect;
+        shakeCamparametersBlockPerfectStatic = shakeCamParametersBlockPerfect;
 
-        shakeCamparametersAttackNormalStatic = shakeCamparametersAttackNormal;
+        shakeCamParametersAttackNormalStatic = shakeCamParametersAttackNormal;
 
-        shakeCamparametersAttackPerfectStatic = shakeCamparametersAttackPerfect;
+        shakeCamParametersAttackPerfectStatic = shakeCamParametersAttackPerfect;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    public static void ShakeCamBlockNormal(Vector3 axeShake, float amplitude, float frequence)
+    public static void ShakeCamBlockNormal(List<ShakeController> refList, Vector3 axeShake, float amplitude, float frequence, float duration)
     {
         cinemachineBasicMultiChannel.m_PivotOffset = axeShake;
         cinemachineBasicMultiChannel.m_AmplitudeGain = amplitude;
         cinemachineBasicMultiChannel.m_FrequencyGain = frequence;
+
+        instance.LaunchCoroutine(refList, duration);
+    }
+
+    void LaunchCoroutine(List<ShakeController> refList, float duration)
+    {
+        StartCoroutine(ShakeCamDuration(refList, duration));
+    }
+
+    IEnumerator ShakeCamDuration(List<ShakeController> refList, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        cinemachineBasicMultiChannel.m_PivotOffset = Vector3.zero;
+        cinemachineBasicMultiChannel.m_AmplitudeGain = 0;
+        cinemachineBasicMultiChannel.m_FrequencyGain = 0;
+        yield break;
     }
 }
 
@@ -57,4 +82,5 @@ public class ShakeController
 
     public float amplitude;
     public float frequence;
+    public float duration;
 }
