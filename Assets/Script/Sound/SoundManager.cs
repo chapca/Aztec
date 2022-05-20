@@ -120,7 +120,7 @@ public class SoundManager : MonoBehaviour
     }
 
     //2D sound one shot
-    public static void PlaySound2DOneShot(AudioSource sourceAudio, SoundVolume soundVolume, bool active)
+    public static void PlaySound2DOneShot(AudioSource sourceAudio, SoundVolume soundVolume)
     {
         sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);

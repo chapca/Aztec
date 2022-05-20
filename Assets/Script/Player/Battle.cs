@@ -7,7 +7,7 @@ public class Battle : MonoBehaviour
 {
     [SerializeField] public static Animator myAnimator;
 
-    AudioSource parentAudioSource, battleAudioSource, explorationAudioSource;
+    AudioSource parentAudioSource, battleAudioSource, explorationAudioSource, battleStartAudioSource;
 
     [SerializeField]
     CinemachineVirtualCamera camBase, camBattle;
@@ -24,6 +24,7 @@ public class Battle : MonoBehaviour
         parentAudioSource = transform.parent.GetComponent<AudioSource>();
         battleAudioSource = GameObject.Find("BattleMusic").GetComponent<AudioSource>();
         explorationAudioSource = GameObject.Find("ExplorationMusic").GetComponent<AudioSource>();
+        battleStartAudioSource = GameObject.Find("BattleStartSFX").GetComponent<AudioSource>();
 
         SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], true);
     }
@@ -37,7 +38,7 @@ public class Battle : MonoBehaviour
             if(!degaine)
             {
                SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], false);
-               SoundManager.PlaySoundPlayerBattle(parentAudioSource, SoundManager.soundAndVolume2DStatic[7]);
+               SoundManager.PlaySound2DOneShot(battleStartAudioSource, SoundManager.soundAndVolume2DStatic[7]);
                SoundManager.PlaySound2DContinue(battleAudioSource, SoundManager.soundAndVolume2DStatic[6], true);
 
 
