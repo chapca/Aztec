@@ -17,10 +17,6 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] bool activeCamInteraction;
 
-    [SerializeField] Camera cam;
-
-    [SerializeField] GameObject cursor;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -78,9 +74,6 @@ public class Interaction : MonoBehaviour
     {
         if(other.CompareTag("Interactable"))
         {
-            Vector3 screenPoint = cam.WorldToScreenPoint(other.transform.position);
-            cursor.transform.position = screenPoint;
-
             if (Input.GetButtonDown("InteractButton"))
             {
                 if (PlayerBlood.bloodQuantity >= 100)
@@ -101,9 +94,6 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("End"))
         {
-            Vector3 screenPoint = cam.WorldToScreenPoint(other.transform.position);
-            cursor.transform.position = screenPoint;
-
             UIManager.ActiveManetteInputInteractLeaveGame(true);
 
             if (Input.GetButtonDown("InteractButton"))

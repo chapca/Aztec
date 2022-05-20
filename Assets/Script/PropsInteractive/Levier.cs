@@ -11,6 +11,7 @@ public class Levier : MonoBehaviour
     [SerializeField] Interaction interaction;
 
     AudioSource doorAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {

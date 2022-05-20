@@ -197,19 +197,19 @@ public class UIManager : MonoBehaviour
     static public void ActiveManetteInputInteract(bool active)
     {
         manetteValidateInteraction.gameObject.SetActive(active);
-        if (!active)
+       /* if (!active)
             cursor.SetActive(false);
         else
-            cursor.SetActive(true);
+            cursor.SetActive(true);*/
     }
     
     static public void ActiveManetteInputInteractLeaveGame(bool active)
     {
         manetteValidateLeaveGame.gameObject.SetActive(active);
 
-        if (!active)
+       /* if (!active)
             cursor.SetActive(false);
         else
-            cursor.SetActive(true);
+            cursor.SetActive(true);*/
     }
 }

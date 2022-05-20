@@ -16,10 +16,10 @@ public class PlayerUI : MonoBehaviour
     void Start()
     {
         textHP = transform.Find("TextHp").gameObject.GetComponent<Text>();
-        sliderHP = transform.Find("SliderHp").gameObject.GetComponent<Image>();
+        sliderHP = GameObject.Find("SliderHp").gameObject.GetComponent<Image>();
 
         textBlood = transform.Find("TextBlood").gameObject.GetComponent<Text>();
-        sliderBlood = transform.Find("SliderBlood").gameObject.GetComponent<Image>();
+        sliderBlood = GameObject.Find("SliderBlood").gameObject.GetComponent<Image>();
 
         sliderBloodPuzzle = GameObject.Find("SliderBlood").gameObject.GetComponent<Image>();
 

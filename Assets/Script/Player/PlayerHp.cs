@@ -33,8 +33,6 @@ public class PlayerHp : MonoBehaviour
             SoundManager.PlaySound2DContinue(playerGainHpAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[0], false);
         }
 
-
-
         if(hp <=0)
         {
             DeathPlayer();
