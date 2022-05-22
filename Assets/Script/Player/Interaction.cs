@@ -53,7 +53,9 @@ public class Interaction : MonoBehaviour
         {
             playerController.enabled = true;
             targetCam.enabled = true;
-            camInteraction.Priority = 9;
+
+            if(camInteraction != null)
+                camInteraction.Priority = 9;
         }
     }
 
@@ -84,6 +86,7 @@ public class Interaction : MonoBehaviour
                     EnableCamInteraction(true);
                     playerController.enabled = false;
                     targetCam.enabled = false;
+                    camInteraction = other.transform.parent.transform.GetChild(2).GetComponent<CinemachineVirtualCamera>();
                     camIsAdjuting = true;
 
                     SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);

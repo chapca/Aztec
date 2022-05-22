@@ -7,7 +7,7 @@ public class AnimationEvent : MonoBehaviour
 {
     PlayerController playerController;
 
-    [SerializeField] float speedEsquive, currentSpeedEsquive, esquiveAngleRot, rotationY, rotSpeedY;
+    [SerializeField] float speedEsquive, currentSpeedEsquive, esquiveAngleRot, rotationY, rotSpeedY, speedReturnBaseRot;
 
     [SerializeField] bool esquiveLeft, esquiveRight, returnBaseRotation;
 
@@ -40,7 +40,7 @@ public class AnimationEvent : MonoBehaviour
         }
         else if (esquiveLeft)
         {
-            transform.parent.transform.Translate(Vector3.right * -currentSpeedEsquive * Time.deltaTime);
+            transform.parent.transform.Translate(Vector3.left * currentSpeedEsquive * Time.deltaTime);
 
             if (transform.localRotation.y > -esquiveAngleRot)
             {
@@ -51,24 +51,14 @@ public class AnimationEvent : MonoBehaviour
 
         if(returnBaseRotation)
         {
-            if (transform.localRotation.y > 0)
+            if (transform.localRotation.y != 0)
             {
-                rotationY -= rotSpeedY * Time.deltaTime;
+                rotationY = Mathf.Lerp(rotationY, 0, speedReturnBaseRot);
                 transform.localRotation = Quaternion.Euler(0, rotationY, 0);
 
-                if(transform.localRotation.y < 2)
+                if (transform.localRotation.y == 0)
                 {
-                    transform.localRotation = Quaternion.Euler(0, 0, 0);
-                    returnBaseRotation = false;
-                }
-            }
-            if (transform.localRotation.y < 0)
-            {
-                rotationY += rotSpeedY * Time.deltaTime;
-                transform.localRotation = Quaternion.Euler(0, rotationY, 0);
-
-                if (transform.localRotation.y > -2)
-                {
+                    rotationY = 0;
                     transform.localRotation = Quaternion.Euler(0, 0, 0);
                     returnBaseRotation = false;
                 }
@@ -76,9 +66,12 @@ public class AnimationEvent : MonoBehaviour
         }
     }
 
-    void EsquiveDroite()
+    void EsquiveDroiteRotation()
     {
         esquiveRight = true;
+    }
+    void EsquiveDroite()
+    {
         currentSpeedEsquive = speedEsquive;
     }
     void EndEsquiveDroite()
@@ -87,9 +80,13 @@ public class AnimationEvent : MonoBehaviour
         esquiveRight = false;
         currentSpeedEsquive = 0;
 
-        returnBaseRotation = false;
+        returnBaseRotation = true;
     }
 
+    void EsquiveGaucheRotation()
+    {
+        esquiveLeft = true;
+    }
     void EsquiveGauche()
     {
         Battle.myAnimator.SetBool("EsquiveGauche", false);
@@ -101,7 +98,7 @@ public class AnimationEvent : MonoBehaviour
         esquiveLeft = false;
         currentSpeedEsquive = 0;
 
-        returnBaseRotation = false;
+        returnBaseRotation = true;
     }
 
     void AttackStart()
