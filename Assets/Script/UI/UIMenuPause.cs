@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+
+using UnityEngine.Rendering.HighDefinition;
+
 public class UIMenuPause : MonoBehaviour
 {
     public static bool menuPauseIsActive;
@@ -19,13 +23,18 @@ public class UIMenuPause : MonoBehaviour
     [SerializeField] Button buttonResume, buttonRestart, buttonOption, buttonQuit;
 
     GameObject currentButtonSelected;
-    // Start is called before the first frame update
+
+    [SerializeField] VolumeProfile mVolumeProfile;
+    [SerializeField] DepthOfField depthOfField; 
+
     void Start()
     {
         m_EventSystem = EventSystem.current;
+
+        depthOfField = (DepthOfField)mVolumeProfile.components[8];
+        depthOfField.active = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetButtonDown("Pause") && !battle.degaine)
@@ -33,19 +42,22 @@ public class UIMenuPause : MonoBehaviour
             Time.timeScale = 0;
             canvasSlider.SetActive(false);
             transform.GetChild(0).gameObject.SetActive(true);
-            m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(2).gameObject);
+            m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(3).gameObject);
+            depthOfField.active = true;
             Debug.Log(m_EventSystem.currentSelectedGameObject);
             menuPauseIsActive = true;
         }
 
         if(optionMenu.activeInHierarchy && Input.GetButtonDown("CancelButton"))
         {
+            depthOfField.active = false;
             optionMenu.SetActive(false);
             EnableButton(objButtonQuit, objButtonResume, true);
             m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(2).gameObject);
         }
         else if(!optionMenu.activeInHierarchy && menuPause.activeInHierarchy && Input.GetButtonDown("CancelButton"))
         {
+            depthOfField.active = false;
             canvasSlider.SetActive(true);
             menuPause.SetActive(false);
             Time.timeScale = 1;
@@ -119,6 +131,7 @@ public class UIMenuPause : MonoBehaviour
 
     public void ResumeButton()
     {
+        depthOfField.active = false;
         canvasSlider.SetActive(true);
         menuPause.SetActive(false);
 
