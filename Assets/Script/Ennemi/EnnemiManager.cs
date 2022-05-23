@@ -21,23 +21,14 @@ public class EnnemiManager : MonoBehaviour
 
     [SerializeField] int nombreEnnemi;
 
-    [SerializeField] GameObject prefabEnnemi;
+    [SerializeField]public GameObject prefabEnnemiManager;
 
     [SerializeField] float x, y, z;
 
     public bool startBattle;
 
     void Start()
-    {/*
-        for (int i =0; i<nombreEnnemi; i++)
-        {
-            GameObject clone= Instantiate(prefabEnnemi);
-            clone.transform.parent = gameObject.transform;
-            clone.transform.localPosition = new Vector3(x, y, z);
-            x += 2;
-            z += Random.Range(-2,2);
-        }*/
-
+    {
         battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
     }
 
@@ -50,7 +41,7 @@ public class EnnemiManager : MonoBehaviour
             StartCoroutine("EndFight");
             endFight = true;
             startBattle = false;
-            //StartCoroutine("RespawnEnnemi");
+            StartCoroutine("RespawnEnnemi");
         }
 
         if (startBattle)
@@ -152,9 +143,11 @@ public class EnnemiManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
 
-        GameObject clone = Instantiate(prefabEnnemi);
+        GameObject clone = Instantiate(prefabEnnemiManager);
 
-        clone.transform.position = transform.position;
+        clone.transform.parent = transform;
+        clone.transform.localPosition = new Vector3(0,0,0);
+        clone.GetComponent<EnnemiManager>().prefabEnnemiManager = prefabEnnemiManager;
         clone.SetActive(true);
         yield break;
     }

@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float smoothRun, smoothWalk, smoothRotateToEnnemi;
 
     public static Transform ennemi;
+    public Transform ennemiDebug;
 
     BoxCollider swordCollider;
 
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
     void LateUpdate()
     {
+        ennemiDebug = ennemi;
         if (battle.degaine)
         {
             if (PlayerHp.hp > 0 && ennemi != null)

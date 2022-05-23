@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestOptionController.unity
     guid: 1eed401e73c4eed469e1a4fa237812f8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Menus/PropsMenue.unity
     guid: 36caad3020211c34cbae96b8f403d5ad
   - enabled: 0

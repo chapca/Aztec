@@ -38,7 +38,7 @@ public class EnnemiHp : MonoBehaviour
             ennemiAttack.enabled = false;
             PlayerBlood.GetBlood(nbrBlood);
             myAnimator.SetBool("Die", true);
-
+            PlayerController.ennemi = null;
             //StartCoroutine("RespawnEnnemi");
         }
     }

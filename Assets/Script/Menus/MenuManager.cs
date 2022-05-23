@@ -38,7 +38,7 @@ public class MenuManager : MonoBehaviour
     }
     public void Archives()
     {
-        SceneManager.LoadScene(archivesSceneIndex);
+        SceneManager.LoadScene("PropsMenue");
     }
     public void Quit()
     {
