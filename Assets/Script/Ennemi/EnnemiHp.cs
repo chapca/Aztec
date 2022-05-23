@@ -34,6 +34,9 @@ public class EnnemiHp : MonoBehaviour
 
         if(hp <=0)
         {
+            EnnemiAttack.QTEDone = true;
+            EnnemiAttack.tutoDone = true;
+            EnnemiAttack.coroutineLaunch = true;
             transform.parent = null;
             ennemiAttack.enabled = false;
             PlayerBlood.GetBlood(nbrBlood);

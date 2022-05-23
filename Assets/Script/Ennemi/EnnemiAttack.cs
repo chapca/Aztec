@@ -153,6 +153,8 @@ public class EnnemiAttack : MonoBehaviour
     RaycastHit hit;
     [SerializeField] LayerMask layerMask;
 
+    public static bool QTEDone, coroutineLaunch, tutoDone;
+
     void Start()
     {
         /*sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
@@ -296,7 +298,16 @@ public class EnnemiAttack : MonoBehaviour
             }
         }*/
 
-        if(startQTE)
+        if (startQTE && !QTEDone)
+        {
+            if (!coroutineLaunch)
+            {
+                ActiveManetteUI();
+                StartCoroutine("CoolDownDone");
+            }
+        }
+
+        if (startQTE && QTEDone)
         {
             DelayInput();
         }
@@ -305,6 +316,16 @@ public class EnnemiAttack : MonoBehaviour
             setUpTimerSliderNormal -= Time.unscaledDeltaTime*1.5f;
             TimingCounter();
         }
+    }
+
+    IEnumerator CoolDownDone()
+    {
+        Time.timeScale = 0;
+        coroutineLaunch = true;
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 0.25f;
+        QTEDone = true;
+        yield break;
     }
 
     void UpdateSliderPosition()
@@ -894,6 +915,11 @@ public class EnnemiAttack : MonoBehaviour
         if (distPlayer <= 5f && !isAttacking)
         {
             battleScript.isAttacked = true;
+            if (!tutoDone)
+            {
+                QTEDone = false;
+                coroutineLaunch = false;
+            }
             StartCoroutine("StartAttack");
         }
 
