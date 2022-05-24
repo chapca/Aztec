@@ -143,7 +143,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    static public void ActiveUIBlock(bool active)
+    static public void ActiveUIBlock(bool active, bool resize)
     {
         if (active)
         {
@@ -151,11 +151,17 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            UIBlock.SetActive(false);
+            if(resize)
+            {
+                instance.DesableUselessUI(UIAttack, UIAttack, UIEsquiveRight, UIEsquiveLeft, UICounter);
+                instance.CallCoroutine(UIBlock, sliderBlock, sliderBlockPerfect, sliderLooseBlock);
+            }
+            else
+                UIBlock.SetActive(false);
         }
     }
 
-    static public void ActiveUIEsquive(bool active)
+    static public void ActiveUIEsquive(bool active, bool right, bool resize)
     {
         if(active)
         {
@@ -164,12 +170,30 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            UIEsquiveRight.SetActive(false);
-            UIEsquiveLeft.SetActive(false);
+            if(resize)
+            {
+                instance.DesableUselessUI(UIAttack, UIBlock, UIAttack, UIAttack, UICounter);
+
+                if (right)
+                {
+                    UIEsquiveLeft.SetActive(false);
+                    instance.CallCoroutine(UIEsquiveRight, sliderEsquiveRight, sliderEsquivePerfectRight, sliderLooseEsquiveRight);
+                }
+                if (!right)
+                {
+                    UIEsquiveRight.SetActive(false);
+                    instance.CallCoroutine(UIEsquiveLeft, sliderEsquiveLeft, sliderEsquivePerfectLeft, sliderLooseEsquiveLeft);
+                }
+            }
+            else
+            {
+                UIEsquiveLeft.SetActive(false);
+                UIEsquiveRight.SetActive(false);
+            }
         }
     }
 
-    static public void ActiveUICounter(bool active)
+    static public void ActiveUICounter(bool active, bool resize)
     {
         if (active)
         {
@@ -177,11 +201,17 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            UICounter.SetActive(false);
+            if(resize)
+            {
+                instance.DesableUselessUI(UIBlock, UIBlock, UIEsquiveRight, UIEsquiveLeft, UIBlock);
+                instance.CallCoroutine(UICounter, sliderCounter, sliderCounterPerfect, null);
+            }
+            else
+                UICounter.SetActive(false);
         }
     }
 
-    static public void ActiveUIAttack(bool active)
+    static public void ActiveUIAttack(bool active, bool resize)
     {
         if (active)
         {
@@ -189,19 +219,58 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            UIAttack.SetActive(false);
+            if(resize)
+            {
+                instance.DesableUselessUI(UIBlock, UIBlock, UIEsquiveRight, UIEsquiveLeft, UICounter);
+                instance.CallCoroutine(UIAttack, sliderAttack, sliderAttackPerfect, sliderLooseAttack);
+            }
+            else
+                UIAttack.SetActive(false);
         }
     }
 
-    void CallCoroutine()
+    void DesableUselessUI(GameObject uiAttack, GameObject uIBlock, GameObject uIEsquiveRight, GameObject uIEsquiveLeft, GameObject uiCounter)
     {
+        uiAttack.SetActive(false);
+        uIBlock.SetActive(false);
+        uIEsquiveRight.SetActive(false);
+        uIEsquiveLeft.SetActive(false);
+        uiCounter.SetActive(false);
 
     }
 
-    IEnumerator ResizeSlider()
+    void CallCoroutine(GameObject uiObj, Image normal, Image perfect, Image fail)
     {
-        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(ResizeSlider(uiObj, normal, perfect, fail));
+    }
 
+    IEnumerator ResizeSlider(GameObject uiObj, Image normal, Image perfect, Image fail)
+    {
+        if (normal.transform.localScale.x < 2)
+        {
+            normal.transform.localScale = new Vector2(normal.transform.localScale.x + 0.1f, normal.transform.localScale.y + 0.1f);
+            perfect.transform.localScale = normal.transform.localScale;
+            if(uiObj != UICounter)
+                fail.transform.localScale = normal.transform.localScale;
+        }
+        yield return new WaitForSeconds(0.01f);
+
+        if (normal.transform.localScale.x >= 2)
+        {
+            uiObj.SetActive(false);
+
+            normal.transform.localScale = new Vector2(1f,1f);
+            perfect.transform.localScale = normal.transform.localScale;
+            if (uiObj != UICounter)
+                fail.transform.localScale = normal.transform.localScale;
+
+            yield break;
+        }
+        else
+        {
+            StartCoroutine(ResizeSlider(uiObj, normal, perfect, fail));
+            yield break;
+        }
     }
 
     // text info 

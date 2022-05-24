@@ -442,6 +442,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("InteractButton"))
                 {
+                    UIManager.ActiveUIAttack(false, true);
                     PlayerDoSomething();
                     ResetAllSlider();
                     AnimationEvent.attackPerfect = true;
@@ -463,6 +464,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("InteractButton"))
                 {
+                    UIManager.ActiveUIAttack(false, true);
                     PlayerDoSomething();
                     ResetAllSlider();
                     FailText.ActiveText();
@@ -475,6 +477,7 @@ public class EnnemiAttack : MonoBehaviour
                 Battle.canAttack = true;
                 if (Input.GetButtonDown("InteractButton"))
                 {
+                    UIManager.ActiveUIAttack(false, true);
                     AnimationEvent.attackStandard = true;
                     Battle.myAnimator.SetBool("AttackNormal", true);
                     PlayerDoSomething();
@@ -488,6 +491,12 @@ public class EnnemiAttack : MonoBehaviour
             Debug.Log("REset UI");
             PlayerDoSomething();
             ResetAllSlider();
+
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIAttack(false, false);
+            UIManager.ActiveUIBlock(false, false);
+            UIManager.ActiveUICounter(false, false);
         }
     }
     void ResetAttackSlider()
@@ -520,10 +529,15 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetAxisRaw("HorizontalLeftButtonX") !=0)
                 {
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                        UIManager.ActiveUIEsquive(false, true, true);
+                    else
+                        UIManager.ActiveUIEsquive(false, false, true);
+
                     Debug.Log("Esquive Perfect");
                     canApplyDamage = false;
                     esquiveReussiPerfect = true;
-                    UIManager.ActiveUICounter(true);
+                    UIManager.ActiveUICounter(true, false);
                     Battle.canCounter = true;
                     startQTECounter = true;
                     state = 4;
@@ -542,6 +556,11 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
                 {
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                        UIManager.ActiveUIEsquive(false, true, true);
+                    else
+                        UIManager.ActiveUIEsquive(false, false, true);
+
                     PlayerDoSomething();
                     ResetAllSlider();
                     FailText.ActiveText();
@@ -555,6 +574,11 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
                 {
+                    if(Input.GetAxisRaw("HorizontalLeftButtonX") >0 )
+                        UIManager.ActiveUIEsquive(false, true, true);
+                    else
+                        UIManager.ActiveUIEsquive(false, false, true);
+
                     canApplyDamage = false;
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -566,6 +590,12 @@ public class EnnemiAttack : MonoBehaviour
         {
             PlayerDoSomething();
             ResetAllSlider();
+
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIAttack(false, false);
+            UIManager.ActiveUIBlock(false, false);
+            UIManager.ActiveUICounter(false, false);
         }
     }
     void ResetEsquiveSlider()
@@ -597,6 +627,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("BlockButton"))
                 {
+                    UIManager.ActiveUIBlock(false, true);
                     Battle.myAnimator.SetBool("BlockPerfect", true);
                     Debug.Log("Block");
                     PlayerDoSomething();
@@ -616,6 +647,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("BlockButton"))
                 {
+                    UIManager.ActiveUIBlock(false, true);
                     PlayerDoSomething();
                     ResetAllSlider();
                     FailText.ActiveText();
@@ -629,6 +661,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if (Input.GetButtonDown("BlockButton"))
                 {
+                    UIManager.ActiveUIBlock(false, true);
                     canApplyDamage = false;
                     canApplyDamageBlock = true;
                     PlayerDoSomething();
@@ -643,6 +676,12 @@ public class EnnemiAttack : MonoBehaviour
             Battle.canBlock = false;
             PlayerDoSomething();
             ResetAllSlider();
+
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIAttack(false, false);
+            UIManager.ActiveUIBlock(false, false);
+            UIManager.ActiveUICounter(false, false);
         }
     }
     void ResetBlockSlider()
@@ -676,6 +715,8 @@ public class EnnemiAttack : MonoBehaviour
 
             if (Input.GetButtonDown("InteractButton"))
             {
+                UIManager.ActiveUICounter(false, true);
+
                 ResetCounterSlider();
                 ReturnToStatePatrol();
                 FailText.ActiveText();
@@ -689,6 +730,8 @@ public class EnnemiAttack : MonoBehaviour
 
             if (Input.GetButtonDown("InteractButton"))
             {
+                UIManager.ActiveUICounter(false, true);
+
                 counterReussi = true;
                 ResetCounterSlider();
                 PlayQTEValidationSound(1);
@@ -701,6 +744,12 @@ public class EnnemiAttack : MonoBehaviour
             ResetCounterSlider();
             ReturnToStatePatrol();
             thisSelected = false;
+
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIAttack(false, false);
+            UIManager.ActiveUIBlock(false, false);
+            UIManager.ActiveUICounter(false, false);
         }
     }
     void ResetCounterSlider()
@@ -715,8 +764,7 @@ public class EnnemiAttack : MonoBehaviour
 
         UIManager.UpdateSliderCounter(setUpTimerSliderNormal);
         UIManager.UpdateSliderCounterLoose(sliderLooseCounterSize);
-        UIManager.ActiveUICounter(false);
-        UIManager.ActiveManetteUI(false);
+        //UIManager.ActiveManetteUI(false);
         startQTECounter = false;
     }
 
@@ -978,13 +1026,9 @@ public class EnnemiAttack : MonoBehaviour
     {
         if (!esquiveReussiPerfect)
         {
-            UIManager.ActiveManetteUI(false);
+            //UIManager.ActiveManetteUI(false);
             PlayQTETimerSound();
         }
-
-        UIManager.ActiveUIAttack(false);
-        UIManager.ActiveUIBlock(false);
-        UIManager.ActiveUIEsquive(false);
 
         yield return new WaitForSecondsRealtime(0.1f);
         Debug.Log("Desable UI");
@@ -1028,32 +1072,36 @@ public class EnnemiAttack : MonoBehaviour
 
         if(!playerCanEsquive)
         {
-            UIManager.ActiveUIEsquive(false);
+            UIManager.ActiveUIEsquive(false, false, false);
+            UIManager.ActiveUIEsquive(false, true, false);
             Battle.canEsquive = false;
         }
         else
         {
-            UIManager.ActiveUIEsquive(true);
+            UIManager.ActiveUIEsquive(true, true, false);
+            UIManager.ActiveUIEsquive(true, false, false);
             Battle.canEsquive = true;
         }
 
         if (countRoundAttack>0)
         {
-            UIManager.ActiveUIAttack(true);
+            UIManager.ActiveUIAttack(true, false);
             Battle.canAttack = true;
         }
         else
         {
-            UIManager.ActiveUIAttack(false);
+            UIManager.ActiveUIAttack(false, false);
             Battle.canAttack = false;
         }
 
         UIManager.ActiveManetteUI(true);
-        UIManager.ActiveUIBlock(true);
+        UIManager.ActiveUIBlock(true, false);
 
         Battle.canBlock = true;
 
-        Time.timeScale = 0.25f;
+        if(QTEDone)
+            Time.timeScale = 0.25f;
+
         startQTE = true;
         playerAction = true;
 
