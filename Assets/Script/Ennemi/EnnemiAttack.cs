@@ -1081,8 +1081,8 @@ public class EnnemiAttack : MonoBehaviour
             Debug.LogError(SoundManager.soundAndVolumePlayerBattleStatic[0]);
             SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[0]);
 
-            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersFailBlockStatic, ShakeCam.shakeCamParametersFailBlockStatic[0].axeShake, ShakeCam.shakeCamParametersFailBlockStatic[0].amplitude,
-                       ShakeCam.shakeCamParametersFailBlockStatic[0].frequence, ShakeCam.shakeCamParametersFailBlockStatic[0].duration);
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersFailStatic, ShakeCam.shakeCamParametersFailStatic[0].axeShake, ShakeCam.shakeCamParametersFailStatic[0].amplitude,
+                       ShakeCam.shakeCamParametersFailStatic[0].frequence, ShakeCam.shakeCamParametersFailStatic[0].duration);
         }
 
         if(canApplyDamageBlock)
@@ -1092,7 +1092,7 @@ public class EnnemiAttack : MonoBehaviour
             PlayerHp.TakeDamage(blockDamage);
             SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[4]);
 
-            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersBlockNormalStatic, ShakeCam.shakeCamParametersBlockNormalStatic[0].axeShake, ShakeCam.shakeCamParametersBlockNormalStatic[0].amplitude,
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersBlockNormalStatic, ShakeCam.shakeCamParametersBlockNormalStatic[0].axeShake, ShakeCam.shakeCamParametersBlockNormalStatic[0].amplitude,
                         ShakeCam.shakeCamParametersBlockNormalStatic[0].frequence, ShakeCam.shakeCamParametersBlockNormalStatic[0].duration);
         }
         
@@ -1102,7 +1102,7 @@ public class EnnemiAttack : MonoBehaviour
 
             SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[5]);
 
-            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamparametersBlockPerfectStatic, ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude,
+            ShakeCam.ShakerCam(ShakeCam.shakeCamparametersBlockPerfectStatic, ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude,
                         ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence, ShakeCam.shakeCamparametersBlockPerfectStatic[0].duration);
         }
     }

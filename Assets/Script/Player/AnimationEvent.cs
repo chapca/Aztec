@@ -120,12 +120,12 @@ public class AnimationEvent : MonoBehaviour
 
         if(attackPerfect)
         {
-            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
                         ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
         }
         else
         {
-            ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackNormalStatic, ShakeCam.shakeCamParametersAttackNormalStatic[0].axeShake, ShakeCam.shakeCamParametersAttackNormalStatic[0].amplitude,
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackNormalStatic, ShakeCam.shakeCamParametersAttackNormalStatic[0].axeShake, ShakeCam.shakeCamParametersAttackNormalStatic[0].amplitude,
                         ShakeCam.shakeCamParametersAttackNormalStatic[0].frequence, ShakeCam.shakeCamParametersAttackNormalStatic[0].duration);
         }
 
@@ -203,7 +203,7 @@ public class AnimationEvent : MonoBehaviour
 
     void AnimCounterEnd()
     {
-        ShakeCam.ShakeCamBlockNormal(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+        ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
                         ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
 
         StartCoroutine("StopCounter");

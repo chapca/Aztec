@@ -19,8 +19,8 @@ public class ShakeCam : MonoBehaviour
     public static List<ShakeController> shakeCamParametersAttackPerfectStatic = new List<ShakeController>();
     public List<ShakeController> shakeCamParametersAttackPerfect = new List<ShakeController>();
 
-    public static List<ShakeController> shakeCamParametersFailBlockStatic = new List<ShakeController>();
-    public List<ShakeController> shakeCamParametersFailBlock = new List<ShakeController>();
+    public static List<ShakeController> shakeCamParametersFailStatic = new List<ShakeController>();
+    public List<ShakeController> shakeCamParametersFail = new List<ShakeController>();
 
     static CinemachineVirtualCamera cinemachineVirtualCamera;
 
@@ -44,6 +44,8 @@ public class ShakeCam : MonoBehaviour
         shakeCamParametersAttackNormalStatic = shakeCamParametersAttackNormal;
 
         shakeCamParametersAttackPerfectStatic = shakeCamParametersAttackPerfect;
+
+        shakeCamParametersFailStatic = shakeCamParametersFail;
     }
 
     // Update is called once per frame
@@ -51,8 +53,10 @@ public class ShakeCam : MonoBehaviour
     {
     }
 
-    public static void ShakeCamBlockNormal(List<ShakeController> refList, Vector3 axeShake, float amplitude, float frequence, float duration)
+    public static void ShakerCam(List<ShakeController> refList, Vector3 axeShake, float amplitude, float frequence, float duration)
     {
+        Debug.LogError("dzdzd");
+
         cinemachineBasicMultiChannel.m_PivotOffset = axeShake;
         cinemachineBasicMultiChannel.m_AmplitudeGain = amplitude;
         cinemachineBasicMultiChannel.m_FrequencyGain = frequence;
