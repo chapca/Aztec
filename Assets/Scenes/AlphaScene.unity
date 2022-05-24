@@ -4336,6 +4336,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2001597027}
+    - target: {fileID: 6846483709095017161, guid: f207f7cd154afe642bbbca637320ecf8, type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846483709095017161, guid: f207f7cd154afe642bbbca637320ecf8, type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846483709095017161, guid: f207f7cd154afe642bbbca637320ecf8, type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6846483709095017166, guid: f207f7cd154afe642bbbca637320ecf8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4876,7 +4888,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2306
+  m_Name: pb_Mesh-41142
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5103,7 +5115,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2330
+  m_Name: pb_Mesh-41166
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7739,6 +7751,82 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1718085663}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFailBlock.Array.data[0].duration
+      value: 0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFailBlock.Array.data[0].amplitude
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFailBlock.Array.data[0].frequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockNormal.Array.data[0].duration
+      value: 0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFailBlock.Array.data[0].axeShake.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFailBlock.Array.data[0].axeShake.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFailBlock.Array.data[0].axeShake.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockNormal.Array.data[0].amplitude
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockNormal.Array.data[0].frequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.data[0].duration
+      value: 0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockNormal.Array.data[0].axeShake.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockNormal.Array.data[0].axeShake.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockNormal.Array.data[0].axeShake.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.data[0].amplitude
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.data[0].frequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.data[0].axeShake.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.data[0].axeShake.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersBlockPerfect.Array.data[0].axeShake.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2130396931591841880, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_Name
       value: Empty_Camera
@@ -12504,7 +12592,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2318
+  m_Name: pb_Mesh-41154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13976,7 +14064,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2294
+  m_Name: pb_Mesh-41130
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20384,7 +20472,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2342
+  m_Name: pb_Mesh-41178
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22609,7 +22697,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2354
+  m_Name: pb_Mesh-41190
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
