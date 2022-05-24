@@ -155,6 +155,10 @@ public class EnnemiAttack : MonoBehaviour
 
     public static bool QTEDone, coroutineLaunch, tutoDone;
 
+    [Header("Change la taille du slider quand on appuie au bon moment")]
+    [SerializeField] Vector3 maxSize;
+    [SerializeField] Vector3 baseSize;
+
     void Start()
     {
         /*sliderAttackPerfect = UIManager.sliderAttackPerfect.transform;
@@ -728,8 +732,6 @@ public class EnnemiAttack : MonoBehaviour
         SetUpEndFenetreAttack();
     }
 
-    bool launchGoBack;
-
     void StateWaitingPlayer()
     {
         agent.enabled = true;
@@ -872,7 +874,6 @@ public class EnnemiAttack : MonoBehaviour
     {
         agent.enabled = false;
         findPosition = false;
-        launchGoBack = false;
         PlayerController.ennemi = this.transform;
         AnimationEvent.ennemi = this.gameObject;
 

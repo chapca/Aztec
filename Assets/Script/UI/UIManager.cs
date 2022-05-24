@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    static UIManager instance;
+
     static public GameObject UIManette, UIEsquiveRight, UIEsquiveLeft, UIBlock, UICounter, UIAttack;
 
     static public Image sliderEsquiveRight, sliderEsquiveLeft, sliderBlock, sliderCounter, sliderAttack;
@@ -16,6 +18,11 @@ public class UIManager : MonoBehaviour
     static public Text textCantinteract;
 
     static public GameObject manetteValidateInteraction, manetteValidateLeaveGame, cursor;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -186,7 +193,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void CallCoroutine()
+    {
 
+    }
+
+    IEnumerator ResizeSlider()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+    }
 
     // text info 
 
