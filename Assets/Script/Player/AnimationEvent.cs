@@ -108,6 +108,18 @@ public class AnimationEvent : MonoBehaviour
     void AttackStart()
     {
         Battle.canAttack = false;
+
+        if (attackPerfect)
+        {
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
+        }
+        else
+        {
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackNormalStatic, ShakeCam.shakeCamParametersAttackNormalStatic[0].axeShake, ShakeCam.shakeCamParametersAttackNormalStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackNormalStatic[0].frequence, ShakeCam.shakeCamParametersAttackNormalStatic[0].duration);
+        }
+
         if (!Battle.isAttacking)
         {
             Battle.isAttacking = true;
@@ -128,16 +140,6 @@ public class AnimationEvent : MonoBehaviour
     {
         Debug.Log("StopAttack");
 
-        if(attackPerfect)
-        {
-            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
-                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
-        }
-        else
-        {
-            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackNormalStatic, ShakeCam.shakeCamParametersAttackNormalStatic[0].axeShake, ShakeCam.shakeCamParametersAttackNormalStatic[0].amplitude,
-                        ShakeCam.shakeCamParametersAttackNormalStatic[0].frequence, ShakeCam.shakeCamParametersAttackNormalStatic[0].duration);
-        }
 
         Battle.myAnimator.SetBool("AttackNormal", false);
         Battle.myAnimator.SetBool("AttackPerfect", false);
@@ -206,17 +208,19 @@ public class AnimationEvent : MonoBehaviour
         {
             Battle.isCounter = true;
             SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[3]);
+
+            ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
+                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
+
             ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
             ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
             Debug.Log(Battle.isCounter);
+
         }
     }
 
     void AnimCounterEnd()
     {
-        ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
-                        ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
-
         StartCoroutine("StopCounter");
 
         Battle.myAnimator.SetBool("Counter", false);

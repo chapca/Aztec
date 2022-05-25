@@ -478,6 +478,7 @@ public class EnnemiAttack : MonoBehaviour
                 if (Input.GetButtonDown("InteractButton"))
                 {
                     UIManager.ActiveUIAttack(false, true);
+                    canShakeCam = false;
                     PlayerDoSomething();
                     ResetAllSlider();
                     FailText.ActiveText();
@@ -490,6 +491,7 @@ public class EnnemiAttack : MonoBehaviour
                 Battle.canAttack = true;
                 if (Input.GetButtonDown("InteractButton"))
                 {
+                    canShakeCam = false;
                     UIManager.ActiveUIAttack(false, true);
                     AnimationEvent.attackStandard = true;
                     Battle.myAnimator.SetBool("AttackNormal", true);
@@ -737,6 +739,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 UIManager.ActiveUICounter(false, true);
 
+                canShakeCam = false;
                 ResetCounterSlider();
                 ReturnToStatePatrol();
                 FailText.ActiveText();
@@ -765,6 +768,7 @@ public class EnnemiAttack : MonoBehaviour
             ResetCounterSlider();
             ReturnToStatePatrol();
             thisSelected = false;
+            canShakeCam = false;
 
             UIManager.ActiveUIEsquive(false, false, false);
             UIManager.ActiveUIEsquive(false, false, false);
