@@ -55,8 +55,6 @@ public class ShakeCam : MonoBehaviour
 
     public static void ShakerCam(List<ShakeController> refList, Vector3 axeShake, float amplitude, float frequence, float duration)
     {
-        Debug.LogError("dzdzd");
-
         cinemachineBasicMultiChannel.m_PivotOffset = axeShake;
         cinemachineBasicMultiChannel.m_AmplitudeGain = amplitude;
         cinemachineBasicMultiChannel.m_FrequencyGain = frequence;

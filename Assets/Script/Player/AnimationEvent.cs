@@ -15,10 +15,14 @@ public class AnimationEvent : MonoBehaviour
 
     public static GameObject ennemi;
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -109,9 +113,15 @@ public class AnimationEvent : MonoBehaviour
             Battle.isAttacking = true;
 
             if(attackStandard)
+            {
                 ennemi.GetComponent<EnnemiHp>().TakeDamage(50);
+                SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[1]);
+            }
             if(attackPerfect)
+            {
                 ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
+                SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[2]);
+            }
         }
     }
     void AttackEnd()
@@ -195,6 +205,7 @@ public class AnimationEvent : MonoBehaviour
         if (!Battle.isCounter)
         {
             Battle.isCounter = true;
+            SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[3]);
             ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
             ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
             Debug.Log(Battle.isCounter);

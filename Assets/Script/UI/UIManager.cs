@@ -157,7 +157,10 @@ public class UIManager : MonoBehaviour
                 instance.CallCoroutine(UIBlock, sliderBlock, sliderBlockPerfect, sliderLooseBlock);
             }
             else
+            {
+                ActiveManetteUI(false);
                 UIBlock.SetActive(false);
+            }
         }
     }
 
@@ -189,6 +192,7 @@ public class UIManager : MonoBehaviour
             {
                 UIEsquiveLeft.SetActive(false);
                 UIEsquiveRight.SetActive(false);
+                ActiveManetteUI(false);
             }
         }
     }
@@ -207,7 +211,10 @@ public class UIManager : MonoBehaviour
                 instance.CallCoroutine(UICounter, sliderCounter, sliderCounterPerfect, null);
             }
             else
+            {
                 UICounter.SetActive(false);
+                ActiveManetteUI(false);
+            }
         }
     }
 
@@ -225,7 +232,10 @@ public class UIManager : MonoBehaviour
                 instance.CallCoroutine(UIAttack, sliderAttack, sliderAttackPerfect, sliderLooseAttack);
             }
             else
+            {
                 UIAttack.SetActive(false);
+                ActiveManetteUI(false);
+            }
         }
     }
 
@@ -259,11 +269,15 @@ public class UIManager : MonoBehaviour
         {
             uiObj.SetActive(false);
 
+            if(!EnnemiAttack.esquivePerfect)
+                ActiveManetteUI(false);
+
             normal.transform.localScale = new Vector2(1f,1f);
             perfect.transform.localScale = normal.transform.localScale;
             if (uiObj != UICounter)
                 fail.transform.localScale = normal.transform.localScale;
 
+            EnnemiAttack.esquivePerfect = false;
             yield break;
         }
         else

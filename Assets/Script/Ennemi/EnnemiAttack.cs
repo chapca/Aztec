@@ -37,7 +37,9 @@ public class EnnemiAttack : MonoBehaviour
 
     [SerializeField] bool randomAttack, retrunState1, paradeReussi, counterReussi, attackReussiperfect, esquiveReussiPerfect;
 
-    [SerializeField] bool playerAction, startQTE, startQTECounter, canApplyDamage, canApplyDamageBlock;
+    static public bool esquivePerfect;
+
+    [SerializeField] bool playerAction, startQTE, startQTECounter, canApplyDamage, canApplyDamageBlock, canShakeCam;
 
     public bool thisSelected, resetEnnemiSelected;
 
@@ -155,6 +157,8 @@ public class EnnemiAttack : MonoBehaviour
 
     public static bool QTEDone, coroutineLaunch, tutoDone;
 
+    [SerializeField] GameObject tutoBlackScreen;
+
     [Header("Change la taille du slider quand on appuie au bon moment")]
     [SerializeField] Vector3 maxSize;
     [SerializeField] Vector3 baseSize;
@@ -220,6 +224,9 @@ public class EnnemiAttack : MonoBehaviour
         qteTimerAudioSource = GameObject.Find("QTETimerMusic").GetComponent<AudioSource>();
         qteValidationAudioSource = GameObject.Find("QTEValidationMusic").GetComponent<AudioSource>();
         playerAudioSource = GameObject.Find("EmptyPlayer").GetComponent<AudioSource>();
+
+        tutoBlackScreen = GameObject.Find("TutoBlackScreen");
+        tutoBlackScreen.GetComponent<Image>().enabled = false;
 
         basePos = transform.position;
     }
@@ -324,9 +331,14 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator CoolDownDone()
     {
+        if(!tutoBlackScreen.GetComponent<Image>().enabled)
+            tutoBlackScreen.GetComponent<Image>().enabled = true;
+
+        tutoBlackScreen.SetActive(true);
         Time.timeScale = 0;
         coroutineLaunch = true;
         yield return new WaitForSecondsRealtime(2f);
+        tutoBlackScreen.SetActive(false);
         Time.timeScale = 0.25f;
         QTEDone = true;
         yield break;
@@ -448,6 +460,7 @@ public class EnnemiAttack : MonoBehaviour
                     AnimationEvent.attackPerfect = true;
                     Battle.myAnimator.SetBool("AttackPerfect", true);
                     canApplyDamage = false;
+                    canShakeCam = false;
                     attackReussiperfect = true;
                     state = 4;
                     PerfectText.ActiveText();
@@ -535,7 +548,9 @@ public class EnnemiAttack : MonoBehaviour
                         UIManager.ActiveUIEsquive(false, false, true);
 
                     Debug.Log("Esquive Perfect");
+                    esquivePerfect = true;
                     canApplyDamage = false;
+                    canShakeCam = false;
                     esquiveReussiPerfect = true;
                     UIManager.ActiveUICounter(true, false);
                     Battle.canCounter = true;
@@ -580,6 +595,7 @@ public class EnnemiAttack : MonoBehaviour
                         UIManager.ActiveUIEsquive(false, false, true);
 
                     canApplyDamage = false;
+                    canShakeCam = false;
                     PlayerDoSomething();
                     ResetAllSlider();
                     PlayQTEValidationSound(1);
@@ -633,6 +649,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     canApplyDamage = false;
+                    canShakeCam = true;
                     PerfectText.ActiveText();
                     countRoundAttack = 2;
                     PlayQTEValidationSound(2);
@@ -650,6 +667,7 @@ public class EnnemiAttack : MonoBehaviour
                     UIManager.ActiveUIBlock(false, true);
                     PlayerDoSomething();
                     ResetAllSlider();
+                    canShakeCam = true;
                     FailText.ActiveText();
                     Time.timeScale = 1;
                     PlayQTEValidationSound(0);
@@ -663,6 +681,7 @@ public class EnnemiAttack : MonoBehaviour
                 {
                     UIManager.ActiveUIBlock(false, true);
                     canApplyDamage = false;
+                    canShakeCam = true;
                     canApplyDamageBlock = true;
                     PlayerDoSomething();
                     ResetAllSlider();
@@ -674,6 +693,7 @@ public class EnnemiAttack : MonoBehaviour
         else
         {
             Battle.canBlock = false;
+            canShakeCam = true;
             PlayerDoSomething();
             ResetAllSlider();
 
@@ -717,6 +737,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 UIManager.ActiveUICounter(false, true);
 
+                canShakeCam = false;
                 ResetCounterSlider();
                 ReturnToStatePatrol();
                 FailText.ActiveText();
@@ -1122,7 +1143,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void ApplyDamageToPlayer()
     {
-        if(canApplyDamage)
+        if(canApplyDamage && canShakeCam)
         {
             Battle.myAnimator.SetBool("IsHit", true);
 
@@ -1134,7 +1155,7 @@ public class EnnemiAttack : MonoBehaviour
                        ShakeCam.shakeCamParametersFailStatic[0].frequence, ShakeCam.shakeCamParametersFailStatic[0].duration);
         }
 
-        if(canApplyDamageBlock)
+        if(canApplyDamageBlock && canShakeCam)
         {
             Battle.myAnimator.SetBool("BlockNormal", true);
             
@@ -1145,7 +1166,7 @@ public class EnnemiAttack : MonoBehaviour
                         ShakeCam.shakeCamParametersBlockNormalStatic[0].frequence, ShakeCam.shakeCamParametersBlockNormalStatic[0].duration);
         }
         
-        if(!canApplyDamageBlock && !canApplyDamage)
+        if(!canApplyDamageBlock && !canApplyDamage && canShakeCam)
         {
             Battle.myAnimator.SetBool("BlockPerfectEnd", true);
 
