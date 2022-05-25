@@ -18813,11 +18813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[5].volume
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[6].volume
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[7].volume
@@ -18910,15 +18910,15 @@ PrefabInstance:
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+      objectReference: {fileID: 8300000, guid: 68048bde39a878a469520dca72d6289f, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 11870e7f4994d5e4abddbb59c54a9f3a, type: 3}
+      objectReference: {fileID: 8300000, guid: 68048bde39a878a469520dca72d6289f, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: d9312854080130c4f92bec3b721e3f31, type: 3}
+      objectReference: {fileID: 8300000, guid: 68048bde39a878a469520dca72d6289f, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[3].clip
       value: 
