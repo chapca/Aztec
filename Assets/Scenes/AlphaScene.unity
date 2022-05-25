@@ -7752,8 +7752,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1718085663}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockPerfect.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].amplitude
+      value: 5548
       objectReference: {fileID: 0}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersFailBlock.Array.data[0].duration
