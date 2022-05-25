@@ -7752,8 +7752,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1718085663}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockPerfect.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].duration
+      value: 0.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].amplitude
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].frequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].axeShake.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].axeShake.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersFail.Array.data[0].axeShake.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersFailBlock.Array.data[0].duration
@@ -7784,6 +7812,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackNormal.Array.data[0].duration
+      value: 0.192
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockNormal.Array.data[0].amplitude
       value: 6
       objectReference: {fileID: 0}
@@ -7794,6 +7826,18 @@ PrefabInstance:
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockPerfect.Array.data[0].duration
       value: 0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackNormal.Array.data[0].amplitude
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackNormal.Array.data[0].frequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackPerfect.Array.data[0].duration
+      value: 0.096
       objectReference: {fileID: 0}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockNormal.Array.data[0].axeShake.x
@@ -7816,6 +7860,26 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackNormal.Array.data[0].axeShake.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackNormal.Array.data[0].axeShake.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackNormal.Array.data[0].axeShake.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackPerfect.Array.data[0].amplitude
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackPerfect.Array.data[0].frequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockPerfect.Array.data[0].axeShake.x
       value: 5
       objectReference: {fileID: 0}
@@ -7826,6 +7890,18 @@ PrefabInstance:
     - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: shakeCamParametersBlockPerfect.Array.data[0].axeShake.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackPerfect.Array.data[0].axeShake.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackPerfect.Array.data[0].axeShake.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426591984, guid: d17074153160e8c45941f46959fa73b1, type: 3}
+      propertyPath: shakeCamParametersAttackPerfect.Array.data[0].axeShake.z
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2130396931591841880, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_Name
