@@ -737,7 +737,6 @@ public class EnnemiAttack : MonoBehaviour
             {
                 UIManager.ActiveUICounter(false, true);
 
-                canShakeCam = false;
                 ResetCounterSlider();
                 ReturnToStatePatrol();
                 FailText.ActiveText();
@@ -753,6 +752,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 UIManager.ActiveUICounter(false, true);
 
+                canShakeCam = false;
                 counterReussi = true;
                 ResetCounterSlider();
                 PlayQTEValidationSound(1);
