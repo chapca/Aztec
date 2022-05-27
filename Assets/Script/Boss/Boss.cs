@@ -13,6 +13,8 @@ public class Boss : MonoBehaviour
 
     SliderBoss sliderBoss;
 
+    Battle battle;
+
     public AudioSource bulletTimeAudioSource, qteTimerAudioSource, qteValidationAudioSource, playerAudioSource;
 
     public Animator myAnimator;
@@ -28,10 +30,6 @@ public class Boss : MonoBehaviour
     Quaternion lookPlayer;
 
     public int state;
-
-    [SerializeField] bool moveRight;
-
-    float time = 2f;
 
     [SerializeField] float randomTimeBeforeAttack;
 
@@ -85,12 +83,18 @@ public class Boss : MonoBehaviour
         qteValidationAudioSource = GameObject.Find("QTEValidationMusic").GetComponent<AudioSource>();
         playerAudioSource = GameObject.Find("EmptyPlayer").GetComponent<AudioSource>();
 
+        battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
+
         basePos = transform.position;
+
+        randomTimeBeforeAttack = Random.Range(2, 5);
     }
 
     void Update()
     {
         distPlayer = Vector3.Distance(transform.position, player.position);
+
+        SmoothLookAt(player);
 
         if (retrunState1 && state != 0)
         {
@@ -100,6 +104,7 @@ public class Boss : MonoBehaviour
         if (distPlayer < 10)
         {
             startBattle = true;
+            battle.isAttacked = true;
         }
         else if (!startBattle)
         {
@@ -125,7 +130,7 @@ public class Boss : MonoBehaviour
                 break;
         }
 
-        if (startBattle)
+        if (startBattle && !canAttack && state !=4 && state !=3)
             StateWaitingPlayer();
 
         if (startQTE)
@@ -376,12 +381,13 @@ public class Boss : MonoBehaviour
                 if (Input.GetButtonDown("BlockButton"))
                 {
                     UIManagerBoss.ActiveUIBlock(false, true);
+                    canApplyDamage = false;
+                    canApplyDamageBlock = false;
+                    canShakeCam = true;
                     Battle.myAnimator.SetBool("BlockPerfect", true);
-                    Debug.Log("Block");
+                    Debug.LogError("Block");
                     PlayerDoSomething();
                     ResetAllSlider();
-                    canApplyDamage = false;
-                    canShakeCam = true;
                     PerfectText.ActiveText();
                     countRoundAttack = 2;
                     PlayQTEValidationSound(2);
@@ -399,6 +405,8 @@ public class Boss : MonoBehaviour
                     UIManagerBoss.ActiveUIBlock(false, true);
                     PlayerDoSomething();
                     ResetAllSlider();
+                    canApplyDamage = true;
+                    canApplyDamageBlock = false;
                     canShakeCam = true;
                     FailText.ActiveText();
                     Time.timeScale = 1;
@@ -413,8 +421,8 @@ public class Boss : MonoBehaviour
                 {
                     UIManagerBoss.ActiveUIBlock(false, true);
                     canApplyDamage = false;
-                    canShakeCam = true;
                     canApplyDamageBlock = true;
+                    canShakeCam = true;
                     PlayerDoSomething();
                     ResetAllSlider();
                     countRoundAttack = 1;
@@ -425,6 +433,8 @@ public class Boss : MonoBehaviour
         else
         {
             Battle.canBlock = false;
+            canApplyDamageBlock = false;
+            canApplyDamage = true;
             canShakeCam = true;
             PlayerDoSomething();
             ResetAllSlider();
@@ -539,12 +549,9 @@ public class Boss : MonoBehaviour
         agent.enabled = true;
         agent.angularSpeed = 0;
 
-        canApplyDamageBlock = false;
-        canApplyDamage = true;
         paradeReussi = false;
         counterReussi = false;
         attackReussiperfect = false;
-        esquiveReussiPerfect = false;
 
         RandomAttack();
 
@@ -581,30 +588,10 @@ public class Boss : MonoBehaviour
         {
             agent.SetDestination(player.position);
         }
-
-        if (time >= 0)
-        {
-            time -= Time.deltaTime;
-        }
-        else
-        {
-            if (!moveRight)
-            {
-                moveRight = true;
-            }
-            else
-            {
-                moveRight = false;
-            }
-
-            time = 2;
-        }
     }
 
     void RandomAttack()
     {
-        randomTimeBeforeAttack = Random.Range(2, 5);
-
         if (randomTimeBeforeAttack > 0)
         {
             randomTimeBeforeAttack -= Time.deltaTime;
@@ -612,9 +599,9 @@ public class Boss : MonoBehaviour
         else
         {
             retrunState1 = false;
+            canAttack = true;
             randomTimeBeforeAttack = Random.Range(2, 5);
             state = 2;
-            canAttack = true;
 
             if (Random.Range(0, 2) == 0)
             {
@@ -864,8 +851,9 @@ public class Boss : MonoBehaviour
 
     void ApplyDamageToPlayer()
     {
-        if (canApplyDamage && canShakeCam)
+        if (canApplyDamage && canShakeCam && !canApplyDamageBlock)
         {
+            Debug.LogError("No Block");
             Battle.myAnimator.SetBool("IsHit", true);
 
             PlayerHp.TakeDamage(damage);
@@ -876,8 +864,9 @@ public class Boss : MonoBehaviour
                        ShakeCam.shakeCamParametersFailStatic[0].frequence, ShakeCam.shakeCamParametersFailStatic[0].duration);
         }
 
-        if (canApplyDamageBlock && canShakeCam)
+        if (!canApplyDamage && canApplyDamageBlock && canShakeCam)
         {
+            Debug.LogError("launch Block Normal");
             Battle.myAnimator.SetBool("BlockNormal", true);
 
             PlayerHp.TakeDamage(blockDamage);
@@ -889,6 +878,7 @@ public class Boss : MonoBehaviour
 
         if (!canApplyDamageBlock && !canApplyDamage && canShakeCam)
         {
+            Debug.LogError("launch Block Perfect");
             Battle.myAnimator.SetBool("BlockPerfectEnd", true);
 
             SoundManager.PlaySoundPlayerBattle(playerAudioSource, SoundManager.soundAndVolumePlayerBattleStatic[5]);

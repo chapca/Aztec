@@ -59,6 +59,7 @@ public class UIManagerBoss : MonoBehaviour
         UIAttack.SetActive(false);
 
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
 
     }
 
@@ -255,15 +256,16 @@ public class UIManagerBoss : MonoBehaviour
         {
             uiObj.SetActive(false);
 
-            if (!EnnemiAttack.esquivePerfect)
+            if (!Boss.esquivePerfect)
                 ActiveManetteUI(false);
 
             normal.transform.localScale = new Vector2(1f, 1f);
             perfect.transform.localScale = normal.transform.localScale;
+
             if (uiObj != UICounter)
                 fail.transform.localScale = normal.transform.localScale;
 
-            EnnemiAttack.esquivePerfect = false;
+            Boss.esquivePerfect = false;
             yield break;
         }
         else

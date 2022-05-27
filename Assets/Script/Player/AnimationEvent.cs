@@ -17,6 +17,8 @@ public class AnimationEvent : MonoBehaviour
 
     AudioSource audioSource;
 
+    public static bool bossFight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,12 +128,20 @@ public class AnimationEvent : MonoBehaviour
 
             if(attackStandard)
             {
-                ennemi.GetComponent<EnnemiHp>().TakeDamage(50);
+                if(!bossFight)
+                    ennemi.GetComponent<HPBoss>().TakeDamage(50);
+                else
+                    ennemi.GetComponent<HPBoss>().TakeDamage(50);
+
                 SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[1]);
             }
             if(attackPerfect)
             {
-                ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
+                if (!bossFight)
+                    ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                else
+                    ennemi.GetComponent<HPBoss>().TakeDamage(100);
+
                 SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[2]);
             }
         }
@@ -212,10 +222,18 @@ public class AnimationEvent : MonoBehaviour
             ShakeCam.ShakerCam(ShakeCam.shakeCamParametersAttackPerfectStatic, ShakeCam.shakeCamParametersAttackPerfectStatic[0].axeShake, ShakeCam.shakeCamParametersAttackPerfectStatic[0].amplitude,
                         ShakeCam.shakeCamParametersAttackPerfectStatic[0].frequence, ShakeCam.shakeCamParametersAttackPerfectStatic[0].duration);
 
-            ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
-            ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
-            Debug.Log(Battle.isCounter);
+            if (!bossFight)
+            {
+                ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
+            }
+            else
+            {
+                ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                ennemi.GetComponent<Boss>().myAnimator.SetTrigger("Hit");
+            }
 
+            Debug.Log(Battle.isCounter);
         }
     }
 
