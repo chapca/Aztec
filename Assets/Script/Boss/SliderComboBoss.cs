@@ -27,6 +27,12 @@ public class SliderComboBoss : MonoBehaviour
     [SerializeField] float setUpAngleLooseFrameCombo2;
     [Range(90f, 359.99f)]
     [SerializeField] float setUpAngleLooseFrameCombo3;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLoose2FrameCombo1;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLoose2FrameCombo2;
+    [Range(90f, 359.99f)]
+    [SerializeField] float setUpAngleLoose2FrameCombo3;
 
     [Header("AUTO Valeur à laquel la frame perfect démare par rapport au slider normal")]
     [Range(0.0f, 1f)]
@@ -60,12 +66,17 @@ public class SliderComboBoss : MonoBehaviour
     [SerializeField] public float setUpSliderLooseCombo2;
     [Range(0.0f, 3f)]
     [SerializeField] public float setUpSliderLooseCombo3;
-
+    [Range(0.0f, 3f)]
+    [SerializeField] public float setUpSliderLoose2Combo1;
+    [Range(0.0f, 3f)]
+    [SerializeField] public float setUpSliderLoose2Combo2;
+    [Range(0.0f, 3f)]
+    [SerializeField] public float setUpSliderLoose2Combo3;
 
     [Header("Reference slider")]
-    [SerializeField] public Transform sliderCombo1Perfect, sliderCombo1Normal, sliderCombo1Loose;
-    [SerializeField] public Transform sliderCombo2Perfect, sliderCombo2Normal, sliderCombo2Loose;
-    [SerializeField] public Transform sliderCombo3Perfect, sliderCombo3Normal, sliderCombo3Loose;
+    [SerializeField] public Transform sliderCombo1Perfect, sliderUILoose2Combo1, sliderCombo1Loose;
+    [SerializeField] public Transform sliderCombo2Perfect, sliderUILoose2Combo2, sliderCombo2Loose;
+    [SerializeField] public Transform sliderCombo3Perfect, sliderUILoose2Combo3, sliderCombo3Loose;
 
     //(fillAmountSliderNormal *360f) +90f = angleSliderPerfect
     //(fillAmountSliderNormal *360f) = angleSliderPerfect - 90f
@@ -81,10 +92,16 @@ public class SliderComboBoss : MonoBehaviour
     [Range(0.0f, 1f)] [SerializeField] public float sliderLooseCombo1Size;
     [Range(0.0f, 1f)] [SerializeField] public float sliderLooseCombo2Size;
     [Range(0.0f, 1f)] [SerializeField] public float sliderLooseCombo3Size;
+    [Range(0.0f, 1f)] [SerializeField] public float sliderLoose2Combo1Size;
+    [Range(0.0f, 1f)] [SerializeField] public float sliderLoose2Combo2Size;
+    [Range(0.0f, 1f)] [SerializeField] public float sliderLoose2Combo3Size;
 
     [Range(0.0f, 1f)] public float baseSliderLooseCombo1Size;
     [Range(0.0f, 1f)] public float baseSliderLooseCombo2Size;
     [Range(0.0f, 1f)] public float baseSliderLooseCombo3Size;
+    [Range(0.0f, 1f)] public float baseSliderLoose2Combo1Size;
+    [Range(0.0f, 1f)] public float baseSliderLoose2Combo2Size;
+    [Range(0.0f, 1f)] public float baseSliderLoose2Combo3Size;
 
     [Header("Execute code en hors Game (DESACTIVER AVANT DE LANCER)")]
     [SerializeField] public bool activeThisinEditor, ManetteSpriteIsActive;
@@ -115,11 +132,11 @@ public class SliderComboBoss : MonoBehaviour
 
 
         setUpSliderLooseCombo1 = setUpTimerSliderNormal / (1f / sliderPerfectCombo1Size);
-        setUpSliderLooseCombo2 = setUpTimerSliderNormal / (1f / sliderLooseCombo1Size);
+        setUpSliderLooseCombo2 = setUpTimerSliderNormal / (1f / sliderLooseCombo2Size);
         setUpSliderLooseCombo3 = setUpTimerSliderNormal / (1f / sliderLooseCombo3Size);
 
-        sliderLooseCombo2Size = setUpSliderLooseCombo1 / baseSetUpTimerSliderNormal;
-        sliderLooseCombo1Size = setUpSliderLooseCombo2 / baseSetUpTimerSliderNormal;
+        sliderLooseCombo1Size = setUpSliderLooseCombo1 / baseSetUpTimerSliderNormal;
+        sliderLooseCombo2Size = setUpSliderLooseCombo2 / baseSetUpTimerSliderNormal;
         sliderLooseCombo3Size = setUpSliderLooseCombo3 / baseSetUpTimerSliderNormal;
 
         baseSliderLooseCombo2Size = sliderLooseCombo2Size;
@@ -132,6 +149,7 @@ public class SliderComboBoss : MonoBehaviour
         sliderCombo1Perfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameCombo1);
         sliderCombo2Perfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameCombo2);
         sliderCombo3Perfect.localRotation = Quaternion.Euler(0, 0, setUpAnglePerfectFrameCombo3);
+
     }
 
     void SetPositionFrameLoose()
@@ -139,6 +157,10 @@ public class SliderComboBoss : MonoBehaviour
         sliderCombo1Loose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameCombo1);
         sliderCombo2Loose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameCombo2);
         sliderCombo3Loose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameCombo3);
+
+        sliderUILoose2Combo1.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo1);
+        sliderUILoose2Combo2.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo2);
+        sliderUILoose2Combo3.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo3);
     }
 
     // Update is called once per frame
@@ -176,6 +198,16 @@ public class SliderComboBoss : MonoBehaviour
 
         sliderCombo3Loose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameCombo3);
         setUpStartLooseFrameCombo3 = Mathf.Abs((sliderCombo3Loose.eulerAngles.z - (360f * sliderLooseCombo3Size)) / 360f);
+
+
+        sliderUILoose2Combo1.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo1);
+        setUpStartLooseFrameCombo1 = Mathf.Abs((sliderUILoose2Combo1.eulerAngles.z - (360f * sliderLoose2Combo1Size)) / 360f);
+
+        sliderUILoose2Combo2.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo2);
+        setUpStartLooseFrameCombo2 = Mathf.Abs((sliderUILoose2Combo2.eulerAngles.z - (360f * sliderLoose2Combo2Size)) / 360f);
+
+        sliderUILoose2Combo3.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo3);
+        setUpStartLooseFrameCombo3 = Mathf.Abs((sliderUILoose2Combo3.eulerAngles.z - (360f * sliderLoose2Combo3Size)) / 360f);
     }
 
     void SetFramePerfectSize()
@@ -203,13 +235,26 @@ public class SliderComboBoss : MonoBehaviour
 
         setUpSliderLooseCombo3 = setUpTimerSliderNormal / (1f / sliderLooseCombo3Size);
 
+        setUpSliderLoose2Combo1 = setUpTimerSliderNormal / (1f / sliderLoose2Combo1Size);
+
+        setUpSliderLoose2Combo2 = setUpTimerSliderNormal / (1f / sliderLoose2Combo2Size);
+
+        setUpSliderLoose2Combo3 = setUpTimerSliderNormal / (1f / sliderLoose2Combo3Size);
 
         sliderLooseCombo1Size = setUpSliderLooseCombo1 / baseSetUpTimerSliderNormal;
         sliderLooseCombo2Size = setUpSliderLooseCombo2 / baseSetUpTimerSliderNormal;
         sliderLooseCombo3Size = setUpSliderLooseCombo3 / baseSetUpTimerSliderNormal;
 
+        sliderLoose2Combo1Size = setUpSliderLoose2Combo1 / baseSetUpTimerSliderNormal;
+        sliderLoose2Combo2Size = setUpSliderLoose2Combo2 / baseSetUpTimerSliderNormal;
+        sliderLoose2Combo3Size = setUpSliderLoose2Combo3 / baseSetUpTimerSliderNormal;
+
         sliderCombo1Loose.GetComponent<Image>().fillAmount = sliderLooseCombo1Size;
         sliderCombo2Loose.GetComponent<Image>().fillAmount = sliderLooseCombo2Size;
         sliderCombo3Loose.GetComponent<Image>().fillAmount = sliderLooseCombo3Size;
+
+        sliderUILoose2Combo1.GetComponent<Image>().fillAmount = sliderLoose2Combo1Size;
+        sliderUILoose2Combo2.GetComponent<Image>().fillAmount = sliderLoose2Combo2Size;
+        sliderUILoose2Combo3.GetComponent<Image>().fillAmount = sliderLoose2Combo3Size;
     }
 }

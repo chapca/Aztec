@@ -12,6 +12,7 @@ public class Boss : MonoBehaviour
     AudioSource myAudioSource;
 
     SliderBoss sliderBoss;
+    SliderComboBoss sliderComboBoss;
 
     Battle battle;
 
@@ -64,9 +65,12 @@ public class Boss : MonoBehaviour
     [SerializeField] Vector3 maxSize;
     [SerializeField] Vector3 baseSize;
 
+    [SerializeField] bool activeCombo1, activeCombo2, activeCombo3;
+
     void Start()
     {
         sliderBoss = GetComponent<SliderBoss>();
+        sliderComboBoss = GetComponent<SliderComboBoss>();
 
         hpBoss = GetComponent<HPBoss>();
         myAnimator = GetComponent<Animator>();
@@ -149,6 +153,13 @@ public class Boss : MonoBehaviour
         if(HPBoss.startFinalCombo)
         {
             state = 5;
+            activeCombo1 = true;
+        }
+
+        if(activeCombo1)
+        {
+            UIManagerBoss.ActiveComboUI(true);
+            UIManagerBoss.ActiveUICombo1(true, false);
         }
     }
 
@@ -180,6 +191,19 @@ public class Boss : MonoBehaviour
             PlayerDoSomething();
         }
     }
+
+    void DelayInputCombo()
+    {
+        sliderComboBoss.setUpTimerSliderNormal -= Time.unscaledDeltaTime;
+
+        ActiveManetteUI();
+
+        if (sliderBoss.setUpTimerSliderNormal <= 0)
+        {
+            PlayerDoSomething();
+        }
+    }
+
 
     void TimingAttack()
     {

@@ -13,7 +13,8 @@ public class UIManagerBoss : MonoBehaviour
 
     static public Image sliderAttackPerfect, sliderEsquivePerfectRight, sliderEsquivePerfectLeft, sliderCounterPerfect, sliderBlockPerfect, sliderUIPerfectCombo1, sliderUIPerfectCombo2, sliderUIPerfectCombo3;
 
-    static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter, sliderUILooseCombo1, sliderUILooseCombo2, sliderUILooseCombo3;
+    static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter, sliderUILooseCombo1, sliderUILooseCombo2, sliderUILooseCombo3,
+        sliderUILoose2Combo1, sliderUILoose2Combo2, sliderUILoose2Combo3;
 
     private void Awake()
     {
@@ -62,6 +63,14 @@ public class UIManagerBoss : MonoBehaviour
         sliderUILooseCombo1 = GameObject.Find("SliderCombo1LooseBoss").GetComponent<Image>();
         sliderUILooseCombo2 = GameObject.Find("SliderCombo2LooseBoss").GetComponent<Image>();
         sliderUILooseCombo3 = GameObject.Find("SliderCombo3LooseBoss").GetComponent<Image>();
+
+        sliderUILoose2Combo1 = GameObject.Find("SliderCombo1Loose2Boss").GetComponent<Image>();
+        sliderUILoose2Combo2 = GameObject.Find("SliderCombo2Loose2Boss").GetComponent<Image>();
+        sliderUILoose2Combo3 = GameObject.Find("SliderCombo3Loose2Boss").GetComponent<Image>();
+
+        UICombo1.SetActive(false);
+        UICombo2.SetActive(false);
+        UICombo3.SetActive(false);
 
         UIManette.SetActive(false);
         UIEsquiveRight.SetActive(false);
@@ -129,6 +138,47 @@ public class UIManagerBoss : MonoBehaviour
         sliderLooseAttack.fillAmount = value;
     }
 
+    // slider final combo 1 
+    static public void UpdateSliderLooseCombo1(float value)
+    {
+        sliderUILooseCombo1.fillAmount = value;
+    }
+    static public void UpdateSliderLoose2Combo1(float value)
+    {
+        sliderUILoose2Combo1.fillAmount = value;
+    }
+    static public void UpdateSliderPerfectCombo1(float value)
+    {
+        sliderUIPerfectCombo1.fillAmount = value;
+    }
+
+    // slider final combo 2
+    static public void UpdateSliderLooseCombo2(float value)
+    {
+        sliderUILooseCombo2.fillAmount = value;
+    }
+    static public void UpdateSliderLoose2Combo2(float value)
+    {
+        sliderUILoose2Combo2.fillAmount = value;
+    }
+    static public void UpdateSliderPerfectCombo2(float value)
+    {
+        sliderUIPerfectCombo2.fillAmount = value;
+    }
+
+    // slider final combo 3
+    static public void UpdateSliderLooseCombo3(float value)
+    {
+        sliderUILooseCombo3.fillAmount = value;
+    }
+    static public void UpdateSliderLoose2Combo3(float value)
+    {
+        sliderUILoose2Combo3.fillAmount = value;
+    }
+    static public void UpdateSliderPerfectCombo3(float value)
+    {
+        sliderUIPerfectCombo3.fillAmount = value;
+    }
 
     static public void ActiveManetteUI(bool active)
     {
@@ -238,6 +288,64 @@ public class UIManagerBoss : MonoBehaviour
         }
     }
 
+    static public void ActiveUICombo1(bool active, bool resize)
+    {
+        if (active)
+        {
+            UICombo1.SetActive(true);
+        }
+        else
+        {
+            if (resize)
+            {
+                instance.DesableUselessUI(UICombo3, UICombo3, UICombo3, UICombo2, UICombo2);
+                instance.CallCoroutine(UICombo1, sliderUILoose2Combo2, sliderUILooseCombo2, sliderUIPerfectCombo2);
+            }
+            else
+            {
+                UICombo1.SetActive(false);
+            }
+        }
+    }
+    static public void ActiveUICombo2(bool active, bool resize)
+    {
+        if (active)
+        {
+            UICombo2.SetActive(true);
+        }
+        else
+        {
+            if (resize)
+            {
+                instance.DesableUselessUI(UICombo3, UICombo3, UICombo3, UICombo1, UICombo1);
+                instance.CallCoroutine(UICombo2, sliderUILoose2Combo2, sliderUILooseCombo2, sliderUIPerfectCombo2);
+            }
+            else
+            {
+                UICombo2.SetActive(false);
+            }
+        }
+    }
+    static public void ActiveUICombo3(bool active, bool resize)
+    {
+        if (active)
+        {
+            UICombo3.SetActive(true);
+        }
+        else
+        {
+            if (resize)
+            {
+                instance.DesableUselessUI(UICombo2, UICombo2, UICombo2, UICombo1, UICombo1);
+                instance.CallCoroutine(UICombo3, sliderUILoose2Combo3, sliderUILooseCombo3, sliderUIPerfectCombo3);
+            }
+            else
+            {
+                UICombo3.SetActive(false);
+            }
+        }
+    }
+
     void DesableUselessUI(GameObject uiAttack, GameObject uIBlock, GameObject uIEsquiveRight, GameObject uIEsquiveLeft, GameObject uiCounter)
     {
         uiAttack.SetActive(false);
@@ -245,12 +353,26 @@ public class UIManagerBoss : MonoBehaviour
         uIEsquiveRight.SetActive(false);
         uIEsquiveLeft.SetActive(false);
         uiCounter.SetActive(false);
-
     }
+
 
     void CallCoroutine(GameObject uiObj, Image normal, Image perfect, Image fail)
     {
         StartCoroutine(ResizeSlider(uiObj, normal, perfect, fail));
+    }
+
+    static public void ActiveComboUI(bool active)
+    {
+        /*UICombo1.SetActive(active);
+        UICombo2.SetActive(active);
+        UICombo3.SetActive(active);*/
+        ActiveManetteUI(active);
+
+        UIEsquiveRight.SetActive(!active);
+        UIEsquiveLeft.SetActive(!active);
+        UIBlock.SetActive(!active);
+        UICounter.SetActive(!active);
+        UIAttack.SetActive(!active);
     }
 
     IEnumerator ResizeSlider(GameObject uiObj, Image normal, Image perfect, Image fail)
