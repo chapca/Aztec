@@ -128,6 +128,9 @@ public class Boss : MonoBehaviour
             case 4:
                 StateWaitCounter();
                 break;
+            case 5:
+                StateWaitFinalCombo();
+                break;
         }
 
         if (startBattle && !canAttack && state !=4 && state !=3)
@@ -141,6 +144,11 @@ public class Boss : MonoBehaviour
         {
             sliderBoss.setUpTimerSliderNormal -= Time.unscaledDeltaTime * 1.5f;
             TimingCounter();
+        }
+
+        if(HPBoss.startFinalCombo)
+        {
+            state = 5;
         }
     }
 
@@ -683,6 +691,11 @@ public class Boss : MonoBehaviour
         {
             state = 3;
         }
+    }
+
+    void StateWaitFinalCombo()
+    {
+
     }
 
     void SmoothLookAt(Transform target)

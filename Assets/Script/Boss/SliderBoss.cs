@@ -68,6 +68,7 @@ public class SliderBoss : MonoBehaviour
     [Range(0.0f, 3f)]
     [SerializeField] public float setUpSliderLooseBlock;
 
+
     [Header("Reference slider")]
     [SerializeField] public Transform sliderAttackPerfect, sliderAttackNormal, sliderAttackLoose, sliderCounterLoose;
     [SerializeField] public Transform sliderEsquivePerfect, sliderEsquiveNormal, sliderEsquiveLoose;

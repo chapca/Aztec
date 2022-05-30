@@ -7,13 +7,13 @@ public class UIManagerBoss : MonoBehaviour
 {
     static UIManagerBoss instance;
 
-    static public GameObject UIManette, UIEsquiveRight, UIEsquiveLeft, UIBlock, UICounter, UIAttack;
+    static public GameObject UIManette, UIEsquiveRight, UIEsquiveLeft, UIBlock, UICounter, UIAttack, UICombo1, UICombo2, UICombo3;
 
     static public Image sliderEsquiveRight, sliderEsquiveLeft, sliderBlock, sliderCounter, sliderAttack;
 
-    static public Image sliderAttackPerfect, sliderEsquivePerfectRight, sliderEsquivePerfectLeft, sliderCounterPerfect, sliderBlockPerfect;
+    static public Image sliderAttackPerfect, sliderEsquivePerfectRight, sliderEsquivePerfectLeft, sliderCounterPerfect, sliderBlockPerfect, sliderUIPerfectCombo1, sliderUIPerfectCombo2, sliderUIPerfectCombo3;
 
-    static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter;
+    static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter, sliderUILooseCombo1, sliderUILooseCombo2, sliderUILooseCombo3;
 
     private void Awake()
     {
@@ -32,6 +32,10 @@ public class UIManagerBoss : MonoBehaviour
         UICounter = GameObject.Find("EmptyCounterUIBoss");
         UIAttack = GameObject.Find("EmptyAttackUIBoss");
 
+        UICombo1 = GameObject.Find("EmptyCombot1UIBoss");
+        UICombo2 = GameObject.Find("EmptyCombot2UIBoss");
+        UICombo3 = GameObject.Find("EmptyCombot3UIBoss");
+
         sliderEsquiveRight = GameObject.Find("SliderEsquiveRightBoss").GetComponent<Image>();
         sliderEsquiveLeft = GameObject.Find("SliderEsquiveLeftBoss").GetComponent<Image>();
 
@@ -45,11 +49,19 @@ public class UIManagerBoss : MonoBehaviour
         sliderCounterPerfect = GameObject.Find("SliderCounterPerfectBoss").GetComponent<Image>();
         sliderBlockPerfect = GameObject.Find("SliderBlockPerfectBoss").GetComponent<Image>();
 
+        sliderUIPerfectCombo1 = GameObject.Find("SliderCombo1PerfectBoss").GetComponent<Image>();
+        sliderUIPerfectCombo2 = GameObject.Find("SliderCombo2PerfectBoss").GetComponent<Image>();
+        sliderUIPerfectCombo3 = GameObject.Find("SliderCombo3PerfectBoss").GetComponent<Image>();
+
         sliderLooseAttack = GameObject.Find("SliderAttackLooseBoss").GetComponent<Image>();
         sliderLooseEsquiveRight = GameObject.Find("SliderEsquiveLooseRightBoss").GetComponent<Image>();
         sliderLooseEsquiveLeft = GameObject.Find("SliderEsquiveLooseLeftBoss").GetComponent<Image>();
         sliderLooseBlock = GameObject.Find("SliderBlockLooseBoss").GetComponent<Image>();
         sliderLooseCounter = GameObject.Find("SliderCounterLooseBoss").GetComponent<Image>();
+
+        sliderUILooseCombo1 = GameObject.Find("SliderCombo1LooseBoss").GetComponent<Image>();
+        sliderUILooseCombo2 = GameObject.Find("SliderCombo2LooseBoss").GetComponent<Image>();
+        sliderUILooseCombo3 = GameObject.Find("SliderCombo3LooseBoss").GetComponent<Image>();
 
         UIManette.SetActive(false);
         UIEsquiveRight.SetActive(false);

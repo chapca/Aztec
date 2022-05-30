@@ -10,6 +10,10 @@ public class HPBoss : MonoBehaviour
     Animator myAnimator;
     Transform parentObject;
 
+    Battle battle;
+
+    public static bool startFinalCombo, finalCombo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,9 @@ public class HPBoss : MonoBehaviour
         hp = maxHp;
 
         parentObject = transform.parent;
+
+        battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
+
     }
 
     // Update is called once per frame
@@ -32,13 +39,19 @@ public class HPBoss : MonoBehaviour
     {
         hp -= damage;
 
-        if (hp <= 0)
+        if(hp <=0)
+        {
+            startFinalCombo = true;
+        }
+
+        if (hp <= 0 && finalCombo)
         {
             transform.parent = null;
             boss.enabled = false;
             PlayerBlood.GetBlood(nbrBlood);
             myAnimator.SetBool("Die", true);
             PlayerController.ennemi = null;
+            battle.isAttacked = false;
         }
     }
 }
