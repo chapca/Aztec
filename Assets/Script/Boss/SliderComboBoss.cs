@@ -131,17 +131,31 @@ public class SliderComboBoss : MonoBehaviour
         sliderPerfectCombo2Size = setUpSliderPerfect / baseSetUpTimerSliderNormal;
 
 
-        setUpSliderLooseCombo1 = setUpTimerSliderNormal / (1f / sliderPerfectCombo1Size);
+        setUpSliderLooseCombo1 = setUpTimerSliderNormal / (1f / sliderLooseCombo1Size);
         setUpSliderLooseCombo2 = setUpTimerSliderNormal / (1f / sliderLooseCombo2Size);
         setUpSliderLooseCombo3 = setUpTimerSliderNormal / (1f / sliderLooseCombo3Size);
+
+        setUpSliderLoose2Combo1 = setUpTimerSliderNormal / (1f / sliderLoose2Combo1Size);
+        setUpSliderLoose2Combo2 = setUpTimerSliderNormal / (1f / sliderLoose2Combo2Size);
+        setUpSliderLoose2Combo3 = setUpTimerSliderNormal / (1f / sliderLoose2Combo3Size);
+
 
         sliderLooseCombo1Size = setUpSliderLooseCombo1 / baseSetUpTimerSliderNormal;
         sliderLooseCombo2Size = setUpSliderLooseCombo2 / baseSetUpTimerSliderNormal;
         sliderLooseCombo3Size = setUpSliderLooseCombo3 / baseSetUpTimerSliderNormal;
 
+        sliderLoose2Combo1Size = setUpSliderLoose2Combo1 / baseSetUpTimerSliderNormal;
+        sliderLoose2Combo2Size = setUpSliderLoose2Combo2 / baseSetUpTimerSliderNormal;
+        sliderLoose2Combo3Size = setUpSliderLoose2Combo3 / baseSetUpTimerSliderNormal;
+
+
         baseSliderLooseCombo2Size = sliderLooseCombo2Size;
         baseSliderLooseCombo1Size = sliderLooseCombo1Size;
         baseSliderLooseCombo3Size = sliderLooseCombo3Size;
+
+        baseSliderLoose2Combo1Size = sliderLoose2Combo1Size;
+        baseSliderLoose2Combo2Size = sliderLoose2Combo2Size;
+        baseSliderLoose2Combo3Size = sliderLoose2Combo3Size;
     }
 
     void SetPositionFramePerfect()
