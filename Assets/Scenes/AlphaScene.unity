@@ -23999,8 +23999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convertion: 1.6666666
-  setUpStartActionPlayer: 1
-  setUpEndActionPlayer: 4
+  setUpStartActionPlayer: 0.1
+  setUpEndActionPlayer: 0.4
   setUpAnglePerfectFrameCombo1: 241
   setUpAnglePerfectFrameCombo2: 329
   setUpAnglePerfectFrameCombo3: 144
@@ -24016,15 +24016,15 @@ MonoBehaviour:
   setUpStartLooseFrameCombo1: 0.6689722
   setUpStartLooseFrameCombo2: 0.05411113
   setUpStartLooseFrameCombo3: 0.39997217
-  baseSetUpTimerSliderNormal: 0.018
-  setUpTimerSliderNormal: 0.018
-  setUpSliderPerfect: 0.0027
-  setUpSliderLooseCombo1: 0.00936
-  setUpSliderLooseCombo2: 0.0015569999
-  setUpSliderLooseCombo3: 0.0045
-  setUpSliderLoose2Combo1: 0.0059579997
-  setUpSliderLoose2Combo2: 0.014723999
-  setUpSliderLoose2Combo3: 0.0108
+  baseSetUpTimerSliderNormal: 1.8000001
+  setUpTimerSliderNormal: 1.8000001
+  setUpSliderPerfect: 0.27
+  setUpSliderLooseCombo1: 0.936
+  setUpSliderLooseCombo2: 0.1557
+  setUpSliderLooseCombo3: 0.45000002
+  setUpSliderLoose2Combo1: 0.59580004
+  setUpSliderLoose2Combo2: 1.4724001
+  setUpSliderLoose2Combo3: 1.08
   sliderCombo1Perfect: {fileID: 5079493048949800002}
   sliderUILoose2Combo1: {fileID: 5079493048949800001}
   sliderCombo1Loose: {fileID: 5079493048949800000}
@@ -24051,7 +24051,7 @@ MonoBehaviour:
   baseSliderLoose2Combo2Size: 0.818
   baseSliderLoose2Combo3Size: 0.6
   activeThisinEditor: 0
-  ManetteSpriteIsActive: 0
+  ManetteSpriteIsActive: 1
 --- !u!224 &2291510510472819017 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6462921303903538544, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
