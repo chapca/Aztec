@@ -298,8 +298,8 @@ public class UIManagerBoss : MonoBehaviour
         {
             if (resize)
             {
-                instance.DesableUselessUI(UICombo3, UICombo3, UICombo3, UICombo2, UICombo2);
-                instance.CallCoroutine(UICombo1, sliderUILoose2Combo2, sliderUILooseCombo2, sliderUIPerfectCombo2);
+                instance.DesableUselessUI(UIBlock, UIBlock, UIBlock, UIBlock, UIBlock);
+                instance.CallCouroutineCombo(UICombo1, sliderUILoose2Combo1, sliderUILooseCombo1, sliderUIPerfectCombo1);
             }
             else
             {
@@ -317,8 +317,8 @@ public class UIManagerBoss : MonoBehaviour
         {
             if (resize)
             {
-                instance.DesableUselessUI(UICombo3, UICombo3, UICombo3, UICombo1, UICombo1);
-                instance.CallCoroutine(UICombo2, sliderUILoose2Combo2, sliderUILooseCombo2, sliderUIPerfectCombo2);
+                instance.DesableUselessUI(UIBlock, UIBlock, UIBlock, UIBlock, UIBlock);
+                instance.CallCouroutineCombo(UICombo2, sliderUILoose2Combo2, sliderUILooseCombo2, sliderUIPerfectCombo2);
             }
             else
             {
@@ -336,8 +336,8 @@ public class UIManagerBoss : MonoBehaviour
         {
             if (resize)
             {
-                instance.DesableUselessUI(UICombo2, UICombo2, UICombo2, UICombo1, UICombo1);
-                instance.CallCoroutine(UICombo3, sliderUILoose2Combo3, sliderUILooseCombo3, sliderUIPerfectCombo3);
+                instance.DesableUselessUI(UIBlock, UIBlock, UIBlock, UIBlock, UIBlock);
+                instance.CallCouroutineCombo(UICombo3, sliderUILoose2Combo3, sliderUILooseCombo3, sliderUIPerfectCombo3);
             }
             else
             {
@@ -359,6 +359,11 @@ public class UIManagerBoss : MonoBehaviour
     void CallCoroutine(GameObject uiObj, Image normal, Image perfect, Image fail)
     {
         StartCoroutine(ResizeSlider(uiObj, normal, perfect, fail));
+    }
+
+    void CallCouroutineCombo(GameObject uiObj, Image fail, Image perfect, Image fail2)
+    {
+        StartCoroutine(ResizeSliderCombo(uiObj, fail, perfect, fail2));
     }
 
     static public void ActiveComboUI(bool active)
@@ -390,7 +395,7 @@ public class UIManagerBoss : MonoBehaviour
         {
             uiObj.SetActive(false);
 
-            if (!Boss.esquivePerfect)
+            if (!Boss.esquivePerfect && !HPBoss.finalCombo)
                 ActiveManetteUI(false);
 
             normal.transform.localScale = new Vector2(1f, 1f);
@@ -405,6 +410,33 @@ public class UIManagerBoss : MonoBehaviour
         else
         {
             StartCoroutine(ResizeSlider(uiObj, normal, perfect, fail));
+            yield break;
+        }
+    }
+
+    IEnumerator ResizeSliderCombo(GameObject uiObj, Image normal, Image perfect, Image fail)
+    {
+        if (normal.transform.localScale.x < 2)
+        {
+            normal.rectTransform.localScale = new Vector2(normal.rectTransform.localScale.x + 0.1f, normal.rectTransform.localScale.y + 0.1f);
+            perfect.rectTransform.localScale = new Vector2(perfect.rectTransform.localScale.x + 0.1f, perfect.rectTransform.localScale.y + 0.1f);
+            fail.rectTransform.localScale = new Vector2(fail.rectTransform.localScale.x + 0.1f, fail.rectTransform.localScale.y + 0.1f);
+        }
+        yield return new WaitForSeconds(0.01f);
+
+        if (normal.transform.localScale.x >= 2)
+        {
+            uiObj.SetActive(false);
+
+            normal.rectTransform.localScale = new Vector2(1f, 1f);
+            perfect.rectTransform.localScale = normal.rectTransform.localScale;
+            fail.rectTransform.localScale = normal.rectTransform.localScale;
+           
+            yield break;
+        }
+        else
+        {
+            StartCoroutine(ResizeSliderCombo(uiObj, normal, perfect, fail));
             yield break;
         }
     }

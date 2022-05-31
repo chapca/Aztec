@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HPBoss : MonoBehaviour
 {
-    public int maxHp, hp, nbrBlood;
+    public float maxHp, hp, nbrBlood;
     Boss boss;
     Animator myAnimator;
     Transform parentObject;
@@ -41,6 +41,7 @@ public class HPBoss : MonoBehaviour
 
         if(hp <=0)
         {
+            hp = 0;
             startFinalCombo = true;
         }
 

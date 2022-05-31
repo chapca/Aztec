@@ -65,7 +65,7 @@ public class Boss : MonoBehaviour
     [SerializeField] Vector3 maxSize;
     [SerializeField] Vector3 baseSize;
 
-    [SerializeField] bool activeCombo1, activeCombo2, activeCombo3;
+    [SerializeField] bool activeCombo1, activeCombo2, activeCombo3, combo1Done, combo2Done, combo3Done;
 
     void Start()
     {
@@ -135,6 +135,9 @@ public class Boss : MonoBehaviour
             case 5:
                 StateWaitFinalCombo();
                 break;
+            case 6:
+                StateHealth();
+                break;
         }
 
         if (startBattle && !canAttack && state !=4 && state !=3)
@@ -153,13 +156,28 @@ public class Boss : MonoBehaviour
         if(HPBoss.startFinalCombo)
         {
             state = 5;
-            activeCombo1 = true;
+
+            if(!combo1Done)
+                activeCombo1 = true;
         }
 
         if(activeCombo1)
         {
             UIManagerBoss.ActiveComboUI(true);
             UIManagerBoss.ActiveUICombo1(true, false);
+            DelayInputCombo1();
+        }
+        if (activeCombo2)
+        {
+            UIManagerBoss.ActiveComboUI(true);
+            UIManagerBoss.ActiveUICombo2(true, false);
+            DelayInputCombo2();
+        }
+        if (activeCombo3)
+        {
+            UIManagerBoss.ActiveComboUI(true);
+            UIManagerBoss.ActiveUICombo3(true, false);
+            DelayInputCombo3();
         }
     }
 
@@ -192,19 +210,39 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void DelayInputCombo()
+    void DelayInputCombo1()
     {
-        sliderComboBoss.setUpTimerSliderNormal -= Time.unscaledDeltaTime;
-
         ActiveManetteUI();
 
-        if (sliderBoss.setUpTimerSliderNormal <= 0)
+        TimingCombo1();
+
+        if (sliderComboBoss.sliderLoose2Combo1Size <= 0)
         {
-            PlayerDoSomething();
+            FailCombo();
         }
     }
 
+    void DelayInputCombo2()
+    {
+        TimingCombo2();
 
+        if (sliderComboBoss.sliderLooseCombo2Size <= 0)
+        {
+            FailCombo();
+        }
+    }
+
+    void DelayInputCombo3()
+    {
+        TimingCombo3();
+
+        if (sliderComboBoss.sliderLooseCombo3Size <= 0)
+        {
+            FailCombo();
+        }
+    }
+
+    // timing combat normal
     void TimingAttack()
     {
         if (sliderBoss.setUpTimerSliderNormal > 0)
@@ -576,6 +614,101 @@ public class Boss : MonoBehaviour
         SetUpEndFenetreAttack();
     }
 
+    // timing combo
+    void TimingCombo1()
+    {
+        if(sliderComboBoss.sliderLooseCombo1Size>0) // frame loose
+        {
+            sliderComboBoss.sliderLooseCombo1Size -= Time.unscaledDeltaTime * 0.5f;
+        }
+        if (sliderComboBoss.sliderLooseCombo1Size <=0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
+        {
+            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.5f;
+
+            if (Input.GetButtonDown("InteractButton"))
+            {
+                combo1Done = true;
+                activeCombo1 = false;
+                UIManagerBoss.ActiveUICombo1(false, true);
+                StartCoroutine(LaunchNextCombo(true, false));
+                sliderComboBoss.sliderPerfectSize = 0.15f;
+            }
+        }
+        if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLoose2Combo1Size > 0)// frame loose
+        {
+            sliderComboBoss.sliderLoose2Combo1Size -= Time.unscaledDeltaTime * 0.5f;
+
+        }
+        if (sliderComboBoss.sliderLoose2Combo1Size <= 0)// loose combo
+        {
+            FailCombo();
+        }
+    }
+    void TimingCombo2()
+    {
+        if (sliderComboBoss.sliderLoose2Combo2Size > 0) // frame loose
+        {
+            sliderComboBoss.sliderLoose2Combo2Size -= Time.unscaledDeltaTime * 0.5f;
+        }
+        if (sliderComboBoss.sliderLoose2Combo2Size <= 0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
+        {
+            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.5f;
+
+            if (Input.GetButtonDown("InteractButton"))
+            {
+                combo2Done = true;
+                activeCombo2 = false;
+                UIManagerBoss.ActiveUICombo2(false, true);
+                StartCoroutine(LaunchNextCombo(false, true));
+                sliderComboBoss.sliderPerfectSize = 0.15f;
+            }
+        }
+        if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLooseCombo2Size > 0)// frame loose
+        {
+            sliderComboBoss.sliderLooseCombo2Size -= Time.unscaledDeltaTime * 0.5f;
+
+        }
+        if (sliderComboBoss.sliderLooseCombo2Size <= 0)// loose combo
+        {
+            FailCombo();
+        }
+    }
+    void TimingCombo3()
+    {
+        if (sliderComboBoss.sliderLooseCombo3Size > 0) // frame loose
+        {
+            sliderComboBoss.sliderLooseCombo3Size -= Time.unscaledDeltaTime * 0.5f;
+        }
+        if (sliderComboBoss.sliderLooseCombo3Size <= 0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
+        {
+            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.5f;
+
+            if (Input.GetButtonDown("InteractButton"))
+            {
+                combo3Done = true;
+                activeCombo3 = false;
+                UIManagerBoss.ActiveUICombo3(false, true);
+            }
+        }
+        if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLoose2Combo3Size > 0)// frame loose
+        {
+            sliderComboBoss.sliderLoose2Combo3Size -= Time.unscaledDeltaTime * 0.5f;
+
+        }
+        if (sliderComboBoss.sliderLoose2Combo3Size <= 0)// loose combo
+        {
+            FailCombo();
+        }
+    }
+
+    IEnumerator LaunchNextCombo(bool active2, bool active3)
+    {
+        yield return new WaitForSeconds(1f);
+        activeCombo2 = active2;
+        activeCombo3 = active3;
+        yield break;
+    }
+
     void StateWaitingPlayer()
     {
         agent.enabled = true;
@@ -722,6 +855,19 @@ public class Boss : MonoBehaviour
 
     }
 
+    void StateHealth()
+    {
+        if(hpBoss.hp < hpBoss.maxHp/2)
+        {
+            hpBoss.hp += Time.deltaTime * 5;
+            Debug.LogError("Health");
+        }
+        else
+        {
+            state = 1;
+        }
+    }
+
     void SmoothLookAt(Transform target)
     {
         Vector3 relativePos = player.position - transform.position;
@@ -805,6 +951,49 @@ public class Boss : MonoBehaviour
         Battle.canAttack = false;
         Battle.canBlock = false;
         yield break;
+    }
+
+    void FailCombo()
+    {
+        UIManager.ActiveManetteUI(false);
+
+        UIManagerBoss.ActiveUICombo1(false, false);
+        UIManagerBoss.ActiveUICombo2(false, false);
+        UIManagerBoss.ActiveUICombo3(false, false);
+
+        HPBoss.startFinalCombo = false;
+        activeCombo1 = false;
+        activeCombo2 = false;
+        activeCombo3 = false;
+
+        combo1Done = false;
+        combo2Done = false;
+        combo3Done = false;
+
+        hpBoss.hp = 1;
+
+        sliderComboBoss.sliderPerfectSize = 0.15f;
+
+        //combo 1
+        sliderComboBoss.sliderLooseCombo1Size = sliderComboBoss.baseSliderLooseCombo1Size;
+        sliderComboBoss.sliderLoose2Combo1Size = sliderComboBoss.baseSliderLoose2Combo1Size;
+        sliderComboBoss.sliderPerfectCombo1Size = sliderComboBoss.setUpSliderPerfect / sliderComboBoss.baseSetUpTimerSliderNormal;
+
+
+        //combo 2
+        sliderComboBoss.sliderLooseCombo2Size = sliderComboBoss.baseSliderLooseCombo2Size;
+        sliderComboBoss.sliderLoose2Combo2Size = sliderComboBoss.baseSliderLoose2Combo2Size;
+        sliderComboBoss.sliderPerfectCombo2Size = sliderComboBoss.setUpSliderPerfect / sliderComboBoss.baseSetUpTimerSliderNormal;
+
+
+        //combo 3
+        sliderComboBoss.sliderLooseCombo3Size = sliderComboBoss.baseSliderLooseCombo3Size;
+        sliderComboBoss.sliderLoose2Combo3Size = sliderComboBoss.baseSliderLoose2Combo3Size;
+        sliderComboBoss.sliderPerfectCombo3Size = sliderComboBoss.setUpSliderPerfect / sliderComboBoss.baseSetUpTimerSliderNormal;
+
+        state = 6;
+
+
     }
 
     // fonction en lien avec les action du joueur

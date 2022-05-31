@@ -49,6 +49,12 @@ public class SliderComboBoss : MonoBehaviour
     [SerializeField] public float setUpStartLooseFrameCombo2;
     [Range(0.0f, 1f)]
     [SerializeField] public float setUpStartLooseFrameCombo3;
+    [Range(0.0f, 1f)]
+    [SerializeField] public float setUpStartLoose2FrameCombo1;
+    [Range(0.0f, 1f)]
+    [SerializeField] public float setUpStartLoose2FrameCombo2;
+    [Range(0.0f, 1f)]
+    [SerializeField] public float setUpStartLoose2FrameCombo3;
 
 
     [Header("AUTO durée du slider normal")]
@@ -215,13 +221,13 @@ public class SliderComboBoss : MonoBehaviour
 
 
         sliderUILoose2Combo1.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo1);
-        setUpStartLooseFrameCombo1 = Mathf.Abs((sliderUILoose2Combo1.eulerAngles.z - (360f * sliderLoose2Combo1Size)) / 360f);
+        setUpStartLoose2FrameCombo1 = Mathf.Abs((sliderUILoose2Combo1.eulerAngles.z - (360f * sliderLoose2Combo1Size)) / 360f);
 
         sliderUILoose2Combo2.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo2);
-        setUpStartLooseFrameCombo2 = Mathf.Abs((sliderUILoose2Combo2.eulerAngles.z - (360f * sliderLoose2Combo2Size)) / 360f);
+        setUpStartLoose2FrameCombo2 = Mathf.Abs((sliderUILoose2Combo2.eulerAngles.z - (360f * sliderLoose2Combo2Size)) / 360f);
 
         sliderUILoose2Combo3.localRotation = Quaternion.Euler(0, 0, setUpAngleLoose2FrameCombo3);
-        setUpStartLooseFrameCombo3 = Mathf.Abs((sliderUILoose2Combo3.eulerAngles.z - (360f * sliderLoose2Combo3Size)) / 360f);
+        setUpStartLoose2FrameCombo3 = Mathf.Abs((sliderUILoose2Combo3.eulerAngles.z - (360f * sliderLoose2Combo3Size)) / 360f);
     }
 
     void SetFramePerfectSize()

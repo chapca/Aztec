@@ -4888,7 +4888,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71108
+  m_Name: pb_Mesh-2306
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12504,7 +12504,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71120
+  m_Name: pb_Mesh-2318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13277,7 +13277,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71132
+  m_Name: pb_Mesh-2330
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14140,7 +14140,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71096
+  m_Name: pb_Mesh-2294
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20560,7 +20560,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71144
+  m_Name: pb_Mesh-2342
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22785,7 +22785,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-71156
+  m_Name: pb_Mesh-2354
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23999,8 +23999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convertion: 1.6666666
-  setUpStartActionPlayer: 0.1
-  setUpEndActionPlayer: 0.4
+  setUpStartActionPlayer: 1
+  setUpEndActionPlayer: 4
   setUpAnglePerfectFrameCombo1: 241
   setUpAnglePerfectFrameCombo2: 329
   setUpAnglePerfectFrameCombo3: 144
@@ -24013,18 +24013,21 @@ MonoBehaviour:
   setUpStartPerfectFrameCombo1: 0.51944447
   setUpStartPerfectFrameCombo2: 0.7638889
   setUpStartPerfectFrameCombo3: 0.25
-  setUpStartLooseFrameCombo1: 0.6689722
-  setUpStartLooseFrameCombo2: 0.05411113
-  setUpStartLooseFrameCombo3: 0.39997217
-  baseSetUpTimerSliderNormal: 1.8000001
-  setUpTimerSliderNormal: 1.8000001
-  setUpSliderPerfect: 0.27
-  setUpSliderLooseCombo1: 0.936
-  setUpSliderLooseCombo2: 0.1557
-  setUpSliderLooseCombo3: 0.45000002
-  setUpSliderLoose2Combo1: 0.59580004
-  setUpSliderLoose2Combo2: 1.4724001
-  setUpSliderLoose2Combo3: 1.08
+  setUpStartLooseFrameCombo1: 0.0005555365
+  setUpStartLooseFrameCombo2: 0.9134722
+  setUpStartLooseFrameCombo3: 0
+  setUpStartLoose2FrameCombo1: 0.66897225
+  setUpStartLoose2FrameCombo2: 0.0011110968
+  setUpStartLoose2FrameCombo3: 0.3999721
+  baseSetUpTimerSliderNormal: 18
+  setUpTimerSliderNormal: 18
+  setUpSliderPerfect: 2.7
+  setUpSliderLooseCombo1: 9.36
+  setUpSliderLooseCombo2: 1.5569999
+  setUpSliderLooseCombo3: 4.5
+  setUpSliderLoose2Combo1: 5.957999
+  setUpSliderLoose2Combo2: 13.7699995
+  setUpSliderLoose2Combo3: 10.800001
   sliderCombo1Perfect: {fileID: 5079493048949800002}
   sliderUILoose2Combo1: {fileID: 5079493048949800001}
   sliderCombo1Loose: {fileID: 5079493048949800000}
@@ -24041,16 +24044,16 @@ MonoBehaviour:
   sliderLooseCombo1Size: 0.52
   sliderLooseCombo2Size: 0.0865
   sliderLooseCombo3Size: 0.25
-  sliderLoose2Combo1Size: 0.331
-  sliderLoose2Combo2Size: 0.818
-  sliderLoose2Combo3Size: 0.6
+  sliderLoose2Combo1Size: 0.33099997
+  sliderLoose2Combo2Size: 0.765
+  sliderLoose2Combo3Size: 0.6000001
   baseSliderLooseCombo1Size: 0.52
   baseSliderLooseCombo2Size: 0.0865
   baseSliderLooseCombo3Size: 0.25
-  baseSliderLoose2Combo1Size: 0.331
-  baseSliderLoose2Combo2Size: 0.818
-  baseSliderLoose2Combo3Size: 0.6
-  activeThisinEditor: 0
+  baseSliderLoose2Combo1Size: 0.33099997
+  baseSliderLoose2Combo2Size: 0.81800014
+  baseSliderLoose2Combo3Size: 0.6000001
+  activeThisinEditor: 1
   ManetteSpriteIsActive: 1
 --- !u!224 &2291510510472819017 stripped
 RectTransform:
@@ -24560,7 +24563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4894178194335569918, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.599998
+      value: 26.6
       objectReference: {fileID: 0}
     - target: {fileID: 4991017085624092463, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24604,7 +24607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8234366150132389791, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.599998
+      value: 26.6
       objectReference: {fileID: 0}
     - target: {fileID: 8291766103097739273, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
       propertyPath: m_LocalRotation.w
