@@ -32,7 +32,6 @@ public class HPBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void TakeDamage(int damage)
@@ -44,15 +43,17 @@ public class HPBoss : MonoBehaviour
             hp = 0;
             startFinalCombo = true;
         }
+    }
 
-        if (hp <= 0 && finalCombo)
-        {
-            transform.parent = null;
-            boss.enabled = false;
-            PlayerBlood.GetBlood(nbrBlood);
-            myAnimator.SetBool("Die", true);
-            PlayerController.ennemi = null;
-            battle.isAttacked = false;
-        }
+    public void BossDeath()
+    {
+        Debug.Log("Mange t mort paysant");
+
+        transform.parent = null;
+        boss.enabled = false;
+        PlayerBlood.GetBlood(nbrBlood);
+        myAnimator.SetBool("Die", true);
+        PlayerController.ennemi = null;
+        battle.isAttacked = false;
     }
 }

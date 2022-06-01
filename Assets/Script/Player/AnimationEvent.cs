@@ -129,18 +129,24 @@ public class AnimationEvent : MonoBehaviour
             if(attackStandard)
             {
                 if(!bossFight)
-                    ennemi.GetComponent<HPBoss>().TakeDamage(50);
+                    ennemi.GetComponent<EnnemiHp>().TakeDamage(50);
                 else
-                    ennemi.GetComponent<HPBoss>().TakeDamage(50);
+                    if (!HPBoss.finalCombo)
+                        ennemi.GetComponent<HPBoss>().TakeDamage(50);
 
                 SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[1]);
             }
             if(attackPerfect)
             {
                 if (!bossFight)
-                    ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                {
+                    ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
+                }
                 else
-                    ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                {
+                    if (!HPBoss.finalCombo)
+                        ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                }
 
                 SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[2]);
             }
@@ -224,12 +230,13 @@ public class AnimationEvent : MonoBehaviour
 
             if (!bossFight)
             {
-                ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
                 ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
             }
             else
             {
-                ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                if (!HPBoss.finalCombo)
+                    ennemi.GetComponent<HPBoss>().TakeDamage(100);
                 ennemi.GetComponent<Boss>().myAnimator.SetTrigger("Hit");
             }
 

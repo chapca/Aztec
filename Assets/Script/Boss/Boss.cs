@@ -67,6 +67,8 @@ public class Boss : MonoBehaviour
 
     [SerializeField] bool activeCombo1, activeCombo2, activeCombo3, combo1Done, combo2Done, combo3Done;
 
+    bool isDead, isHealthing;
+
     void Start()
     {
         sliderBoss = GetComponent<SliderBoss>();
@@ -92,6 +94,8 @@ public class Boss : MonoBehaviour
         basePos = transform.position;
 
         randomTimeBeforeAttack = Random.Range(2, 5);
+
+        UIManagerBoss.ActiveManetteUI(false);
     }
 
     void Update()
@@ -105,12 +109,13 @@ public class Boss : MonoBehaviour
             ReturnToStatePatrol();
         }
 
-        if (distPlayer < 10)
+        if (distPlayer < 10 && !combo1Done && !combo2Done && !combo3Done)
         {
             startBattle = true;
             battle.isAttacked = true;
+            AnimationEvent.bossFight = true;
         }
-        else if (!startBattle)
+        else if (!startBattle && !combo1Done && !combo2Done && !combo3Done)
         {
             state = 0;
         }
@@ -138,12 +143,15 @@ public class Boss : MonoBehaviour
             case 6:
                 StateHealth();
                 break;
+            case 7:
+                StateDeath();
+                break;
         }
 
-        if (startBattle && !canAttack && state !=4 && state !=3)
+        if (startBattle && !canAttack && state !=4 && state !=3 && hpBoss.hp >0 && !isHealthing)
             StateWaitingPlayer();
 
-        if (startQTE)
+        if (startQTE && hpBoss.hp >0)
         {
             DelayInput();
         }
@@ -153,7 +161,7 @@ public class Boss : MonoBehaviour
             TimingCounter();
         }
 
-        if(HPBoss.startFinalCombo)
+        if(HPBoss.startFinalCombo && !combo1Done && !combo2Done && !combo3Done)
         {
             state = 5;
 
@@ -178,6 +186,11 @@ public class Boss : MonoBehaviour
             UIManagerBoss.ActiveComboUI(true);
             UIManagerBoss.ActiveUICombo3(true, false);
             DelayInputCombo3();
+        }
+
+        if (combo1Done && combo2Done && combo3Done)
+        {
+            state = 7;
         }
     }
 
@@ -236,7 +249,7 @@ public class Boss : MonoBehaviour
     {
         TimingCombo3();
 
-        if (sliderComboBoss.sliderLooseCombo3Size <= 0)
+        if (sliderComboBoss.sliderLoose2Combo3Size <= 0)
         {
             FailCombo();
         }
@@ -619,11 +632,13 @@ public class Boss : MonoBehaviour
     {
         if(sliderComboBoss.sliderLooseCombo1Size>0) // frame loose
         {
-            sliderComboBoss.sliderLooseCombo1Size -= Time.unscaledDeltaTime * 0.5f;
+            sliderComboBoss.sliderLooseCombo1Size -= Time.unscaledDeltaTime * 0.75f;
+            if (Input.GetButtonDown("InteractButton"))
+                FailCombo();
         }
         if (sliderComboBoss.sliderLooseCombo1Size <=0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
         {
-            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.5f;
+            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.75f;
 
             if (Input.GetButtonDown("InteractButton"))
             {
@@ -632,12 +647,14 @@ public class Boss : MonoBehaviour
                 UIManagerBoss.ActiveUICombo1(false, true);
                 StartCoroutine(LaunchNextCombo(true, false));
                 sliderComboBoss.sliderPerfectSize = 0.15f;
+                Battle.myAnimator.SetBool("AttackNormal", true);
             }
         }
         if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLoose2Combo1Size > 0)// frame loose
         {
-            sliderComboBoss.sliderLoose2Combo1Size -= Time.unscaledDeltaTime * 0.5f;
-
+            sliderComboBoss.sliderLoose2Combo1Size -= Time.unscaledDeltaTime * 0.75f;
+            if (Input.GetButtonDown("InteractButton"))
+                FailCombo();
         }
         if (sliderComboBoss.sliderLoose2Combo1Size <= 0)// loose combo
         {
@@ -648,25 +665,31 @@ public class Boss : MonoBehaviour
     {
         if (sliderComboBoss.sliderLoose2Combo2Size > 0) // frame loose
         {
-            sliderComboBoss.sliderLoose2Combo2Size -= Time.unscaledDeltaTime * 0.5f;
+            sliderComboBoss.sliderLoose2Combo2Size -= Time.unscaledDeltaTime * 0.75f;
+            if (Input.GetButtonDown("InteractButton"))
+                FailCombo();
         }
         if (sliderComboBoss.sliderLoose2Combo2Size <= 0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
         {
-            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.5f;
+            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.75f;
 
             if (Input.GetButtonDown("InteractButton"))
             {
+                Time.timeScale = 0.3f;
                 combo2Done = true;
                 activeCombo2 = false;
                 UIManagerBoss.ActiveUICombo2(false, true);
                 StartCoroutine(LaunchNextCombo(false, true));
                 sliderComboBoss.sliderPerfectSize = 0.15f;
+                Battle.myAnimator.SetBool("AttackPerfect", true); 
+                Battle.myAnimator.SetBool("AttackNormal", false);
             }
         }
         if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLooseCombo2Size > 0)// frame loose
         {
-            sliderComboBoss.sliderLooseCombo2Size -= Time.unscaledDeltaTime * 0.5f;
-
+            sliderComboBoss.sliderLooseCombo2Size -= Time.unscaledDeltaTime * 0.75f;
+            if (Input.GetButtonDown("InteractButton"))
+                FailCombo();
         }
         if (sliderComboBoss.sliderLooseCombo2Size <= 0)// loose combo
         {
@@ -677,23 +700,32 @@ public class Boss : MonoBehaviour
     {
         if (sliderComboBoss.sliderLooseCombo3Size > 0) // frame loose
         {
-            sliderComboBoss.sliderLooseCombo3Size -= Time.unscaledDeltaTime * 0.5f;
+            Time.timeScale = 1;
+            sliderComboBoss.sliderLooseCombo3Size -= Time.unscaledDeltaTime * 0.75f;
+            if (Input.GetButtonDown("InteractButton"))
+                FailCombo();
         }
         if (sliderComboBoss.sliderLooseCombo3Size <= 0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
         {
-            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.5f;
+            sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.75f;
 
             if (Input.GetButtonDown("InteractButton"))
             {
+                Time.timeScale = 0.3f;
+                startBattle = false;
                 combo3Done = true;
                 activeCombo3 = false;
-                UIManagerBoss.ActiveUICombo3(false, true);
+                UIManagerBoss.ActiveUICombo3(false, true); 
+                Battle.myAnimator.SetBool("Counter", true);
+                Battle.myAnimator.SetBool("AttackPerfect", false);
+                state = 7;
             }
         }
         if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLoose2Combo3Size > 0)// frame loose
         {
-            sliderComboBoss.sliderLoose2Combo3Size -= Time.unscaledDeltaTime * 0.5f;
-
+            sliderComboBoss.sliderLoose2Combo3Size -= Time.unscaledDeltaTime * 0.75f;
+            if (Input.GetButtonDown("InteractButton"))
+                FailCombo();
         }
         if (sliderComboBoss.sliderLoose2Combo3Size <= 0)// loose combo
         {
@@ -703,7 +735,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator LaunchNextCombo(bool active2, bool active3)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         activeCombo2 = active2;
         activeCombo3 = active3;
         yield break;
@@ -711,6 +743,8 @@ public class Boss : MonoBehaviour
 
     void StateWaitingPlayer()
     {
+        Debug.LogError("State 2");
+
         agent.enabled = true;
         agent.angularSpeed = 0;
 
@@ -852,20 +886,40 @@ public class Boss : MonoBehaviour
 
     void StateWaitFinalCombo()
     {
-
+        canAttack = false;
     }
 
     void StateHealth()
     {
         if(hpBoss.hp < hpBoss.maxHp/2)
         {
+            isHealthing = true;
             hpBoss.hp += Time.deltaTime * 5;
             Debug.LogError("Health");
         }
         else
         {
+            isHealthing = false;
             state = 1;
         }
+    }
+
+    void StateDeath()
+    {
+        Debug.LogError("Death");
+
+        if(!isDead)
+            StartCoroutine("DelayBeforeDeath");
+    }
+
+    IEnumerator DelayBeforeDeath()
+    {
+        isDead = true;
+        UIManagerBoss.ActiveManetteUI(false);
+        yield return new WaitForSeconds(0.65f);
+        hpBoss.BossDeath();
+        Time.timeScale = 1f;
+        yield break;
     }
 
     void SmoothLookAt(Transform target)
@@ -955,20 +1009,21 @@ public class Boss : MonoBehaviour
 
     void FailCombo()
     {
-        UIManager.ActiveManetteUI(false);
+        UIManagerBoss.ActiveManetteUI(false);
 
         UIManagerBoss.ActiveUICombo1(false, false);
         UIManagerBoss.ActiveUICombo2(false, false);
         UIManagerBoss.ActiveUICombo3(false, false);
 
         HPBoss.startFinalCombo = false;
-        activeCombo1 = false;
-        activeCombo2 = false;
-        activeCombo3 = false;
 
         combo1Done = false;
         combo2Done = false;
         combo3Done = false;
+
+        activeCombo1 = false;
+        activeCombo2 = false;
+        activeCombo3 = false;
 
         hpBoss.hp = 1;
 

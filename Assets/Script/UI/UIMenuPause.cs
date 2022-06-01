@@ -141,6 +141,8 @@ public class UIMenuPause : MonoBehaviour
     public void RestartButton()
     {
         Time.timeScale = 1;
+        PlayerBlood.ForceGetBlood(0);
+        UIManagerBoss.ActiveManetteUI(false);
         SceneManager.LoadScene("AlphaScene");
     }
 
