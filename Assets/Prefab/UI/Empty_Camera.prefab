@@ -215,30 +215,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeCamParametersBlockNormal:
-  - axeShake: {x: 0, y: 0, z: 0}
-    amplitude: 0
-    frequence: 0
-    duration: 0
+  - axeShake: {x: 15, y: 15, z: 15}
+    amplitude: 6
+    frequence: 1
+    duration: 0.048
   shakeCamParametersBlockPerfect:
-  - axeShake: {x: 0, y: 0, z: 0}
-    amplitude: 0
-    frequence: 0
-    duration: 0
+  - axeShake: {x: 5, y: 5, z: 5}
+    amplitude: 3
+    frequence: 1
+    duration: 0.048
   shakeCamParametersAttackNormal:
-  - axeShake: {x: 0, y: 0, z: 0}
-    amplitude: 0
-    frequence: 0
-    duration: 0
+  - axeShake: {x: 5, y: 5, z: 5}
+    amplitude: 3
+    frequence: 1
+    duration: 0.192
   shakeCamParametersAttackPerfect:
-  - axeShake: {x: 0, y: 0, z: 0}
-    amplitude: 0
-    frequence: 0
-    duration: 0
-  shakeCamParametersFailBlock:
-  - axeShake: {x: 0, y: 0, z: 0}
-    amplitude: 0
-    frequence: 0
-    duration: 0
+  - axeShake: {x: 15, y: 15, z: 15}
+    amplitude: 10
+    frequence: 1
+    duration: 0.096
+  shakeCamParametersFail:
+  - axeShake: {x: 10, y: 10, z: 10}
+    amplitude: 8
+    frequence: 1
+    duration: 0.096
 --- !u!1 &2130396931105948500
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2130396931963381321
 Transform:
   m_ObjectHideFlags: 0
