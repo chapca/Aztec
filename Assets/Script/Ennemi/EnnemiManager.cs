@@ -27,6 +27,8 @@ public class EnnemiManager : MonoBehaviour
 
     public bool startBattle;
 
+    public float bloodQuantity;
+
     void Start()
     {
         battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
@@ -38,6 +40,8 @@ public class EnnemiManager : MonoBehaviour
 
         if(transform.childCount == 0 && !endFight)
         {
+            PlayerBlood.GetBlood(bloodQuantity);
+
             StartCoroutine("EndFight");
             endFight = true;
             startBattle = false;
@@ -141,7 +145,7 @@ public class EnnemiManager : MonoBehaviour
 
     IEnumerator RespawnEnnemi()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds((int)Random.Range(13,17));
 
         GameObject clone = Instantiate(prefabEnnemiManager);
 

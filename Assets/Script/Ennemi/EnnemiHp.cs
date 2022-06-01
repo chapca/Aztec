@@ -20,6 +20,8 @@ public class EnnemiHp : MonoBehaviour
         hp = maxHp;
 
         parentObject = transform.parent;
+
+        GetComponentInParent<EnnemiManager>().bloodQuantity += nbrBlood;
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class EnnemiHp : MonoBehaviour
             EnnemiAttack.coroutineLaunch = true;
             transform.parent = null;
             ennemiAttack.enabled = false;
-            PlayerBlood.GetBlood(nbrBlood);
+            //PlayerBlood.GetBlood(nbrBlood);
             myAnimator.SetBool("Die", true);
             PlayerController.ennemi = null;
             //StartCoroutine("RespawnEnnemi");
