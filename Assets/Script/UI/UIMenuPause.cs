@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
-
 using UnityEngine.Rendering.HighDefinition;
 
 public class UIMenuPause : MonoBehaviour

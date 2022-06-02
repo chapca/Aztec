@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class AnimationEvent : MonoBehaviour
 {
+    static AnimationEvent instance;
+
     PlayerController playerController;
 
     [SerializeField] float speedEsquive, currentSpeedEsquive, esquiveAngleRot, rotationY, rotSpeedY, speedReturnBaseRot;
@@ -19,12 +23,23 @@ public class AnimationEvent : MonoBehaviour
 
     public static bool bossFight;
 
+    [SerializeField] VolumeProfile mVolumeProfile;
+    [SerializeField] DepthOfField depthOfField;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
 
         audioSource = GetComponent<AudioSource>();
+
+        depthOfField = (DepthOfField)mVolumeProfile.components[8];
+        depthOfField.active = false;
     }
 
     // Update is called once per frame
@@ -260,6 +275,24 @@ public class AnimationEvent : MonoBehaviour
 
         Battle.isCounter = false;
         Debug.Log(Battle.isCounter);
+        yield break;
+    }
+
+    static public void Hit()
+    {
+        instance.LaunchBlurCoroutine();
+    }
+
+    void LaunchBlurCoroutine()
+    {
+        StartCoroutine("BlurCoroutine");
+    }
+
+    IEnumerator BlurCoroutine()
+    {
+        depthOfField.active = true;
+        yield return new WaitForSeconds(0.35f);
+        depthOfField.active = false;
         yield break;
     }
 }

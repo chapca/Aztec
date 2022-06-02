@@ -264,7 +264,7 @@ public class EnnemiAttack : MonoBehaviour
             ReturnToStatePatrol();
         }
 
-        if(distPlayer < 10 || ennemiManager.startBattle)
+        if(distPlayer < 10 || ennemiManager.startBattle && PlayerHp.hp >0)
         {
             startBattle = true;
             ennemiManager.startBattle = true;
@@ -1157,6 +1157,8 @@ public class EnnemiAttack : MonoBehaviour
 
             ShakeCam.ShakerCam(ShakeCam.shakeCamParametersFailStatic, ShakeCam.shakeCamParametersFailStatic[0].axeShake, ShakeCam.shakeCamParametersFailStatic[0].amplitude,
                        ShakeCam.shakeCamParametersFailStatic[0].frequence, ShakeCam.shakeCamParametersFailStatic[0].duration);
+
+            AnimationEvent.Hit();
         }
 
         if(canApplyDamageBlock && canShakeCam)

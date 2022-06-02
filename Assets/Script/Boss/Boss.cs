@@ -840,16 +840,20 @@ public class Boss : MonoBehaviour
             Vector2 pos2D = Random.insideUnitCircle * circleRadius;
             Vector3 pos3D = basePos + new Vector3(pos2D.x, 0, pos2D.y);
 
-            agent.SetDestination(pos3D);
+            if (agent.isActiveAndEnabled)
+                agent.SetDestination(pos3D);
 
-            if (!agent.isStopped)
+            if(agent.isActiveAndEnabled)
             {
-                Debug.Log("!is stopped");
-                yield return new WaitForEndOfFrame();
-            }
-            else
-            {
-                Debug.Log("is stopped");
+                if (!agent.isStopped)
+                {
+                    Debug.Log("!is stopped");
+                    yield return new WaitForEndOfFrame();
+                }
+                else
+                {
+                    Debug.Log("is stopped");
+                }
             }
             yield return new WaitForSeconds(3f);
         }
@@ -1132,6 +1136,8 @@ public class Boss : MonoBehaviour
 
     void ApplyDamageToPlayer()
     {
+        Debug.LogError("HitPlayer");
+
         if (canApplyDamage && canShakeCam && !canApplyDamageBlock)
         {
             Debug.LogError("No Block");
@@ -1143,6 +1149,8 @@ public class Boss : MonoBehaviour
 
             ShakeCam.ShakerCam(ShakeCam.shakeCamParametersFailStatic, ShakeCam.shakeCamParametersFailStatic[0].axeShake, ShakeCam.shakeCamParametersFailStatic[0].amplitude,
                        ShakeCam.shakeCamParametersFailStatic[0].frequence, ShakeCam.shakeCamParametersFailStatic[0].duration);
+
+            AnimationEvent.Hit();
         }
 
         if (!canApplyDamage && canApplyDamageBlock && canShakeCam)
