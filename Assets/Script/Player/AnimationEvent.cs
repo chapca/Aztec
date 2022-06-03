@@ -246,7 +246,7 @@ public class AnimationEvent : MonoBehaviour
             if (!bossFight)
             {
                 ennemi.GetComponent<EnnemiHp>().TakeDamage(100);
-                ennemi.transform.parent.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
+                ennemi.GetComponent<EnnemiAttack>().myAnimator.SetTrigger("Hit");
             }
             else
             {

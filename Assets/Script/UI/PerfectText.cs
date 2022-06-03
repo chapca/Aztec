@@ -5,49 +5,27 @@ using UnityEngine.UI;
 
 public class PerfectText : MonoBehaviour
 {
-    static public Text thisText;
+    static Animator animator;
 
-    static float r, g, b, a;
+    static GameObject thisGameObject;
 
-    static bool makeTransparent;
-    
     void Start()
     {
-        thisText = GetComponent<Text>();
+        animator = GetComponent<Animator>();
+        thisGameObject = gameObject;
 
-        r = thisText.color.r;
-        g = thisText.color.g;
-        b = thisText.color.b;
-        a = 0;
-
-        thisText.color = new Color(r, g, b, a);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (makeTransparent)
-            MakeTextTRandparent();
+        thisGameObject.SetActive(false);
     }
 
     public static void ActiveText()
     {
-        a = 1;
-        thisText.color = new Color(r, g, b, a);
-        makeTransparent = true;
-
-        Debug.Log("va te faire enculé");
+        thisGameObject.SetActive(true);
+        animator.enabled = true;
     }
 
-
-    void MakeTextTRandparent()
+    void DesableText()
     {
-        if (a <= 0)
-            makeTransparent = false;
-        else
-        {
-            a -= Time.deltaTime;
-            thisText.color = new Color(r, g, b, a);
-        }
+        animator.enabled = false;
+        thisGameObject.SetActive(false);
     }
 }

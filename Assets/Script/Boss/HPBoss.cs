@@ -14,7 +14,6 @@ public class HPBoss : MonoBehaviour
 
     public static bool startFinalCombo, finalCombo;
 
-    // Start is called before the first frame update
     void Start()
     {
         boss = GetComponent<Boss>();
@@ -27,11 +26,6 @@ public class HPBoss : MonoBehaviour
 
         battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void TakeDamage(int damage)
@@ -47,8 +41,7 @@ public class HPBoss : MonoBehaviour
 
     public void BossDeath()
     {
-        Debug.Log("Mange t mort paysant");
-
+        AnimationEvent.bossFight = false;
         transform.parent = null;
         boss.enabled = false;
         PlayerBlood.GetBlood(nbrBlood);

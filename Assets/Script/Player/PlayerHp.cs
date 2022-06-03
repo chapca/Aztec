@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
-    static public float hp = 50;
+    static public float hp = 100;
 
     [SerializeField] Battle battle;
 
@@ -23,7 +23,7 @@ public class PlayerHp : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("HealthButton") && hp < 100 && PlayerBlood.bloodQuantity >0 && !battle.isAttacked)
+        if (Input.GetButton("HealthButton") && hp < 100 && PlayerBlood.bloodQuantity >0 && !battle.isAttacked && !PlayerBlood.recoveringBlood)
         {
             ManualHealth();
             SoundManager.PlaySound2DContinue(playerGainHpAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[0], true);
@@ -31,6 +31,7 @@ public class PlayerHp : MonoBehaviour
         else
         {
             SoundManager.PlaySound2DContinue(playerGainHpAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[0], false);
+            HealthUI.ActiveUIAnim(false);
         }
 
         if(hp <=0)
@@ -47,6 +48,8 @@ public class PlayerHp : MonoBehaviour
 
     public static void ManualHealth()
     {
+        HealthUI.ActiveUIAnim(true);
+
         hp += Time.deltaTime * 5f;
         PlayerUI.UpdateSliderHp();
         PlayerBlood.LooseBlood(Time.deltaTime * 10f);

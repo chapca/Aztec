@@ -33,8 +33,6 @@ public class ActiveCursor : MonoBehaviour
             Physics.Raycast(transform.position, transform.TransformDirection(playerPos - transform.position), out hit, distanceFeedBack + 1);
             Debug.DrawRay(transform.position, transform.TransformDirection(playerPos - transform.position)* distanceFeedBack, Color.red);
 
-            Debug.Log(hit.transform.gameObject.name);
-
             if (hit.transform.gameObject.name == "EmptyPlayer")
             {
                 cursor.SetActive(true);
@@ -46,6 +44,10 @@ public class ActiveCursor : MonoBehaviour
             {
                 cursor.SetActive(false);
             }
+        }
+        else
+        {
+            cursor.SetActive(false);
         }
     }
 }

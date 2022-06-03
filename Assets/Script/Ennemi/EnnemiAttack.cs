@@ -141,7 +141,7 @@ public class EnnemiAttack : MonoBehaviour
 
     int countRoundAttack;
 
-    bool playerCanEsquive;
+    //bool playerCanEsquive;
 
     [Header("Patrouille NavMesh")]
     [SerializeField] float circleRadius;
@@ -356,7 +356,7 @@ public class EnnemiAttack : MonoBehaviour
         setUpStartPerfectFrameBlock = Mathf.Abs((sliderBlockPerfect.eulerAngles.z - (360f * sliderPerfectSize)) / 360f);
     }
 
-     void UpdateSliderLoosePosition()
+    void UpdateSliderLoosePosition()
      {
         sliderAttackLoose.localRotation = Quaternion.Euler(0, 0, setUpAngleLooseFrameAttack);
         setUpStartLooseFrameAttack = Mathf.Abs((sliderAttackLoose.eulerAngles.z - (360f* sliderLooseAttackSize)) / 360f);
@@ -426,10 +426,8 @@ public class EnnemiAttack : MonoBehaviour
         {
             TimingAttack();
         }
-        if(playerCanEsquive)
-        {
-            TimingEsquive();
-        }
+        TimingEsquive();
+
         TimingBlock();
 
         if(setUpTimerSliderNormal <=0)
@@ -495,6 +493,7 @@ public class EnnemiAttack : MonoBehaviour
                     UIManager.ActiveUIAttack(false, true);
                     AnimationEvent.attackStandard = true;
                     Battle.myAnimator.SetBool("AttackNormal", true);
+                    NormalTxt.ActiveText();
                     PlayerDoSomething();
                     ResetAllSlider();
                     PlayQTEValidationSound(1);
@@ -598,6 +597,7 @@ public class EnnemiAttack : MonoBehaviour
 
                     canApplyDamage = false;
                     canShakeCam = false;
+                    NormalTxt.ActiveText();
                     PlayerDoSomething();
                     ResetAllSlider();
                     PlayQTEValidationSound(1);
@@ -687,6 +687,7 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamageBlock = true;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    NormalTxt.ActiveText();
                     countRoundAttack = 1;
                     PlayQTEValidationSound(1);
                 }
@@ -754,7 +755,7 @@ public class EnnemiAttack : MonoBehaviour
             if (Input.GetButtonDown("InteractButton"))
             {
                 UIManager.ActiveUICounter(false, true);
-
+                PerfectText.ActiveText();
                 canShakeCam = false;
                 counterReussi = true;
                 ResetCounterSlider();
@@ -890,14 +891,14 @@ public class EnnemiAttack : MonoBehaviour
             state = 2;
             canAttack = true;
 
-            if(Random.Range(0, 2) == 0)
+            /*if(Random.Range(0, 2) == 0)
             {
                 playerCanEsquive = true;
             }
             else
             {
                 playerCanEsquive = false;
-            }
+            }*/
         }
     }
 
@@ -1095,7 +1096,18 @@ public class EnnemiAttack : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        if(!playerCanEsquive)
+        if(Random.Range(0,2) ==0)
+        {
+            UIManager.ActiveUIEsquive(true, true, false);
+            UIManager.ActiveUIEsquive(true, true, false);
+        }
+        else
+        {
+            UIManager.ActiveUIEsquive(true, false, false);
+            UIManager.ActiveUIEsquive(true, false, false);
+        }
+        Battle.canEsquive = true;
+        /*if (!playerCanEsquive)
         {
             UIManager.ActiveUIEsquive(false, false, false);
             UIManager.ActiveUIEsquive(false, true, false);
@@ -1106,7 +1118,7 @@ public class EnnemiAttack : MonoBehaviour
             UIManager.ActiveUIEsquive(true, true, false);
             UIManager.ActiveUIEsquive(true, false, false);
             Battle.canEsquive = true;
-        }
+        }*/
 
         if (countRoundAttack>0)
         {

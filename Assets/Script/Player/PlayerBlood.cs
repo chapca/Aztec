@@ -9,7 +9,7 @@ public class PlayerBlood : MonoBehaviour
     [Range(0,100)]
     static public float bloodQuantity, halfBloodQuantity;
 
-    public static bool deadWastage;
+    public static bool deadWastage, recoveringBlood;
 
     private void Awake()
     {
@@ -63,9 +63,8 @@ public class PlayerBlood : MonoBehaviour
 
     IEnumerator GetBloodSmooth(float blood)
     {
-        Debug.LogError("GetBlood");
-
         bloodQuantity += 0.1f;
+        recoveringBlood = true;
 
         if (bloodQuantity > 100)
             bloodQuantity = 100;
@@ -75,6 +74,7 @@ public class PlayerBlood : MonoBehaviour
 
         if (bloodQuantity >= 100)
         {
+            recoveringBlood = false;
             bloodQuantity = 100;
             yield break;
         }

@@ -302,11 +302,12 @@ MonoBehaviour:
   startQTECounter: 0
   canApplyDamage: 1
   canApplyDamageBlock: 0
+  canShakeCam: 1
   thisSelected: 0
   resetEnnemiSelected: 0
   startBattle: 0
-  setUpStartActionPlayer: 0.0000009999999
-  setUpEndActionPlayer: 0.0000039999995
+  setUpStartActionPlayer: 1
+  setUpEndActionPlayer: 4
   setUpAnglePerfectFrameAttack: 270
   setUpAnglePerfectFrameEsquive: 359.99
   setUpAnglePerfectFrameBlock: 270
@@ -353,6 +354,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2047
+  tutoBlackScreen: {fileID: 0}
+  maxSize: {x: 0, y: 0, z: 0}
+  baseSize: {x: 0, y: 0, z: 0}
 --- !u!114 &1628035994328776773
 MonoBehaviour:
   m_ObjectHideFlags: 0

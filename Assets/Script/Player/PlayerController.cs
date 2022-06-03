@@ -112,6 +112,18 @@ public class PlayerController : MonoBehaviour
     {
         myAnimator.SetBool("Walk", isWalking);
         myAnimator.SetBool("Run", isRunning);
+
+        if(isWalking)
+        {
+            if (Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Horizontal"), 2f)) > Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Vertical"), 2f)))
+                myAnimator.speed = Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Horizontal"), 2f));
+            else
+                myAnimator.speed = Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Vertical"), 2f));
+        }
+        else
+        {
+            myAnimator.speed = 1;
+        }
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
@@ -158,10 +170,12 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        float horizontalAxis = Input.GetAxisRaw("Horizontal");
-        float verticalAxis = Input.GetAxisRaw("Vertical");
+        float horizontalAxis = Input.GetAxis("Horizontal");
+        float verticalAxis = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis).normalized;
+
+        Vector3 inputValues = new Vector3(horizontalAxis, 0f, verticalAxis);
 
         //movement
         if (!battle.degaine)
@@ -197,7 +211,7 @@ public class PlayerController : MonoBehaviour
                     isWalking = true;
 
                 move.y += gravityValue * Time.deltaTime;
-                controller.Move(move.normalized * currentSpeed * Time.deltaTime);
+                controller.Move(inputValues.magnitude * move.normalized * currentSpeed * Time.deltaTime);
 
                 if (!myAudioSource.isPlaying && controller.isGrounded)
                     ActiveSound();
