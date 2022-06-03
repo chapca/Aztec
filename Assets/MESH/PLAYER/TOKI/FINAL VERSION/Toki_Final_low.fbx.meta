@@ -3,7 +3,22 @@ guid: 5b7fd5943aa0ce748ac6255d6d006d60
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes
+    second: {fileID: 2100000, guid: 40b13d970cd65d54d84ef62cd9f54035, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin_Hair
+    second: {fileID: 2100000, guid: 9339e76ed77d4a042b0da7e28f459ac2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armor
+    second: {fileID: 2100000, guid: 397b11be4e5ddb7498f2f41c12f7ab1f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -65,7 +80,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 180
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
