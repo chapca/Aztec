@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
     //Sound 
     void ActiveSound()
     {
-        SoundManager.PlaySoundStepFoot(myAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[Random.Range(0,2)]);
+        //SoundManager.PlaySoundStepFoot(myAudioSource, SoundManager.soundAndVolumePlayerExplorationStatic[Random.Range(0,2)]);
     }
 
     //Animation Event : 

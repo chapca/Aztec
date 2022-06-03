@@ -295,4 +295,11 @@ public class AnimationEvent : MonoBehaviour
         depthOfField.active = false;
         yield break;
     }
+
+    void SoundFootStep()
+    {
+        Debug.LogError("Sound FootStep");
+        
+        SoundManager.PlaySoundStepFoot(audioSource, SoundManager.soundAndVolumePlayerExplorationStatic[Random.Range(0, 2)]);
+    }
 }

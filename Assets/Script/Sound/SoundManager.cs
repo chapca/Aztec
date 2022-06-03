@@ -67,9 +67,12 @@ public class SoundManager : MonoBehaviour
     //Player Sound
     public static void PlaySoundStepFoot(AudioSource sourceAudio, SoundVolume soundVolume)
     {
-        sourceAudio.volume = soundVolume.volume;
+        /*sourceAudio.volume = soundVolume.volume;
         sourceAudio.clip = soundVolume.clip;
-        sourceAudio.Play();
+        sourceAudio.Play();*/
+
+        sourceAudio.volume = soundVolume.volume;
+        sourceAudio.PlayOneShot(soundVolume.clip);
     }
     public static void PlaySoundPlayerBattle(AudioSource sourceAudio, SoundVolume soundVolume)
     {
