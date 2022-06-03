@@ -63,7 +63,7 @@ public class PlayerBlood : MonoBehaviour
 
     IEnumerator GetBloodSmooth(float blood)
     {
-        bloodQuantity += 0.1f;
+        bloodQuantity += 0.2f;
         recoveringBlood = true;
 
         if (bloodQuantity > 100)

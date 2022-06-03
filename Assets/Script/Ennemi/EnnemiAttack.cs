@@ -313,7 +313,6 @@ public class EnnemiAttack : MonoBehaviour
         {
             if (!coroutineLaunch)
             {
-                ActiveManetteUI();
                 StartCoroutine("CoolDownDone");
             }
         }
@@ -426,7 +425,9 @@ public class EnnemiAttack : MonoBehaviour
         {
             TimingAttack();
         }
-        TimingEsquive();
+
+        if(!Battle.wallDetect)
+            TimingEsquive();
 
         TimingBlock();
 
@@ -1096,16 +1097,22 @@ public class EnnemiAttack : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        if(Random.Range(0,2) ==0)
+        if (!Battle.wallDetect)
         {
-            UIManager.ActiveUIEsquive(true, true, false);
-            UIManager.ActiveUIEsquive(true, true, false);
+            if (Random.Range(0, 2) == 0)
+            {
+                UIManager.ActiveUIEsquive(true, true, false);
+                UIManager.ActiveUIEsquive(true, true, false);
+            }
+            else
+            {
+                UIManager.ActiveUIEsquive(true, false, false);
+                UIManager.ActiveUIEsquive(true, false, false);
+            }
         }
-        else
-        {
-            UIManager.ActiveUIEsquive(true, false, false);
-            UIManager.ActiveUIEsquive(true, false, false);
-        }
+
+        ActiveManetteUI();
+
         Battle.canEsquive = true;
         /*if (!playerCanEsquive)
         {

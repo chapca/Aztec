@@ -17,6 +17,8 @@ public class Battle : MonoBehaviour
     static public bool canEsquive, canBlock, canCounter, canAttack;
     static public bool isCounter, isAttacking, isEsquiving, isBlocking;
 
+    static public bool wallDetect;
+
     void Start()
     {
         myAnimator = GetComponent<Animator>();
@@ -126,6 +128,24 @@ public class Battle : MonoBehaviour
                 canBlock = false;
                 canAttack = false;
             }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            wallDetect = true;
+
+            Debug.LogError(other.gameObject.name);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            wallDetect = false;
         }
     }
 }
