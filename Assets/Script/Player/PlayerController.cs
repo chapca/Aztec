@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [Header("Speed param")]
     [SerializeField] float currentSpeed = 2.0f;
     [SerializeField] float baseSpeed;
+    [SerializeField] float backSpeed;
+    [SerializeField] float lateralSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] float playerVelocity;
 
@@ -50,6 +52,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float speedCameraSwitchSide;
 
+    float horizontalAxis;
+    float verticalAxis;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,8 +76,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraLibreNoMove();
+        if(Input.GetAxis("Vertical") >0)
+        {
+            myAnimator.SetFloat("InputY", new Vector2(0, Input.GetAxis("Vertical")).magnitude);
+        }
+        else
+        {
+            myAnimator.SetFloat("InputY", new Vector2(0, Input.GetAxis("Vertical")).magnitude *-1);
+        }
 
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            myAnimator.SetFloat("InputX", new Vector2(Input.GetAxis("Horizontal"), 0).magnitude);
+        }
+        else
+        {
+            myAnimator.SetFloat("InputX", new Vector2(Input.GetAxis("Horizontal"), 0).magnitude * -1);
+        }
+
+        CameraLibreNoMove();
         ChangeCamCenterView();
 
         //Deplacement();
@@ -169,9 +191,8 @@ public class PlayerController : MonoBehaviour
             isWalking = false;
         }
 
-
-        float horizontalAxis = Input.GetAxis("Horizontal");
-        float verticalAxis = Input.GetAxis("Vertical");
+        horizontalAxis = Input.GetAxis("Horizontal");
+        verticalAxis = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis).normalized;
 
@@ -222,7 +243,6 @@ public class PlayerController : MonoBehaviour
             isWalking = false;
             isRunning = false;
         }
-
     }
 
     void RunMovement()
@@ -246,7 +266,21 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            currentSpeed = Mathf.Lerp(currentSpeed, baseSpeed, smoothWalk);
+            if(Input.GetAxis("Vertical") <0)
+            {
+                currentSpeed = Mathf.Lerp(currentSpeed, backSpeed, smoothWalk);
+            }
+            else
+            {
+                if (Mathf.Abs(Input.GetAxis("Horizontal")) > Mathf.Abs(Input.GetAxis("Vertical")))
+                {
+                    currentSpeed = Mathf.Lerp(currentSpeed, lateralSpeed, smoothWalk);
+                }
+                else
+                {
+                    currentSpeed = Mathf.Lerp(currentSpeed, baseSpeed, smoothWalk);
+                }
+            }
         }
 
     }

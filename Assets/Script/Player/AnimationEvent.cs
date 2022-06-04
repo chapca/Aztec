@@ -300,6 +300,7 @@ public class AnimationEvent : MonoBehaviour
     {
         Debug.LogError("Sound FootStep");
         
-        SoundManager.PlaySoundStepFoot(audioSource, SoundManager.soundAndVolumePlayerExplorationStatic[Random.Range(0, 2)]);
+        if(!audioSource.isPlaying)
+            SoundManager.PlaySoundStepFoot(audioSource, SoundManager.soundAndVolumePlayerExplorationStatic[Random.Range(0, 2)]);
     }
 }
