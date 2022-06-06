@@ -139,7 +139,7 @@ public class EnnemiAttack : MonoBehaviour
     [Header("Dégat du mob")]
     [SerializeField] float damage, blockDamage;
 
-    int countRoundAttack;
+    static public int countRoundAttack;
 
     //bool playerCanEsquive;
 
@@ -162,6 +162,8 @@ public class EnnemiAttack : MonoBehaviour
     [Header("Change la taille du slider quand on appuie au bon moment")]
     [SerializeField] Vector3 maxSize;
     [SerializeField] Vector3 baseSize;
+
+    static public bool esquiveRight, esquiveLeft;
 
     void Start()
     {
@@ -542,26 +544,66 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectEsquiveSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquivePerfect(sliderPerfectEsquiveSize);
 
-                if (Input.GetAxisRaw("HorizontalLeftButtonX") !=0)
+                if(esquiveRight)
                 {
                     if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
                         UIManager.ActiveUIEsquive(false, true, true);
-                    else
+
+                        Debug.Log("Esquive Perfect");
+                        esquivePerfect = true;
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        esquiveReussiPerfect = true;
+                        UIManager.ActiveUICounter(true, false);
+                        Battle.canCounter = true;
+                        startQTECounter = true;
+                        state = 4;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PerfectText.ActiveText();
+                        PlayQTEValidationSound(2);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
+                        UIManager.ActiveUIEsquive(false, true, false);
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
+                }
+                else if(esquiveLeft)
+                {
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
                         UIManager.ActiveUIEsquive(false, false, true);
 
-                    Debug.Log("Esquive Perfect");
-                    esquivePerfect = true;
-                    canApplyDamage = false;
-                    canShakeCam = false;
-                    esquiveReussiPerfect = true;
-                    UIManager.ActiveUICounter(true, false);
-                    Battle.canCounter = true;
-                    startQTECounter = true;
-                    state = 4;
-                    PlayerDoSomething();
-                    ResetAllSlider();
-                    PerfectText.ActiveText();
-                    PlayQTEValidationSound(2);
+                        Debug.Log("Esquive Perfect");
+                        esquivePerfect = true;
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        esquiveReussiPerfect = true;
+                        UIManager.ActiveUICounter(true, false);
+                        Battle.canCounter = true;
+                        startQTECounter = true;
+                        state = 4;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PerfectText.ActiveText();
+                        PlayQTEValidationSound(2);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
+                        UIManager.ActiveUIEsquive(false, false, false);
+
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
                 }
             }
             else if (setUpTimerSliderNormal * (1f / baseSetUpTimerSliderNormal) <= 1 - setUpStartLooseFrameEsquive && sliderLooseEsquiveSize > 0)
@@ -589,19 +631,53 @@ public class EnnemiAttack : MonoBehaviour
             {
                 Battle.canEsquive = true;
 
-                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
+                if(esquiveRight)
                 {
-                    if(Input.GetAxisRaw("HorizontalLeftButtonX") >0 )
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
                         UIManager.ActiveUIEsquive(false, true, true);
-                    else
+
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        NormalTxt.ActiveText();
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PlayQTEValidationSound(1);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
+                        UIManager.ActiveUIEsquive(false, true, false);
+
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
+                }
+                else if (esquiveLeft)
+                {
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
                         UIManager.ActiveUIEsquive(false, false, true);
 
-                    canApplyDamage = false;
-                    canShakeCam = false;
-                    NormalTxt.ActiveText();
-                    PlayerDoSomething();
-                    ResetAllSlider();
-                    PlayQTEValidationSound(1);
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        NormalTxt.ActiveText();
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PlayQTEValidationSound(1);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
+                        UIManager.ActiveUIEsquive(false, false, false);
+
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
                 }
             }
         }
@@ -654,7 +730,7 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamage = false;
                     canShakeCam = true;
                     PerfectText.ActiveText();
-                    countRoundAttack = 2;
+                    countRoundAttack = 3;
                     PlayQTEValidationSound(2);
                 }
             }
@@ -689,7 +765,6 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     NormalTxt.ActiveText();
-                    countRoundAttack = 1;
                     PlayQTEValidationSound(1);
                 }
             }
@@ -1089,10 +1164,11 @@ public class EnnemiAttack : MonoBehaviour
     {
         if (!attackReussiperfect && !esquiveReussiPerfect)
             ReturnToStatePatrol();
+
         myAnimator.SetBool("Attack", false);
         isAttacking = false;
     }
-
+    
     void SetUpStartActionPlayer()
     {
         Debug.Log("Choix action");
@@ -1102,12 +1178,16 @@ public class EnnemiAttack : MonoBehaviour
             if (Random.Range(0, 2) == 0)
             {
                 UIManager.ActiveUIEsquive(true, true, false);
-                UIManager.ActiveUIEsquive(true, true, false);
+                esquiveRight = true;
+                esquiveLeft = false;
+                //UIManager.ActiveUIEsquive(true, true, false);
             }
             else
             {
                 UIManager.ActiveUIEsquive(true, false, false);
-                UIManager.ActiveUIEsquive(true, false, false);
+                esquiveLeft = true;
+                esquiveRight = false;
+                //UIManager.ActiveUIEsquive(true, false, false);
             }
         }
 

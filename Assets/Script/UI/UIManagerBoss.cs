@@ -217,8 +217,8 @@ public class UIManagerBoss : MonoBehaviour
     {
         if (active)
         {
-            UIEsquiveRight.SetActive(true);
-            UIEsquiveLeft.SetActive(true);
+            UIEsquiveRight.SetActive(right);
+            UIEsquiveLeft.SetActive(!right);
         }
         else
         {

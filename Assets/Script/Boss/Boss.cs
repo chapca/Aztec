@@ -47,8 +47,6 @@ public class Boss : MonoBehaviour
 
     int countRoundAttack;
 
-    bool playerCanEsquive;
-
     [Header("Patrouille NavMesh")]
     [SerializeField] float circleRadius;
     [SerializeField] NavMeshAgent agent;
@@ -68,6 +66,8 @@ public class Boss : MonoBehaviour
     [SerializeField] bool activeCombo1, activeCombo2, activeCombo3, combo1Done, combo2Done, combo3Done;
 
     bool isDead, isHealthing;
+
+    static public bool esquiveRight, esquiveLeft;
 
     void Start()
     {
@@ -148,7 +148,7 @@ public class Boss : MonoBehaviour
                 break;
         }
 
-        if (startBattle && !canAttack && state !=4 && state !=3 && hpBoss.hp >0 && !isHealthing)
+        if (startBattle && !canAttack && state !=4 && state !=3 && state != 2 && hpBoss.hp >0 && !isHealthing)
             StateWaitingPlayer();
 
         if (startQTE && hpBoss.hp >0)
@@ -204,22 +204,29 @@ public class Boss : MonoBehaviour
 
     void DelayInput()
     {
-        sliderBoss.setUpTimerSliderNormal -= Time.unscaledDeltaTime;
-
-        ActiveManetteUI();
-        if (countRoundAttack > 0)
-        {
-            TimingAttack();
-        }
-        if (playerCanEsquive)
-        {
-            TimingEsquive();
-        }
-        TimingBlock();
-
         if (sliderBoss.setUpTimerSliderNormal <= 0)
         {
+            Debug.LogError("End timer action");
+
+            canApplyDamage = true;
+            canApplyDamageBlock = false;
+            canShakeCam = true;
+
             PlayerDoSomething();
+        }
+        else
+        {
+            sliderBoss.setUpTimerSliderNormal -= Time.unscaledDeltaTime;
+
+            ActiveManetteUI();
+            if (countRoundAttack > 0)
+            {
+                TimingAttack();
+            }
+            if (!Battle.wallDetect)
+                TimingEsquive();
+
+            TimingBlock();
         }
     }
 
@@ -360,26 +367,73 @@ public class Boss : MonoBehaviour
                 sliderBoss.sliderPerfectEsquiveSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal;
                 UIManagerBoss.UpdateSliderEsquivePerfect(sliderBoss.sliderPerfectEsquiveSize);
 
-                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
+                if(esquiveRight)
                 {
                     if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
                         UIManagerBoss.ActiveUIEsquive(false, true, true);
-                    else
+
+                        Debug.Log("Esquive Perfect");
+                        esquivePerfect = true;
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        esquiveReussiPerfect = true;
+                        UIManagerBoss.ActiveUICounter(true, false);
+                        Battle.canCounter = true;
+                        startQTECounter = true;
+                        state = 4;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PerfectText.ActiveText();
+                        PlayQTEValidationSound(2);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
+                        UIManagerBoss.ActiveUIEsquive(false, true, false);
+
+                        canApplyDamage = true;
+                        canApplyDamageBlock = false;
+                        canShakeCam = true;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
+                }
+                else if (esquiveLeft)
+                {
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
                         UIManagerBoss.ActiveUIEsquive(false, false, true);
 
-                    Debug.Log("Esquive Perfect");
-                    esquivePerfect = true;
-                    canApplyDamage = false;
-                    canShakeCam = false;
-                    esquiveReussiPerfect = true;
-                    UIManagerBoss.ActiveUICounter(true, false);
-                    Battle.canCounter = true;
-                    startQTECounter = true;
-                    state = 4;
-                    PlayerDoSomething();
-                    ResetAllSlider();
-                    PerfectText.ActiveText();
-                    PlayQTEValidationSound(2);
+                        Debug.Log("Esquive Perfect");
+                        esquivePerfect = true;
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        esquiveReussiPerfect = true;
+                        UIManagerBoss.ActiveUICounter(true, false);
+                        Battle.canCounter = true;
+                        startQTECounter = true;
+                        state = 4;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PerfectText.ActiveText();
+                        PlayQTEValidationSound(2);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
+                        UIManagerBoss.ActiveUIEsquive(false, false, false);
+
+                        canApplyDamage = true;
+                        canApplyDamageBlock = false;
+                        canShakeCam = true;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
                 }
             }
             else if (sliderBoss.setUpTimerSliderNormal * (1f / sliderBoss.baseSetUpTimerSliderNormal) <= 1 - sliderBoss.setUpStartLooseFrameEsquive && sliderBoss.sliderLooseEsquiveSize > 0)
@@ -396,6 +450,10 @@ public class Boss : MonoBehaviour
                     else
                         UIManagerBoss.ActiveUIEsquive(false, false, true);
 
+                    canApplyDamage = true;
+                    canApplyDamageBlock = false;
+                    canShakeCam = true;
+
                     PlayerDoSomething();
                     ResetAllSlider();
                     FailText.ActiveText();
@@ -407,18 +465,55 @@ public class Boss : MonoBehaviour
             {
                 Battle.canEsquive = true;
 
-                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
+                if(esquiveRight)
                 {
                     if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    {
                         UIManagerBoss.ActiveUIEsquive(false, true, true);
-                    else
+
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PlayQTEValidationSound(1);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
+                        UIManagerBoss.ActiveUIEsquive(false, true, false);
+                        canApplyDamage = true;
+                        canApplyDamageBlock = false;
+                        canShakeCam = true;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
+                }
+                else if (esquiveLeft)
+                {
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
                         UIManagerBoss.ActiveUIEsquive(false, false, true);
 
-                    canApplyDamage = false;
-                    canShakeCam = false;
-                    PlayerDoSomething();
-                    ResetAllSlider();
-                    PlayQTEValidationSound(1);
+                        canApplyDamage = false;
+                        canShakeCam = false;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        PlayQTEValidationSound(1);
+                    }
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    {
+                        UIManagerBoss.ActiveUIEsquive(false, false, false);
+                        canApplyDamage = true;
+                        canApplyDamageBlock = false;
+                        canShakeCam = true;
+                        PlayerDoSomething();
+                        ResetAllSlider();
+                        FailText.ActiveText();
+                        Time.timeScale = 1;
+                        PlayQTEValidationSound(0);
+                    }
                 }
             }
         }
@@ -743,7 +838,7 @@ public class Boss : MonoBehaviour
 
     void StateWaitingPlayer()
     {
-        Debug.LogError("State 2");
+        Debug.LogError("State 1");
 
         agent.enabled = true;
         agent.angularSpeed = 0;
@@ -767,12 +862,7 @@ public class Boss : MonoBehaviour
 
         SmoothLookAt(player);
 
-        /* if (distPlayer < 10f)
-             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - player.position.x, transform.position.y, transform.position.z - player.position.z), 1f * Time.deltaTime);
-         else if(distPlayer > 12f)
-             transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 1 * Time.deltaTime);*/
-
-        if (distPlayer < 10f)
+        if (distPlayer < 18f)
         {
             Physics.Raycast(this.transform.position, Quaternion.AngleAxis(-30, transform.right) * -transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask); // Si l'angle est plus petit que l'angle de vision du bot, on tire un rayon vers le joueur
             Debug.DrawRay(this.transform.position, Quaternion.AngleAxis(-30, transform.right) * -transform.TransformDirection(Vector3.forward) * 100f, Color.blue);
@@ -780,10 +870,9 @@ public class Boss : MonoBehaviour
             if (hit.collider != null)
             {
                 agent.SetDestination(hit.point);
-                //Debug.LogWarning(hit.transform.gameObject + "  /  " + transform.position + "  /  " + hit.point);
             }
         }
-        else if (distPlayer > 12f)
+        else if (distPlayer > 20)
         {
             agent.SetDestination(player.position);
         }
@@ -799,17 +888,8 @@ public class Boss : MonoBehaviour
         {
             retrunState1 = false;
             canAttack = true;
-            randomTimeBeforeAttack = Random.Range(2, 5);
+            randomTimeBeforeAttack = Random.Range(4, 7);
             state = 2;
-
-            if (Random.Range(0, 2) == 0)
-            {
-                playerCanEsquive = true;
-            }
-            else
-            {
-                playerCanEsquive = false;
-            }
         }
     }
 
@@ -1077,6 +1157,7 @@ public class Boss : MonoBehaviour
     {
         if (!attackReussiperfect && !esquiveReussiPerfect)
             ReturnToStatePatrol();
+
         myAnimator.SetBool("Attack", false);
         isAttacking = false;
     }
@@ -1085,17 +1166,20 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        if (!playerCanEsquive)
+        if (!Battle.wallDetect)
         {
-            UIManagerBoss.ActiveUIEsquive(false, false, false);
-            UIManagerBoss.ActiveUIEsquive(false, true, false);
-            Battle.canEsquive = false;
-        }
-        else
-        {
-            UIManagerBoss.ActiveUIEsquive(true, true, false);
-            UIManagerBoss.ActiveUIEsquive(true, false, false);
-            Battle.canEsquive = true;
+            if (Random.Range(0, 2) == 0)
+            {
+                UIManagerBoss.ActiveUIEsquive(true, true, false);
+                esquiveRight = true;
+                esquiveLeft = false;
+            }
+            else
+            {
+                UIManagerBoss.ActiveUIEsquive(true, false, false);
+                esquiveLeft = true;
+                esquiveRight = false;
+            }
         }
 
         if (countRoundAttack > 0)
@@ -1136,8 +1220,6 @@ public class Boss : MonoBehaviour
 
     void ApplyDamageToPlayer()
     {
-        Debug.LogError("HitPlayer");
-
         if (canApplyDamage && canShakeCam && !canApplyDamageBlock)
         {
             Debug.LogError("No Block");
@@ -1175,6 +1257,9 @@ public class Boss : MonoBehaviour
             ShakeCam.ShakerCam(ShakeCam.shakeCamparametersBlockPerfectStatic, ShakeCam.shakeCamparametersBlockPerfectStatic[0].axeShake, ShakeCam.shakeCamparametersBlockPerfectStatic[0].amplitude,
                         ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence, ShakeCam.shakeCamparametersBlockPerfectStatic[0].duration);
         }
+
+        esquiveReussiPerfect = false;
+        attackReussiperfect = false;
     }
 
 

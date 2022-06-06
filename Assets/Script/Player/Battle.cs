@@ -33,7 +33,7 @@ public class Battle : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(canBlock);
+        Debug.LogError(degaine);
 
         if(isAttacked)
         {
@@ -67,7 +67,7 @@ public class Battle : MonoBehaviour
        
         if(canEsquive)
         {
-            if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+            if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && EnnemiAttack.esquiveRight || Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && Boss.esquiveRight)
             {
                 myAnimator.SetBool("EsquiveDroite", true);
 
@@ -75,7 +75,7 @@ public class Battle : MonoBehaviour
                 canBlock = false;
                 canAttack = false;
             }
-            else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+            else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 && EnnemiAttack.esquiveLeft || Input.GetAxisRaw("HorizontalLeftButtonX") < 0 && Boss.esquiveLeft)
             {
                 myAnimator.SetBool("EsquiveGauche", true);
                 canEsquive = false;
@@ -137,7 +137,7 @@ public class Battle : MonoBehaviour
         {
             wallDetect = true;
 
-            Debug.LogError(other.gameObject.name);
+            //Debug.LogError(other.gameObject.name);
         }
     }
 

@@ -43,6 +43,7 @@ public class EnnemiManager : MonoBehaviour
             PlayerBlood.GetBlood(bloodQuantity);
 
             StartCoroutine("EndFight");
+            EnnemiAttack.countRoundAttack = 0;
             endFight = true;
             startBattle = false;
             StartCoroutine("RespawnEnnemi");
