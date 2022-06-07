@@ -34,6 +34,7 @@ public class UIMenuPause : MonoBehaviour
         depthOfField.active = false;
     }
 
+
     void Update()
     {
         if(Input.GetButtonDown("Pause") && !battle.degaine)
@@ -41,7 +42,7 @@ public class UIMenuPause : MonoBehaviour
             Time.timeScale = 0;
             canvasSlider.SetActive(false);
             transform.GetChild(0).gameObject.SetActive(true);
-            m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(3).gameObject);
+            m_EventSystem.SetSelectedGameObject(objButtonResume);
             depthOfField.active = true;
             Debug.Log(m_EventSystem.currentSelectedGameObject);
             menuPauseIsActive = true;
@@ -62,57 +63,63 @@ public class UIMenuPause : MonoBehaviour
             Time.timeScale = 1;
         }
 
-
-        if(m_EventSystem.currentSelectedGameObject == buttonResume.gameObject)
+        if (m_EventSystem.currentSelectedGameObject != null)
         {
-            buttonResume.transform.Find("TxtSelect").gameObject.SetActive(true);
-            buttonResume.transform.Find("Selection").gameObject.SetActive(true);
-            buttonResume.transform.Find("TxtUnselect").gameObject.SetActive(false);
+            if (m_EventSystem.currentSelectedGameObject == buttonResume.gameObject)
+            {
+                buttonResume.transform.Find("TxtSelect").gameObject.SetActive(true);
+                buttonResume.transform.Find("Selection").gameObject.SetActive(true);
+                buttonResume.transform.Find("TxtUnselect").gameObject.SetActive(false);
+            }
+            else
+            {
+                buttonResume.transform.Find("TxtUnselect").gameObject.SetActive(true);
+                buttonResume.transform.Find("TxtSelect").gameObject.SetActive(false);
+                buttonResume.transform.Find("Selection").gameObject.SetActive(false);
+            }
+
+            if (m_EventSystem.currentSelectedGameObject == buttonRestart.gameObject)
+            {
+                buttonRestart.transform.Find("TxtSelect").gameObject.SetActive(true);
+                buttonRestart.transform.Find("Selection").gameObject.SetActive(true);
+                buttonRestart.transform.Find("TxtUnselect").gameObject.SetActive(false);
+            }
+            else
+            {
+                buttonRestart.transform.Find("TxtUnselect").gameObject.SetActive(true);
+                buttonRestart.transform.Find("TxtSelect").gameObject.SetActive(false);
+                buttonRestart.transform.Find("Selection").gameObject.SetActive(false);
+            }
+
+            if (m_EventSystem.currentSelectedGameObject == buttonOption.gameObject)
+            {
+                buttonOption.transform.Find("TxtSelect").gameObject.SetActive(true);
+                buttonOption.transform.Find("Selection").gameObject.SetActive(true);
+                buttonOption.transform.Find("TxtUnselect").gameObject.SetActive(false);
+            }
+            else
+            {
+                buttonOption.transform.Find("TxtUnselect").gameObject.SetActive(true);
+                buttonOption.transform.Find("TxtSelect").gameObject.SetActive(false);
+                buttonOption.transform.Find("Selection").gameObject.SetActive(false);
+            }
+
+            if (m_EventSystem.currentSelectedGameObject == buttonQuit.gameObject)
+            {
+                buttonQuit.transform.Find("TxtSelect").gameObject.SetActive(true);
+                buttonQuit.transform.Find("Selection").gameObject.SetActive(true);
+                buttonQuit.transform.Find("TxtUnselect").gameObject.SetActive(false);
+            }
+            else
+            {
+                buttonQuit.transform.Find("TxtUnselect").gameObject.SetActive(true);
+                buttonQuit.transform.Find("Selection").gameObject.SetActive(false);
+                buttonQuit.transform.Find("TxtSelect").gameObject.SetActive(false);
+            }
         }
         else
         {
-            buttonResume.transform.Find("TxtUnselect").gameObject.SetActive(true);
-            buttonResume.transform.Find("TxtSelect").gameObject.SetActive(false);
-            buttonResume.transform.Find("Selection").gameObject.SetActive(false);
-        }
-
-        if(m_EventSystem.currentSelectedGameObject == buttonRestart.gameObject)
-        {
-            buttonRestart.transform.Find("TxtSelect").gameObject.SetActive(true);
-            buttonRestart.transform.Find("Selection").gameObject.SetActive(true);
-            buttonRestart.transform.Find("TxtUnselect").gameObject.SetActive(false);
-        }
-        else
-        {
-            buttonRestart.transform.Find("TxtUnselect").gameObject.SetActive(true);
-            buttonRestart.transform.Find("TxtSelect").gameObject.SetActive(false);
-            buttonRestart.transform.Find("Selection").gameObject.SetActive(false);
-        }
-
-        if (m_EventSystem.currentSelectedGameObject == buttonOption.gameObject)
-        {
-            buttonOption.transform.Find("TxtSelect").gameObject.SetActive(true);
-            buttonOption.transform.Find("Selection").gameObject.SetActive(true);
-            buttonOption.transform.Find("TxtUnselect").gameObject.SetActive(false);
-        }
-        else
-        {
-            buttonOption.transform.Find("TxtUnselect").gameObject.SetActive(true);
-            buttonOption.transform.Find("TxtSelect").gameObject.SetActive(false);
-            buttonOption.transform.Find("Selection").gameObject.SetActive(false);
-        }
-
-        if (m_EventSystem.currentSelectedGameObject == buttonQuit.gameObject)
-        {
-            buttonQuit.transform.Find("TxtSelect").gameObject.SetActive(true);
-            buttonQuit.transform.Find("Selection").gameObject.SetActive(true);
-            buttonQuit.transform.Find("TxtUnselect").gameObject.SetActive(false);
-        }
-        else
-        {
-            buttonQuit.transform.Find("TxtUnselect").gameObject.SetActive(true);
-            buttonQuit.transform.Find("Selection").gameObject.SetActive(false);
-            buttonQuit.transform.Find("TxtSelect").gameObject.SetActive(false);
+            m_EventSystem.SetSelectedGameObject(objButtonResume);
         }
     }
 
