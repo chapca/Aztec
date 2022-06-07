@@ -335,14 +335,13 @@ GameObject:
   - component: {fileID: 8283120810034064428}
   - component: {fileID: 8283120810034064419}
   - component: {fileID: 8283120810034064418}
-  - component: {fileID: 8283120810034064430}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8283120810034064428
 Transform:
   m_ObjectHideFlags: 0
@@ -408,22 +407,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8283120810034064430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8283120810034064416}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45fc027e56089074abfcf52e64fbf99a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camBase: {fileID: 0}
-  camBattle: {fileID: 0}
-  degaine: 0
-  isAttacked: 0
 --- !u!1 &8283120810350116162
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +609,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8283120810980229912}
   - component: {fileID: 8283120810980229913}
-  - component: {fileID: 8283120810980229914}
   - component: {fileID: 8283120810980229915}
   - component: {fileID: 8283120810980229892}
   - component: {fileID: 8283120810980229893}
@@ -678,29 +660,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8283120810980229914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8283120810980229919}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5069f4ff549e6545b42c688d639d5aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedEsquive: 20
-  currentSpeedEsquive: 0
-  esquiveAngleRot: 0
-  rotationY: 0
-  rotSpeedY: 0
-  speedReturnBaseRot: 0
-  esquiveLeft: 0
-  esquiveRight: 0
-  returnBaseRotation: 0
-  mVolumeProfile: {fileID: 0}
-  depthOfField: {fileID: 0}
 --- !u!114 &8283120810980229915
 MonoBehaviour:
   m_ObjectHideFlags: 0

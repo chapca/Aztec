@@ -85,7 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 256212046}
   - component: {fileID: 256212049}
-  - component: {fileID: 256212047}
   - component: {fileID: 4072622960853781519}
   m_Layer: 5
   m_Name: TextNormalBoss
@@ -93,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &256212046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -121,18 +120,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256212045}
   m_CullTransparentMesh: 1
---- !u!114 &256212047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256212045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1470b557bdaefca419e7913bc5e9c3b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4072622960853781519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,7 +2146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3570519381080258658}
   - component: {fileID: 3570519381080258656}
-  - component: {fileID: 6482030173188530160}
   - component: {fileID: 1214985646189096427}
   m_Layer: 5
   m_Name: TextPerfectBoss
@@ -2167,7 +2153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3570519381080258658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2195,18 +2181,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3570519381080258661}
   m_CullTransparentMesh: 1
---- !u!114 &6482030173188530160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570519381080258661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edb6779bafaeeaf43865662cc938f02c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1214985646189096427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4294,7 +4268,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4800291546786939687}
   - component: {fileID: 1013429567055381452}
-  - component: {fileID: 8067212992411130439}
   - component: {fileID: 5480128735507353350}
   m_Layer: 5
   m_Name: TextLooseBoss
@@ -4302,7 +4275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4800291546786939687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4330,18 +4303,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8134129489494901487}
   m_CullTransparentMesh: 1
---- !u!114 &8067212992411130439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134129489494901487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1470b557bdaefca419e7913bc5e9c3b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5480128735507353350
 MonoBehaviour:
   m_ObjectHideFlags: 0

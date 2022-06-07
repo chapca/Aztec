@@ -109,6 +109,8 @@ GameObject:
   - component: {fileID: 1800960418403088949}
   - component: {fileID: -6032298529905649386}
   - component: {fileID: 4262219880177259236}
+  - component: {fileID: 1628035992542915076}
+  - component: {fileID: 1628035992542915077}
   m_Layer: 11
   m_Name: EmptyBoss
   m_TagString: Untagged
@@ -123,7 +125,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3664853159988102087}
-  m_LocalRotation: {x: -0, y: 0.38831988, z: -0, w: 0.9215247}
+  m_LocalRotation: {x: 0, y: 0.38831988, z: 0, w: 0.9215247}
   m_LocalPosition: {x: 6.1605396, y: 1.0289993, z: -27.5}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
@@ -286,15 +288,14 @@ MonoBehaviour:
   playerAudioSource: {fileID: 0}
   myAnimator: {fileID: 0}
   distPlayer: 0
-  lookat: 0
+  lookat: 1
   isAttacking: 0
-  goBack: 0
+  goBack: 1
   moveToPlayerBeforeAttack: 0
   launchAttack: 0
   canAttack: 0
   state: 0
-  moveRight: 0
-  randomTimeBeforeAttack: 0
+  randomTimeBeforeAttack: 2.9
   randomAttack: 0
   retrunState1: 0
   paradeReussi: 0
@@ -307,60 +308,23 @@ MonoBehaviour:
   canApplyDamage: 0
   canApplyDamageBlock: 0
   canShakeCam: 0
-  thisSelected: 0
-  resetEnnemiSelected: 0
   startBattle: 0
-  setUpStartActionPlayer: 0
-  setUpEndActionPlayer: 0
-  setUpAnglePerfectFrameAttack: 0
-  setUpAnglePerfectFrameEsquive: 0
-  setUpAnglePerfectFrameBlock: 0
-  setUpAngleLooseFrameAttack: 0
-  setUpAngleLooseFrameCounter: 0
-  setUpAngleLooseFrameEsquive: 0
-  setUpAngleLooseFrameBlock: 0
-  setUpStartPerfectFrameAttack: 0
-  setUpStartPerfectFrameEsquive: 0
-  setUpStartPerfectFrameBlock: 0
-  setUpStartLooseFrameAttack: 0
-  setUpStartLooseFrameCounter: 0
-  setUpStartLooseFrameEsquive: 0
-  setUpStartLooseFrameBlock: 0
-  baseSetUpTimerSliderNormal: 0
-  setUpTimerSliderNormal: 0
-  setUpSliderPerfect: 0
-  setUpSliderLooseAttack: 0
-  setUpSliderLooseCounter: 0
-  setUpSliderLooseEsquive: 0
-  setUpSliderLooseBlock: 0
-  sliderAttackPerfect: {fileID: 0}
-  sliderAttackNormal: {fileID: 0}
-  sliderAttackLoose: {fileID: 0}
-  sliderCounterLoose: {fileID: 0}
-  sliderEsquivePerfect: {fileID: 0}
-  sliderEsquiveNormal: {fileID: 0}
-  sliderEsquiveLoose: {fileID: 0}
-  sliderBlockPerfect: {fileID: 0}
-  sliderBlockNormal: {fileID: 0}
-  sliderBlockLoose: {fileID: 0}
-  sliderPerfectSize: 0
-  sliderLooseCounterSize: 0
-  sliderLooseAttackSize: 0
-  sliderLooseEsquiveSize: 0
-  sliderLooseBlockSize: 0
-  activeThisinEditor: 0
-  ManetteSpriteIsActive: 0
-  damage: 0
-  blockDamage: 0
-  circleRadius: 0
-  agent: {fileID: 0}
+  damage: 10
+  blockDamage: 10
+  circleRadius: 10
+  agent: {fileID: 1800960418403088949}
   findPosition: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  tutoBlackScreen: {fileID: 0}
+    m_Bits: 2047
   maxSize: {x: 0, y: 0, z: 0}
   baseSize: {x: 0, y: 0, z: 0}
+  activeCombo1: 0
+  activeCombo2: 0
+  activeCombo3: 0
+  combo1Done: 0
+  combo2Done: 0
+  combo3Done: 0
 --- !u!114 &4262219880177259236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,29 +337,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b9c6adcb92112418a53545fb29949f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setUpStartActionPlayer: 0
-  setUpEndActionPlayer: 0
-  setUpAnglePerfectFrameAttack: 0
-  setUpAnglePerfectFrameEsquive: 0
-  setUpAnglePerfectFrameBlock: 0
-  setUpAngleLooseFrameAttack: 0
-  setUpAngleLooseFrameCounter: 0
-  setUpAngleLooseFrameEsquive: 0
-  setUpAngleLooseFrameBlock: 0
-  setUpStartPerfectFrameAttack: 0
-  setUpStartPerfectFrameEsquive: 0
-  setUpStartPerfectFrameBlock: 0
-  setUpStartLooseFrameAttack: 0
-  setUpStartLooseFrameCounter: 0
-  setUpStartLooseFrameEsquive: 0
-  setUpStartLooseFrameBlock: 0
-  baseSetUpTimerSliderNormal: 0
-  setUpTimerSliderNormal: 0
-  setUpSliderPerfect: 0
-  setUpSliderLooseAttack: 0
-  setUpSliderLooseCounter: 0
-  setUpSliderLooseEsquive: 0
-  setUpSliderLooseBlock: 0
+  convertion: 1.6666666
+  setUpStartActionPlayer: 0.01
+  setUpEndActionPlayer: 0.04
+  setUpAnglePerfectFrameAttack: 277
+  setUpAnglePerfectFrameEsquive: 183
+  setUpAnglePerfectFrameBlock: 226
+  setUpAngleLooseFrameAttack: 139
+  setUpAngleLooseFrameCounter: 195
+  setUpAngleLooseFrameEsquive: 308
+  setUpAngleLooseFrameBlock: 358
+  setUpStartPerfectFrameAttack: 0.51944447
+  setUpStartPerfectFrameEsquive: 0.25833333
+  setUpStartPerfectFrameBlock: 0.37777779
+  setUpStartLooseFrameAttack: 0.13611111
+  setUpStartLooseFrameCounter: 0.29166666
+  setUpStartLooseFrameEsquive: 0.60555553
+  setUpStartLooseFrameBlock: 0.74444443
+  baseSetUpTimerSliderNormal: 1.8000001
+  setUpTimerSliderNormal: 1.8000001
+  setUpSliderPerfect: 0.45000002
+  setUpSliderLooseAttack: 0.45000002
+  setUpSliderLooseCounter: 0.45000002
+  setUpSliderLooseEsquive: 0.45000002
+  setUpSliderLooseBlock: 0.45000002
   sliderAttackPerfect: {fileID: 0}
   sliderAttackNormal: {fileID: 0}
   sliderAttackLoose: {fileID: 0}
@@ -406,13 +371,104 @@ MonoBehaviour:
   sliderBlockPerfect: {fileID: 0}
   sliderBlockNormal: {fileID: 0}
   sliderBlockLoose: {fileID: 0}
-  sliderPerfectSize: 0
-  sliderLooseCounterSize: 0
-  sliderLooseAttackSize: 0
-  sliderLooseEsquiveSize: 0
-  sliderLooseBlockSize: 0
+  sliderPerfectSize: 0.25
+  sliderPerfectAttacSize: 0.25
+  sliderPerfectEsquiveSize: 0.25
+  sliderPerfectBlockSize: 0.25
+  sliderLooseCounterSize: 0.25
+  sliderLooseAttackSize: 0.25
+  sliderLooseEsquiveSize: 0.25
+  sliderLooseBlockSize: 0.25
+  baseSliderLooseCounterSize: 0.25
+  baseSliderLooseAttackSize: 0.25
+  baseSliderLooseEsquiveSize: 0.25
+  baseSliderLooseBlockSize: 0.25
   activeThisinEditor: 0
   ManetteSpriteIsActive: 0
+--- !u!114 &1628035992542915076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664853159988102087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca748181a9324c74cb62a5e9c3ec6575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  hp: 0
+  nbrBlood: 100
+--- !u!114 &1628035992542915077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664853159988102087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9547bc53ee20cf4dbff39055d01af0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convertion: 1.6666666
+  setUpStartActionPlayer: 1
+  setUpEndActionPlayer: 4
+  setUpAnglePerfectFrameCombo1: 241
+  setUpAnglePerfectFrameCombo2: 329
+  setUpAnglePerfectFrameCombo3: 144
+  setUpAngleLooseFrameCombo1: 187
+  setUpAngleLooseFrameCombo2: 359.99
+  setUpAngleLooseFrameCombo3: 90
+  setUpAngleLoose2FrameCombo1: 359.99
+  setUpAngleLoose2FrameCombo2: 275
+  setUpAngleLoose2FrameCombo3: 359.99
+  setUpStartPerfectFrameCombo1: 0.51944447
+  setUpStartPerfectFrameCombo2: 0.7638889
+  setUpStartPerfectFrameCombo3: 0.25
+  setUpStartLooseFrameCombo1: 0.0005555365
+  setUpStartLooseFrameCombo2: 0.9134722
+  setUpStartLooseFrameCombo3: 0
+  setUpStartLoose2FrameCombo1: 0.66897225
+  setUpStartLoose2FrameCombo2: 0.0011110968
+  setUpStartLoose2FrameCombo3: 0.3999721
+  baseSetUpTimerSliderNormal: 18
+  setUpTimerSliderNormal: 18
+  setUpSliderPerfect: 2.7
+  setUpSliderLooseCombo1: 9.36
+  setUpSliderLooseCombo2: 1.5569999
+  setUpSliderLooseCombo3: 4.5
+  setUpSliderLoose2Combo1: 5.957999
+  setUpSliderLoose2Combo2: 13.7699995
+  setUpSliderLoose2Combo3: 10.800001
+  sliderCombo1Perfect: {fileID: 0}
+  sliderUILoose2Combo1: {fileID: 0}
+  sliderCombo1Loose: {fileID: 0}
+  sliderCombo2Perfect: {fileID: 0}
+  sliderUILoose2Combo2: {fileID: 0}
+  sliderCombo2Loose: {fileID: 0}
+  sliderCombo3Perfect: {fileID: 0}
+  sliderUILoose2Combo3: {fileID: 0}
+  sliderCombo3Loose: {fileID: 0}
+  sliderPerfectSize: 0.15
+  sliderPerfectCombo1Size: 0.15
+  sliderPerfectCombo2Size: 0.15
+  sliderPerfectCombo3Size: 0.15
+  sliderLooseCombo1Size: 0.52
+  sliderLooseCombo2Size: 0.0865
+  sliderLooseCombo3Size: 0.25
+  sliderLoose2Combo1Size: 0.33099997
+  sliderLoose2Combo2Size: 0.765
+  sliderLoose2Combo3Size: 0.6000001
+  baseSliderLooseCombo1Size: 0.52
+  baseSliderLooseCombo2Size: 0.0865
+  baseSliderLooseCombo3Size: 0.25
+  baseSliderLoose2Combo1Size: 0.33099997
+  baseSliderLoose2Combo2Size: 0.765
+  baseSliderLoose2Combo3Size: 0.6000001
+  activeThisinEditor: 1
+  ManetteSpriteIsActive: 1
 --- !u!1 &3664853161105390135
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,15 +496,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3664853161105390135}
-  m_LocalRotation: {x: -0, y: 0.5440279, z: -0, w: 0.83906716}
-  m_LocalPosition: {x: 2.9795, y: 0.34, z: 1.4737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8130967, y: 0.8130967, z: 3.2523868}
   m_Children:
   - {fileID: 3664853159554912169}
-  - {fileID: 2576454712442513050}
+  - {fileID: 5778997394121967740}
   m_Father: {fileID: 3664853159988102084}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 65.917, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3664853161105390128
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -527,89 +583,77 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!1001 &2615428737830289777
+--- !u!1001 &6321267168490106775
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 3664853161105390132}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3.0932
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3.0932
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.7733
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.04178
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1580001
+      value: -1.23
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1074
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7474476262888739179, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
+    - target: {fileID: 919132149155446097, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_Name
-      value: M_lizard_low
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266408974079192264, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
-      propertyPath: m_Layer
-      value: 11
+      value: SK_Gecko
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
---- !u!4 &2576454712442513050 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
+--- !u!4 &5778997394121967740 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3c2af8b5f64ad084e98314c73fc541be, type: 3}
-  m_PrefabInstance: {fileID: 2615428737830289777}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
+  m_PrefabInstance: {fileID: 6321267168490106775}
   m_PrefabAsset: {fileID: 0}
