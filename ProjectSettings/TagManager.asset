@@ -10,6 +10,7 @@ TagManager:
   - Interactable
   - End
   - Wall
+  - Blood
   layers:
   - Default
   - TransparentFX

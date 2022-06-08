@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnnemiHp : MonoBehaviour
 {
+    EnnemiManager ennemiManager;
     public int maxHp, hp, nbrBlood;
     EnnemiAttack ennemiAttack;
     Animator myAnimator;
@@ -21,7 +22,8 @@ public class EnnemiHp : MonoBehaviour
 
         parentObject = transform.parent;
 
-        GetComponentInParent<EnnemiManager>().bloodQuantity += nbrBlood;
+        ennemiManager = GetComponentInParent<EnnemiManager>();
+        ennemiManager.bloodQuantity += nbrBlood;
     }
 
     // Update is called once per frame
@@ -45,6 +47,33 @@ public class EnnemiHp : MonoBehaviour
             myAnimator.SetBool("Die", true);
             PlayerController.ennemi = null;
             //StartCoroutine("RespawnEnnemi");
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            if(!ennemiManager.bloodRecover)
+            {
+                ennemiManager.isInBloodTrigger = true;
+
+                if(ennemiManager.canRecoverBlood)
+                    UIManager.ActiveManetteInputInteract(true);
+            }
+            else
+            {
+                UIManager.ActiveManetteInputInteract(false);
+            }
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ennemiManager.isInBloodTrigger = false;
+            UIManager.ActiveManetteInputInteract(false);
         }
     }
 

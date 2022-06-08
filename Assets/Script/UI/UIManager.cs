@@ -250,7 +250,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            switch(nbrCoup)
+            switch (nbrCoup)
             {
                 case 0:
                     counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);

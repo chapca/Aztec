@@ -95,13 +95,16 @@ public class Interaction : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("End"))
+       /* if (other.CompareTag("Blood"))
         {
-            UIManager.ActiveManetteInputInteractLeaveGame(true);
+            UIManager.ActiveManetteInputInteract(true);
 
             if (Input.GetButtonDown("InteractButton"))
-                Application.Quit();
-        }
+            {
+                PlayerBlood.GetBlood(other.transform.parent.GetComponent<EnnemiManager>().bloodQuantity);
+                other.transform.parent.GetComponent<EnnemiManager>().bloodQuantity = 0;
+            }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)

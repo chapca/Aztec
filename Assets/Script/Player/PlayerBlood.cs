@@ -6,6 +6,8 @@ public class PlayerBlood : MonoBehaviour
 {
     static PlayerBlood instance;
 
+    static Animator myAnimator;
+
     [Range(0,100)]
     static public float bloodQuantity, halfBloodQuantity;
 
@@ -18,6 +20,7 @@ public class PlayerBlood : MonoBehaviour
 
     void Start()
     {
+        myAnimator = GameObject.Find("PlayerAnim").GetComponent<Animator>();
     }
 
     private void Update()
@@ -59,6 +62,7 @@ public class PlayerBlood : MonoBehaviour
     void LaunchGetBloodCoroutine(float blood)
     {
         StartCoroutine(GetBloodSmooth(blood));
+        myAnimator.SetTrigger("RecoverBlood");
     }
 
     IEnumerator GetBloodSmooth(float blood)

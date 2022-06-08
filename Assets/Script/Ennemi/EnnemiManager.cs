@@ -29,9 +29,12 @@ public class EnnemiManager : MonoBehaviour
 
     public float bloodQuantity;
 
+    public bool bloodRecover, isInBloodTrigger, canRecoverBlood;
+
     void Start()
     {
         battle = GameObject.FindWithTag("Player").GetComponent<Battle>();
+        isInBloodTrigger = false;
     }
 
     void Update()
@@ -40,8 +43,6 @@ public class EnnemiManager : MonoBehaviour
 
         if(transform.childCount == 0 && !endFight)
         {
-            PlayerBlood.GetBlood(bloodQuantity);
-
             StartCoroutine("EndFight");
             EnnemiAttack.countRoundAttack = 0;
             endFight = true;
@@ -69,6 +70,25 @@ public class EnnemiManager : MonoBehaviour
                 else
                     StartCoroutine("SelectSoloAttacker");
             }
+        }
+
+        if(!bloodRecover && endFight && isInBloodTrigger)
+        {
+            StartCoroutine("RecoverBlood");
+        }
+    }
+
+    IEnumerator RecoverBlood()
+    {
+        yield return new WaitForSeconds(0.75f);
+
+        canRecoverBlood = true;
+
+        if (Input.GetButtonDown("InteractButton"))
+        {
+            PlayerBlood.GetBlood(bloodQuantity);
+            bloodRecover = true;
+            yield break;
         }
     }
 

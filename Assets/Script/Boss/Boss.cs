@@ -45,7 +45,8 @@ public class Boss : MonoBehaviour
     [Header("Dégat du mob")]
     [SerializeField] float damage, blockDamage;
 
-    int countRoundAttack;
+    [Range(0.0f, 2f)]
+    static public int countRoundAttack;
 
     [Header("Patrouille NavMesh")]
     [SerializeField] float circleRadius;
@@ -211,7 +212,8 @@ public class Boss : MonoBehaviour
             canApplyDamage = true;
             canApplyDamageBlock = false;
             canShakeCam = true;
-
+            countRoundAttack--;
+            UIManager.ActiveUINbrCounterAttack(false, countRoundAttack);
             PlayerDoSomething();
         }
         else
@@ -284,6 +286,7 @@ public class Boss : MonoBehaviour
                     ResetAllSlider();
                     AnimationEvent.attackPerfect = true;
                     Battle.myAnimator.SetBool("AttackPerfect", true);
+                    countRoundAttack--;
                     canApplyDamage = false;
                     canShakeCam = false;
                     attackReussiperfect = true;
@@ -306,6 +309,7 @@ public class Boss : MonoBehaviour
                     canShakeCam = false;
                     PlayerDoSomething();
                     ResetAllSlider();
+                    countRoundAttack--;
                     FailText.ActiveText();
                     Time.timeScale = 1;
                     PlayQTEValidationSound(0);
@@ -320,6 +324,7 @@ public class Boss : MonoBehaviour
                     UIManagerBoss.ActiveUIAttack(false, true);
                     AnimationEvent.attackStandard = true;
                     Battle.myAnimator.SetBool("AttackNormal", true);
+                    countRoundAttack--;
                     PlayerDoSomething();
                     ResetAllSlider();
                     PlayQTEValidationSound(1);
@@ -396,6 +401,7 @@ public class Boss : MonoBehaviour
                         canShakeCam = true;
                         PlayerDoSomething();
                         ResetAllSlider();
+                        countRoundAttack--;
                         FailText.ActiveText();
                         Time.timeScale = 1;
                         PlayQTEValidationSound(0);
@@ -430,6 +436,7 @@ public class Boss : MonoBehaviour
                         canShakeCam = true;
                         PlayerDoSomething();
                         ResetAllSlider();
+                        countRoundAttack--;
                         FailText.ActiveText();
                         Time.timeScale = 1;
                         PlayQTEValidationSound(0);
@@ -456,6 +463,7 @@ public class Boss : MonoBehaviour
 
                     PlayerDoSomething();
                     ResetAllSlider();
+                    countRoundAttack--;
                     FailText.ActiveText();
                     Time.timeScale = 1;
                     PlayQTEValidationSound(0);
@@ -473,6 +481,7 @@ public class Boss : MonoBehaviour
 
                         canApplyDamage = false;
                         canShakeCam = false;
+                        countRoundAttack--;
                         PlayerDoSomething();
                         ResetAllSlider();
                         PlayQTEValidationSound(1);
@@ -485,6 +494,7 @@ public class Boss : MonoBehaviour
                         canShakeCam = true;
                         PlayerDoSomething();
                         ResetAllSlider();
+                        countRoundAttack--;
                         FailText.ActiveText();
                         Time.timeScale = 1;
                         PlayQTEValidationSound(0);
@@ -498,6 +508,7 @@ public class Boss : MonoBehaviour
 
                         canApplyDamage = false;
                         canShakeCam = false;
+                        countRoundAttack--;
                         PlayerDoSomething();
                         ResetAllSlider();
                         PlayQTEValidationSound(1);
@@ -510,6 +521,7 @@ public class Boss : MonoBehaviour
                         canShakeCam = true;
                         PlayerDoSomething();
                         ResetAllSlider();
+                        countRoundAttack--;
                         FailText.ActiveText();
                         Time.timeScale = 1;
                         PlayQTEValidationSound(0);
@@ -601,9 +613,9 @@ public class Boss : MonoBehaviour
                     canApplyDamage = false;
                     canApplyDamageBlock = true;
                     canShakeCam = true;
+                    countRoundAttack--;
                     PlayerDoSomething();
                     ResetAllSlider();
-                    countRoundAttack = 1;
                     PlayQTEValidationSound(1);
                 }
             }
@@ -660,6 +672,7 @@ public class Boss : MonoBehaviour
                 canShakeCam = false;
                 ResetCounterSlider();
                 ReturnToStatePatrol();
+                countRoundAttack--;
                 FailText.ActiveText();
                 Time.timeScale = 1;
                 PlayQTEValidationSound(0);
@@ -675,6 +688,7 @@ public class Boss : MonoBehaviour
 
                 canShakeCam = false;
                 counterReussi = true;
+                countRoundAttack--;
                 ResetCounterSlider();
                 PlayQTEValidationSound(1);
             }
@@ -686,6 +700,8 @@ public class Boss : MonoBehaviour
             ResetCounterSlider();
             ReturnToStatePatrol();
             canShakeCam = false;
+
+            countRoundAttack--;
 
             UIManagerBoss.ActiveUIEsquive(false, false, false);
             UIManagerBoss.ActiveUIEsquive(false, false, false);
@@ -1193,6 +1209,7 @@ public class Boss : MonoBehaviour
             Battle.canAttack = false;
         }
 
+        UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
         UIManagerBoss.ActiveManetteUI(true);
         UIManagerBoss.ActiveUIBlock(true, false);
 
