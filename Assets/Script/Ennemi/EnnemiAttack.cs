@@ -139,6 +139,7 @@ public class EnnemiAttack : MonoBehaviour
     [Header("Dégat du mob")]
     [SerializeField] float damage, blockDamage;
 
+    [Range(0.0f, 2f)]
     static public int countRoundAttack;
 
     //bool playerCanEsquive;
@@ -423,7 +424,8 @@ public class EnnemiAttack : MonoBehaviour
         setUpTimerSliderNormal -= Time.unscaledDeltaTime;
 
         ActiveManetteUI();
-        if(countRoundAttack>0)
+        UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
+        if (countRoundAttack>0)
         {
             TimingAttack();
         }
@@ -435,7 +437,12 @@ public class EnnemiAttack : MonoBehaviour
 
         if(setUpTimerSliderNormal <=0)
         {
+            UIManager.ActiveUINbrCounterAttack(false, countRoundAttack);
             PlayerDoSomething();
+        }
+        else
+        {
+            UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
         }
     }
 
@@ -639,6 +646,7 @@ public class EnnemiAttack : MonoBehaviour
 
                         canApplyDamage = false;
                         canShakeCam = false;
+                        countRoundAttack--;
                         NormalTxt.ActiveText();
                         PlayerDoSomething();
                         ResetAllSlider();
@@ -663,6 +671,7 @@ public class EnnemiAttack : MonoBehaviour
 
                         canApplyDamage = false;
                         canShakeCam = false;
+                        countRoundAttack--;
                         NormalTxt.ActiveText();
                         PlayerDoSomething();
                         ResetAllSlider();
@@ -730,7 +739,7 @@ public class EnnemiAttack : MonoBehaviour
                     canApplyDamage = false;
                     canShakeCam = true;
                     PerfectText.ActiveText();
-                    countRoundAttack = 3;
+                    countRoundAttack = 2;
                     PlayQTEValidationSound(2);
                 }
             }
@@ -747,6 +756,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     canShakeCam = true;
+                    countRoundAttack--;
                     FailText.ActiveText();
                     Time.timeScale = 1;
                     PlayQTEValidationSound(0);
@@ -834,6 +844,7 @@ public class EnnemiAttack : MonoBehaviour
                 PerfectText.ActiveText();
                 canShakeCam = false;
                 counterReussi = true;
+                countRoundAttack--;
                 ResetCounterSlider();
                 PlayQTEValidationSound(1);
             }

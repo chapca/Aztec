@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     static public Text textCantinteract;
 
-    static public GameObject manetteValidateInteraction, manetteValidateLeaveGame, cursor;
+    static public GameObject manetteValidateInteraction, manetteValidateLeaveGame, counterAttackParent, cursor;
 
     private void Awake()
     {
@@ -60,6 +60,8 @@ public class UIManager : MonoBehaviour
         manetteValidateInteraction = GameObject.Find("ManetteValidateInteraction");
 
         manetteValidateLeaveGame = GameObject.Find("ManetteValidateLeaveGame");
+
+        counterAttackParent = GameObject.Find("EmptyCounterAttack");
 
         cursor = GameObject.Find("Cursor");
 
@@ -235,6 +237,33 @@ public class UIManager : MonoBehaviour
             {
                 UIAttack.SetActive(false);
                 ActiveManetteUI(false);
+            }
+        }
+    }
+
+    static public void ActiveUINbrCounterAttack(bool active, int nbrCoup)
+    {
+        if(!active)
+        {
+            counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);
+            counterAttackParent.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            switch(nbrCoup)
+            {
+                case 0:
+                    counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);
+                    counterAttackParent.transform.GetChild(1).gameObject.SetActive(false);
+                    break;
+                case 1:
+                    counterAttackParent.transform.GetChild(0).gameObject.SetActive(true);
+                    counterAttackParent.transform.GetChild(1).gameObject.SetActive(false);
+                    break;
+                case 2:
+                    counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);
+                    counterAttackParent.transform.GetChild(1).gameObject.SetActive(true);
+                    break;
             }
         }
     }
