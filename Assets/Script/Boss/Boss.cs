@@ -225,7 +225,7 @@ public class Boss : MonoBehaviour
             {
                 TimingAttack();
             }
-            if (!Battle.wallDetect)
+            if (!Battle.wallDetectRight || !Battle.wallDetectLeft)
                 TimingEsquive();
 
             TimingBlock();
@@ -1182,7 +1182,7 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        if (!Battle.wallDetect)
+        if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
         {
             if (Random.Range(0, 2) == 0)
             {

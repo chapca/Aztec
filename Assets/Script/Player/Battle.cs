@@ -17,7 +17,9 @@ public class Battle : MonoBehaviour
     static public bool canEsquive, canBlock, canCounter, canAttack;
     static public bool isCounter, isAttacking, isEsquiving, isBlocking;
 
-    static public bool wallDetect;
+    static public bool wallDetectLeft, wallDetectRight;
+
+    [SerializeField] BoxCollider boxRight, boxLeft;
 
     void Start()
     {
@@ -33,8 +35,6 @@ public class Battle : MonoBehaviour
 
     void Update()
     {
-        Debug.LogError(degaine);
-
         if(isAttacked)
         {
             if(!degaine)
@@ -133,11 +133,22 @@ public class Battle : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if(other.CompareTag("Wall"))
         {
-            wallDetect = true;
+            Debug.LogError("WAll Contact");
 
-            //Debug.LogError(other.gameObject.name);
+
+            if (boxRight.CompareTag("Wall"))
+            {
+                wallDetectRight = true;
+
+                Debug.LogError("wallDetectRight " + wallDetectRight);
+            }
+            if (boxLeft.CompareTag("Wall"))
+            {
+                wallDetectLeft = true;
+                Debug.LogError("wallDetectLeft " + wallDetectLeft);
+            }
         }
     }
 
@@ -145,7 +156,17 @@ public class Battle : MonoBehaviour
     {
         if (other.CompareTag("Wall"))
         {
-            wallDetect = false;
+            if (boxRight.CompareTag("Wall"))
+            {
+                wallDetectRight = false;
+
+                Debug.LogError("wallDetectRight " + wallDetectRight);
+            }
+            if (boxLeft.CompareTag("Wall"))
+            {
+                wallDetectLeft = false;
+                Debug.LogError("wallDetectLeft " + wallDetectLeft);
+            }
         }
     }
 }

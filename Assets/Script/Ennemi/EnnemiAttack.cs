@@ -430,7 +430,7 @@ public class EnnemiAttack : MonoBehaviour
             TimingAttack();
         }
 
-        if(!Battle.wallDetect)
+        if(!Battle.wallDetectRight || !Battle.wallDetectLeft)
             TimingEsquive();
 
         TimingBlock();
@@ -1038,7 +1038,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void StateAttack()
     {
-        agent.enabled = false;
+        //agent.enabled = false;
         findPosition = false;
         PlayerController.ennemi = this.transform;
         AnimationEvent.ennemi = this.gameObject;
@@ -1071,6 +1071,10 @@ public class EnnemiAttack : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookPlayer, 10 * Time.deltaTime);*/
 
         Vector3 relativePos = player.position - transform.position;
+
+        relativePos.x = player.position.x - transform.position.x;
+        relativePos.y = 0;
+        relativePos.z = player.position.z - transform.position.z;
 
         // the second argument, upwards, defaults to Vector3.up
         Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 0.5f);
@@ -1189,7 +1193,7 @@ public class EnnemiAttack : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        if (!Battle.wallDetect)
+        if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
         {
             if (Random.Range(0, 2) == 0)
             {
@@ -1205,6 +1209,18 @@ public class EnnemiAttack : MonoBehaviour
                 esquiveRight = false;
                 //UIManager.ActiveUIEsquive(true, false, false);
             }
+        }
+        else if(!Battle.wallDetectLeft && Battle.wallDetectRight)
+        {
+            UIManager.ActiveUIEsquive(true, false, false);
+            esquiveLeft = true;
+            esquiveRight = false;
+        }
+        else if(Battle.wallDetectLeft && !Battle.wallDetectRight)
+        {
+            UIManager.ActiveUIEsquive(true, true, false);
+            esquiveRight = true;
+            esquiveLeft = false;
         }
 
         UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);

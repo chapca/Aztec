@@ -26,6 +26,8 @@ public class AnimationEvent : MonoBehaviour
     [SerializeField] VolumeProfile mVolumeProfile;
     [SerializeField] DepthOfField depthOfField;
 
+    [SerializeField] Vector3 posBeforeEsquive, posAfterEsquive, goodPos;
+
     private void Awake()
     {
         instance = this;
@@ -89,6 +91,7 @@ public class AnimationEvent : MonoBehaviour
 
     void EsquiveDroiteRotation()
     {
+        posBeforeEsquive = transform.position;
         esquiveRight = true;
     }
     void EsquiveDroite()
@@ -99,6 +102,8 @@ public class AnimationEvent : MonoBehaviour
     {
         Battle.myAnimator.SetBool("EsquiveDroite", false);
         esquiveRight = false;
+        posAfterEsquive = transform.position;
+        goodPos = posAfterEsquive - posBeforeEsquive;
         currentSpeedEsquive = 0;
 
         returnBaseRotation = true;
@@ -111,11 +116,14 @@ public class AnimationEvent : MonoBehaviour
     void EsquiveGauche()
     {
         Battle.myAnimator.SetBool("EsquiveGauche", false);
+        posAfterEsquive = transform.position;
         esquiveLeft = true;
         currentSpeedEsquive = speedEsquive;
     }
     void EndEsquiveGauche()
     {
+        posAfterEsquive = transform.position;
+        goodPos = posAfterEsquive - posBeforeEsquive;
         esquiveLeft = false;
         currentSpeedEsquive = 0;
 

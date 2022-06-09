@@ -94,6 +94,7 @@ MonoBehaviour:
   bloodQuantity: 0
   bloodRecover: 0
   isInBloodTrigger: 0
+  canRecoverBlood: 0
 --- !u!1001 &1117216972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,6 +102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4069360846975368237}
     m_Modifications:
+    - target: {fileID: 1081828814396687256, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c834324d7f4cb41438be43de220ff94c, type: 2}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi

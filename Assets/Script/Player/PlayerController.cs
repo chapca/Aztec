@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float speedCameraSwitchSide;
 
+    CapsuleCollider capsuleCollider;
+
+    Rigidbody rb;
+
     float horizontalAxis;
     float verticalAxis;
 
@@ -60,6 +64,9 @@ public class PlayerController : MonoBehaviour
     {
         currentSpeed = baseSpeed;
         runSpeed = baseSpeed * 2f;
+
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
 
         controller = GetComponent<CharacterController>();
         battle = transform.Find("PlayerAnim").GetComponent<Battle>();
@@ -120,7 +127,11 @@ public class PlayerController : MonoBehaviour
 
                 SmoothLookAt(ennemiPos);*/
 
-                Vector3 relativePos = ennemi.position - transform.position;
+                Vector3 relativePos;
+
+                relativePos.x = ennemi.position.x - transform.position.x;
+                relativePos.y = 0;
+                relativePos.z = ennemi.position.z - transform.position.z;
 
                 // the second argument, upwards, defaults to Vector3.up
                 Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), smoothRotateToEnnemi);
@@ -201,6 +212,14 @@ public class PlayerController : MonoBehaviour
         //movement
         if (!battle.degaine)
         {
+            if (capsuleCollider.enabled)
+            {
+                controller.enabled = true;
+                capsuleCollider.enabled = false;
+                rb.useGravity = false;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+            }
+
             //Run
             RunMovement();
 
@@ -242,6 +261,14 @@ public class PlayerController : MonoBehaviour
         {
             isWalking = false;
             isRunning = false;
+
+            if(!capsuleCollider.enabled)
+            {
+                controller.enabled = false;
+                capsuleCollider.enabled = true;
+                rb.useGravity = true;
+                rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            }
         }
     }
 
