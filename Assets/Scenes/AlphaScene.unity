@@ -16371,6 +16371,9 @@ MonoBehaviour:
   returnBaseRotation: 0
   mVolumeProfile: {fileID: 11400000, guid: 9a101024dddb907408f4c863f104bf76, type: 2}
   depthOfField: {fileID: 0}
+  posBeforeEsquive: {x: 0, y: 0, z: 0}
+  posAfterEsquive: {x: 0, y: 0, z: 0}
+  goodPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1646696722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16387,6 +16390,8 @@ MonoBehaviour:
   camBattle: {fileID: 1426591983}
   degaine: 0
   isAttacked: 0
+  boxRight: {fileID: 0}
+  boxLeft: {fileID: 0}
 --- !u!82 &1646696723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16822,14 +16827,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
-      propertyPath: soundAndVolumePlayerExploration.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d707da25807adcd45bfe13dc7cfcb495, type: 3}
-    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
-      propertyPath: soundAndVolumePlayerExploration.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5afbc0c3fb9c7cb479862fa724643cbc, type: 3}
     - target: {fileID: 3706399511371490606, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_RootOrder
       value: 21

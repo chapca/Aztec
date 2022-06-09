@@ -11,7 +11,7 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera camBase, camInteraction;
 
-    [SerializeField] bool camIsZooming, camIsAdjuting;
+    [SerializeField] bool camIsZooming;
 
     [SerializeField] float speedTransitionCam;
 
@@ -27,27 +27,11 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (camIsAdjuting)
-        {
-            SetCamPosition();
-        }
-
-        if(camIsZooming)
-        {
-            camInteraction.Priority = 11;
-            camIsZooming = false;
-        }
-
         if(activeCamInteraction)
         {
             playerController.enabled = false;
             targetCam.enabled = false;
-            camIsAdjuting = true;
-
-            if(Input.GetButtonDown("CancelButton"))
-            {
-                EnableCamInteraction(false);
-            }
+            camInteraction.Priority = 11;
         }
         else
         {
@@ -70,6 +54,16 @@ public class Interaction : MonoBehaviour
                 UIManager.ActiveTextCantInteract(true);
             }
         }
+
+        if (other.CompareTag("Elevator"))
+        {
+            UIManager.ActiveManetteInputInteract(true);
+
+            if (PlayerBlood.bloodQuantity < 100)
+            {
+                UIManager.ActiveTextCantInteract(true);
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -81,30 +75,34 @@ public class Interaction : MonoBehaviour
                 if (PlayerBlood.bloodQuantity >= 100)
                 {
                     UIManager.ActiveManetteInputInteract(false);
-                    StartCoroutine(OpenDoor(other));
+                    StartCoroutine("OpenDoor");
                     PlayerBlood.LooseBlood(100);
+                    other.GetComponent<Animator>().enabled = true;
                     EnableCamInteraction(true);
                     playerController.enabled = false;
                     targetCam.enabled = false;
-                    camInteraction = other.transform.parent.transform.GetChild(2).GetComponent<CinemachineVirtualCamera>();
-                    camIsAdjuting = true;
+                    camInteraction = other.transform.Find("Cam").GetComponent<CinemachineVirtualCamera>();
 
                     SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
-                    SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
+                    //SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
                 }
             }
         }
-
-       /* if (other.CompareTag("Blood"))
+        if (other.CompareTag("Elevator"))
         {
-            UIManager.ActiveManetteInputInteract(true);
-
             if (Input.GetButtonDown("InteractButton"))
             {
-                PlayerBlood.GetBlood(other.transform.parent.GetComponent<EnnemiManager>().bloodQuantity);
-                other.transform.parent.GetComponent<EnnemiManager>().bloodQuantity = 0;
+                if (PlayerBlood.bloodQuantity >= 100)
+                {
+                    other.transform.parent.GetComponent<Animator>().enabled = true;
+                    UIManager.ActiveManetteInputInteract(false);
+                    PlayerBlood.LooseBlood(100);
+
+                    /*SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
+                    SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);*/
+                }
             }
-        }*/
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -118,6 +116,12 @@ public class Interaction : MonoBehaviour
         {
             UIManager.ActiveManetteInputInteractLeaveGame(false);
         }
+
+        if (other.CompareTag("Elevator"))
+        {
+            UIManager.ActiveTextCantInteract(false);
+            UIManager.ActiveManetteInputInteract(false);
+        }
     }
 
     void SetCamPosition()
@@ -126,7 +130,6 @@ public class Interaction : MonoBehaviour
 
         if(targetCam.transform.localRotation == Quaternion.Euler(Vector3.zero))
         {
-            camIsAdjuting = false;
             camIsZooming = true;
         }
     }
@@ -136,10 +139,10 @@ public class Interaction : MonoBehaviour
         activeCamInteraction = activate;
     }
 
-    IEnumerator OpenDoor(Collider other)
+    IEnumerator OpenDoor()
     {
-        yield return new WaitForSeconds(2f);
-        other.transform.GetComponent<Levier>().isActive = true;
+        yield return new WaitForSeconds(3f);
+        EnableCamInteraction(false);
         yield break;
     }
 }

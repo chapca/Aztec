@@ -256,6 +256,13 @@ public class PlayerController : MonoBehaviour
                 if (!myAudioSource.isPlaying && controller.isGrounded)
                     ActiveSound();
             }
+            else
+            {
+                move.y += gravityValue * Time.deltaTime;
+                move.x =0;
+                move.z = 0;
+                controller.Move(move.normalized);
+            }
         }
         else
         {

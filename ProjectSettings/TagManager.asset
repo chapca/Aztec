@@ -11,6 +11,7 @@ TagManager:
   - End
   - Wall
   - Blood
+  - Elevator
   layers:
   - Default
   - TransparentFX

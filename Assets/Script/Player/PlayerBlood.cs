@@ -25,6 +25,11 @@ public class PlayerBlood : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            GetBlood(100);
+        }
+
         if(deadWastage)
         {
             if(bloodQuantity > halfBloodQuantity)
