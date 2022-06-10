@@ -253,6 +253,8 @@ public class EnnemiAttack : MonoBehaviour
     {
         if(activeThisinEditor)
         {
+            UIManager.AjusteSliderEsquive();
+
             UpdateSliderPosition();
             UpdateSliderLoosePosition();
 

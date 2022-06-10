@@ -84,6 +84,12 @@ public class UIManager : MonoBehaviour
 
     //slider :
 
+    static public void AjusteSliderEsquive()
+    {
+        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+    }
+
     static public void UpdateSliderEsquive(float value)
     {
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
