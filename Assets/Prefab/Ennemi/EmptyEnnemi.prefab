@@ -281,7 +281,7 @@ MonoBehaviour:
   qteValidationAudioSource: {fileID: 0}
   playerAudioSource: {fileID: 0}
   myAnimator: {fileID: 1628035994328776772}
-  distPlayer: 83.19188
+  distPlayer: 108.03609
   lookat: 1
   isAttacking: 0
   goBack: 1
@@ -503,27 +503,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3.4590263
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3.4590263
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.8647566
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.055758
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1580001
+      value: -1.5734
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.14336
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4635ccfcb3003d24aa4e6dea38985001, type: 3}
       propertyPath: m_LocalRotation.w

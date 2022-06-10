@@ -237,7 +237,7 @@ public class AnimationEvent : MonoBehaviour
     {
         Debug.Log("Launch RestartScene");
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("AlphaScene");
+        SceneManager.LoadScene("BetaScene");
         yield break;
     }
 
