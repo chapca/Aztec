@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-
+[ExecuteInEditMode]
 public class Boss : MonoBehaviour
 {
     HPBoss hpBoss;

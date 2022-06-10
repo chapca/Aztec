@@ -78,6 +78,7 @@ public class UIManager : MonoBehaviour
         cursor.SetActive(false);
 
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
 
     }
 
@@ -85,15 +86,24 @@ public class UIManager : MonoBehaviour
 
     static public void UpdateSliderEsquive(float value)
     {
+        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+
         sliderEsquiveRight.fillAmount = value;
         sliderEsquiveLeft.fillAmount = value;
     } static public void UpdateSliderEsquivePerfect(float value)
     {
+        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+
         sliderEsquivePerfectRight.fillAmount = value;
         sliderEsquivePerfectLeft.fillAmount = value;
     }
     static public void UpdateSliderEsquiveLoose(float value)
     {
+        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+
         sliderLooseEsquiveRight.fillAmount = value;
         sliderLooseEsquiveLeft.fillAmount = value;
     }

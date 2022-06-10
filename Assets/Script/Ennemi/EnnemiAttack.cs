@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-
+[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -186,11 +186,11 @@ public class EnnemiAttack : MonoBehaviour
 
         state = 0;
 
-        if(!activeThisinEditor)
+       /* if(!activeThisinEditor)
         {
             setUpStartActionPlayer /= 10;
             setUpEndActionPlayer /= 10;
-        }
+        }*/
 
         SetPositionFramePerfect();
         SetPositionFrameLoose();
@@ -277,7 +277,7 @@ public class EnnemiAttack : MonoBehaviour
             state = 0;
         }
 
-        switch(state)
+        switch (state)
         {
             case 0:
                 StatePatrol();
@@ -322,10 +322,13 @@ public class EnnemiAttack : MonoBehaviour
 
         if (startQTE && QTEDone)
         {
+            activeThisinEditor = false;
             DelayInput();
         }
         if (startQTECounter)
         {
+            activeThisinEditor = false;
+
             setUpTimerSliderNormal -= Time.unscaledDeltaTime*1.5f;
             TimingCounter();
         }
@@ -900,6 +903,8 @@ public class EnnemiAttack : MonoBehaviour
 
     void StateWaitingPlayer()
     {
+        activeThisinEditor = false;
+
         agent.enabled = true;
         agent.angularSpeed = 0;
 
@@ -1038,6 +1043,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void StateAttack()
     {
+        activeThisinEditor = true;
         //agent.enabled = false;
         findPosition = false;
         PlayerController.ennemi = this.transform;
@@ -1193,36 +1199,6 @@ public class EnnemiAttack : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
-        {
-            if (Random.Range(0, 2) == 0)
-            {
-                UIManager.ActiveUIEsquive(true, true, false);
-                esquiveRight = true;
-                esquiveLeft = false;
-                //UIManager.ActiveUIEsquive(true, true, false);
-            }
-            else
-            {
-                UIManager.ActiveUIEsquive(true, false, false);
-                esquiveLeft = true;
-                esquiveRight = false;
-                //UIManager.ActiveUIEsquive(true, false, false);
-            }
-        }
-        else if(!Battle.wallDetectLeft && Battle.wallDetectRight)
-        {
-            UIManager.ActiveUIEsquive(true, false, false);
-            esquiveLeft = true;
-            esquiveRight = false;
-        }
-        else if(Battle.wallDetectLeft && !Battle.wallDetectRight)
-        {
-            UIManager.ActiveUIEsquive(true, true, false);
-            esquiveRight = true;
-            esquiveLeft = false;
-        }
-
         UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
 
         ActiveManetteUI();
@@ -1257,7 +1233,37 @@ public class EnnemiAttack : MonoBehaviour
 
         Battle.canBlock = true;
 
-        if(QTEDone)
+        if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
+        {
+            if (Random.Range(0, 2) == 0)
+            {
+                UIManager.ActiveUIEsquive(true, true, false);
+                esquiveRight = true;
+                esquiveLeft = false;
+                //UIManager.ActiveUIEsquive(true, true, false);
+            }
+            else
+            {
+                UIManager.ActiveUIEsquive(true, false, false);
+                esquiveLeft = true;
+                esquiveRight = false;
+                //UIManager.ActiveUIEsquive(true, false, false);
+            }
+        }
+        else if (!Battle.wallDetectLeft && Battle.wallDetectRight)
+        {
+            UIManager.ActiveUIEsquive(true, false, false);
+            esquiveLeft = true;
+            esquiveRight = false;
+        }
+        else if (Battle.wallDetectLeft && !Battle.wallDetectRight)
+        {
+            UIManager.ActiveUIEsquive(true, true, false);
+            esquiveRight = true;
+            esquiveLeft = false;
+        }
+
+        if (QTEDone)
             Time.timeScale = 0.25f;
 
         startQTE = true;
