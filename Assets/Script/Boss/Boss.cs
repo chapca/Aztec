@@ -1026,9 +1026,19 @@ public class Boss : MonoBehaviour
     {
         Vector3 relativePos = player.position - transform.position;
 
+        relativePos.x = player.position.x - transform.position.x;
+        relativePos.y = 0;
+        relativePos.z = player.position.z - transform.position.z;
+
         // the second argument, upwards, defaults to Vector3.up
         Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 0.5f);
         transform.rotation = rotation;
+/*
+        Vector3 relativePos = player.position - transform.position;
+
+        // the second argument, upwards, defaults to Vector3.up
+        Quaternion rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 0.5f);
+        transform.rotation = rotation;*/
     }
 
     void LaunchAttack()
