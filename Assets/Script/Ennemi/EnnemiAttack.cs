@@ -919,13 +919,6 @@ public class EnnemiAttack : MonoBehaviour
         attackReussiperfect = false;
         esquiveReussiPerfect = false;
 
-        RandomAttack();
-
-        if(!randomAttack && thisSelected && PlayerHp.hp >0)
-        {
-            RandomAttack();
-        }
-
         if(PlayerHp.hp <= 0)
         {
             startBattle = false;
@@ -966,7 +959,7 @@ public class EnnemiAttack : MonoBehaviour
             myAnimator.SetBool("Walk", true);
         }
 
-        if (time >=0)
+        /*if (time >=0)
         {
             time -= Time.deltaTime;
         }
@@ -982,6 +975,13 @@ public class EnnemiAttack : MonoBehaviour
             }
 
             time = 2;
+        }*/
+
+        RandomAttack();
+
+        if (!randomAttack && thisSelected && PlayerHp.hp > 0)
+        {
+            RandomAttack();
         }
     }
 
@@ -1212,7 +1212,6 @@ public class EnnemiAttack : MonoBehaviour
             ReturnToStatePatrol();
 
         myAnimator.SetBool("Attack", false);
-        myAnimator.SetBool("WalkBack", true);
         isAttacking = false;
     }
     
