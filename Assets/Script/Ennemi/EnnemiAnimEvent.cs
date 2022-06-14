@@ -23,4 +23,12 @@ public class EnnemiAnimEvent : MonoBehaviour
     {
         ennemiAttack.ApplyDamageToPlayer();
     }
+
+    void EndHit()
+    {
+        ennemiAttack.EndHit();
+    }void StartHit()
+    {
+        ennemiAttack.StartHit();
+    }
 }

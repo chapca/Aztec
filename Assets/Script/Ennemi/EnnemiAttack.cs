@@ -1007,6 +1007,8 @@ public class EnnemiAttack : MonoBehaviour
 
     void StatePatrol()
     {
+        agent.enabled = true;
+
         if (agent.velocity.magnitude > 0)
         {
             myAnimator.SetBool("Walk", true);
@@ -1119,11 +1121,15 @@ public class EnnemiAttack : MonoBehaviour
         if(distPlayer > 5f)
         {
             if (!isAttacking)
+            {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 7 * Time.deltaTime);
+                myAnimator.SetBool("Walk", true);
+            }
         }
         else
         {
             moveToPlayerBeforeAttack = false;
+            myAnimator.SetBool("Walk", false);
         }
     }
 
@@ -1137,6 +1143,7 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator StartAttack()
     {
+        agent.enabled = false;
         canAttack = false;
         launchAttack = false;
         isAttacking = true;
@@ -1206,13 +1213,18 @@ public class EnnemiAttack : MonoBehaviour
 
     // Animation event
 
-    public void EndAttack()
+    public void StartHit()
     {
-        if (!attackReussiperfect && !esquiveReussiPerfect)
-            ReturnToStatePatrol();
-
         myAnimator.SetBool("Attack", false);
         isAttacking = false;
+    }
+
+    public void EndAttack()
+    {
+        myAnimator.SetBool("Attack", false);
+        isAttacking = false;
+        if (!attackReussiperfect && !esquiveReussiPerfect)
+            ReturnToStatePatrol();
     }
     
     void SetUpStartActionPlayer()
@@ -1298,8 +1310,9 @@ public class EnnemiAttack : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    void EndHit()
+    public void EndHit()
     {
+        isAttacking = false;
         myAnimator.SetBool("Hit", false);
         ReturnToStatePatrol();
     }
