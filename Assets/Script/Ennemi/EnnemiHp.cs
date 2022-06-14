@@ -8,15 +8,13 @@ public class EnnemiHp : MonoBehaviour
     EnnemiManager ennemiManager;
     public int maxHp, hp, nbrBlood;
     EnnemiAttack ennemiAttack;
-    Animator myAnimator;
+    [SerializeField] Animator myAnimator;
     Transform parentObject;
 
     // Start is called before the first frame update
     void Start()
     {
         ennemiAttack = GetComponent<EnnemiAttack>();
-
-        myAnimator = GetComponent<Animator>();
 
         hp = maxHp;
 
@@ -44,7 +42,7 @@ public class EnnemiHp : MonoBehaviour
             transform.parent = null;
             ennemiAttack.enabled = false;
             //PlayerBlood.GetBlood(nbrBlood);
-            myAnimator.SetBool("Die", true);
+            myAnimator.SetBool("Death", true);
             PlayerController.ennemi = null;
             //StartCoroutine("RespawnEnnemi");
         }

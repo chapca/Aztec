@@ -11,17 +11,21 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera camBase, camInteraction;
 
+    [SerializeField] ElevatorState elevatorState;
+
     [SerializeField] bool camIsZooming;
 
     [SerializeField] float speedTransitionCam;
 
-    [SerializeField] bool activeCamInteraction;
+    [SerializeField] bool activeCamInteraction, elevatorHasBeenActive;
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         //canvasPuzzle.SetActive(false);
+
+        elevatorState = GameObject.FindWithTag("Elevator").GetComponentInParent<ElevatorState>();
     }
 
     // Update is called once per frame
@@ -59,7 +63,7 @@ public class Interaction : MonoBehaviour
         {
             UIManager.ActiveManetteInputInteract(true);
 
-            if (PlayerBlood.bloodQuantity < 100)
+            if (PlayerBlood.bloodQuantity < 100 && !elevatorHasBeenActive)
             {
                 UIManager.ActiveTextCantInteract(true);
             }
@@ -83,6 +87,7 @@ public class Interaction : MonoBehaviour
                     targetCam.enabled = false;
                     camInteraction = other.transform.Find("Cam").GetComponent<CinemachineVirtualCamera>();
 
+
                     SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
                     //SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
                 }
@@ -92,14 +97,32 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetButtonDown("InteractButton"))
             {
-                if (PlayerBlood.bloodQuantity >= 100)
+                if(!elevatorHasBeenActive)
                 {
-                    other.transform.parent.GetComponent<Animator>().enabled = true;
-                    UIManager.ActiveManetteInputInteract(false);
-                    PlayerBlood.LooseBlood(100);
-
-                    /*SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
-                    SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);*/
+                    if (PlayerBlood.bloodQuantity >= 100)
+                    {
+                        playerController.enabled = false;
+                        other.transform.parent.GetComponent<Animator>().SetBool("Down", false);
+                        other.transform.parent.GetComponent<Animator>().SetBool("Up", true);
+                        UIManager.ActiveManetteInputInteract(false);
+                        PlayerBlood.LooseBlood(100);
+                        elevatorHasBeenActive = true;
+                        /*SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
+                        SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);*/
+                    }
+                }
+                else
+                {
+                    if(elevatorState.up)
+                    {
+                        other.transform.parent.GetComponent<Animator>().SetBool("Down", true);
+                        other.transform.parent.GetComponent<Animator>().SetBool("Up", false);
+                    }
+                    else
+                    {
+                        other.transform.parent.GetComponent<Animator>().SetBool("Down", false);
+                        other.transform.parent.GetComponent<Animator>().SetBool("Up", true);
+                    }
                 }
             }
         }

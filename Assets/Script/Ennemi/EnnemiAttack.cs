@@ -177,7 +177,7 @@ public class EnnemiAttack : MonoBehaviour
 
         ennemiHp = GetComponent<EnnemiHp>();
         ennemiManager = GetComponentInParent<EnnemiManager>();
-        myAnimator = GetComponent<Animator>();
+        //myAnimator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
         myAudioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
@@ -271,6 +271,8 @@ public class EnnemiAttack : MonoBehaviour
 
         if(distPlayer < 10 || ennemiManager.startBattle && PlayerHp.hp >0)
         {
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Fight", true);
             startBattle = true;
             ennemiManager.startBattle = true;
         }
@@ -945,12 +947,23 @@ public class EnnemiAttack : MonoBehaviour
             if (hit.collider != null)
             {
                 agent.SetDestination(hit.point);
+                if(transform.position != hit.point)
+                {
+                    myAnimator.SetBool("Walk", false);
+                    myAnimator.SetBool("WalkBack", true);
+                }
+                else
+                {
+                    myAnimator.SetBool("WalkBack", false);
+                }
                 //Debug.LogWarning(hit.transform.gameObject + "  /  " + transform.position + "  /  " + hit.point);
             }
         }
         else if (distPlayer > 12f)
         {
             agent.SetDestination(player.position);
+            myAnimator.SetBool("WalkBack", false);
+            myAnimator.SetBool("Walk", true);
         }
 
         if (time >=0)
@@ -989,21 +1002,22 @@ public class EnnemiAttack : MonoBehaviour
             randomTimeBeforeAttack = Random.Range(2, 5);
             state = 2;
             canAttack = true;
-
-            /*if(Random.Range(0, 2) == 0)
-            {
-                playerCanEsquive = true;
-            }
-            else
-            {
-                playerCanEsquive = false;
-            }*/
         }
     }
 
     void StatePatrol()
     {
-        if(startBattle)
+        if (agent.velocity.magnitude > 0)
+        {
+            myAnimator.SetBool("Walk", true);
+        }
+        else
+        {
+            myAnimator.SetBool("Walk", false);
+            Debug.Log("Stop");
+        }
+
+        if (startBattle)
         {
             state = 1;
             patrolIsActive = false;
@@ -1039,7 +1053,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 Debug.Log("is stopped");
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds((int)Random.Range(10, 15));
         }
     }
 
@@ -1126,6 +1140,9 @@ public class EnnemiAttack : MonoBehaviour
         canAttack = false;
         launchAttack = false;
         isAttacking = true;
+
+        myAnimator.SetBool("Walk", false);
+        myAnimator.SetBool("WalkBack", false);
         yield return new WaitForSeconds(0.1f);
         myAnimator.SetBool("Attack", true);
         BeginAttack();
@@ -1181,19 +1198,21 @@ public class EnnemiAttack : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // Animation event
     void BeginAttack()
     {
         isAttacking = true;
         Invoke("SetUpStartActionPlayer", setUpStartActionPlayer);
     }
 
-    void EndAttack()
+    // Animation event
+
+    public void EndAttack()
     {
         if (!attackReussiperfect && !esquiveReussiPerfect)
             ReturnToStatePatrol();
 
         myAnimator.SetBool("Attack", false);
+        myAnimator.SetBool("WalkBack", true);
         isAttacking = false;
     }
     
@@ -1286,7 +1305,7 @@ public class EnnemiAttack : MonoBehaviour
         ReturnToStatePatrol();
     }
 
-    void ApplyDamageToPlayer()
+    public void ApplyDamageToPlayer()
     {
         if(canApplyDamage && canShakeCam)
         {
