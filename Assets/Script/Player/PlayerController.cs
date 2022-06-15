@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
     float horizontalAxis;
     float verticalAxis;
 
+    public bool lookZone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         //Deplacement();
 
-        if (PlayerHp.hp > 0)
+        if (PlayerHp.hp > 0 && !lookZone)
             Deplacement();
 
         AnimationDeclancheur();
@@ -182,10 +184,23 @@ public class PlayerController : MonoBehaviour
                 camRight = true;
         }
 
-        if(camRight && cinemachineComposer.m_TrackedObjectOffset.x < 1f)
-            cinemachineComposer.m_TrackedObjectOffset.x += Time.deltaTime* speedCameraSwitchSide;
-        else if(!camRight && cinemachineComposer.m_TrackedObjectOffset.x > -1f)
-            cinemachineComposer.m_TrackedObjectOffset.x -= Time.deltaTime* speedCameraSwitchSide;
+        if(camRight && cinemachineComposer.m_TrackedObjectOffset.x < 1.5f)
+        {
+            cinemachineComposer.m_TrackedObjectOffset.x += Time.deltaTime * speedCameraSwitchSide;
+
+            if (cinemachineComposer.m_TrackedObjectOffset.x > 1.5f)
+            {
+                cinemachineComposer.m_TrackedObjectOffset.x = 1.5f;
+            }
+        }
+        else if(!camRight && cinemachineComposer.m_TrackedObjectOffset.x > -1.5f)
+        {
+            cinemachineComposer.m_TrackedObjectOffset.x -= Time.deltaTime * speedCameraSwitchSide;
+            if(cinemachineComposer.m_TrackedObjectOffset.x < -1.5f)
+            {
+                cinemachineComposer.m_TrackedObjectOffset.x = -1.5f;
+            }
+        }
     }
 
     void SmoothLookAt(Vector3 target)
