@@ -259,6 +259,8 @@ public class UIManager : MonoBehaviour
 
     static public void ActiveUINbrCounterAttack(bool active, int nbrCoup)
     {
+        Debug.LogError(active);
+
         if(!active)
         {
             counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);

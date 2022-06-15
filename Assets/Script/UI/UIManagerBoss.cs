@@ -7,7 +7,7 @@ public class UIManagerBoss : MonoBehaviour
 {
     static UIManagerBoss instance;
 
-    static public GameObject UIManette, UIEsquiveRight, UIEsquiveLeft, UIBlock, UICounter, UIAttack, UICombo1, UICombo2, UICombo3;
+    static public GameObject UIManette, UIEsquiveRight, UIEsquiveLeft, UIBlock, UICounter, UIAttack, UICombo1, UICombo2, UICombo3, counterAttackParent;
 
     static public Image sliderEsquiveRight, sliderEsquiveLeft, sliderBlock, sliderCounter, sliderAttack;
 
@@ -68,6 +68,8 @@ public class UIManagerBoss : MonoBehaviour
         sliderUILoose2Combo2 = GameObject.Find("SliderCombo2Loose2Boss").GetComponent<Image>();
         sliderUILoose2Combo3 = GameObject.Find("SliderCombo3Loose2Boss").GetComponent<Image>();
 
+        counterAttackParent = GameObject.Find("EmptyCounterAttack");
+
         UICombo1.SetActive(false);
         UICombo2.SetActive(false);
         UICombo3.SetActive(false);
@@ -85,7 +87,11 @@ public class UIManagerBoss : MonoBehaviour
     }
 
     //slider :
-
+    static public void AjusteSliderEsquive()
+    {
+        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+    }
     static public void UpdateSliderEsquive(float value)
     {
         sliderEsquiveRight.fillAmount = value;

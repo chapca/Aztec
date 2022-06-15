@@ -110,7 +110,7 @@ public class Boss : MonoBehaviour
             ReturnToStatePatrol();
         }
 
-        if (distPlayer < 10 && !combo1Done && !combo2Done && !combo3Done)
+        if (distPlayer < 15 && !combo1Done && !combo2Done && !combo3Done)
         {
             startBattle = true;
             battle.isAttacked = true;
@@ -119,6 +119,11 @@ public class Boss : MonoBehaviour
         else if (!startBattle && !combo1Done && !combo2Done && !combo3Done)
         {
             state = 0;
+        }
+
+        if(startBattle)
+        {
+           UIManagerBoss.AjusteSliderEsquive();
         }
 
         switch (state)
@@ -162,12 +167,15 @@ public class Boss : MonoBehaviour
             TimingCounter();
         }
 
-        if(HPBoss.startFinalCombo && !combo1Done && !combo2Done && !combo3Done)
+        if(HPBoss.startFinalCombo)
         {
-            state = 5;
+            if(!combo1Done || !combo2Done || !combo3Done)
+            {
+                state = 5;
 
-            if(!combo1Done)
-                activeCombo1 = true;
+                if (!combo1Done)
+                    activeCombo1 = true;
+            }
         }
 
         if(activeCombo1)
@@ -994,12 +1002,13 @@ public class Boss : MonoBehaviour
         if(hpBoss.hp < hpBoss.maxHp/2)
         {
             isHealthing = true;
-            hpBoss.hp += Time.deltaTime * 5;
+            hpBoss.hp += Time.deltaTime * 20;
             Debug.LogError("Health");
         }
         else
         {
             isHealthing = false;
+            hpBoss.hp = hpBoss.maxHp / 2;
             state = 1;
         }
     }
@@ -1043,7 +1052,7 @@ public class Boss : MonoBehaviour
 
     void LaunchAttack()
     {
-        if (distPlayer <= 5f && !isAttacking)
+        if (distPlayer <= 9f && !isAttacking)
         {
             battleScript.isAttacked = true;
           
@@ -1192,6 +1201,8 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Choix action");
 
+        UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
+
         if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
         {
             if (Random.Range(0, 2) == 0)
@@ -1219,7 +1230,6 @@ public class Boss : MonoBehaviour
             Battle.canAttack = false;
         }
 
-        UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
         UIManagerBoss.ActiveManetteUI(true);
         UIManagerBoss.ActiveUIBlock(true, false);
 
