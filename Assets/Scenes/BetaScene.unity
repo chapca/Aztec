@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6724.2676, g: 6331.8906, b: 4886.0703, a: 1}
+  m_IndirectSpecularColor: {r: 6731.078, g: 6332.1094, b: 4884.8906, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6183,6 +6183,58 @@ PrefabInstance:
     - target: {fileID: 3706399511371490600, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ba44b2502d921d74194f3e7fa69e0851, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d6dc12ae94af5a40bdb0cf57c1fc9e1, type: 3}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[0].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[1].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[2].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[3].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[4].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[5].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[6].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolume2D.Array.data[7].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[1].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[2].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerBattle.Array.data[3].volume
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490606, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_RootOrder
