@@ -562,7 +562,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if(esquiveRight)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManager.ActiveUIEsquive(false, true, true);
 
@@ -580,7 +580,7 @@ public class EnnemiAttack : MonoBehaviour
                         PerfectText.ActiveText();
                         PlayQTEValidationSound(2);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManager.ActiveUIEsquive(false, true, false);
                         PlayerDoSomething();
@@ -593,7 +593,7 @@ public class EnnemiAttack : MonoBehaviour
                 }
                 else if(esquiveLeft)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManager.ActiveUIEsquive(false, false, true);
 
@@ -611,7 +611,7 @@ public class EnnemiAttack : MonoBehaviour
                         PerfectText.ActiveText();
                         PlayQTEValidationSound(2);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManager.ActiveUIEsquive(false, false, false);
 
