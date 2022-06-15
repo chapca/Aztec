@@ -269,19 +269,26 @@ public class EnnemiAttack : MonoBehaviour
             ReturnToStatePatrol();
         }
 
+
         if(distPlayer < 10 || ennemiManager.startBattle)
         {
             if(PlayerHp.hp > 0 && !battleScript.isAttacked)
             {
-                myAnimator.SetBool("Walk", false);
-                myAnimator.SetBool("Fight", true);
-                startBattle = true;
+                ennemiManager.ActiveEnnemiFightState();
                 ennemiManager.startBattle = true;
             }
         }
         else if(!startBattle)
         {
             state = 0;
+        }
+
+        if(startBattle)
+        {
+            myAnimator.SetBool("Walk", false);
+            myAnimator.SetBool("Fight", true);
+            startBattle = true;
+            ennemiManager.startBattle = true;
         }
 
         switch (state)

@@ -29,7 +29,7 @@ public class EnnemiManager : MonoBehaviour
 
     public float bloodQuantity;
 
-    public bool bloodRecover, isInBloodTrigger, canRecoverBlood;
+    public bool bloodRecover, isInBloodTrigger, canRecoverBlood, once;
 
     void Start()
     {
@@ -75,6 +75,18 @@ public class EnnemiManager : MonoBehaviour
         if(!bloodRecover && endFight && isInBloodTrigger)
         {
             StartCoroutine("RecoverBlood");
+        }
+    }
+
+    public void ActiveEnnemiFightState()
+    {
+        if (!once)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).GetComponent<EnnemiAttack>().startBattle = true;
+            }
+            once = true;
         }
     }
 

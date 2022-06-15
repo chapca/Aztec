@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6739.2383, g: 6336.375, b: 4884.8984, a: 1}
+  m_IndirectSpecularColor: {r: 6730.336, g: 6332.172, b: 4885.1953, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: be438d707721c634ba47b652dd7280c0, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1001 &7420500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1229,6 +1229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneWall (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7895082757442189002, guid: b998a1046c65e0544b922bad70466922, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b998a1046c65e0544b922bad70466922, type: 3}
 --- !u!4 &75155913 stripped
@@ -1848,6 +1852,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: hp
       value: 150
@@ -2237,6 +2245,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5845,6 +5857,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.06933332
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: myAnimator
       value: 
@@ -6625,6 +6641,10 @@ PrefabInstance:
       value: StoneWall (33)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6724,6 +6744,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7029,6 +7053,10 @@ PrefabInstance:
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: hp
@@ -8176,6 +8204,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11166,7 +11198,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23562
+  m_Name: pb_Mesh940066
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11331,6 +11363,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: myAnimator
       value: 
@@ -11695,6 +11731,10 @@ PrefabInstance:
       value: StoneWall (23)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -11730,7 +11770,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22988
+  m_Name: pb_Mesh939480
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12259,6 +12299,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.15044445
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: hp
       value: 150
@@ -12748,6 +12792,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15611,7 +15659,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_LocalScale.x
@@ -17646,6 +17694,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.7499722
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: hp
       value: 150
@@ -19044,6 +19096,10 @@ PrefabInstance:
       value: StoneWall (30)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -19143,6 +19199,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19653,7 +19713,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22562
+  m_Name: pb_Mesh939044
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20586,6 +20646,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.22777778
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: hp
       value: 150
@@ -21504,7 +21568,7 @@ Transform:
   - {fileID: 1508368549}
   - {fileID: 156393123}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &773577819
 GameObject:
@@ -21531,7 +21595,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773577819}
-  m_LocalRotation: {x: -0.12221148, y: -0.3049204, z: 0.03948886, w: -0.94367826}
+  m_LocalRotation: {x: -0.12182427, y: -0.3140229, z: 0.040667668, w: -0.9406884}
   m_LocalPosition: {x: -3.33, y: 2.56, z: -6.14}
   m_LocalScale: {x: 0.304559, y: 0.30455902, z: 0.304559}
   m_Children:
@@ -21665,6 +21729,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22628,6 +22696,10 @@ PrefabInstance:
       value: StoneWall (12)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -23437,6 +23509,10 @@ PrefabInstance:
       value: StoneWall (37)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -23538,7 +23614,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24570
+  m_Name: pb_Mesh941116
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23904,6 +23980,10 @@ PrefabInstance:
       value: StoneWall (35)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -24176,6 +24256,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24519,7 +24603,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23858
+  m_Name: pb_Mesh940370
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25638,6 +25722,10 @@ PrefabInstance:
       value: StoneWall (27)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -25891,7 +25979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3664853159988102084, guid: 3fb9b397f5e932e48939b4489524ad79, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3664853159988102084, guid: 3fb9b397f5e932e48939b4489524ad79, type: 3}
       propertyPath: m_LocalScale.x
@@ -26394,6 +26482,10 @@ PrefabInstance:
       value: StoneWall (32)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -26697,6 +26789,10 @@ PrefabInstance:
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.15488888
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: hp
@@ -28061,6 +28157,10 @@ PrefabInstance:
       value: StoneWall (29)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -28771,7 +28871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29682,6 +29782,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: hp
       value: 150
@@ -31658,6 +31762,10 @@ PrefabInstance:
       value: StoneWall (19)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32671,6 +32779,10 @@ PrefabInstance:
       value: StoneWall (8)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -33021,6 +33133,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33983,7 +34099,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23264
+  m_Name: pb_Mesh939758
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34141,82 +34257,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1352337221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352337224}
-  - component: {fileID: 1352337223}
-  - component: {fileID: 1352337222}
-  m_Layer: 0
-  m_Name: Terrain_(0.0, 1.9, -200.0)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!154 &1352337222
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352337221}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 83235ff37cc805346ba0bfd2abb1b09e, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &1352337223
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352337221}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 83235ff37cc805346ba0bfd2abb1b09e, type: 2}
-  m_TreeDistance: 1948
-  m_TreeBillboardDistance: 5
-  m_TreeCrossFadeLength: 200
-  m_TreeMaximumFullLODCount: 0
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 22ff8771d87ef27429e670136399094b, type: 2}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ScaleInLightmap: 0.36203864
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 257
-  m_AllowAutoConnect: 1
---- !u!4 &1352337224
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352337221}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.9369595, z: -200}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1355098781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34386,6 +34426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: myAnimator
       value: 
@@ -35071,6 +35115,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39988,6 +40036,10 @@ PrefabInstance:
       value: StoneWall (14)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -40334,6 +40386,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.16422221
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: myAnimator
       value: 
@@ -40514,6 +40570,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: hp
       value: 150
@@ -40833,6 +40893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: myAnimator
       value: 
@@ -41752,6 +41816,10 @@ PrefabInstance:
       value: StoneWall (9)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -42427,6 +42495,10 @@ PrefabInstance:
       value: StoneWall (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -43064,6 +43136,10 @@ PrefabInstance:
       value: StoneWall (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -43163,6 +43239,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -43965,6 +44045,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.39722222
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: myAnimator
       value: 
@@ -44530,6 +44614,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: myAnimator
       value: 
@@ -45271,6 +45359,10 @@ PrefabInstance:
       value: StoneWall (16)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -45467,7 +45559,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25150
+  m_Name: pb_Mesh941704
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46466,6 +46558,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: maxHp
       value: 150
@@ -46509,7 +46605,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23694
+  m_Name: pb_Mesh940206
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -47122,6 +47218,10 @@ PrefabInstance:
       value: StoneWall (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -47385,6 +47485,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48235,6 +48339,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49489,6 +49597,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.71944445
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: myAnimator
       value: 
@@ -49806,6 +49918,10 @@ PrefabInstance:
       value: StoneWall (31)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -50042,6 +50158,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -50681,7 +50801,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25110
+  m_Name: pb_Mesh941664
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51132,6 +51252,10 @@ PrefabInstance:
       propertyPath: setUpStartPerfectFrameEsquive
       value: 0.5999722
       objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776772, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776773, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: myAnimator
       value: 
@@ -51478,19 +51602,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6306646
+      value: 0.6232277
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07609516
+      value: 0.07519783
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76675457
+      value: 0.7728116
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.09251562
+      value: -0.09324642
       objectReference: {fileID: 0}
     - target: {fileID: 1426591982, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: player
@@ -55935,6 +56059,10 @@ PrefabInstance:
       value: StoneWall (11)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -56283,6 +56411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
+    - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066825, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: myAnimator
       value: 
@@ -58249,6 +58381,10 @@ PrefabInstance:
       value: StoneWall (36)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -58380,7 +58516,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23966
+  m_Name: pb_Mesh940480
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59554,6 +59690,10 @@ PrefabInstance:
       value: StoneWall (20)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -59787,6 +59927,10 @@ PrefabInstance:
       value: StoneWall (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -59822,7 +59966,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23160
+  m_Name: pb_Mesh939654
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60365,6 +60509,10 @@ PrefabInstance:
       value: StoneWall (34)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -60698,6 +60846,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_Name
       value: StoneWall (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7d341a979439104b94f11a0503b1235, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -61254,7 +61406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588645126497903609, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_TreeDistance
-      value: 1948
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 588645126497903609, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_DrawHeightmap
@@ -61269,12 +61421,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 588645126497903609, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
+      propertyPath: m_ShadowCastingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 588645126497903609, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_DrawTreesAndFoliage
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 588645126497903609, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_TreeCrossFadeLength
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 588645126497903609, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_TreeBillboardDistance
@@ -61367,7 +61523,7 @@ PrefabInstance:
     - target: {fileID: 588645126497903615, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: e6da0582db595014aa2aa186ec4834a9, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 588645126497903615, guid: 9f6f3daa92e721f4c85e18f14101eb10, type: 3}
       propertyPath: m_LayerMask.m_Bits
       value: 4294967295
@@ -61580,6 +61736,10 @@ PrefabInstance:
     - target: {fileID: 7895082757442189002, guid: b998a1046c65e0544b922bad70466922, type: 3}
       propertyPath: m_Name
       value: StoneWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895082757442189002, guid: b998a1046c65e0544b922bad70466922, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b998a1046c65e0544b922bad70466922, type: 3}
