@@ -8,7 +8,11 @@ public class TriggerZone2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && gameObject.name == "TriggerZone2")
+        {
+            camFocusObjectif.playerGetInZone2 = true;
+        }
+        if (other.CompareTag("Player") && gameObject.name == "TriggerZone3")
         {
             camFocusObjectif.playerGetInZone2 = true;
         }

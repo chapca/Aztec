@@ -269,12 +269,15 @@ public class EnnemiAttack : MonoBehaviour
             ReturnToStatePatrol();
         }
 
-        if(distPlayer < 10 || ennemiManager.startBattle && PlayerHp.hp >0)
+        if(distPlayer < 10 || ennemiManager.startBattle)
         {
-            myAnimator.SetBool("Walk", false);
-            myAnimator.SetBool("Fight", true);
-            startBattle = true;
-            ennemiManager.startBattle = true;
+            if(PlayerHp.hp > 0 && !battleScript.isAttacked)
+            {
+                myAnimator.SetBool("Walk", false);
+                myAnimator.SetBool("Fight", true);
+                startBattle = true;
+                ennemiManager.startBattle = true;
+            }
         }
         else if(!startBattle)
         {
@@ -464,7 +467,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectAttacSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackPerfect(sliderPerfectAttacSize);
 
-                if (Input.GetButtonDown("InteractButton"))
+                if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 {
                     UIManager.ActiveUIAttack(false, true);
                     PlayerDoSomething();
@@ -488,7 +491,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderLooseAttackSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderAttackLoose(sliderLooseAttackSize);
 
-                if (Input.GetButtonDown("InteractButton"))
+                if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 {
                     UIManager.ActiveUIAttack(false, true);
                     canShakeCam = false;
@@ -503,7 +506,7 @@ public class EnnemiAttack : MonoBehaviour
             else
             {
                 Battle.canAttack = true;
-                if (Input.GetButtonDown("InteractButton"))
+                if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 {
                     canShakeCam = false;
                     UIManager.ActiveUIAttack(false, true);
@@ -628,11 +631,11 @@ public class EnnemiAttack : MonoBehaviour
                 sliderLooseEsquiveSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderEsquiveLoose(sliderLooseEsquiveSize);
 
-                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
+                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0 || Input.GetButtonDown("CancelButton") || Input.GetButtonDown("HealthButton"))
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                         UIManager.ActiveUIEsquive(false, true, true);
-                    else
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                         UIManager.ActiveUIEsquive(false, false, true);
 
                     PlayerDoSomething();
@@ -649,7 +652,7 @@ public class EnnemiAttack : MonoBehaviour
 
                 if(esquiveRight)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManager.ActiveUIEsquive(false, true, true);
 
@@ -661,7 +664,7 @@ public class EnnemiAttack : MonoBehaviour
                         ResetAllSlider();
                         PlayQTEValidationSound(1);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManager.ActiveUIEsquive(false, true, false);
 
@@ -675,7 +678,7 @@ public class EnnemiAttack : MonoBehaviour
                 }
                 else if (esquiveLeft)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManager.ActiveUIEsquive(false, false, true);
 
@@ -687,7 +690,7 @@ public class EnnemiAttack : MonoBehaviour
                         ResetAllSlider();
                         PlayQTEValidationSound(1);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManager.ActiveUIEsquive(false, false, false);
 
@@ -740,7 +743,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderPerfectBlockSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockPerfect(sliderPerfectBlockSize);
 
-                if (Input.GetButtonDown("BlockButton"))
+                if (Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
                 {
                     UIManager.ActiveUIBlock(false, true);
                     Battle.myAnimator.SetBool("BlockPerfect", true);
@@ -761,7 +764,7 @@ public class EnnemiAttack : MonoBehaviour
                 sliderLooseBlockSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal;
                 UIManager.UpdateSliderBlockLoose(sliderLooseBlockSize);
 
-                if (Input.GetButtonDown("BlockButton"))
+                if (Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
                 {
                     UIManager.ActiveUIBlock(false, true);
                     PlayerDoSomething();
@@ -777,7 +780,7 @@ public class EnnemiAttack : MonoBehaviour
             {
                 Battle.canBlock = true;
 
-                if (Input.GetButtonDown("BlockButton"))
+                if (Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
                 {
                     UIManager.ActiveUIBlock(false, true);
                     canApplyDamage = false;
@@ -833,7 +836,7 @@ public class EnnemiAttack : MonoBehaviour
             sliderLooseCounterSize -= Time.unscaledDeltaTime / baseSetUpTimerSliderNormal*1.5f;
             UIManager.UpdateSliderCounterLoose(sliderLooseCounterSize);
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 UIManager.ActiveUICounter(false, true);
 
@@ -850,7 +853,7 @@ public class EnnemiAttack : MonoBehaviour
         {
             Battle.canCounter = true;
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 UIManager.ActiveUICounter(false, true);
                 PerfectText.ActiveText();
@@ -1107,7 +1110,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void LaunchAttack()
     {
-        if (distPlayer <= 5f && !isAttacking)
+        if (distPlayer <= 6f && !isAttacking)
         {
             battleScript.isAttacked = true;
             if (!tutoDone)
@@ -1118,7 +1121,7 @@ public class EnnemiAttack : MonoBehaviour
             StartCoroutine("StartAttack");
         }
 
-        if(distPlayer > 5f)
+        if(distPlayer > 6f)
         {
             if (!isAttacking)
             {

@@ -67,7 +67,8 @@ public class Battle : MonoBehaviour
        
         if(canEsquive)
         {
-            if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && EnnemiAttack.esquiveRight || Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && Boss.esquiveRight)
+            if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && EnnemiAttack.esquiveRight || Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && Boss.esquiveRight ||
+                Input.GetButtonDown("CancelButton") && EnnemiAttack.esquiveRight || Input.GetButtonDown("CancelButton") && Boss.esquiveRight)
             {
                 myAnimator.SetBool("EsquiveDroite", true);
 
@@ -75,7 +76,8 @@ public class Battle : MonoBehaviour
                 canBlock = false;
                 canAttack = false;
             }
-            else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 && EnnemiAttack.esquiveLeft || Input.GetAxisRaw("HorizontalLeftButtonX") < 0 && Boss.esquiveLeft)
+            else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 && EnnemiAttack.esquiveLeft || Input.GetAxisRaw("HorizontalLeftButtonX") < 0 && Boss.esquiveLeft ||
+                Input.GetButtonDown("HealthButton") && EnnemiAttack.esquiveLeft || Input.GetButtonDown("HealthButton") && Boss.esquiveLeft)
             {
                 myAnimator.SetBool("EsquiveGauche", true);
                 canEsquive = false;
@@ -84,9 +86,9 @@ public class Battle : MonoBehaviour
             }
         }
 
-        if(canBlock)
+        if (canBlock)
         {
-            if(Input.GetButtonDown("BlockButton"))
+            if(Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
             {
                 Debug.Log("Launch Block");
                 //myAnimator.SetBool("Block", true);
@@ -99,7 +101,7 @@ public class Battle : MonoBehaviour
         
         if(canCounter)
         {
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 myAnimator.SetBool("Counter", true);
                 canCounter = false;
@@ -111,7 +113,7 @@ public class Battle : MonoBehaviour
 
         if (canAttack)
         {
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                /* if(AnimationEvent.attackPerfect)
                 {

@@ -279,7 +279,7 @@ public class Boss : MonoBehaviour
                 sliderBoss.sliderPerfectAttacSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal;
                 UIManagerBoss.UpdateSliderAttackPerfect(sliderBoss.sliderPerfectAttacSize);
 
-                if (Input.GetButtonDown("InteractButton"))
+                if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 {
                     UIManagerBoss.ActiveUIAttack(false, true);
                     PlayerDoSomething();
@@ -303,7 +303,7 @@ public class Boss : MonoBehaviour
                 sliderBoss.sliderLooseAttackSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal;
                 UIManagerBoss.UpdateSliderAttackLoose(sliderBoss.sliderLooseAttackSize);
 
-                if (Input.GetButtonDown("InteractButton"))
+                if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 {
                     UIManagerBoss.ActiveUIAttack(false, true);
                     canShakeCam = false;
@@ -318,7 +318,7 @@ public class Boss : MonoBehaviour
             else
             {
                 Battle.canAttack = true;
-                if (Input.GetButtonDown("InteractButton"))
+                if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 {
                     canShakeCam = false;
                     UIManagerBoss.ActiveUIAttack(false, true);
@@ -333,7 +333,7 @@ public class Boss : MonoBehaviour
         }
         else
         {
-            Debug.Log("REset UI");
+            Debug.Log("Reset UI");
             PlayerDoSomething();
             ResetAllSlider();
 
@@ -374,7 +374,7 @@ public class Boss : MonoBehaviour
 
                 if(esquiveRight)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, true, true);
 
@@ -392,7 +392,7 @@ public class Boss : MonoBehaviour
                         PerfectText.ActiveText();
                         PlayQTEValidationSound(2);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, true, false);
 
@@ -409,7 +409,7 @@ public class Boss : MonoBehaviour
                 }
                 else if (esquiveLeft)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, false, true);
 
@@ -427,7 +427,7 @@ public class Boss : MonoBehaviour
                         PerfectText.ActiveText();
                         PlayQTEValidationSound(2);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, false, false);
 
@@ -450,7 +450,7 @@ public class Boss : MonoBehaviour
                 sliderBoss.sliderLooseEsquiveSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal;
                 UIManagerBoss.UpdateSliderEsquiveLoose(sliderBoss.sliderLooseEsquiveSize);
 
-                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0)
+                if (Input.GetAxisRaw("HorizontalLeftButtonX") != 0 || Input.GetButtonDown("HealthButton") || Input.GetButtonDown("CancelButton"))
                 {
                     if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
                         UIManagerBoss.ActiveUIEsquive(false, true, true);
@@ -475,7 +475,7 @@ public class Boss : MonoBehaviour
 
                 if(esquiveRight)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, true, true);
 
@@ -486,7 +486,7 @@ public class Boss : MonoBehaviour
                         ResetAllSlider();
                         PlayQTEValidationSound(1);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, true, false);
                         canApplyDamage = true;
@@ -502,7 +502,7 @@ public class Boss : MonoBehaviour
                 }
                 else if (esquiveLeft)
                 {
-                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0 || Input.GetButtonDown("HealthButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, false, true);
 
@@ -513,7 +513,7 @@ public class Boss : MonoBehaviour
                         ResetAllSlider();
                         PlayQTEValidationSound(1);
                     }
-                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") < 0)
+                    else if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 || Input.GetButtonDown("CancelButton"))
                     {
                         UIManagerBoss.ActiveUIEsquive(false, false, false);
                         canApplyDamage = true;
@@ -568,7 +568,7 @@ public class Boss : MonoBehaviour
                 sliderBoss.sliderPerfectBlockSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal;
                 UIManagerBoss.UpdateSliderBlockPerfect(sliderBoss.sliderPerfectBlockSize);
 
-                if (Input.GetButtonDown("BlockButton"))
+                if (Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
                 {
                     UIManagerBoss.ActiveUIBlock(false, true);
                     canApplyDamage = false;
@@ -590,7 +590,7 @@ public class Boss : MonoBehaviour
                 sliderBoss.sliderLooseBlockSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal;
                 UIManagerBoss.UpdateSliderBlockLoose(sliderBoss.sliderLooseBlockSize);
 
-                if (Input.GetButtonDown("BlockButton"))
+                if (Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
                 {
                     UIManagerBoss.ActiveUIBlock(false, true);
                     PlayerDoSomething();
@@ -607,7 +607,7 @@ public class Boss : MonoBehaviour
             {
                 Battle.canBlock = true;
 
-                if (Input.GetButtonDown("BlockButton"))
+                if (Input.GetButtonDown("BlockButton") || Input.GetAxisRaw("VerticalLeftButtonY") < 0)
                 {
                     UIManagerBoss.ActiveUIBlock(false, true);
                     canApplyDamage = false;
@@ -665,7 +665,7 @@ public class Boss : MonoBehaviour
             sliderBoss.sliderLooseCounterSize -= Time.unscaledDeltaTime / sliderBoss.baseSetUpTimerSliderNormal * 1.5f;
             UIManagerBoss.UpdateSliderCounterLoose(sliderBoss.sliderLooseCounterSize);
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 UIManagerBoss.ActiveUICounter(false, true);
 
@@ -682,7 +682,7 @@ public class Boss : MonoBehaviour
         {
             Battle.canCounter = true;
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 UIManagerBoss.ActiveUICounter(false, true);
 
@@ -744,14 +744,14 @@ public class Boss : MonoBehaviour
         if(sliderComboBoss.sliderLooseCombo1Size>0) // frame loose
         {
             sliderComboBoss.sliderLooseCombo1Size -= Time.unscaledDeltaTime * 0.75f;
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 FailCombo();
         }
         if (sliderComboBoss.sliderLooseCombo1Size <=0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
         {
             sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.75f;
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 combo1Done = true;
                 activeCombo1 = false;
@@ -764,7 +764,7 @@ public class Boss : MonoBehaviour
         if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLoose2Combo1Size > 0)// frame loose
         {
             sliderComboBoss.sliderLoose2Combo1Size -= Time.unscaledDeltaTime * 0.75f;
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 FailCombo();
         }
         if (sliderComboBoss.sliderLoose2Combo1Size <= 0)// loose combo
@@ -777,14 +777,14 @@ public class Boss : MonoBehaviour
         if (sliderComboBoss.sliderLoose2Combo2Size > 0) // frame loose
         {
             sliderComboBoss.sliderLoose2Combo2Size -= Time.unscaledDeltaTime * 0.75f;
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 FailCombo();
         }
         if (sliderComboBoss.sliderLoose2Combo2Size <= 0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
         {
             sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.75f;
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 Time.timeScale = 0.3f;
                 combo2Done = true;
@@ -799,7 +799,7 @@ public class Boss : MonoBehaviour
         if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLooseCombo2Size > 0)// frame loose
         {
             sliderComboBoss.sliderLooseCombo2Size -= Time.unscaledDeltaTime * 0.75f;
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 FailCombo();
         }
         if (sliderComboBoss.sliderLooseCombo2Size <= 0)// loose combo
@@ -813,14 +813,14 @@ public class Boss : MonoBehaviour
         {
             Time.timeScale = 1;
             sliderComboBoss.sliderLooseCombo3Size -= Time.unscaledDeltaTime * 0.75f;
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 FailCombo();
         }
         if (sliderComboBoss.sliderLooseCombo3Size <= 0 && sliderComboBoss.sliderPerfectSize > 0) // frame Perfect
         {
             sliderComboBoss.sliderPerfectSize -= Time.unscaledDeltaTime * 0.75f;
 
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 Time.timeScale = 0.3f;
                 startBattle = false;
@@ -835,7 +835,7 @@ public class Boss : MonoBehaviour
         if (sliderComboBoss.sliderPerfectSize <= 0 && sliderComboBoss.sliderLoose2Combo3Size > 0)// frame loose
         {
             sliderComboBoss.sliderLoose2Combo3Size -= Time.unscaledDeltaTime * 0.75f;
-            if (Input.GetButtonDown("InteractButton"))
+            if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
                 FailCombo();
         }
         if (sliderComboBoss.sliderLoose2Combo3Size <= 0)// loose combo
