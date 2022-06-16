@@ -221,7 +221,7 @@ public class Boss : MonoBehaviour
             canApplyDamageBlock = false;
             canShakeCam = true;
             countRoundAttack--;
-            UIManager.ActiveUINbrCounterAttack(false, countRoundAttack);
+            UIManagerBoss.ActiveUINbrCounterAttack(false, countRoundAttack);
             PlayerDoSomething();
         }
         else
@@ -656,9 +656,6 @@ public class Boss : MonoBehaviour
         UIManagerBoss.UpdateSliderBlockPerfect(sliderBoss.sliderPerfectBlockSize);
         UIManagerBoss.UpdateSliderBlockLoose(sliderBoss.sliderLooseBlockSize);
         startQTE = false;
-
-        if (countRoundAttack > 0)
-            countRoundAttack--;
     }
 
     void TimingCounter()
@@ -1201,7 +1198,7 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Choix action");
 
-        UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
+        UIManagerBoss.ActiveUINbrCounterAttack(true, countRoundAttack);
 
         if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
         {

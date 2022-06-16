@@ -24,10 +24,14 @@ public class UIMenuPause : MonoBehaviour
     GameObject currentButtonSelected;
 
     [SerializeField] VolumeProfile mVolumeProfile;
-    [SerializeField] DepthOfField depthOfField; 
+    [SerializeField] DepthOfField depthOfField;
+
+    Animator playerAnimator;
 
     void Start()
     {
+        playerAnimator = GameObject.FindWithTag("Player").GetComponent<Animator>();
+
         m_EventSystem = EventSystem.current;
 
         depthOfField = (DepthOfField)mVolumeProfile.components[8];
@@ -39,6 +43,7 @@ public class UIMenuPause : MonoBehaviour
     {
         if(Input.GetButtonDown("Pause") && !battle.degaine)
         {
+            playerAnimator.enabled = false;
             Time.timeScale = 0;
             canvasSlider.SetActive(false);
             transform.GetChild(0).gameObject.SetActive(true);
@@ -61,6 +66,7 @@ public class UIMenuPause : MonoBehaviour
             canvasSlider.SetActive(true);
             menuPause.SetActive(false);
             Time.timeScale = 1;
+            playerAnimator.enabled = true;
         }
 
         if (m_EventSystem.currentSelectedGameObject != null)
@@ -142,6 +148,7 @@ public class UIMenuPause : MonoBehaviour
         menuPause.SetActive(false);
 
         Time.timeScale = 1;
+        playerAnimator.enabled = false;
     }
     
     public void RestartButton()
@@ -149,7 +156,7 @@ public class UIMenuPause : MonoBehaviour
         Time.timeScale = 1;
         PlayerBlood.ForceGetBlood(0);
         UIManagerBoss.ActiveManetteUI(false);
-        SceneManager.LoadScene("AlphaScene");
+        SceneManager.LoadScene("BetaScene");
     }
 
     public void QuitButton()

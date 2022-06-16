@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -85,6 +85,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("A"))
+        {
+            Time.timeScale = 1;
+            PlayerBlood.ForceGetBlood(0);
+            UIManagerBoss.ActiveManetteUI(false);
+            SceneManager.LoadScene("BetaScene");
+        }
+
         if(Input.GetAxis("Vertical") >0)
         {
             myAnimator.SetFloat("InputY", new Vector2(0, Input.GetAxis("Vertical")).magnitude);

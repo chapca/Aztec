@@ -68,7 +68,7 @@ public class UIManagerBoss : MonoBehaviour
         sliderUILoose2Combo2 = GameObject.Find("SliderCombo2Loose2Boss").GetComponent<Image>();
         sliderUILoose2Combo3 = GameObject.Find("SliderCombo3Loose2Boss").GetComponent<Image>();
 
-        counterAttackParent = GameObject.Find("EmptyCounterAttack");
+        counterAttackParent = GameObject.Find("EmptyCounterAttackBoss");
 
         UICombo1.SetActive(false);
         UICombo2.SetActive(false);
@@ -290,6 +290,35 @@ public class UIManagerBoss : MonoBehaviour
             {
                 UIAttack.SetActive(false);
                 ActiveManetteUI(false);
+            }
+        }
+    }
+
+    static public void ActiveUINbrCounterAttack(bool active, int nbrCoup)
+    {
+        Debug.LogError(active);
+
+        if (!active)
+        {
+            counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);
+            counterAttackParent.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            switch (nbrCoup)
+            {
+                case 0:
+                    counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);
+                    counterAttackParent.transform.GetChild(1).gameObject.SetActive(false);
+                    break;
+                case 1:
+                    counterAttackParent.transform.GetChild(0).gameObject.SetActive(true);
+                    counterAttackParent.transform.GetChild(1).gameObject.SetActive(false);
+                    break;
+                case 2:
+                    counterAttackParent.transform.GetChild(0).gameObject.SetActive(false);
+                    counterAttackParent.transform.GetChild(1).gameObject.SetActive(true);
+                    break;
             }
         }
     }
