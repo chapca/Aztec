@@ -26,6 +26,8 @@ public class SwordController : MonoBehaviour
     {
         if(!battle.isAttacked)
         {
+            myAnimator.SetBool("Deploiment", false);
+
             if (timer > 0)
                 timer -= Time.deltaTime;
             else
@@ -42,6 +44,10 @@ public class SwordController : MonoBehaviour
                     timer = setMaxTimer;
                 }
             }
+        }
+        else
+        {
+            myAnimator.SetBool("Deploiment", true);
         }
     }
 }

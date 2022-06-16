@@ -138,9 +138,9 @@ public class Battle : MonoBehaviour
         if(other.CompareTag("Wall"))
         {
             Debug.LogError("WAll Contact");
-
-
-            if (boxRight.CompareTag("Wall"))
+            wallDetectRight = true;
+            wallDetectLeft = true;
+            /*if (boxRight.CompareTag("Wall"))
             {
                 wallDetectRight = true;
 
@@ -150,7 +150,7 @@ public class Battle : MonoBehaviour
             {
                 wallDetectLeft = true;
                 Debug.LogError("wallDetectLeft " + wallDetectLeft);
-            }
+            }*/
         }
     }
 
@@ -158,7 +158,9 @@ public class Battle : MonoBehaviour
     {
         if (other.CompareTag("Wall"))
         {
-            if (boxRight.CompareTag("Wall"))
+            wallDetectRight = false;
+            wallDetectLeft = false;
+            /*if (boxRight.CompareTag("Wall"))
             {
                 wallDetectRight = false;
 
@@ -168,7 +170,7 @@ public class Battle : MonoBehaviour
             {
                 wallDetectLeft = false;
                 Debug.LogError("wallDetectLeft " + wallDetectLeft);
-            }
+            }*/
         }
     }
 }

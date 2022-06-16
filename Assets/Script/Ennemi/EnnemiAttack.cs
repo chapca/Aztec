@@ -1244,8 +1244,6 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.ActiveUINbrCounterAttack(true, countRoundAttack);
 
         ActiveManetteUI();
-
-        Battle.canEsquive = true;
         /*if (!playerCanEsquive)
         {
             UIManager.ActiveUIEsquive(false, false, false);
@@ -1272,8 +1270,6 @@ public class EnnemiAttack : MonoBehaviour
 
         UIManager.ActiveManetteUI(true);
         UIManager.ActiveUIBlock(true, false);
-
-        Battle.canBlock = true;
 
         if (!Battle.wallDetectLeft && !Battle.wallDetectRight)
         {
@@ -1313,6 +1309,9 @@ public class EnnemiAttack : MonoBehaviour
 
         PlayBulletTimeSound();
         PlayQTETimerSound();
+
+        Battle.canEsquive = true;
+        Battle.canBlock = true;
     }
 
     void SetUpEndFenetreAttack()

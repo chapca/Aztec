@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("A"))
+        if(Input.GetKeyDown(KeyCode.A))
         {
             Time.timeScale = 1;
             PlayerBlood.ForceGetBlood(0);
