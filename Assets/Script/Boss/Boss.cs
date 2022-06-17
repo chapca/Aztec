@@ -34,7 +34,7 @@ public class Boss : MonoBehaviour
 
     [SerializeField] float randomTimeBeforeAttack;
 
-    [SerializeField] bool randomAttack, retrunState1, paradeReussi, counterReussi, attackReussiperfect, esquiveReussiPerfect;
+    [SerializeField] bool randomAttack, paradeReussi, counterReussi, attackReussiperfect, esquiveReussiPerfect;
 
     static public bool esquivePerfect;
 
@@ -105,10 +105,10 @@ public class Boss : MonoBehaviour
 
         SmoothLookAt(player);
 
-        if (retrunState1 && state != 0)
+        /*if (retrunState1 && state != 0)
         {
             ReturnToStatePatrol();
-        }
+        }*/
 
         if (distPlayer < 15 && !combo1Done && !combo2Done && !combo3Done)
         {
@@ -132,7 +132,8 @@ public class Boss : MonoBehaviour
                 StatePatrol();
                 break;
             case 1:
-                StateWaitingPlayer();
+                if (startBattle && !canAttack && state != 4 && state != 3 && state != 2 && hpBoss.hp > 0 && !isHealthing)
+                    StateWaitingPlayer();
                 break;
             case 2:
                 StateAttack();
@@ -154,8 +155,8 @@ public class Boss : MonoBehaviour
                 break;
         }
 
-        if (startBattle && !canAttack && state !=4 && state !=3 && state != 2 && hpBoss.hp >0 && !isHealthing)
-            StateWaitingPlayer();
+        /*if (startBattle && !canAttack && state !=4 && state !=3 && state != 2 && hpBoss.hp >0 && !isHealthing)
+            StateWaitingPlayer();*/
 
         if (startQTE && hpBoss.hp >0)
         {
@@ -345,7 +346,7 @@ public class Boss : MonoBehaviour
             PlayerDoSomething();
             ResetAllSlider();
 
-            UIManagerBoss.ActiveUIEsquive(false, false, false);
+            UIManagerBoss.ActiveUIEsquive(false, true, false);
             UIManagerBoss.ActiveUIEsquive(false, false, false);
             UIManagerBoss.ActiveUIAttack(false, false);
             UIManagerBoss.ActiveUIBlock(false, false);
@@ -542,7 +543,7 @@ public class Boss : MonoBehaviour
             PlayerDoSomething();
             ResetAllSlider();
 
-            UIManagerBoss.ActiveUIEsquive(false, false, false);
+            UIManagerBoss.ActiveUIEsquive(false, true, false);
             UIManagerBoss.ActiveUIEsquive(false, false, false);
             UIManagerBoss.ActiveUIAttack(false, false);
             UIManagerBoss.ActiveUIBlock(false, false);
@@ -637,7 +638,7 @@ public class Boss : MonoBehaviour
             PlayerDoSomething();
             ResetAllSlider();
 
-            UIManagerBoss.ActiveUIEsquive(false, false, false);
+            UIManagerBoss.ActiveUIEsquive(false, true, false);
             UIManagerBoss.ActiveUIEsquive(false, false, false);
             UIManagerBoss.ActiveUIAttack(false, false);
             UIManagerBoss.ActiveUIBlock(false, false);
@@ -675,6 +676,7 @@ public class Boss : MonoBehaviour
                 UIManagerBoss.ActiveUICounter(false, true);
 
                 canShakeCam = false;
+                esquiveReussiPerfect = false;
                 ResetCounterSlider();
                 ReturnToStatePatrol();
                 countRoundAttack--;
@@ -690,7 +692,7 @@ public class Boss : MonoBehaviour
             if (Input.GetButtonDown("InteractButton") || Input.GetAxisRaw("VerticalLeftButtonY") > 0)
             {
                 UIManagerBoss.ActiveUICounter(false, true);
-
+                esquiveReussiPerfect = false;
                 canShakeCam = false;
                 counterReussi = true;
                 countRoundAttack--;
@@ -700,6 +702,7 @@ public class Boss : MonoBehaviour
         }
         else
         {
+            esquiveReussiPerfect = false;
             Battle.canCounter = false;
             PlayerDoSomething();
             ResetCounterSlider();
@@ -708,7 +711,7 @@ public class Boss : MonoBehaviour
 
             countRoundAttack--;
 
-            UIManagerBoss.ActiveUIEsquive(false, false, false);
+            UIManagerBoss.ActiveUIEsquive(false, true, false);
             UIManagerBoss.ActiveUIEsquive(false, false, false);
             UIManagerBoss.ActiveUIAttack(false, false);
             UIManagerBoss.ActiveUIBlock(false, false);
@@ -907,7 +910,7 @@ public class Boss : MonoBehaviour
         }
         else
         {
-            retrunState1 = false;
+            //retrunState1 = false;
             canAttack = true;
             randomTimeBeforeAttack = Random.Range(4, 7);
             state = 2;
@@ -916,6 +919,8 @@ public class Boss : MonoBehaviour
 
     void StatePatrol()
     {
+        Debug.LogError("State 0");
+
         if (startBattle)
         {
             state = 1;
@@ -972,18 +977,13 @@ public class Boss : MonoBehaviour
     }
     void StateHurt()
     {
-        isAttacking = false;
-        myAnimator.SetBool("Hit", true);
+       /* myAnimator.SetBool("Hit", true);*/
         myAnimator.SetBool("Attack", false);
     }
 
     void StateWaitCounter()
     {
         if (Battle.isCounter)
-        {
-            state = 3;
-        }
-        else if (Battle.isAttacking)
         {
             state = 3;
         }
@@ -1170,6 +1170,7 @@ public class Boss : MonoBehaviour
     // fonction en lien avec les action du joueur
     void ReturnToStatePatrol()
     {
+        Debug.LogError("ReturnToStatePatrol");
         state = 0;
     }
 
@@ -1187,8 +1188,10 @@ public class Boss : MonoBehaviour
 
     void EndAttack()
     {
-        if (!attackReussiperfect && !esquiveReussiPerfect)
+        if (!attackReussiperfect && !esquiveReussiPerfect && !HPBoss.finalCombo)
+        {
             ReturnToStatePatrol();
+        }
 
         myAnimator.SetBool("Attack", false);
         isAttacking = false;
@@ -1248,8 +1251,12 @@ public class Boss : MonoBehaviour
 
     void EndHit()
     {
+        esquiveReussiPerfect = false;
         myAnimator.SetBool("Hit", false);
-        ReturnToStatePatrol();
+        isAttacking = false;
+
+        if(!HPBoss.finalCombo)
+            ReturnToStatePatrol();
     }
 
     void ApplyDamageToPlayer()
@@ -1292,7 +1299,7 @@ public class Boss : MonoBehaviour
                         ShakeCam.shakeCamparametersBlockPerfectStatic[0].frequence, ShakeCam.shakeCamparametersBlockPerfectStatic[0].duration);
         }
 
-        esquiveReussiPerfect = false;
+        //esquiveReussiPerfect = false;
         attackReussiperfect = false;
     }
 

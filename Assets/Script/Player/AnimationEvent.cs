@@ -161,7 +161,7 @@ public class AnimationEvent : MonoBehaviour
                     if (!HPBoss.finalCombo)
                     {
                         ennemi.GetComponent<HPBoss>().TakeDamage(50);
-
+                        ennemi.GetComponent<Boss>().myAnimator.SetTrigger("Hit");
                     }
                 }
 
@@ -177,7 +177,10 @@ public class AnimationEvent : MonoBehaviour
                 else
                 {
                     if (!HPBoss.finalCombo)
+                    {
                         ennemi.GetComponent<HPBoss>().TakeDamage(100);
+                        ennemi.GetComponent<Boss>().myAnimator.SetTrigger("Hit");
+                    }
                 }
 
                 SoundManager.PlaySoundPlayerBattle(audioSource, SoundManager.soundAndVolumePlayerBattleStatic[2]);
@@ -268,8 +271,10 @@ public class AnimationEvent : MonoBehaviour
             else
             {
                 if (!HPBoss.finalCombo)
+                {
                     ennemi.GetComponent<HPBoss>().TakeDamage(100);
-                ennemi.GetComponent<Boss>().myAnimator.SetTrigger("Hit");
+                    ennemi.GetComponent<Boss>().myAnimator.SetTrigger("Hit");
+                }
             }
 
             Debug.Log(Battle.isCounter);

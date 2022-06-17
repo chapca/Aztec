@@ -1231,8 +1231,10 @@ public class EnnemiAttack : MonoBehaviour
 
     public void EndAttack()
     {
+        esquivePerfect = false;
         myAnimator.SetBool("Attack", false);
         isAttacking = false;
+
         if (!attackReussiperfect && !esquiveReussiPerfect)
             ReturnToStatePatrol();
     }

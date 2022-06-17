@@ -213,7 +213,9 @@ public class UIManagerBoss : MonoBehaviour
             }
             else
             {
-                ActiveManetteUI(false);
+                if(UIManette.activeInHierarchy)
+                    ActiveManetteUI(false);
+
                 UIBlock.SetActive(false);
             }
         }
@@ -247,7 +249,9 @@ public class UIManagerBoss : MonoBehaviour
             {
                 UIEsquiveLeft.SetActive(false);
                 UIEsquiveRight.SetActive(false);
-                ActiveManetteUI(false);
+
+                if (UIManette.activeInHierarchy)
+                    ActiveManetteUI(false);
             }
         }
     }
@@ -268,7 +272,8 @@ public class UIManagerBoss : MonoBehaviour
             else
             {
                 UICounter.SetActive(false);
-                ActiveManetteUI(false);
+                if (UIManette.activeInHierarchy)
+                    ActiveManetteUI(false);
             }
         }
     }
@@ -289,7 +294,8 @@ public class UIManagerBoss : MonoBehaviour
             else
             {
                 UIAttack.SetActive(false);
-                ActiveManetteUI(false);
+                if (UIManette.activeInHierarchy)
+                    ActiveManetteUI(false);
             }
         }
     }
@@ -431,7 +437,9 @@ public class UIManagerBoss : MonoBehaviour
             uiObj.SetActive(false);
 
             if (!Boss.esquivePerfect && !HPBoss.finalCombo)
+            {
                 ActiveManetteUI(false);
+            }
 
             normal.transform.localScale = new Vector2(1f, 1f);
             perfect.transform.localScale = normal.transform.localScale;

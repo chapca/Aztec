@@ -12,6 +12,9 @@ public class PlayerUI : MonoBehaviour
     static Image sliderBlood;
 
     static Image sliderBloodPuzzle;
+
+    static public GameObject healthButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,8 @@ public class PlayerUI : MonoBehaviour
         sliderBlood = GameObject.Find("SliderBlood").gameObject.GetComponent<Image>();
 
         sliderBloodPuzzle = GameObject.Find("SliderBlood").gameObject.GetComponent<Image>();
+
+        healthButton = transform.Find("HealthButton").gameObject;
 
         UpdateSliderHp();
         UpdateSliderBlood();
@@ -38,5 +43,10 @@ public class PlayerUI : MonoBehaviour
         textBlood.text = PlayerBlood.bloodQuantity.ToString();
         sliderBlood.fillAmount = PlayerBlood.bloodQuantity/100;
         sliderBloodPuzzle.fillAmount = PlayerBlood.bloodQuantity/100; 
+    }
+
+    static public void ActiveUIHealthButton(bool active)
+    {
+        healthButton.SetActive(active);
     }
 }

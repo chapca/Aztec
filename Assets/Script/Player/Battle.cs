@@ -37,7 +37,9 @@ public class Battle : MonoBehaviour
     {
         if(isAttacked)
         {
-            if(!degaine)
+            PlayerUI.ActiveUIHealthButton(false);
+
+            if (!degaine)
             {
                SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], false);
                SoundManager.PlaySound2DOneShot(battleStartAudioSource, SoundManager.soundAndVolume2DStatic[7]);
@@ -58,7 +60,7 @@ public class Battle : MonoBehaviour
                 SoundManager.PlaySound2DContinue(battleAudioSource, SoundManager.soundAndVolume2DStatic[6], false);
                 SoundManager.PlaySound2DContinue(explorationAudioSource, SoundManager.soundAndVolume2DStatic[5], true);
             }
-
+            PlayerUI.ActiveUIHealthButton(true);
             myAnimator.SetBool("Degaine", false);
             degaine = false;
             camBattle.Priority = 9;
