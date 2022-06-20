@@ -13,6 +13,7 @@ TagManager:
   - Blood
   - Elevator
   - TriggerZone2
+  - TargetBlood
   layers:
   - Default
   - TransparentFX

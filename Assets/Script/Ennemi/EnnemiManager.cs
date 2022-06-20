@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnnemiManager : MonoBehaviour
 {
+    [SerializeField] List<GameObject> bloodList = new List<GameObject>();
+
     [SerializeField] int indexSelected;
 
     [SerializeField] bool launchSelectAttaker, checkEnnemiAttaker;
@@ -98,6 +100,10 @@ public class EnnemiManager : MonoBehaviour
 
         if (Input.GetButtonDown("InteractButton"))
         {
+            for(int i =0; i < bloodList.Count; i ++)
+            {
+                bloodList[i].SetActive(true);
+            }
             PlayerBlood.GetBlood(bloodQuantity);
             bloodRecover = true;
             yield break;
