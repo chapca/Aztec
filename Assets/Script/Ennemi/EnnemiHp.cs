@@ -11,6 +11,12 @@ public class EnnemiHp : MonoBehaviour
     [SerializeField] Animator myAnimator;
     Transform parentObject;
 
+    [SerializeField] SkinnedMeshRenderer skinnedMesh;
+
+    [SerializeField] Material materialLowLife;
+
+    [SerializeField] GameObject bloodDecal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +28,8 @@ public class EnnemiHp : MonoBehaviour
 
         ennemiManager = GetComponentInParent<EnnemiManager>();
         ennemiManager.bloodQuantity += nbrBlood;
+
+        skinnedMesh = transform.GetChild(0).transform.GetChild(1).transform.GetChild(3).transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
@@ -34,8 +42,14 @@ public class EnnemiHp : MonoBehaviour
     {
         hp -= damage;
 
+        if(hp<100)
+        {
+            skinnedMesh.material = materialLowLife;
+        }
+
         if(hp <=0)
         {
+            bloodDecal.SetActive(true);
             EnnemiAttack.QTEDone = true;
             EnnemiAttack.tutoDone = true;
             EnnemiAttack.coroutineLaunch = true;

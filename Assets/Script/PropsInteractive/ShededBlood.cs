@@ -13,6 +13,10 @@ public class ShededBlood : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    private void OnEnable()
+    {
         decal = GetComponent<DecalProjector>();
         decal.size = decalSize;
         StartCoroutine("Sheded");

@@ -42,7 +42,7 @@ public class BloodVFX : MonoBehaviour
                 transform.position = Vector3.Slerp(transform.position, target.position, speedMoveToPlayer);
             }
 
-            if (Vector3.Distance(transform.position, target.position) < 0.01f && isUp)
+            if (Vector3.Distance(transform.position, target.position) < 0.1f && isUp)
             {
                 gameObject.SetActive(false);
             }

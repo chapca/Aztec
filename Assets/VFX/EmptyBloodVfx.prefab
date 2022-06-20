@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5538afc3b6a9c404d814dba412b066ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpApparition: 0.5
-  speedMoveToPlayer: 0.1
+  speedUpApparition: 2
+  speedMoveToPlayer: 0.03
   speedUp: 0
   target: {fileID: 0}
   moveToPlayer: 0

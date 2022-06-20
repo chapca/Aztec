@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897131757971862397}
   - component: {fileID: 8897131757971862398}
+  - component: {fileID: -30362909532684921}
   m_Layer: 0
   m_Name: BloodDecal
   m_TagString: Untagged
@@ -56,3 +57,16 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 2.5}
   m_Size: {x: 10, y: 10, z: 5}
   m_FadeFactor: 1
+--- !u!114 &-30362909532684921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8897131757971862396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01454c945f506f43bc694501749cc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decalSize: {x: 0, y: 0, z: 0}
