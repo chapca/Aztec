@@ -8,7 +8,10 @@ public class BloodVFX : MonoBehaviour
 
     [SerializeField] Transform target;
 
-   [SerializeField] bool moveToPlayer, isUp;
+    [SerializeField] bool moveToPlayer, isUp;
+
+    [SerializeField] Animator myAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,23 +19,26 @@ public class BloodVFX : MonoBehaviour
 
     private void OnEnable()
     {
+        myAnimator = GetComponent<Animator>();
+        myAnimator.enabled = false;
         target = GameObject.FindWithTag("TargetBlood").transform;
         moveToPlayer = true;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (moveToPlayer)
         {
             if (transform.localPosition.y <= 1f && !isUp)
             {
-                transform.Translate(Vector3.up * speedUpApparition * Time.fixedDeltaTime);
+                transform.Translate(Vector3.forward * speedUpApparition * Time.deltaTime);
             }
             else
             {
                 isUp = true;
-                transform.Translate(Vector3.up * speedUpApparition * Time.fixedDeltaTime);
+                myAnimator.enabled = true;
+                transform.Translate(Vector3.forward * speedUp * Time.deltaTime);
                 transform.position = Vector3.Slerp(transform.position, target.position, speedMoveToPlayer);
             }
 

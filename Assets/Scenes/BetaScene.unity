@@ -198,6 +198,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7528264222937421626, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
   m_PrefabInstance: {fileID: 1329894984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &20178612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 1356494830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &22615426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,6 +296,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &25798792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 1145359068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &34749036
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +726,11 @@ Transform:
   m_Father: {fileID: 421744434}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &56508269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 1474737819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &67995153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1355,6 +1370,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -1872,11 +1891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &127733189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 224020431}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &130320819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4486,7 +4500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087579062726479712, guid: f83c7ae5b6decd3408b93594282f1e3b, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5087579062726479712, guid: f83c7ae5b6decd3408b93594282f1e3b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4586,6 +4600,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1313677467}
     m_Modifications:
     - target: {fileID: 43505158566787823, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -4820,15 +4838,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 145091578}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 332614449}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 839102401}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (6)
@@ -4895,11 +4913,6 @@ Transform:
 --- !u!4 &145091577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 145091575}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &145091578 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 145091575}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &145091579 stripped
@@ -5052,10 +5065,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1033816932781868193, guid: f7ae4cc118a245d45b7ce703a50f491c, type: 3}
   m_PrefabInstance: {fileID: 150247015}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &153256091 stripped
+--- !u!1 &152338334 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 708150554}
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 186767913}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &153305158 stripped
 RectTransform:
@@ -5605,6 +5618,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -6140,7 +6157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8457799654433563998, guid: 0034dd938205e494ca9452dd90d11ab4, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8457799654433563998, guid: 0034dd938205e494ca9452dd90d11ab4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6437,6 +6454,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1957646771291621832, guid: dc537070e16bf6242b7104d1cf08ab3f, type: 3}
   m_PrefabInstance: {fileID: 217545249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &218154896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 1482643833}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &219406536
 PrefabInstance:
@@ -6745,6 +6767,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -7228,7 +7254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490606, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490606, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8076,6 +8102,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8307,15 +8337,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 250157238}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1378255955}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 1001379413}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (2)
@@ -8386,11 +8416,6 @@ Transform:
 --- !u!4 &250157237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 250157235}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &250157238 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 250157235}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &250157239 stripped
@@ -10800,6 +10825,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -11063,11 +11092,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 332614447}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &332614449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 332614447}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332614450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -11110,6 +11134,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -11397,11 +11425,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 333702103}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &333702105 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 333702103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &333702106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -11576,7 +11599,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3008022
+  m_Name: pb_Mesh25840
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11742,6 +11765,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
     - target: {fileID: 43505158566787823, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -11976,15 +12003,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 345486194}
+      objectReference: {fileID: 2062323147}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1195879222}
+      objectReference: {fileID: 875682388}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 712169892}
+      objectReference: {fileID: 1636983992}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (2)
@@ -12055,11 +12082,6 @@ Transform:
 --- !u!195 &345486193 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 345486191}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &345486194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 345486191}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &349325834
@@ -12177,7 +12199,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3007462
+  m_Name: pb_Mesh25268
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12450,6 +12472,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -14269,7 +14295,7 @@ Transform:
   - {fileID: 2108632469}
   - {fileID: 54684125}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &421744435
 MonoBehaviour:
@@ -14849,7 +14875,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_LocalScale.x
@@ -14992,6 +15018,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -15275,11 +15305,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 497465189}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &497465191 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 497465189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &497465192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -15394,6 +15419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+--- !u!1 &503181889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 1596319937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &506168081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
@@ -15440,7 +15470,7 @@ Transform:
   - {fileID: 1982793551}
   - {fileID: 1145359069}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &521146521
 GameObject:
@@ -16312,10 +16342,10 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528705683}
   m_Mesh: {fileID: -5645512316855599251, guid: 88b806082ad58384da72a0a72c15018e, type: 3}
---- !u!1 &532332294 stripped
+--- !u!1 &537152651 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 186767913}
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 997416982}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &543691722 stripped
 GameObject:
@@ -16513,6 +16543,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &548564801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 587495443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &548733367
 GameObject:
   m_ObjectHideFlags: 0
@@ -16541,7 +16576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &553598724
 PrefabInstance:
@@ -16901,6 +16936,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573400824}
   m_Mesh: {fileID: -5645512316855599251, guid: 88b806082ad58384da72a0a72c15018e, type: 3}
+--- !u!1 &578833368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 1910961773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &587495443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16920,6 +16960,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -17204,6 +17248,11 @@ SphereCollider:
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566857877698995, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 587495443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &588749651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 357468990}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &589318351 stripped
 RectTransform:
@@ -17843,6 +17892,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -18070,15 +18123,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 620425569}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1780004990}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 497465191}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (3)
@@ -18145,11 +18198,6 @@ Transform:
 --- !u!4 &620425568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 620425566}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &620425569 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 620425566}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &620425570 stripped
@@ -19343,6 +19391,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -19710,11 +19762,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1957646771291621832, guid: dc537070e16bf6242b7104d1cf08ab3f, type: 3}
   m_PrefabInstance: {fileID: 710484805}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &712169892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 114197987}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &714326292
 GameObject:
   m_ObjectHideFlags: 0
@@ -19913,11 +19960,6 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
---- !u!1 &714780892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 587495443}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &716077917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8283120810980229915, guid: 0c56e5c8338c1ce4c883a75ad2865928, type: 3}
@@ -20068,11 +20110,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8774280867629514700, guid: 9fd2d6fda0c426543b35ba6bccd2f869, type: 3}
   m_PrefabInstance: {fileID: 718346279}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &718408681 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1474737819}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &719478085
 PrefabInstance:
@@ -20571,7 +20608,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773577819}
-  m_LocalRotation: {x: -0.12182427, y: -0.3140229, z: 0.040667683, w: -0.9406884}
+  m_LocalRotation: {x: -0.12182427, y: -0.3140229, z: 0.040667668, w: -0.9406884}
   m_LocalPosition: {x: -3.33, y: 2.56, z: -6.14}
   m_LocalScale: {x: 0.304559, y: 0.30455902, z: 0.304559}
   m_Children:
@@ -22016,6 +22053,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -22301,11 +22342,6 @@ PrefabInstance:
 --- !u!4 &823865971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 823865970}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &823865972 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 823865970}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &823865973 stripped
@@ -22655,6 +22691,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -22918,11 +22958,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 839102399}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &839102401 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 839102399}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839102402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -22946,6 +22981,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &841129961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 1479553704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &841913311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23131,7 +23171,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3009074
+  m_Name: pb_Mesh26932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23542,6 +23582,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4494230371040798765, guid: e7d341a979439104b94f11a0503b1235, type: 3}
+--- !u!1 &875682388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 1802944044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888916925
 GameObject:
   m_ObjectHideFlags: 0
@@ -24156,7 +24201,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3008350
+  m_Name: pb_Mesh26186
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25614,7 +25659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3664853159988102084, guid: 3fb9b397f5e932e48939b4489524ad79, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3664853159988102084, guid: 3fb9b397f5e932e48939b4489524ad79, type: 3}
       propertyPath: m_LocalScale.x
@@ -26121,7 +26166,7 @@ Transform:
   - {fileID: 626148825}
   - {fileID: 1406890037}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &987931810
 Animator:
@@ -26270,6 +26315,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -26734,6 +26783,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -27023,11 +27076,6 @@ PrefabInstance:
 --- !u!4 &1001379412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1001379411}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1001379413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1001379411}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001379414 stripped
@@ -32652,7 +32700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 93.75, y: 17.6, z: 11.6}
 --- !u!114 &1096705989
 MonoBehaviour:
@@ -32785,7 +32833,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 128637339446583666, guid: 38de58b44e51ae448b3c278970f9bbf1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33331,6 +33379,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -33582,15 +33634,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1145359071}
+      objectReference: {fileID: 25798792}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 714780892}
+      objectReference: {fileID: 548564801}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 153256091}
+      objectReference: {fileID: 1991880521}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (7)
@@ -33657,11 +33709,6 @@ Transform:
 --- !u!195 &1145359070 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1145359068}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1145359071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1145359068}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1159941874
@@ -34011,6 +34058,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -34290,11 +34341,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1186706323}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1186706325 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1186706323}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1186706326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -34318,11 +34364,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1195879222 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1802944044}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206633462
 GameObject:
   m_ObjectHideFlags: 0
@@ -35079,7 +35120,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 43505158566787823, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
@@ -35229,6 +35274,10 @@ PrefabInstance:
       propertyPath: setUpStartLooseFrameEsquive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2487366775610140664, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: speedUp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: player
       value: 
@@ -35314,7 +35363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1213508949 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1213508947}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1213695206
@@ -35572,6 +35621,11 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3570519381291857351, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
   m_PrefabInstance: {fileID: 1366723270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1242241468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 224020431}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249509795
 PrefabInstance:
@@ -36481,7 +36535,7 @@ Transform:
   - {fileID: 145091576}
   - {fileID: 1931811765}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1315477957
 PrefabInstance:
@@ -36802,7 +36856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528264224549189845, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7528264224549189845, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
       propertyPath: m_AnchorMax.x
@@ -37967,7 +38021,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3007718
+  m_Name: pb_Mesh25518
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38302,6 +38356,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -38465,7 +38523,7 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1356215466}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
@@ -38542,11 +38600,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1356215463}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1356215466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1356215463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1356215467 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
@@ -38560,6 +38613,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
     - target: {fileID: 43505158566787823, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -38766,11 +38823,11 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1356494833}
+      objectReference: {fileID: 20178612}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1910961775}
+      objectReference: {fileID: 578833368}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (1)
@@ -38837,11 +38894,6 @@ Transform:
 --- !u!195 &1356494832 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1356494830}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1356494833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1356494830}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1365029156
@@ -38947,7 +38999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3570519380969371385, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3570519380969371385, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -39176,6 +39228,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 250157236}
     m_Modifications:
     - target: {fileID: 43505159616223779, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -39440,11 +39496,6 @@ PrefabInstance:
 --- !u!4 &1378255954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1378255953}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1378255955 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1378255953}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378255956 stripped
@@ -39860,6 +39911,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -40063,11 +40118,11 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1434973529}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1876864351}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (1)
@@ -40134,11 +40189,6 @@ Transform:
 --- !u!4 &1434973528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1434973526}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1434973529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1434973526}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &1434973530 stripped
@@ -40377,6 +40427,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -40564,11 +40618,11 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1460328230}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 823865972}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (4)
@@ -40635,11 +40689,6 @@ Transform:
 --- !u!4 &1460328229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1460328227}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1460328230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1460328227}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &1460328231 stripped
@@ -40909,6 +40958,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1982793551}
     m_Modifications:
     - target: {fileID: 43505159616223779, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -41352,6 +41405,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -41607,15 +41664,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1479553707}
+      objectReference: {fileID: 841129961}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1994626718}
+      objectReference: {fileID: 537152651}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 1687074521}
+      objectReference: {fileID: 588749651}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (5)
@@ -41684,11 +41741,6 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1479553704}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1479553707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1479553704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1482643833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41697,6 +41749,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 513288569}
     m_Modifications:
     - target: {fileID: 43505158566787823, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -41927,15 +41983,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1482643836}
+      objectReference: {fileID: 218154896}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 1665735971}
+      objectReference: {fileID: 2000255983}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 1714819442}
+      objectReference: {fileID: 1772845711}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (3)
@@ -42002,11 +42058,6 @@ Transform:
 --- !u!195 &1482643835 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1482643833}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1482643836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1482643833}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1483908128
@@ -42551,7 +42602,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3007034
+  m_Name: pb_Mesh24828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44017,6 +44068,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -44777,6 +44832,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -44964,11 +45023,11 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1596319940}
+      objectReference: {fileID: 503181889}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 127733189}
+      objectReference: {fileID: 1242241468}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (4)
@@ -45037,11 +45096,6 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1596319937}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1596319940 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1596319937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607906940
 GameObject:
   m_ObjectHideFlags: 0
@@ -45106,7 +45160,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614772634
 GameObject:
@@ -45668,13 +45722,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.83, z: 0.47}
   m_Center: {x: -0.57, y: 1.63, z: 0}
+--- !u!1 &1636983992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 114197987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1638812269
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3009698
+  m_Name: pb_Mesh27582
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46417,6 +46476,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -46724,7 +46787,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3008178
+  m_Name: pb_Mesh25992
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46882,11 +46945,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1665735971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1560516823}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1674602936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47657,11 +47715,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1033816932781868193, guid: f7ae4cc118a245d45b7ce703a50f491c, type: 3}
   m_PrefabInstance: {fileID: 1686208817}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1687074521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 357468990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1690884272
 Mesh:
   m_ObjectHideFlags: 0
@@ -47845,6 +47898,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -48100,15 +48157,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1692205426}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 333702105}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 1792403336}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (5)
@@ -48175,11 +48232,6 @@ Transform:
 --- !u!4 &1692205425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1692205423}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1692205426 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1692205423}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &1692205427 stripped
@@ -48314,11 +48366,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1714819442 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1660426996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1725804432 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7360864511139193994, guid: 0fdac058162eebf4e89367d61e8d142b, type: 3}
@@ -49071,6 +49118,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7528264223575598854, guid: e00da2d661f60c7458dce81fb517b299, type: 3}
   m_PrefabInstance: {fileID: 1329894984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772845711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 1660426996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1780004988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49090,6 +49142,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -49357,11 +49413,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1780004988}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1780004990 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1780004988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1780004991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -49575,6 +49626,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (2)
@@ -49862,11 +49917,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1792403334}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1792403336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1792403334}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1792403337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
@@ -50103,6 +50153,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 345486192}
     m_Modifications:
     - target: {fileID: 43505159616223779, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -51115,6 +51169,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1957646771291621832, guid: dc537070e16bf6242b7104d1cf08ab3f, type: 3}
   m_PrefabInstance: {fileID: 1841856944}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1850219349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 1982793550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1851393859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51231,7 +51290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1858714450
 PrefabInstance:
@@ -51316,6 +51375,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1434973527}
     m_Modifications:
     - target: {fileID: 43505159616223779, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -51556,11 +51619,6 @@ PrefabInstance:
 --- !u!4 &1876864350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1876864349}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1876864351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1876864349}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1876864352 stripped
@@ -51959,7 +52017,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3009642
+  m_Name: pb_Mesh27542
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52195,6 +52253,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1356494831}
     m_Modifications:
     - target: {fileID: 43505159616223779, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -52435,11 +52497,6 @@ PrefabInstance:
 --- !u!195 &1910961774 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566857877698995, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1910961773}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1910961775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1910961773}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1915007513
@@ -52697,6 +52754,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -52948,15 +53009,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1931811767}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 2138379313}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 1186706325}
+      objectReference: {fileID: 0}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (7)
@@ -53023,11 +53084,6 @@ Transform:
 --- !u!4 &1931811766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994399496574, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1931811764}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1931811767 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1931811764}
   m_PrefabAsset: {fileID: 0}
 --- !u!195 &1931811768 stripped
@@ -58078,6 +58134,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1533792954330531421, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066824, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -58309,15 +58369,15 @@ PrefabInstance:
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[0]
       value: 
-      objectReference: {fileID: 1982793553}
+      objectReference: {fileID: 1850219349}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[1]
       value: 
-      objectReference: {fileID: 718408681}
+      objectReference: {fileID: 56508269}
     - target: {fileID: 4069360846975368234, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: bloodList.Array.data[2]
       value: 
-      objectReference: {fileID: 532332294}
+      objectReference: {fileID: 152338334}
     - target: {fileID: 4069360846975368236, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: m_Name
       value: EnnemiManager (6)
@@ -58384,11 +58444,6 @@ Transform:
 --- !u!195 &1982793552 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4374566858975107455, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
-  m_PrefabInstance: {fileID: 1982793550}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1982793553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935144858236131, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
   m_PrefabInstance: {fileID: 1982793550}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1983785740
@@ -59274,6 +59329,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1991880521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 708150554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1992771955
 GameObject:
   m_ObjectHideFlags: 0
@@ -59370,11 +59430,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992771955}
   m_Mesh: {fileID: -5645512316855599251, guid: 88b806082ad58384da72a0a72c15018e, type: 3}
---- !u!1 &1994626718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 997416982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1999762771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59444,6 +59499,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6085892100280461518, guid: 60df62c3480fae74990752d7eef3e84d, type: 3}
   m_PrefabInstance: {fileID: 1999762771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2000255983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792953280571027, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+  m_PrefabInstance: {fileID: 1560516823}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2006883245
 GameObject:
@@ -59944,7 +60004,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3008446
+  m_Name: pb_Mesh26304
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60478,7 +60538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: -38.94, z: 0}
 --- !u!1 &2037074468
 GameObject:
@@ -61391,6 +61451,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8072958530905099740, guid: f51cb371015fa794982b4b9c57697cb8, type: 3}
   m_PrefabInstance: {fileID: 2058537735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2062323147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1533792954330531423, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+  m_PrefabInstance: {fileID: 345486191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2087435832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61576,7 +61641,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3007626
+  m_Name: pb_Mesh25420
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62848,6 +62913,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79d4ab3a3081efa41a98e8eafa3626d6, type: 2}
+    - target: {fileID: 1533792953280571025, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776769, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: m_Name
       value: EmptyEnnemi (1)
@@ -63113,11 +63182,6 @@ PrefabInstance:
 --- !u!4 &2138379312 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035993282820530, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 2138379311}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2138379313 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8826935143810257967, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 2138379311}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2138379314 stripped
