@@ -13,7 +13,7 @@ public class UIMenuPause : MonoBehaviour
 
     EventSystem m_EventSystem;
 
-    [SerializeField] GameObject objButtonResume, objButtonOption, objButtonQuit;
+    [SerializeField] GameObject objButtonResume, objButtonOption, objButtonQuit, objButtonRestart, backGround;
 
     [SerializeField] GameObject canvasSlider, menuPause, optionMenu;
 
@@ -27,7 +27,7 @@ public class UIMenuPause : MonoBehaviour
     [SerializeField] DepthOfField depthOfField;
 
     Animator playerAnimator;
-
+     
     void Start()
     {
         playerAnimator = GameObject.FindWithTag("Player").GetComponent<Animator>();
@@ -57,7 +57,7 @@ public class UIMenuPause : MonoBehaviour
         {
             depthOfField.active = false;
             optionMenu.SetActive(false);
-            EnableButton(objButtonQuit, objButtonResume, true);
+            EnableButton(objButtonQuit, objButtonResume, objButtonRestart, backGround, true);
             m_EventSystem.SetSelectedGameObject(transform.GetChild(0).transform.GetChild(2).gameObject);
         }
         else if(!optionMenu.activeInHierarchy && menuPause.activeInHierarchy && Input.GetButtonDown("CancelButton"))
@@ -132,13 +132,15 @@ public class UIMenuPause : MonoBehaviour
     public void ClickOption()
     {
         optionMenu.SetActive(true);
-        EnableButton(objButtonResume, objButtonQuit, false);
+        EnableButton(objButtonResume, objButtonQuit, objButtonRestart, backGround, false);
     }
 
-    void EnableButton(GameObject button1, GameObject button2, bool active)
+    void EnableButton(GameObject button1, GameObject button2, GameObject button3, GameObject backGround, bool active)
     {
         button1.SetActive(active);
         button2.SetActive(active);
+        button3.SetActive(active);
+        backGround.SetActive(active);
     }
 
     public void ResumeButton()

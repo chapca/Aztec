@@ -55,10 +55,10 @@ public class OptionControl : MonoBehaviour
             canSwitchOnglet = false;
         }
 
-        if(Input.GetButtonDown("CancelButton"))
+        /*if(Input.GetButtonDown("CancelButton"))
         {
             SceneManager.LoadScene("Menu");
-        }
+        }*/
     }
 
     void ChangeInputAxes()
