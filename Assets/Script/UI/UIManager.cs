@@ -148,7 +148,6 @@ public class UIManager : MonoBehaviour
         sliderLooseAttack.fillAmount = value;
     }
 
-
     static public void ActiveManetteUI(bool active)
     {
         if (active)

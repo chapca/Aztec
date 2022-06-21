@@ -30,6 +30,7 @@ public class OptionControlQTE : MonoBehaviour
         yield return new WaitForEndOfFrame();
         //m_EventSystem.SetSelectedGameObject(listButton.GetChild(0).gameObject);
         listButton.GetChild(0).transform.GetComponent<Button>().Select();
+        yield break;
     }
 
     void Update()
@@ -60,7 +61,10 @@ public class OptionControlQTE : MonoBehaviour
         for (int i = 0; i < listSprite.transform.childCount; i++)
         {
             if (i == m_EventSystem.currentSelectedGameObject.transform.GetSiblingIndex())
+            {
                 listSprite.transform.GetChild(i).gameObject.SetActive(true);
+                listButton.GetChild(i).transform.GetComponent<Button>().Select();
+            }
             else
             {
                 listSprite.transform.GetChild(i).gameObject.SetActive(false);

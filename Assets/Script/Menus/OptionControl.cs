@@ -14,6 +14,7 @@ public class OptionControl : MonoBehaviour
     [SerializeField] Text buttonInverseX, buttonInverseY;
 
     bool canSwitchOnglet;
+
     void Start()
     {
         m_EventSystem = EventSystem.current;
@@ -30,6 +31,8 @@ public class OptionControl : MonoBehaviour
         yield return new WaitForEndOfFrame();
         //m_EventSystem.SetSelectedGameObject(listButton.GetChild(0).gameObject);
         listButton.GetChild(0).transform.GetComponent<Button>().Select();
+        SwitchSprite();
+        yield break;
     }
 
     void Update()
@@ -64,14 +67,16 @@ public class OptionControl : MonoBehaviour
         {
             if (Input.GetButtonDown("Submit"))
             {
-                if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra Y          < Normal >")
+                if (m_EventSystem.currentSelectedGameObject.transform.Find("Normal").gameObject.activeInHierarchy)
                 {
-                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra Y          < Inversé >";
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Normal").gameObject.SetActive(false);
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Reverse").gameObject.SetActive(true);
                     PlayerController.CamXInverser = true;
                 }
-                else if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra Y          < Inversé >")
+                else if (m_EventSystem.currentSelectedGameObject.transform.Find("Reverse").gameObject.activeInHierarchy)
                 {
-                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra Y          < Normal >";
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Reverse").gameObject.SetActive(false);
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Normal").gameObject.SetActive(true);
                     PlayerController.CamXInverser = false;
                 }
             }
@@ -81,35 +86,19 @@ public class OptionControl : MonoBehaviour
         {
             if (Input.GetButtonDown("Submit"))
             {
-                if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra X          < Normal >")
+                if (m_EventSystem.currentSelectedGameObject.transform.Find("Normal").gameObject.activeInHierarchy)
                 {
-                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra X          < Inversé >";
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Normal").gameObject.SetActive(false);
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Reverse").gameObject.SetActive(true);
                     PlayerController.CamYInverser = true;
                 }
-                else if (m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text == "Caméra X          < Inversé >")
+                else if (m_EventSystem.currentSelectedGameObject.transform.Find("Reverse").gameObject.activeInHierarchy)
                 {
-                    m_EventSystem.currentSelectedGameObject.GetComponentInChildren<Text>().text = "Caméra X          < Normal >";
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Reverse").gameObject.SetActive(false);
+                    m_EventSystem.currentSelectedGameObject.transform.Find("Normal").gameObject.SetActive(true);
                     PlayerController.CamYInverser = false;
                 }
             }
-        }
-
-        if(PlayerController.CamXInverser)
-        {
-            buttonInverseX.GetComponent<Text>().text = "Caméra Y          < Inversé >";
-        }
-        else
-        {
-            buttonInverseX.GetComponent<Text>().text = "Caméra Y          < Normal >";
-        }
-
-        if(PlayerController.CamYInverser)
-        {
-            buttonInverseY.GetComponent<Text>().text = "Caméra X          < Inversé >";
-        }
-        else
-        {
-            buttonInverseY.GetComponent<Text>().text = "Caméra X          < Normal >";
         }
     }
 
@@ -118,10 +107,17 @@ public class OptionControl : MonoBehaviour
         for(int i=0; i < listSprite.transform.childCount; i++)
         {
             if(i == m_EventSystem.currentSelectedGameObject.transform.GetSiblingIndex())
+            {
                 listSprite.transform.GetChild(i).gameObject.SetActive(true);
+                listButton.GetChild(i).transform.GetChild(1).gameObject.SetActive(true);
+                listButton.GetChild(i).transform.GetChild(3).gameObject.SetActive(true);
+                listButton.GetChild(i).transform.GetComponent<Button>().Select();
+            }
             else
             {
                 listSprite.transform.GetChild(i).gameObject.SetActive(false);
+                listButton.GetChild(i).transform.GetChild(1).gameObject.SetActive(false);
+                listButton.GetChild(i).transform.GetChild(3).gameObject.SetActive(false);
             }
         }
     }
