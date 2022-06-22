@@ -106,6 +106,7 @@ public class Interaction : MonoBehaviour
                     camInteraction = other.transform.Find("Cam").GetComponent<CinemachineVirtualCamera>();
 
                     SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
+                    SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
                     //SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
                 }
             }
@@ -124,8 +125,8 @@ public class Interaction : MonoBehaviour
                         UIManager.ActiveManetteInputInteract(false);
                         PlayerBlood.LooseBlood(100);
                         elevatorHasBeenActive = true;
-                        /*SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
-                        SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);*/
+                        SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
+                        //SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
                     }
                 }
                 else
