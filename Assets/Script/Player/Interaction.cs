@@ -19,6 +19,8 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] bool activeCamInteraction, elevatorHasBeenActive;
 
+    [SerializeField] GameObject bouttonHaut, bigBouttonHaut;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,10 @@ public class Interaction : MonoBehaviour
         //canvasPuzzle.SetActive(false);
 
         elevatorState = GameObject.FindWithTag("Elevator").GetComponentInParent<ElevatorState>();
+
+        bouttonHaut = GameObject.Find("BouttonHaut");
+        bigBouttonHaut = GameObject.Find("BigBouttonHaut");
+        bigBouttonHaut.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,6 +63,11 @@ public class Interaction : MonoBehaviour
             {
                 UIManager.ActiveTextCantInteract(true);
             }
+            else
+            {
+                bigBouttonHaut.SetActive(true);
+                bouttonHaut.SetActive(false);
+            }
         }
 
         if (other.CompareTag("Elevator"))
@@ -66,6 +77,11 @@ public class Interaction : MonoBehaviour
             if (PlayerBlood.bloodQuantity < 100 && !elevatorHasBeenActive)
             {
                 UIManager.ActiveTextCantInteract(true);
+            }
+            if (PlayerBlood.bloodQuantity >= 100 || elevatorHasBeenActive)
+            {
+                bigBouttonHaut.SetActive(true);
+                bouttonHaut.SetActive(false);
             }
         }
     }
@@ -78,6 +94,8 @@ public class Interaction : MonoBehaviour
             {
                 if (PlayerBlood.bloodQuantity >= 100)
                 {
+                    bigBouttonHaut.SetActive(true);
+                    bouttonHaut.SetActive(false);
                     UIManager.ActiveManetteInputInteract(false);
                     StartCoroutine("OpenDoor");
                     PlayerBlood.LooseBlood(100);
@@ -86,7 +104,6 @@ public class Interaction : MonoBehaviour
                     playerController.enabled = false;
                     targetCam.enabled = false;
                     camInteraction = other.transform.Find("Cam").GetComponent<CinemachineVirtualCamera>();
-
 
                     SoundManager.PlaySoundPlayerInteraction(other.GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[0]);
                     //SoundManager.PlaySoundPlayerInteraction(other.transform.parent.transform.GetChild(1).GetComponent<AudioSource>(), SoundManager.soundAndVolumeListInteractionStatic[1]);
@@ -113,7 +130,7 @@ public class Interaction : MonoBehaviour
                 }
                 else
                 {
-                    if(elevatorState.up)
+                    if (elevatorState.up)
                     {
                         other.transform.parent.GetComponent<Animator>().SetBool("Down", true);
                         other.transform.parent.GetComponent<Animator>().SetBool("Up", false);
@@ -132,6 +149,9 @@ public class Interaction : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
+            bigBouttonHaut.SetActive(false);
+            bouttonHaut.SetActive(true);
+
             UIManager.ActiveTextCantInteract(false);
             UIManager.ActiveManetteInputInteract(false);
         }
@@ -142,6 +162,9 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("Elevator"))
         {
+            bigBouttonHaut.SetActive(false);
+            bouttonHaut.SetActive(true);
+
             UIManager.ActiveTextCantInteract(false);
             UIManager.ActiveManetteInputInteract(false);
         }

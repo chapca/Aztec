@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     static public Text textCantinteract;
 
-    static public GameObject manetteValidateInteraction, manetteValidateLeaveGame, counterAttackParent, cursor;
+    static public GameObject counterAttackParent, cursor;
 
     private void Awake()
     {
@@ -57,10 +57,6 @@ public class UIManager : MonoBehaviour
 
         textCantinteract = GameObject.Find("TextCantInteract").GetComponent<Text>();
 
-        manetteValidateInteraction = GameObject.Find("ManetteValidateInteraction");
-
-        manetteValidateLeaveGame = GameObject.Find("ManetteValidateLeaveGame");
-
         counterAttackParent = GameObject.Find("EmptyCounterAttack");
 
         cursor = GameObject.Find("Cursor");
@@ -73,8 +69,6 @@ public class UIManager : MonoBehaviour
         UIAttack.SetActive(false);
 
         textCantinteract.gameObject.SetActive(false);
-        manetteValidateInteraction.gameObject.SetActive(false);
-        manetteValidateLeaveGame.gameObject.SetActive(false);
         cursor.SetActive(false);
 
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
@@ -341,7 +335,6 @@ public class UIManager : MonoBehaviour
     }
     static public void ActiveManetteInputInteract(bool active)
     {
-        manetteValidateInteraction.gameObject.SetActive(active);
        /* if (!active)
             cursor.SetActive(false);
         else
@@ -350,8 +343,6 @@ public class UIManager : MonoBehaviour
     
     static public void ActiveManetteInputInteractLeaveGame(bool active)
     {
-        manetteValidateLeaveGame.gameObject.SetActive(active);
-
        /* if (!active)
             cursor.SetActive(false);
         else

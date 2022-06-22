@@ -23,6 +23,8 @@ public class UIMenuPause : MonoBehaviour
 
     GameObject currentButtonSelected;
 
+    [SerializeField] Image txtSelectedOption, txtUnselectedOption, selectedOption;
+
     [SerializeField] VolumeProfile mVolumeProfile;
     [SerializeField] DepthOfField depthOfField;
 
@@ -137,6 +139,10 @@ public class UIMenuPause : MonoBehaviour
 
     void EnableButton(GameObject button1, GameObject button2, GameObject button3, GameObject backGround, bool active)
     {
+        txtSelectedOption.enabled = active;
+        txtUnselectedOption.enabled = active;
+        selectedOption.enabled = active;
+
         button1.SetActive(active);
         button2.SetActive(active);
         button3.SetActive(active);
