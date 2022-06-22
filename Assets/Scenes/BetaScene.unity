@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6731.1406, g: 6332.0625, b: 4884.922, a: 1}
+  m_IndirectSpecularColor: {r: 6731.1094, g: 6331.9844, b: 4884.789, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7516,48 +7516,52 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a3927a8f28101c543aaa7f624f705fc7, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[0].volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[1].volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[2].volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[3].volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[4].volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[5].volume
-      value: 0.05
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[6].volume
-      value: 0.05
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolume2D.Array.data[7].volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[1].volume
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[2].volume
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerBattle.Array.data[3].volume
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumeListInteraction.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f51c65725f5a94f40b20bf4d657a496c, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerExploration.Array.data[0].clip
       value: 
@@ -7572,11 +7576,15 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b3c7dd3ef34e8e24fb306ba7cab29be0, type: 3}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerExploration.Array.data[0].volume
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: soundAndVolumePlayerExploration.Array.data[1].volume
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706399511371490601, guid: 393b269bd9d72744785933bcc5697784, type: 3}
+      propertyPath: soundAndVolumePlayerExploration.Array.data[2].volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3706399511371490606, guid: 393b269bd9d72744785933bcc5697784, type: 3}
       propertyPath: m_RootOrder
@@ -21243,7 +21251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773577819}
-  m_LocalRotation: {x: -0.12182427, y: -0.3140229, z: 0.040667668, w: -0.9406884}
+  m_LocalRotation: {x: -0.12182427, y: -0.3140229, z: 0.040667683, w: -0.9406884}
   m_LocalPosition: {x: -3.33, y: 2.56, z: -6.14}
   m_LocalScale: {x: 0.304559, y: 0.30455902, z: 0.304559}
   m_Children:
@@ -53973,11 +53981,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6232275
+      value: 0.6232274
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07519784
+      value: 0.075197846
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.y
@@ -53985,7 +53993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.09324648
+      value: -0.093246505
       objectReference: {fileID: 0}
     - target: {fileID: 1426591982, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: player
