@@ -67,7 +67,6 @@ public class UIManager : MonoBehaviour
         UIAttack.SetActive(false);
 
         textCantinteract.gameObject.SetActive(false);
-        cursor.SetActive(false);
 
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
         sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;

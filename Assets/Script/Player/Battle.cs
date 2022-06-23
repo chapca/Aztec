@@ -69,6 +69,8 @@ public class Battle : MonoBehaviour
        
         if(canEsquive)
         {
+            Debug.LogError("Launch esquive anim");
+
             if (Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && EnnemiAttack.esquiveRight || Input.GetAxisRaw("HorizontalLeftButtonX") > 0 && Boss.esquiveRight ||
                 Input.GetButtonDown("CancelButton") && EnnemiAttack.esquiveRight || Input.GetButtonDown("CancelButton") && Boss.esquiveRight)
             {

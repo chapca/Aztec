@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetBool("Walk", isWalking);
         myAnimator.SetBool("Run", isRunning);
 
-        if(isWalking)
+        /*if(isWalking)
         {
             if (Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Horizontal"), 2f)) > Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Vertical"), 2f)))
                 myAnimator.speed = Mathf.Sqrt(Mathf.Pow(Input.GetAxis("Horizontal"), 2f));
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             myAnimator.speed = 1;
-        }
+        }*/
     }
 
     void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
@@ -216,8 +216,8 @@ public class PlayerController : MonoBehaviour
             isWalking = false;
         }
 
-        horizontalAxis = Input.GetAxis("Horizontal");
-        verticalAxis = Input.GetAxis("Vertical");
+        horizontalAxis = Input.GetAxisRaw("Horizontal");
+        verticalAxis = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis).normalized;
 
