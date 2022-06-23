@@ -19,7 +19,7 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] bool activeCamInteraction, elevatorHasBeenActive;
 
-    [SerializeField] GameObject bouttonHaut, bigBouttonHaut;
+    public GameObject bouttonHaut, bigBouttonHaut;
 
     // Start is called before the first frame update
     void Start()

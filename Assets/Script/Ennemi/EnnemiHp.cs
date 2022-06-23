@@ -17,6 +17,8 @@ public class EnnemiHp : MonoBehaviour
 
     [SerializeField] GameObject bloodDecal;
 
+    Interaction interaction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,8 @@ public class EnnemiHp : MonoBehaviour
         ennemiManager.bloodQuantity += nbrBlood;
 
         skinnedMesh = transform.GetChild(0).transform.GetChild(1).transform.GetChild(3).transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
+
+        interaction = GameObject.FindWithTag("Player").GetComponent<Interaction>();
     }
 
     // Update is called once per frame
@@ -70,12 +74,16 @@ public class EnnemiHp : MonoBehaviour
             {
                 ennemiManager.isInBloodTrigger = true;
 
-                if(ennemiManager.canRecoverBlood)
-                    UIManager.ActiveManetteInputInteract(true);
+                if (ennemiManager.canRecoverBlood)
+                {
+                    interaction.bouttonHaut.SetActive(false);
+                    interaction.bigBouttonHaut.SetActive(true);
+                }
             }
             else
             {
-                UIManager.ActiveManetteInputInteract(false);
+                interaction.bouttonHaut.SetActive(true);
+                interaction.bigBouttonHaut.SetActive(false);
             }
         }
     }
@@ -85,7 +93,8 @@ public class EnnemiHp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ennemiManager.isInBloodTrigger = false;
-            UIManager.ActiveManetteInputInteract(false);
+            interaction.bouttonHaut.SetActive(true);
+            interaction.bigBouttonHaut.SetActive(false);
         }
     }
 
