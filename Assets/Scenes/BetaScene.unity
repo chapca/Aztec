@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6727.41, g: 6332.828, b: 4887.9766, a: 1}
+  m_IndirectSpecularColor: {r: 6732.922, g: 6332.6562, b: 4884.5625, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1843,6 +1843,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026969098}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: delayBeforeAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: playerAudioSource
       value: 
       objectReference: {fileID: 264409235}
@@ -1857,6 +1861,10 @@ PrefabInstance:
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderPerfectSize
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: timerBeforeAttack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: activeThisinEditor
@@ -13720,6 +13728,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026969098}
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: delayBeforeAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: playerAudioSource
       value: 
       objectReference: {fileID: 264409235}
@@ -13734,6 +13746,10 @@ PrefabInstance:
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: sliderPerfectSize
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: timerBeforeAttack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: activeThisinEditor
@@ -40505,6 +40521,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026969098}
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: delayBeforeAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: playerAudioSource
       value: 
       objectReference: {fileID: 264409235}
@@ -40516,6 +40536,10 @@ PrefabInstance:
       propertyPath: sliderBlockNormal
       value: 
       objectReference: {fileID: 153305158}
+    - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: timerBeforeAttack
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: activeThisinEditor
       value: 0
@@ -44756,6 +44780,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026969098}
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: delayBeforeAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: playerAudioSource
       value: 
       objectReference: {fileID: 264409235}
@@ -44770,6 +44798,10 @@ PrefabInstance:
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: sliderPerfectSize
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
+      propertyPath: timerBeforeAttack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1628035993214066831, guid: edfdd8a63cf03ab439611171dea5b59a, type: 3}
       propertyPath: activeThisinEditor
@@ -58032,6 +58064,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026969098}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: delayBeforeAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: playerAudioSource
       value: 
       objectReference: {fileID: 264409235}
@@ -58046,6 +58082,10 @@ PrefabInstance:
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderPerfectSize
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: timerBeforeAttack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: activeThisinEditor
@@ -60188,6 +60228,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026969098}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: delayBeforeAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: playerAudioSource
       value: 
       objectReference: {fileID: 264409235}
@@ -60202,6 +60246,10 @@ PrefabInstance:
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: sliderPerfectSize
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: timerBeforeAttack
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1628035994328776771, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
       propertyPath: activeThisinEditor
@@ -61014,7 +61062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426591981, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.09324643
+      value: -0.09324644
       objectReference: {fileID: 0}
     - target: {fileID: 1426591982, guid: d17074153160e8c45941f46959fa73b1, type: 3}
       propertyPath: player

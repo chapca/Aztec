@@ -158,7 +158,7 @@ public class EnnemiAttack : MonoBehaviour
 
     public static bool QTEDone, coroutineLaunch, tutoDone;
 
-    [SerializeField] GameObject tutoBlackScreen;
+    [SerializeField] static GameObject tutoBlackScreen;
 
     [Header("Change la taille du slider quand on appuie au bon moment")]
     [SerializeField] Vector3 maxSize;
@@ -167,7 +167,7 @@ public class EnnemiAttack : MonoBehaviour
     static public bool esquiveRight, esquiveLeft;
 
     void Start()
-    {   
+    {
         ennemiHp = GetComponent<EnnemiHp>();
         ennemiManager = GetComponentInParent<EnnemiManager>();
         //myAnimator = GetComponent<Animator>();
@@ -221,7 +221,9 @@ public class EnnemiAttack : MonoBehaviour
         qteValidationAudioSource = GameObject.Find("QTEValidationMusic").GetComponent<AudioSource>();
         playerAudioSource = GameObject.Find("EmptyPlayer").GetComponent<AudioSource>();
 
-        tutoBlackScreen = GameObject.Find("TutoBlackScreen");
+        if(tutoBlackScreen == null)
+            tutoBlackScreen = GameObject.Find("TutoBlackScreen");
+
         tutoBlackScreen.GetComponent<Image>().enabled = false;
 
         basePos = transform.position;
@@ -351,7 +353,9 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator CoolDownDone()
     {
-        if(!tutoBlackScreen.GetComponent<Image>().enabled)
+        Battle.canEsquive = false;
+
+        if (!tutoBlackScreen.GetComponent<Image>().enabled)
             tutoBlackScreen.GetComponent<Image>().enabled = true;
 
         tutoBlackScreen.SetActive(true);
@@ -437,28 +441,44 @@ public class EnnemiAttack : MonoBehaviour
             UIManager.ActiveManetteUI(false);
     }
 
+    [SerializeField] bool launchQTE, coroutineBreakQTE;
     void DelayInput()
     {
-        setUpTimerSliderNormal -= Time.unscaledDeltaTime;
-
         ActiveManetteUI();
 
-        if (countRoundAttack>0)
+        if (!launchQTE && !coroutineBreakQTE)
+            StartCoroutine("BreakTimeBeforeLauncheQte");
+        else if(launchQTE && coroutineBreakQTE)
         {
-            TimingAttack();
+            setUpTimerSliderNormal -= Time.unscaledDeltaTime;
+
+            if (countRoundAttack > 0)
+            {
+                TimingAttack();
+            }
+
+            if (!Battle.wallDetectRight || !Battle.wallDetectLeft)
+                TimingEsquive();
+
+            TimingBlock();
+
+            if (setUpTimerSliderNormal <= 0)
+            {
+                countRoundAttack--;
+                UIManager.ActiveUINbrCounterAttack(false, countRoundAttack);
+                PlayerDoSomething();
+            }
         }
+    }
 
-        if(!Battle.wallDetectRight || !Battle.wallDetectLeft)
-            TimingEsquive();
-
-        TimingBlock();
-
-        if(setUpTimerSliderNormal <=0)
-        {
-            countRoundAttack--;
-            UIManager.ActiveUINbrCounterAttack(false, countRoundAttack);
-            PlayerDoSomething();
-        }
+    IEnumerator BreakTimeBeforeLauncheQte()
+    {
+        coroutineBreakQTE = true;
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 0.25f;
+        launchQTE = true;
+        yield break;
     }
 
     void TimingAttack()
@@ -597,6 +617,7 @@ public class EnnemiAttack : MonoBehaviour
                         UIManager.ActiveUIEsquive(false, true, false);
                         PlayerDoSomething();
                         ResetAllSlider();
+                        canShakeCam = true;
                         countRoundAttack--;
                         FailText.ActiveText();
                         Time.timeScale = 1;
@@ -632,6 +653,7 @@ public class EnnemiAttack : MonoBehaviour
                         PlayerDoSomething();
                         ResetAllSlider();
                         countRoundAttack--;
+                        canShakeCam = true;
                         FailText.ActiveText();
                         Time.timeScale = 1;
                         PlayQTEValidationSound(0);
@@ -655,6 +677,7 @@ public class EnnemiAttack : MonoBehaviour
                     PlayerDoSomething();
                     ResetAllSlider();
                     countRoundAttack--;
+                    canShakeCam = true;
                     FailText.ActiveText();
                     Time.timeScale = 1;
                     PlayQTEValidationSound(0);
@@ -685,6 +708,7 @@ public class EnnemiAttack : MonoBehaviour
 
                         PlayerDoSomething();
                         ResetAllSlider();
+                        canShakeCam = true;
                         countRoundAttack--;
                         FailText.ActiveText();
                         Time.timeScale = 1;
@@ -995,12 +1019,13 @@ public class EnnemiAttack : MonoBehaviour
             RandomAttack();
         }
     }
-
+    [Range(0,4)]
+    [SerializeField] float delayBeforeAttack;
     void RandomAttack()
     {
         if(!thisSelected)
         {
-            randomTimeBeforeAttack = Random.Range(2, 5);
+            randomTimeBeforeAttack = delayBeforeAttack;
         }
         
         if(randomTimeBeforeAttack >0)
@@ -1010,7 +1035,7 @@ public class EnnemiAttack : MonoBehaviour
         else
         {
             retrunState1 = false;
-            randomTimeBeforeAttack = Random.Range(2, 5);
+            randomTimeBeforeAttack = delayBeforeAttack;
             state = 2;
             canAttack = true;
         }
@@ -1201,6 +1226,8 @@ public class EnnemiAttack : MonoBehaviour
         Battle.canEsquive = false;
         Battle.canAttack = false;
         Battle.canBlock = false;
+        launchQTE = false;
+        coroutineBreakQTE = false;
         yield break;
     }
 
