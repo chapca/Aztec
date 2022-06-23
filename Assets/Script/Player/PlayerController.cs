@@ -183,13 +183,13 @@ public class PlayerController : MonoBehaviour
                 camRight = true;
         }
 
-        if(camRight && cinemachineComposer.m_TrackedObjectOffset.x < 1.5f)
+        if(camRight && cinemachineComposer.m_TrackedObjectOffset.x < 3.2f)
         {
             cinemachineComposer.m_TrackedObjectOffset.x += Time.deltaTime * speedCameraSwitchSide;
 
-            if (cinemachineComposer.m_TrackedObjectOffset.x > 1.5f)
+            if (cinemachineComposer.m_TrackedObjectOffset.x > 3.2f)
             {
-                cinemachineComposer.m_TrackedObjectOffset.x = 1.5f;
+                cinemachineComposer.m_TrackedObjectOffset.x = 3.2f;
             }
         }
         else if(!camRight && cinemachineComposer.m_TrackedObjectOffset.x > -1.5f)
