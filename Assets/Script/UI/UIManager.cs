@@ -78,20 +78,22 @@ public class UIManager : MonoBehaviour
     static public void AjusteSliderEsquive()
     {
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderLooseEsquiveRight.fillAmount = sliderLooseEsquiveLeft.fillAmount;
         sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+        sliderEsquivePerfectRight.fillAmount = sliderEsquivePerfectLeft.fillAmount;
     }
 
     static public void UpdateSliderEsquive(float value)
     {
-        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
-        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+        /*sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;*/
 
         sliderEsquiveRight.fillAmount = value;
         sliderEsquiveLeft.fillAmount = value;
     } static public void UpdateSliderEsquivePerfect(float value)
     {
-        sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
-        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
+        /*sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;*/
 
         sliderEsquivePerfectRight.fillAmount = value;
         sliderEsquivePerfectLeft.fillAmount = value;

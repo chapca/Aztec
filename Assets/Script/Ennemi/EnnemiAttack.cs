@@ -431,6 +431,8 @@ public class EnnemiAttack : MonoBehaviour
         sliderCounterLoose.GetComponent<Image>().fillAmount = sliderLooseCounterSize;
         sliderEsquiveLoose.GetComponent<Image>().fillAmount = sliderLooseEsquiveSize;
         sliderBlockLoose.GetComponent<Image>().fillAmount = sliderLooseBlockSize;
+
+        Debug.LogError("Fix Slider");
     }
 
     void ActiveManetteUI()
@@ -473,6 +475,12 @@ public class EnnemiAttack : MonoBehaviour
 
     IEnumerator BreakTimeBeforeLauncheQte()
     {
+        UpdateSliderPosition();
+        UpdateSliderLoosePosition();
+
+        SetFramePerfectSize();
+        SetFrameLooseSize();
+        UIManager.AjusteSliderEsquive();
         coroutineBreakQTE = true;
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(1f);
@@ -1097,7 +1105,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void StateAttack()
     {
-        activeThisinEditor = true;
+        //activeThisinEditor = true;
         //agent.enabled = false;
         findPosition = false;
         PlayerController.ennemi = this.transform;
