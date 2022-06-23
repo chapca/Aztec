@@ -33,7 +33,7 @@ public class EnnemiHp : MonoBehaviour
 
         skinnedMesh = transform.GetChild(0).transform.GetChild(1).transform.GetChild(3).transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
-        interaction = GameObject.FindWithTag("Player").GetComponent<Interaction>();
+        interaction = GameObject.FindWithTag("Player").GetComponentInParent<Interaction>();
     }
 
     // Update is called once per frame
