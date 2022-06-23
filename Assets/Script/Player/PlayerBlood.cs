@@ -79,7 +79,7 @@ public class PlayerBlood : MonoBehaviour
             bloodQuantity = 100;
 
         PlayerUI.UpdateSliderBlood();
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(0.0005f);
 
         if (bloodQuantity >= 100)
         {

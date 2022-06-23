@@ -59,8 +59,6 @@ public class UIManager : MonoBehaviour
 
         counterAttackParent = GameObject.Find("EmptyCounterAttack");
 
-        cursor = GameObject.Find("Cursor");
-
         UIManette.SetActive(false);
         UIEsquiveRight.SetActive(false);
         UIEsquiveLeft.SetActive(false);

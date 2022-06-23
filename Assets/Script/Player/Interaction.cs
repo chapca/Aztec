@@ -55,9 +55,15 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("TriggerCursor"))
+        {
+            CursorManager.objectToFollow = other.gameObject;
+            CursorManager.followTarget = true;
+        }
+
         if (other.CompareTag("Interactable"))
         {
-            UIManager.ActiveManetteInputInteract(true);
+            /*UIManager.ActiveManetteInputInteract(true);*/
 
             if (PlayerBlood.bloodQuantity < 100)
             {
@@ -72,7 +78,7 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("Elevator"))
         {
-            UIManager.ActiveManetteInputInteract(true);
+            /*UIManager.ActiveManetteInputInteract(true);*/
 
             if (PlayerBlood.bloodQuantity < 100 && !elevatorHasBeenActive)
             {
@@ -148,6 +154,11 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("TriggerCursor"))
+        {
+            CursorManager.followTarget = false;
+        }
+
         if (other.CompareTag("Interactable"))
         {
             bigBouttonHaut.SetActive(false);
