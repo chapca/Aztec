@@ -268,6 +268,18 @@ public class EnnemiAttack : MonoBehaviour
             SetFrameLooseSize();
         }
 
+        if (thisSelected && !launchQTE)
+        {
+            UIManager.AjusteSliderEsquive();
+
+            UpdateSliderPosition();
+            UpdateSliderLoosePosition();
+
+            SetFramePerfectSize();
+            SetFrameLooseSize();
+        }
+
+
         distPlayer = Vector3.Distance(transform.position, player.position);
 
         if(retrunState1 && state !=0)
@@ -361,6 +373,7 @@ public class EnnemiAttack : MonoBehaviour
         tutoBlackScreen.SetActive(true);
         Time.timeScale = 0;
         coroutineLaunch = true;
+
         yield return new WaitForSecondsRealtime(2f);
         tutoBlackScreen.SetActive(false);
         Time.timeScale = 0.25f;
@@ -958,6 +971,7 @@ public class EnnemiAttack : MonoBehaviour
         UIManager.UpdateSliderCounterLoose(sliderLooseCounterSize);
         //UIManager.ActiveManetteUI(false);
         startQTECounter = false;
+        launchQTE = false;
     }
 
     void ResetAllSlider()
@@ -1234,7 +1248,10 @@ public class EnnemiAttack : MonoBehaviour
         Battle.canEsquive = false;
         Battle.canAttack = false;
         Battle.canBlock = false;
-        launchQTE = false;
+
+        if(!esquiveReussiPerfect)
+            launchQTE = false;
+
         coroutineBreakQTE = false;
         yield break;
     }

@@ -81,6 +81,8 @@ public class UIManager : MonoBehaviour
         sliderLooseEsquiveRight.fillAmount = sliderLooseEsquiveLeft.fillAmount;
         sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
         sliderEsquivePerfectRight.fillAmount = sliderEsquivePerfectLeft.fillAmount;
+
+        Debug.LogError("Adjuste Slider");
     }
 
     static public void UpdateSliderEsquive(float value)
