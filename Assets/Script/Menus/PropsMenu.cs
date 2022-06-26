@@ -18,10 +18,15 @@ public class PropsMenu : MonoBehaviour
 
     [SerializeField] float rotationY, rotSpeedY;
 
+    [SerializeField] List<GameObject> canvasList = new List<GameObject>();
+
     void Start()
     {
         m_EventSystem = EventSystem.current;
         StartCoroutine("SelectFirstButton");
+
+        canvasList[1].SetActive(false);
+        canvasList[2].SetActive(false);
     }
 
     IEnumerator SelectFirstButton()
@@ -40,6 +45,17 @@ public class PropsMenu : MonoBehaviour
                 rotationY -= rotSpeedY * Time.deltaTime * Input.GetAxis("RightJoystickX");
                 cloneProps.transform.rotation = Quaternion.Euler(0, rotationY, 0);
             }
+        }
+
+        if(m_EventSystem.currentSelectedGameObject == this.gameObject)
+        {
+            transform.Find("Unselected").gameObject.SetActive(false);
+            transform.Find("Selected").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("Unselected").gameObject.SetActive(true);
+            transform.Find("Selected").gameObject.SetActive(false);
         }
     }
 
