@@ -22,7 +22,7 @@ public class GeometryGrassPainter : MonoBehaviour
     public Color AdjustedColor;
 
     [Range(1, 600000)]
-    public int grassLimit = 50000;
+    public int grassLimit = 100000;
 
     private Vector3 lastPosition = Vector3.zero;
 
