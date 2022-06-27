@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     static public Image sliderAttackPerfect, sliderEsquivePerfectRight, sliderEsquivePerfectLeft, sliderCounterPerfect, sliderBlockPerfect;
 
     static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter;
+    static public Image sliderLooseAttack2, sliderLooseEsquiveRight2, sliderLooseEsquiveLeft2, sliderLooseBlock2, sliderLooseCounter2;
 
     static public Text textCantinteract;
 
@@ -54,6 +55,12 @@ public class UIManager : MonoBehaviour
         sliderLooseEsquiveLeft = GameObject.Find("SliderEsquiveLooseLeft").GetComponent<Image>();
         sliderLooseBlock = GameObject.Find("SliderBlockLoose").GetComponent<Image>();
         sliderLooseCounter = GameObject.Find("SliderCounterLoose").GetComponent<Image>();
+
+        sliderLooseAttack2 = GameObject.Find("SliderAttackLoose2").GetComponent<Image>();
+        sliderLooseEsquiveRight2 = GameObject.Find("SliderEsquiveLooseRight2").GetComponent<Image>();
+        sliderLooseEsquiveLeft2 = GameObject.Find("SliderEsquiveLooseLeft2").GetComponent<Image>();
+        sliderLooseBlock2 = GameObject.Find("SliderBlockLoose2").GetComponent<Image>();
+        sliderLooseCounter2 = GameObject.Find("SliderCounterLoose2").GetComponent<Image>();
 
         textCantinteract = GameObject.Find("TextCantInteract").GetComponent<Text>();
 
@@ -108,6 +115,13 @@ public class UIManager : MonoBehaviour
         sliderLooseEsquiveRight.fillAmount = value;
         sliderLooseEsquiveLeft.fillAmount = value;
     }
+    static public void UpdateSliderEsquiveLoose2(float value)
+    {
+        sliderLooseEsquiveRight2.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+
+        sliderLooseEsquiveRight2.fillAmount = value;
+        sliderLooseEsquiveLeft2.fillAmount = value;
+    }
 
     static public void UpdateSliderBlock(float value)
     {
@@ -121,6 +135,10 @@ public class UIManager : MonoBehaviour
     {
         sliderLooseBlock.fillAmount = value;
     }
+    static public void UpdateSliderBlockLoose2(float value)
+    {
+        sliderLooseBlock2.fillAmount = value;
+    }
 
     static public void UpdateSliderCounter(float value)
     {
@@ -128,6 +146,10 @@ public class UIManager : MonoBehaviour
     }static public void UpdateSliderCounterLoose(float value)
     {
         sliderLooseCounter.fillAmount = value;
+    }
+    static public void UpdateSliderCounterLoose2(float value)
+    {
+        sliderLooseCounter2.fillAmount = value;
     }
 
     static public void UpdateSliderAttack(float value)
@@ -139,9 +161,13 @@ public class UIManager : MonoBehaviour
     }
     static public void UpdateSliderAttackLoose(float value)
     {
-        Debug.Log(sliderLooseAttack.fillAmount);
         sliderLooseAttack.fillAmount = value;
     }
+    static public void UpdateSliderAttackLoose2(float value)
+    {
+        sliderLooseAttack2.fillAmount = value;
+    }
+
 
     static public void ActiveManetteUI(bool active)
     {
