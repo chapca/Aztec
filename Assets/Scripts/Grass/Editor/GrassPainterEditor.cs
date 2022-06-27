@@ -81,6 +81,10 @@ public class GrassPainterEditor : Editor
                 grassPainter.ClearMesh();
             }
         }
+        if (GUILayout.Button("Bake"))
+        {
+            grassPainter.CreateSubmesh();
+        }
     }
 
 }

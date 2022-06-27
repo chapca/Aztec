@@ -283,7 +283,7 @@ public class GeometryGrassPainter : MonoBehaviour
                 e.Use();
             }
             // set all info to mesh
-            mesh = filter.mesh;
+            mesh = filter.sharedMesh;
             mesh.Clear();
             mesh.SetVertices(positions);
             indi = indicies.ToArray();
@@ -297,9 +297,9 @@ public class GeometryGrassPainter : MonoBehaviour
         }
     }
 
-    private void CreateSubmesh()
+    public void CreateSubmesh()
     {
-        submesh = subfilter.mesh;
+        submesh = subfilter.sharedMesh;
         submesh.Clear();
         int pointcount = (textured ? 4 : 5), tris = (textured ? 2 : 3);
         List<Vector3> subpos = new List<Vector3>(positions.Count * pointcount);
@@ -344,9 +344,9 @@ public class GeometryGrassPainter : MonoBehaviour
                 subpos.Add(positions[n] + direction * sizeWidth * 0.5f + normals[n] * sizeLength);
                 subpos.Add(positions[n] + direction * sizeWidth * 0.5f);
 
-                subuv.Add(new Vector2(0.25f, 0.25f));
-                subuv.Add(new Vector2(0.5f, 1));
-                subuv.Add(new Vector2(0.75f, 0.25f));
+                subuv.Add(new Vector2(0f, 0f));
+                subuv.Add(new Vector2(0f, 1));
+                subuv.Add(new Vector2(1, 1));
                 subuv.Add(new Vector2(1, 0f));
             }
 
