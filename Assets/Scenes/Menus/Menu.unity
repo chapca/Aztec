@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c41f66224fcc94280f853cb9fbc4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneIndex: 1
+  gameSceneIndex: 2
   ButonsList:
   - {fileID: 711256247}
   - {fileID: 626680634}
