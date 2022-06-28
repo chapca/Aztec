@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2048458831760532437, guid: 73bd4740073acf540b49fcf6721f6e0b, type: 3}
       propertyPath: m_Name
-      value: M_Grass (3)
+      value: GrassRed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73bd4740073acf540b49fcf6721f6e0b, type: 3}

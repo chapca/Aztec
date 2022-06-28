@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5429293020907089919, guid: 8032486f31e751542b54ff07ed66674b, type: 3}
       propertyPath: m_Name
-      value: M_Grass (2)
+      value: GrassLightRed
       objectReference: {fileID: 0}
     - target: {fileID: 5789453516154277418, guid: 8032486f31e751542b54ff07ed66674b, type: 3}
       propertyPath: m_Materials.Array.data[0]
