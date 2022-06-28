@@ -184,7 +184,7 @@ public class EnnemiManager : MonoBehaviour
 
     IEnumerator RespawnEnnemi()
     {
-        yield return new WaitForSeconds((int)Random.Range(13,17));
+        yield return new WaitForSeconds(30f);
 
         GameObject clone = Instantiate(prefabEnnemiManager);
 
