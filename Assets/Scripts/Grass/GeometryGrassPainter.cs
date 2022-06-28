@@ -22,7 +22,7 @@ public class GeometryGrassPainter : MonoBehaviour
     public Color AdjustedColor;
 
     [Range(1, 600000)]
-    public int grassLimit = 100000;
+    public int grassLimit = 50000;
 
     private Vector3 lastPosition = Vector3.zero;
 
@@ -283,7 +283,7 @@ public class GeometryGrassPainter : MonoBehaviour
                 e.Use();
             }
             // set all info to mesh
-            mesh = filter.sharedMesh;
+            mesh = filter.mesh;
             mesh.Clear();
             mesh.SetVertices(positions);
             indi = indicies.ToArray();
@@ -299,7 +299,7 @@ public class GeometryGrassPainter : MonoBehaviour
 
     public void CreateSubmesh()
     {
-        submesh = subfilter.sharedMesh;
+        submesh = subfilter.mesh;
         submesh.Clear();
         int pointcount = (textured ? 4 : 5), tris = (textured ? 2 : 3);
         List<Vector3> subpos = new List<Vector3>(positions.Count * pointcount);
