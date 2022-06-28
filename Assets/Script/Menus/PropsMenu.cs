@@ -28,8 +28,8 @@ public class PropsMenu : MonoBehaviour
         m_EventSystem = EventSystem.current;
         StartCoroutine("SelectFirstButton");
 
-        canvasList[1].SetActive(false);
-        canvasList[2].SetActive(false);
+        //canvasList[1].SetActive(false);
+        //canvasList[2].SetActive(false);
     }
 
     IEnumerator SelectFirstButton()
