@@ -9,14 +9,20 @@ public class MenuManager : MonoBehaviour
 {
     [Header("Scene Index")]
     [SerializeField] int gameSceneIndex;
-    [SerializeField] int optionSceneIndex;
-    [SerializeField] int archivesSceneIndex;
+    //[SerializeField] int optionSceneIndex;
+    //[SerializeField] int archivesSceneIndex;
 
     [Header("ControllerTool")]
     [SerializeField] List<GameObject> ButonsList = new List<GameObject>();
 
     EventSystem m_EventSystem;
     [SerializeField] Transform btnParent;
+
+    [Header("Canvas")]
+
+    [SerializeField] Canvas mainCanvas;
+    [SerializeField] Canvas archivesCanvas;
+    [SerializeField] Canvas optionsCanvas;
 
     // Start is called before the first frame update
     void Start()

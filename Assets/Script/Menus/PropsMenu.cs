@@ -11,6 +11,9 @@ public class PropsMenu : MonoBehaviour
 
     [SerializeField] GameObject cloneProps;
 
+    [SerializeField] Text loreText;
+    [SerializeField] Image fond;
+
     EventSystem m_EventSystem;
 
     [SerializeField]
@@ -56,6 +59,8 @@ public class PropsMenu : MonoBehaviour
         {
             transform.Find("Unselected").gameObject.SetActive(true);
             transform.Find("Selected").gameObject.SetActive(false);
+            loreText.enabled = false;
+            fond.enabled = false;
         }
     }
 
@@ -71,6 +76,8 @@ public class PropsMenu : MonoBehaviour
                 }
             }
             cloneProps = Instantiate(prefabProps);
+            loreText.enabled = true;
+            fond.enabled = true;
             cloneProps.transform.parent = spawnProps;
             cloneProps.transform.localPosition = Vector3.zero;
             cloneProps.transform.localRotation = Quaternion.Euler(0, 0, 0);
