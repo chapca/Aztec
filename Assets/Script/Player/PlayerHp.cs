@@ -34,7 +34,12 @@ public class PlayerHp : MonoBehaviour
             HealthUI.ActiveUIAnim(false);
         }
 
-        if(hp <=0)
+        if (hp < 100 && PlayerBlood.bloodQuantity > 0 && !battle.isAttacked && !PlayerBlood.recoveringBlood)
+            PlayerUI.ActiveHealthinteraction(true);
+        else
+            PlayerUI.ActiveHealthinteraction(false);
+
+        if (hp <=0)
         {
             DeathPlayer();
         }

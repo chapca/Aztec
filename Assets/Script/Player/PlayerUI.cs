@@ -13,7 +13,9 @@ public class PlayerUI : MonoBehaviour
 
     static Image sliderBloodPuzzle;
 
-    static public GameObject healthButton;
+    static public GameObject healthButton, tutoBlood;
+
+    static public Image healthInput;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +28,27 @@ public class PlayerUI : MonoBehaviour
 
         sliderBloodPuzzle = GameObject.Find("SliderBlood").gameObject.GetComponent<Image>();
 
+        healthInput = GameObject.Find("HealthInput").GetComponent<Image>();
+
         healthButton = transform.Find("HealthButton").gameObject;
 
+        tutoBlood = transform.Find("TutoBlood").gameObject;
+
+        ActiveTutoBlood(false);
         UpdateSliderHp();
         UpdateSliderBlood();
+    }
+
+    private void Update()
+    {
+        if(tutoBlood.activeInHierarchy)
+        {
+            if(Input.anyKeyDown)
+            {
+                ActiveTutoBlood(false);
+                Time.timeScale = 1;
+            }
+        }
     }
 
     static public void UpdateSliderHp()
@@ -48,5 +67,18 @@ public class PlayerUI : MonoBehaviour
     static public void ActiveUIHealthButton(bool active)
     {
         healthButton.SetActive(active);
+    }
+
+    static public void ActiveTutoBlood(bool active)
+    {
+        tutoBlood.SetActive(active);
+    }
+
+    static public void ActiveHealthinteraction(bool active)
+    {
+        if(active)
+            healthInput.color = Color.red;
+        else
+            healthInput.color = Color.white;
     }
 }

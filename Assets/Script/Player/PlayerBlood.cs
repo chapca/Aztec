@@ -13,6 +13,8 @@ public class PlayerBlood : MonoBehaviour
 
     public static bool deadWastage, recoveringBlood;
 
+    static bool firstRecoverBlood;
+
     private void Awake()
     {
         instance = this;
@@ -21,16 +23,17 @@ public class PlayerBlood : MonoBehaviour
     void Start()
     {
         myAnimator = GameObject.Find("PlayerAnim").GetComponent<Animator>();
+        firstRecoverBlood = false;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             GetBlood(100);
         }
 
-        if(deadWastage)
+        if (deadWastage)
         {
             if(bloodQuantity > halfBloodQuantity)
             {
@@ -50,6 +53,12 @@ public class PlayerBlood : MonoBehaviour
 
     static public void GetBlood(float blood)
     {
+        if(!firstRecoverBlood)
+        {
+            PlayerUI.ActiveTutoBlood(true);
+            Time.timeScale = 0;
+            firstRecoverBlood = true;
+        }
         instance.LaunchGetBloodCoroutine(blood);
     }
 

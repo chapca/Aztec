@@ -19,7 +19,7 @@ public class Interaction : MonoBehaviour
 
     [SerializeField] bool activeCamInteraction, elevatorHasBeenActive;
 
-    public GameObject bouttonHaut, bigBouttonHaut;
+    //public GameObject bouttonHaut, bigBouttonHaut;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +29,9 @@ public class Interaction : MonoBehaviour
 
         elevatorState = GameObject.FindWithTag("Elevator").GetComponentInParent<ElevatorState>();
 
-        bouttonHaut = GameObject.Find("BouttonHaut");
+        /*bouttonHaut = GameObject.Find("BouttonHaut");
         bigBouttonHaut = GameObject.Find("BigBouttonHaut");
-        bigBouttonHaut.SetActive(false);
+        bigBouttonHaut.SetActive(false);*/
     }
 
     // Update is called once per frame
@@ -71,8 +71,9 @@ public class Interaction : MonoBehaviour
             }
             else
             {
-                bigBouttonHaut.SetActive(true);
-                bouttonHaut.SetActive(false);
+                UIManager.ActiveManetteInputInteract(true);
+                /*bigBouttonHaut.SetActive(true);
+                bouttonHaut.SetActive(false);*/
             }
         }
 
@@ -86,8 +87,9 @@ public class Interaction : MonoBehaviour
             }
             if (PlayerBlood.bloodQuantity >= 100 || elevatorHasBeenActive)
             {
-                bigBouttonHaut.SetActive(true);
-                bouttonHaut.SetActive(false);
+                UIManager.ActiveManetteInputInteract(true);
+                /*bigBouttonHaut.SetActive(true);
+                bouttonHaut.SetActive(false);*/
             }
         }
     }
@@ -100,8 +102,8 @@ public class Interaction : MonoBehaviour
             {
                 if (PlayerBlood.bloodQuantity >= 100)
                 {
-                    bigBouttonHaut.SetActive(true);
-                    bouttonHaut.SetActive(false);
+                    /*bigBouttonHaut.SetActive(true);
+                    bouttonHaut.SetActive(false);*/
                     UIManager.ActiveManetteInputInteract(false);
                     StartCoroutine("OpenDoor");
                     PlayerBlood.LooseBlood(100);
@@ -161,8 +163,8 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("Interactable"))
         {
-            bigBouttonHaut.SetActive(false);
-            bouttonHaut.SetActive(true);
+            /*bigBouttonHaut.SetActive(false);
+            bouttonHaut.SetActive(true);*/
 
             UIManager.ActiveTextCantInteract(false);
             UIManager.ActiveManetteInputInteract(false);
@@ -174,8 +176,8 @@ public class Interaction : MonoBehaviour
 
         if (other.CompareTag("Elevator"))
         {
-            bigBouttonHaut.SetActive(false);
-            bouttonHaut.SetActive(true);
+            /*bigBouttonHaut.SetActive(false);
+            bouttonHaut.SetActive(true);*/
 
             UIManager.ActiveTextCantInteract(false);
             UIManager.ActiveManetteInputInteract(false);

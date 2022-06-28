@@ -76,14 +76,12 @@ public class EnnemiHp : MonoBehaviour
 
                 if (ennemiManager.canRecoverBlood)
                 {
-                    interaction.bouttonHaut.SetActive(false);
-                    interaction.bigBouttonHaut.SetActive(true);
+                    UIManager.ActiveManetteInputInteract(true);
                 }
             }
             else
             {
-                interaction.bouttonHaut.SetActive(true);
-                interaction.bigBouttonHaut.SetActive(false);
+                UIManager.ActiveManetteInputInteract(false);
             }
         }
     }
@@ -93,8 +91,7 @@ public class EnnemiHp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ennemiManager.isInBloodTrigger = false;
-            interaction.bouttonHaut.SetActive(true);
-            interaction.bigBouttonHaut.SetActive(false);
+            UIManager.ActiveManetteInputInteract(false);
         }
     }
 
