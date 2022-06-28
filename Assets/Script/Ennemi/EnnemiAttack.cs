@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -238,10 +238,10 @@ public class EnnemiAttack : MonoBehaviour
         setUpSliderLooseEsquive = setUpTimerSliderNormal / (1f / sliderLooseEsquiveSize);
         setUpSliderLooseBlock = setUpTimerSliderNormal / (1f / sliderLooseBlockSize);
 
-        sliderLooseAttackSize = setUpSliderLooseAttack / baseSetUpTimerSliderNormal;
+        /*sliderLooseAttackSize = setUpSliderLooseAttack / baseSetUpTimerSliderNormal;
         sliderLooseCounterSize = setUpSliderLooseCounter / baseSetUpTimerSliderNormal;
         sliderLooseEsquiveSize = setUpSliderLooseEsquive / baseSetUpTimerSliderNormal;
-        sliderLooseBlockSize = setUpSliderLooseBlock / baseSetUpTimerSliderNormal;
+        sliderLooseBlockSize = setUpSliderLooseBlock / baseSetUpTimerSliderNormal;*/
 
         baseSliderLooseAttackSize = sliderLooseAttackSize;
         baseSliderLooseCounterSize = sliderLooseCounterSize;
@@ -310,16 +310,16 @@ public class EnnemiAttack : MonoBehaviour
 
     void Update()
     {
-        if(activeThisinEditor)
+        /*if (activeThisinEditor)
         {
-           // UIManager.AjusteSliderEsquive();
+            // UIManager.AjusteSliderEsquive();
 
             UpdateSliderPosition();
             UpdateSliderLoosePosition();
 
             SetFramePerfectSize();
             SetFrameLooseSize();
-        }
+        }*/
 
         if (thisSelected && !launchQTE)
         {
