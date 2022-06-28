@@ -37,9 +37,9 @@ MonoBehaviour:
     buffer32Bits: 0
     halfgeom: 1
     sides: 3
-    minRadius: 0.01
-    maxRadius: 0.005
-    radiusVarFreq: 1
+    minRadius: 0.02
+    maxRadius: 0.02
+    radiusVarFreq: 0
     radiusVarOffset: 0
     tipInfluence: 0.5
     uvScale: {x: 0.5, y: 10}
@@ -52,13 +52,9 @@ MonoBehaviour:
     randomRotation: {x: 30, y: 24, z: 22}
     offset: {x: 0, y: 0, z: 0}
     LMUVPadding: 0.002
-    branchesMaterial: {fileID: 2100000, guid: 2bc7758f26740d140ab9279be99c3fd2, type: 2}
-    leavesPrefabs:
-    - {fileID: 8649792681698546789, guid: 85513ef01afc7be49a664c887ce4d072, type: 3}
-    - {fileID: 8649792681698546789, guid: 010fd5f566f55ef4892165fd7bf23ad4, type: 3}
-    leavesProb:
-    - 1
-    - 1
+    branchesMaterial: {fileID: 2100000, guid: d4ea64420542b4b469af33b71e1fdb03, type: 2}
+    leavesPrefabs: []
+    leavesProb: []
     generateBranches: 1
-    generateLeaves: 1
+    generateLeaves: 0
     generateLightmapUVs: 0

@@ -14,45 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   presetName: 
   ivyParameters:
-    stepSize: 0.05
+    stepSize: 0.06
     randomSeed: 0
-    branchProvability: 0.05
-    maxBranchs: 7
+    branchProvability: 1
+    maxBranchs: 4
     layerMask:
       serializedVersion: 2
       m_Bits: 55
-    minDistanceToSurface: 0.03
-    maxDistanceToSurface: 0.15
-    DTSFrequency: 5
+    minDistanceToSurface: 0.01
+    maxDistanceToSurface: 0.03
+    DTSFrequency: 1
     DTSRandomness: 0.2
     directionFrequency: 1
-    directionAmplitude: 20
+    directionAmplitude: 50
     directionRandomness: 1
     gravity: {x: 0, y: -1, z: 0}
     grabProvabilityOnFall: 1
-    stiffness: 0.03
-    optAngleBias: 15
+    stiffness: 1
+    optAngleBias: 10
     leaveEvery: 2
     randomLeaveEvery: 1
     buffer32Bits: 0
-    halfgeom: 1
-    sides: 1
-    minRadius: 0.2
-    maxRadius: 0.2
+    halfgeom: 0
+    sides: 3
+    minRadius: 0.06
+    maxRadius: 0.08
     radiusVarFreq: 1
     radiusVarOffset: 0
-    tipInfluence: 0.5
-    uvScale: {x: 1, y: 2.38}
+    tipInfluence: 1
+    uvScale: {x: 0.5, y: 10}
     uvOffset: {x: 0, y: 0}
     minScale: 0.7
     maxScale: 1.2
     globalOrientation: 1
     globalRotation: {x: -0, y: -1, z: -0}
     rotation: {x: 30, y: 180, z: 0}
-    randomRotation: {x: 0, y: 24, z: 22}
+    randomRotation: {x: 30, y: 24, z: 22}
     offset: {x: 0, y: 0, z: 0}
     LMUVPadding: 0.002
-    branchesMaterial: {fileID: 2100000, guid: c5edf0220c452754ba6a0187134bac12, type: 2}
+    branchesMaterial: {fileID: 2100000, guid: d4ea64420542b4b469af33b71e1fdb03, type: 2}
     leavesPrefabs: []
     leavesProb: []
     generateBranches: 1
