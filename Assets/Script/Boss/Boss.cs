@@ -1009,12 +1009,22 @@ public class Boss : MonoBehaviour
     {
         if(hpBoss.hp < hpBoss.maxHp/2)
         {
-            isHealthing = true;
+            myAnimator.SetBool("Hit", false);
+
             myAnimator.SetBool("Health", true);
+
+            isHealthing = true;
             hpBoss.hp += Time.deltaTime * 70;
             Debug.LogError("Health");
         }
     }
+
+    public void StartHealth()
+    {
+        /*animHeakthLaunched = true;
+        myAnimator.SetBool("Health", false);*/
+    }
+
     public void EndHealth()
     {
         isHealthing = false;

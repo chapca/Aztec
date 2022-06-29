@@ -38,6 +38,7 @@ public class BossAnimationEvent : MonoBehaviour
 
     void StartHealth()
     {
+        boss.StartHealth();
     }
     void EndHealth()
     {
