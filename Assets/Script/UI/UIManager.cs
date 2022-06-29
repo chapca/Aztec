@@ -88,6 +88,10 @@ public class UIManager : MonoBehaviour
     {
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
         sliderLooseEsquiveRight.fillAmount = sliderLooseEsquiveLeft.fillAmount;
+
+        sliderLooseEsquiveRight2.transform.localRotation = sliderLooseEsquiveLeft2.transform.localRotation;
+        sliderLooseEsquiveRight2.fillAmount = sliderLooseEsquiveLeft2.fillAmount;
+
         sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
         sliderEsquivePerfectRight.fillAmount = sliderEsquivePerfectLeft.fillAmount;
 
@@ -119,7 +123,7 @@ public class UIManager : MonoBehaviour
     }
     static public void UpdateSliderEsquiveLoose2(float value)
     {
-        sliderLooseEsquiveRight2.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
+        sliderLooseEsquiveRight2.transform.localRotation = sliderLooseEsquiveLeft2.transform.localRotation;
 
         sliderLooseEsquiveRight2.fillAmount = value;
         sliderLooseEsquiveLeft2.fillAmount = value;

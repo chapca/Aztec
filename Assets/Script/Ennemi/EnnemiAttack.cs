@@ -288,6 +288,12 @@ public class EnnemiAttack : MonoBehaviour
             esquiveLeft = true;
             esquiveRight = false;
         }
+
+        /*UpdateSliderPosition();
+        UpdateSliderLoosePosition();
+
+        SetFramePerfectSize();
+        SetFrameLooseSize();*/
     }
 
     void SetPositionFramePerfect()

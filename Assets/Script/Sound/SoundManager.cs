@@ -18,11 +18,14 @@ public class SoundManager : MonoBehaviour
     [Header("List de son 2D")] public List<SoundVolume> soundAndVolume2D = new List<SoundVolume>();
     public static List<SoundVolume> soundAndVolume2DStatic = new List<SoundVolume>();
 
-    [Header("List de ennemi Idle")] public List<SoundVolume> soundAndVolumeEnnemiIdle = new List<SoundVolume>();
+    [Header("List de son ennemi Idle")] public List<SoundVolume> soundAndVolumeEnnemiIdle = new List<SoundVolume>();
     public static List<SoundVolume> soundAndVolumeEnnemiIdleStatic = new List<SoundVolume>();
 
-    [Header("List de ennemi Battle")] public List<SoundVolume> soundAndVolumeEnnemiBattle = new List<SoundVolume>();
+    [Header("List de son ennemi Battle")] public List<SoundVolume> soundAndVolumeEnnemiBattle = new List<SoundVolume>();
     public static List<SoundVolume> soundAndVolumeEnnemiBattleStatic = new List<SoundVolume>();
+
+    [Header("List de son boss health")] public List<SoundVolume> soundAndVolumeBossHealth = new List<SoundVolume>();
+    public static List<SoundVolume> soundAndVolumeBossHealthStatic = new List<SoundVolume>();
 
     private void Awake()
     {
@@ -37,6 +40,8 @@ public class SoundManager : MonoBehaviour
         soundAndVolumeEnnemiIdleStatic = soundAndVolumeEnnemiIdle;
 
         soundAndVolumeEnnemiBattleStatic = soundAndVolumeEnnemiBattle;
+
+        soundAndVolumeBossHealthStatic = soundAndVolumeBossHealth;
     }
     void Start()
     {
@@ -90,6 +95,12 @@ public class SoundManager : MonoBehaviour
         sourceAudio.PlayOneShot(soundVolume.clip);
     }
 
+    // sound boss 
+    public static void PlaySoundBoss(AudioSource sourceAudio, SoundVolume soundVolume)
+    {
+        sourceAudio.volume = soundVolume.volume;
+        sourceAudio.PlayOneShot(soundVolume.clip);
+    }
 
     //2D sound continue
     public static void PlaySound2DContinue(AudioSource sourceAudio, SoundVolume soundVolume, bool active)

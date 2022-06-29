@@ -1015,12 +1015,14 @@ public class Boss : MonoBehaviour
 
             isHealthing = true;
             hpBoss.hp += Time.deltaTime * 70;
+            UIManagerBoss.SliderBoss(hpBoss.hp);
             Debug.LogError("Health");
         }
     }
 
     public void StartHealth()
     {
+        SoundManager.PlaySoundBoss(myAudioSource, SoundManager.soundAndVolumeBossHealthStatic[0]);
         /*animHeakthLaunched = true;
         myAnimator.SetBool("Health", false);*/
     }

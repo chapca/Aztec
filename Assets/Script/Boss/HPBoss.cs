@@ -35,7 +35,9 @@ public class HPBoss : MonoBehaviour
     {
         hp -= damage;
 
-        if(hp <=0)
+        UIManagerBoss.SliderBoss(hp);
+
+        if (hp <=0)
         {
             hp = 0;
             startFinalCombo = true;

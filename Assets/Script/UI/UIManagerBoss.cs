@@ -16,6 +16,8 @@ public class UIManagerBoss : MonoBehaviour
     static public Image sliderLooseAttack, sliderLooseEsquiveRight, sliderLooseEsquiveLeft, sliderLooseBlock, sliderLooseCounter, sliderUILooseCombo1, sliderUILooseCombo2, sliderUILooseCombo3,
         sliderUILoose2Combo1, sliderUILoose2Combo2, sliderUILoose2Combo3;
 
+    static public Image sliderBoss;
+
     private void Awake()
     {
         instance = this;
@@ -69,6 +71,8 @@ public class UIManagerBoss : MonoBehaviour
         sliderUILoose2Combo3 = GameObject.Find("SliderCombo3Loose2Boss").GetComponent<Image>();
 
         counterAttackParent = GameObject.Find("EmptyCounterAttackBoss");
+
+        sliderBoss = GameObject.Find("SliderHpBoss").GetComponent<Image>();
 
         UICombo1.SetActive(false);
         UICombo2.SetActive(false);
@@ -419,6 +423,12 @@ public class UIManagerBoss : MonoBehaviour
         UIBlock.SetActive(!active);
         UICounter.SetActive(!active);
         UIAttack.SetActive(!active);
+    }
+
+    static public void SliderBoss(float life)
+    {
+        Debug.LogError(life / 350);
+        sliderBoss.fillAmount = life/350;
     }
 
     IEnumerator ResizeSlider(GameObject uiObj, Image normal, Image perfect, Image fail)
