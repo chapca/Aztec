@@ -85,6 +85,8 @@ public class UIManagerBoss : MonoBehaviour
         UICounter.SetActive(false);
         UIAttack.SetActive(false);
 
+        sliderBoss.gameObject.SetActive(false);
+
         sliderLooseEsquiveRight.transform.localRotation = sliderLooseEsquiveLeft.transform.localRotation;
         sliderEsquivePerfectRight.transform.localRotation = sliderEsquivePerfectLeft.transform.localRotation;
 
@@ -428,6 +430,7 @@ public class UIManagerBoss : MonoBehaviour
     static public void SliderBoss(float life)
     {
         Debug.LogError(life / 350);
+        sliderBoss.gameObject.SetActive(true);
         sliderBoss.fillAmount = life/350;
     }
 
