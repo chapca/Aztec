@@ -14,6 +14,8 @@ public class HPBoss : MonoBehaviour
 
     public static bool startFinalCombo, finalCombo;
 
+    public bool bossIsDead;
+
     void Start()
     {
         boss = GetComponent<Boss>();
@@ -48,5 +50,6 @@ public class HPBoss : MonoBehaviour
         myAnimator.SetBool("Die", true);
         PlayerController.ennemi = null;
         battle.isAttacked = false;
-    }
+        bossIsDead = true;
+}
 }
