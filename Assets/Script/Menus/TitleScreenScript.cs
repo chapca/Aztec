@@ -16,15 +16,14 @@ public class TitleScreenScript : MonoBehaviour
         timer = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
-    private void FixedUpdate()
+    private void Update()
     {
         timer += Time.fixedDeltaTime;
         if(timer >= endTimer)
+        {
+            SceneManager.LoadScene(mainMenueIndex);
+        }
+        if (Input.anyKeyDown)
         {
             SceneManager.LoadScene(mainMenueIndex);
         }
