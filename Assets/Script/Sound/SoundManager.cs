@@ -6,22 +6,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-/*    public static List<AudioClip> audioClipsListPlayerBattleStatic = new List<AudioClip>();
-    [Header("List de son player battle")] public List<AudioClip> audioClipsListPlayerBattle = new List<AudioClip>();
-
-    public static List<AudioClip> audioClipsListPlayerExplorationStatic = new List<AudioClip>();
-    [Header("List de son player exploration")] public List<AudioClip> audioClipsPlayerExplorationList = new List<AudioClip>();
-
-    public static List<AudioClip> audioClipsListInteractionStatic = new List<AudioClip>();
-    [Header("List de son player interaction")] public List<AudioClip> audioClipsListInteraction = new List<AudioClip>();
-
-    public static List<AudioClip> audioClipsList2DStatic = new List<AudioClip>();
-    [Header("List de son 2D")] public List<AudioClip> audioClipsList2D = new List<AudioClip>();
-
-*/
-    ///////////////////////////
-
-
     [Header("List de son player battle")] public List<SoundVolume> soundAndVolumePlayerBattle = new List<SoundVolume>();
     public static List<SoundVolume> soundAndVolumePlayerBattleStatic = new List<SoundVolume>();
 
@@ -34,17 +18,14 @@ public class SoundManager : MonoBehaviour
     [Header("List de son 2D")] public List<SoundVolume> soundAndVolume2D = new List<SoundVolume>();
     public static List<SoundVolume> soundAndVolume2DStatic = new List<SoundVolume>();
 
+    [Header("List de ennemi Idle")] public List<SoundVolume> soundAndVolumeEnnemiIdle = new List<SoundVolume>();
+    public static List<SoundVolume> soundAndVolumeEnnemiIdleStatic = new List<SoundVolume>();
+
+    [Header("List de ennemi Battle")] public List<SoundVolume> soundAndVolumeEnnemiBattle = new List<SoundVolume>();
+    public static List<SoundVolume> soundAndVolumeEnnemiBattleStatic = new List<SoundVolume>();
 
     private void Awake()
     {
-        /*audioClipsListPlayerBattleStatic = audioClipsListPlayerBattle;
-
-        audioClipsListPlayerExplorationStatic = audioClipsPlayerExplorationList;
-
-        audioClipsListInteractionStatic = audioClipsListInteraction;
-
-        audioClipsList2DStatic = audioClipsList2D;*/
-
         soundAndVolumePlayerBattleStatic = soundAndVolumePlayerBattle;
 
         soundAndVolumePlayerExplorationStatic = soundAndVolumePlayerExploration;
@@ -52,13 +33,16 @@ public class SoundManager : MonoBehaviour
         soundAndVolumeListInteractionStatic = soundAndVolumeListInteraction;
 
         soundAndVolume2DStatic = soundAndVolume2D;
+
+        soundAndVolumeEnnemiIdleStatic = soundAndVolumeEnnemiIdle;
+
+        soundAndVolumeEnnemiBattleStatic = soundAndVolumeEnnemiBattle;
     }
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -86,16 +70,17 @@ public class SoundManager : MonoBehaviour
     }
 
     //Ennemi Sound
-    public static void PlaySoundEnnemiStepFoot(AudioSource sourceAudio, SoundVolume soundVolume)
-    {
-        sourceAudio.volume = soundVolume.volume;
-        sourceAudio.clip = soundVolume.clip;
-        sourceAudio.Play();
-    }
     public static void PlaySoundEnnemiBattle(AudioSource sourceAudio, SoundVolume soundVolume)
     {
         sourceAudio.volume = soundVolume.volume;
         sourceAudio.PlayOneShot(soundVolume.clip);
+    }
+    public static void PlaySoundEnnemiIdle(AudioSource sourceAudio, SoundVolume soundVolume)
+    {
+        sourceAudio.volume = soundVolume.volume;
+        sourceAudio.PlayOneShot(soundVolume.clip);
+
+        Debug.Log("Sound GEcko idle");
     }
 
     //Interactive props Sound

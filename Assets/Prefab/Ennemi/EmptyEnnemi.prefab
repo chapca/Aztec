@@ -316,35 +316,41 @@ MonoBehaviour:
   setUpAngleLooseFrameCounter: 180
   setUpAngleLooseFrameEsquive: 270
   setUpAngleLooseFrameBlock: 90
-  setUpStartPerfectFrameAttack: 0.5
-  setUpStartPerfectFrameEsquive: 0.7499722
-  setUpStartPerfectFrameBlock: 0.5
+  setUpAngleLooseFrameAttack2: 0
+  setUpAngleLooseFrameCounter2: 0
+  setUpAngleLooseFrameEsquive2: 0
+  setUpAngleLooseFrameBlock2: 0
   setUpStartLooseFrameAttack: 0
   setUpStartLooseFrameCounter: 0
   setUpStartLooseFrameEsquive: 0.5
   setUpStartLooseFrameBlock: 0
-  baseSetUpTimerSliderNormal: 1.8000001
-  setUpTimerSliderNormal: 1.8000001
-  setUpSliderPerfect: 0.45000002
-  setUpSliderLooseAttack: 0.45000002
-  setUpSliderLooseCounter: 0.90000004
-  setUpSliderLooseEsquive: 0.45000002
-  setUpSliderLooseBlock: 0.45000002
+  setUpStartLooseFrameAttack2: 0
+  setUpStartLooseFrameCounter2: 0
+  setUpStartLooseFrameEsquive2: 0
+  setUpStartLooseFrameBlock2: 0
   sliderAttackPerfect: {fileID: 0}
   sliderAttackNormal: {fileID: 0}
   sliderAttackLoose: {fileID: 0}
+  sliderAttackLoose2: {fileID: 0}
   sliderCounterLoose: {fileID: 0}
+  sliderCounterLoose2: {fileID: 0}
   sliderEsquivePerfect: {fileID: 0}
   sliderEsquiveNormal: {fileID: 0}
   sliderEsquiveLoose: {fileID: 0}
+  sliderEsquiveLoose2: {fileID: 0}
   sliderBlockPerfect: {fileID: 0}
   sliderBlockNormal: {fileID: 0}
   sliderBlockLoose: {fileID: 0}
+  sliderBlockLoose2: {fileID: 0}
   sliderPerfectSize: 0.25
   sliderLooseCounterSize: 0.5
   sliderLooseAttackSize: 0.25
   sliderLooseEsquiveSize: 0.25
   sliderLooseBlockSize: 0.25
+  sliderLooseCounterSize2: 0
+  sliderLooseAttackSize2: 0
+  sliderLooseEsquiveSize2: 0
+  sliderLooseBlockSize2: 0
   activeThisinEditor: 0
   ManetteSpriteIsActive: 0
   damage: 30
@@ -355,9 +361,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2047
-  tutoBlackScreen: {fileID: 0}
   maxSize: {x: 0, y: 0, z: 0}
   baseSize: {x: 0, y: 0, z: 0}
+  launchQTE: 0
+  coroutineBreakQTE: 0
+  delayBeforeAttack: 0
 --- !u!114 &1628035994328776773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,9 +406,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -408,23 +416,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.025
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.389802
+      outSlope: -3.389802
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0.08051879
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.0256411
+      outSlope: -1.0256411
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -433,7 +441,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

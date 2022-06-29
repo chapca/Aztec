@@ -19,6 +19,8 @@ public class EnnemiHp : MonoBehaviour
 
     Interaction interaction;
 
+    AudioSource myAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,8 @@ public class EnnemiHp : MonoBehaviour
         skinnedMesh = transform.GetChild(0).transform.GetChild(1).transform.GetChild(3).transform.GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
         interaction = GameObject.FindWithTag("Player").GetComponentInParent<Interaction>();
+
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,11 +52,13 @@ public class EnnemiHp : MonoBehaviour
 
         if(hp<100)
         {
+            SoundManager.PlaySoundEnnemiBattle(myAudioSource, SoundManager.soundAndVolumeEnnemiBattleStatic[Random.Range(2, 4)]);
             skinnedMesh.material = materialLowLife;
         }
 
         if(hp <=0)
         {
+            SoundManager.PlaySoundEnnemiBattle(myAudioSource, SoundManager.soundAndVolumeEnnemiBattleStatic[4]);
             bloodDecal.SetActive(true);
             EnnemiAttack.QTEDone = true;
             EnnemiAttack.tutoDone = true;

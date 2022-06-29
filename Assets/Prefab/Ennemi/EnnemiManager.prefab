@@ -13,25 +13,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &661799141
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998227442520796618}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4069360846975368236
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f951962ded3e4ed439b770f67530c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodList: []
   indexSelected: 0
   launchSelectAttaker: 0
   checkEnnemiAttaker: 0
@@ -95,6 +77,7 @@ MonoBehaviour:
   bloodRecover: 0
   isInBloodTrigger: 0
   canRecoverBlood: 0
+  once: 0
 --- !u!1001 &1117216972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +177,46 @@ PrefabInstance:
       propertyPath: sliderEsquivePerfect
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: -2.180718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.32165164
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -2.180718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0.14802456
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.32165164
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.09794099
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662175206186956467, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
 --- !u!1 &1628035993214066829 stripped
@@ -204,10 +227,5 @@ GameObject:
 --- !u!4 &1628035993214066830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1628035994328776770, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
-  m_PrefabInstance: {fileID: 1117216972}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1998227442520796618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1998227443553717510, guid: d9eaa02d0a008fd49be5e9cb678c3d48, type: 3}
   m_PrefabInstance: {fileID: 1117216972}
   m_PrefabAsset: {fileID: 0}

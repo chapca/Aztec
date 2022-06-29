@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-//[ExecuteInEditMode]
+[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -198,6 +198,8 @@ public class EnnemiAttack : MonoBehaviour
 
     static public bool esquiveRight, esquiveLeft;
 
+    bool coroutineSoundLaunched;
+
     void Start()
     {
         ennemiHp = GetComponent<EnnemiHp>();
@@ -310,7 +312,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void Update()
     {
-        /*if (activeThisinEditor)
+        if (activeThisinEditor)
         {
             // UIManager.AjusteSliderEsquive();
 
@@ -319,7 +321,7 @@ public class EnnemiAttack : MonoBehaviour
 
             SetFramePerfectSize();
             SetFrameLooseSize();
-        }*/
+        }
 
         if (thisSelected && !launchQTE)
         {
@@ -1262,6 +1264,28 @@ public class EnnemiAttack : MonoBehaviour
                 patrolIsActive = true;
                 agent.angularSpeed = 120f;
             }
+        }
+
+        if(!coroutineSoundLaunched)
+            StartCoroutine("LaunchEnnemiIdleSound");
+
+    }
+
+    IEnumerator LaunchEnnemiIdleSound()
+    {
+        coroutineSoundLaunched = true;
+        SoundManager.PlaySoundEnnemiIdle(myAudioSource, SoundManager.soundAndVolumeEnnemiIdleStatic[Random.Range(0, 2)]);
+        yield return new WaitForSeconds(Random.Range(3, 5));
+
+        if(state ==0)
+        {
+            coroutineSoundLaunched = false;
+            yield break;
+        }
+        else
+        {
+            coroutineSoundLaunched = false;
+            yield break;
         }
     }
 
