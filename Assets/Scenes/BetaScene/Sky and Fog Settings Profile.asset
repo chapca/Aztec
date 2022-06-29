@@ -67,13 +67,13 @@ MonoBehaviour:
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.9056604, g: 0.6980821, b: 0.54254186, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   globalLightProbeDimmer:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.6
     min: 0
     max: 1
   depthExtent:
@@ -182,14 +182,14 @@ MonoBehaviour:
     min: 0
     max: 360
   skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
   exposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.65
   multiplier:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 1.2
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
     min: 0
   aerosolDensity:
     m_OverrideState: 0
-    m_Value: 0.01192826
+    m_Value: 0
     min: 0
     max: 1
   aerosolTint:
@@ -339,7 +339,7 @@ MonoBehaviour:
     showEyeDropper: 0
   horizonZenithShift:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: -1
     min: -1
     max: 1
 --- !u!114 &4945442337608589632
