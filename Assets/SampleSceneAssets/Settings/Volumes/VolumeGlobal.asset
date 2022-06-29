@@ -84,7 +84,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.25
     min: 0
     max: 1
   scatter:
@@ -93,8 +93,8 @@ MonoBehaviour:
     min: 0
     max: 1
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.92226154, g: 0.9245283, b: 0.745728, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.35
     min: 0
     max: 1
   response:
@@ -404,7 +404,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   colorMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   color:
     m_OverrideState: 0
@@ -413,8 +413,8 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.7735849, g: 0.20601049, b: 0.13501246, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -546,7 +546,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 1
     min: 0
     max: 4
   directLightingStrength:
