@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class EnnemiAttack : MonoBehaviour
 {
     EnnemiHp ennemiHp;
@@ -312,7 +312,7 @@ public class EnnemiAttack : MonoBehaviour
 
     void Update()
     {
-        if (activeThisinEditor)
+        /*if (activeThisinEditor)
         {
             // UIManager.AjusteSliderEsquive();
 
@@ -321,7 +321,7 @@ public class EnnemiAttack : MonoBehaviour
 
             SetFramePerfectSize();
             SetFrameLooseSize();
-        }
+        }*/
 
         if (thisSelected && !launchQTE)
         {

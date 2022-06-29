@@ -76,7 +76,7 @@ public class Boss : MonoBehaviour
         sliderComboBoss = GetComponent<SliderComboBoss>();
 
         hpBoss = GetComponent<HPBoss>();
-        myAnimator = GetComponent<Animator>();
+       
         player = GameObject.FindWithTag("Player").transform;
         myAudioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
@@ -894,11 +894,22 @@ public class Boss : MonoBehaviour
             if (hit.collider != null)
             {
                 agent.SetDestination(hit.point);
+                if (transform.position != hit.point)
+                {
+                    myAnimator.SetBool("Walk", false);
+                    myAnimator.SetBool("WalkBack", true);
+                }
+                else
+                {
+                    myAnimator.SetBool("WalkBack", false);
+                }
             }
         }
         else if (distPlayer > 20)
         {
             agent.SetDestination(player.position);
+            myAnimator.SetBool("WalkBack", false);
+            myAnimator.SetBool("Walk", true);
         }
     }
 
@@ -930,7 +941,7 @@ public class Boss : MonoBehaviour
         {
             if (!patrolIsActive)
             {
-                StartCoroutine("Walk");
+                //StartCoroutine("Walk");
                 patrolIsActive = true;
                 agent.angularSpeed = 120f;
             }
@@ -999,15 +1010,17 @@ public class Boss : MonoBehaviour
         if(hpBoss.hp < hpBoss.maxHp/2)
         {
             isHealthing = true;
-            hpBoss.hp += Time.deltaTime * 20;
+            myAnimator.SetBool("Health", true);
+            hpBoss.hp += Time.deltaTime * 70;
             Debug.LogError("Health");
         }
-        else
-        {
-            isHealthing = false;
-            hpBoss.hp = hpBoss.maxHp / 2;
-            state = 1;
-        }
+    }
+    public void EndHealth()
+    {
+        isHealthing = false;
+        myAnimator.SetBool("Health", false);
+        hpBoss.hp = hpBoss.maxHp / 2;
+        state = 1;
     }
 
     void StateDeath()
@@ -1059,11 +1072,15 @@ public class Boss : MonoBehaviour
         if (distPlayer > 5f)
         {
             if (!isAttacking)
+            {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), 7 * Time.deltaTime);
+                myAnimator.SetBool("Walk", true);
+            }
         }
         else
         {
             moveToPlayerBeforeAttack = false;
+            myAnimator.SetBool("Walk", false);
         }
     }
 
@@ -1080,6 +1097,8 @@ public class Boss : MonoBehaviour
         canAttack = false;
         launchAttack = false;
         isAttacking = true;
+        myAnimator.SetBool("Walk", false);
+        myAnimator.SetBool("WalkBack", false);
         yield return new WaitForSeconds(0.1f);
         myAnimator.SetBool("Attack", true);
         BeginAttack();
@@ -1180,13 +1199,19 @@ public class Boss : MonoBehaviour
     }
 
     // Animation event
+    public void StartHit()
+    {
+        myAnimator.SetBool("Attack", false);
+        isAttacking = false;
+    }
+
     void BeginAttack()
     {
         isAttacking = true;
         Invoke("SetUpStartActionPlayer", sliderBoss.setUpStartActionPlayer);
     }
 
-    void EndAttack()
+    public void EndAttack()
     {
         if (!attackReussiperfect && !esquiveReussiPerfect && !HPBoss.finalCombo)
         {
@@ -1249,7 +1274,7 @@ public class Boss : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    void EndHit()
+    public void EndHit()
     {
         esquiveReussiPerfect = false;
         myAnimator.SetBool("Hit", false);
@@ -1259,7 +1284,7 @@ public class Boss : MonoBehaviour
             ReturnToStatePatrol();
     }
 
-    void ApplyDamageToPlayer()
+    public void ApplyDamageToPlayer()
     {
         if (canApplyDamage && canShakeCam && !canApplyDamageBlock)
         {
