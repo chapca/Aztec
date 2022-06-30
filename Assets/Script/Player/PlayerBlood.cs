@@ -28,10 +28,10 @@ public class PlayerBlood : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            GetBlood(100);
-        }
+        // if (Input.GetKeyDown(KeyCode.A))
+        // {
+            // GetBlood(100);
+        // }
 
         if (deadWastage)
         {
@@ -81,6 +81,7 @@ public class PlayerBlood : MonoBehaviour
 
     IEnumerator GetBloodSmooth(float blood)
     {
+        Debug.LogError("coroutine blood");
         bloodQuantity += 0.2f;
         recoveringBlood = true;
 
@@ -90,11 +91,13 @@ public class PlayerBlood : MonoBehaviour
         PlayerUI.UpdateSliderBlood();
         yield return new WaitForSeconds(0.0005f);
 
-        if (bloodQuantity >= 100)
+        if (bloodQuantity >= blood)
         {
             recoveringBlood = false;
-            bloodQuantity = 100;
+            // bloodQuantity = 100;
+            ForceGetBlood(blood);
             yield break;
+            
         }
         else
         {

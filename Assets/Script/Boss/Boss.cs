@@ -42,7 +42,7 @@ public class Boss : MonoBehaviour
 
     public bool startBattle;
 
-    [Header("Dégat du mob")]
+    [Header("Dï¿½gat du mob")]
     [SerializeField] float damage, blockDamage;
 
     [Range(0.0f, 2f)]
@@ -66,7 +66,7 @@ public class Boss : MonoBehaviour
 
     [SerializeField] bool activeCombo1, activeCombo2, activeCombo3, combo1Done, combo2Done, combo3Done;
 
-    bool isDead, isHealthing;
+    bool isDead, isHealthing, activeSliderBarreHP;
 
     static public bool esquiveRight, esquiveLeft;
 
@@ -124,7 +124,14 @@ public class Boss : MonoBehaviour
         if(startBattle)
         {
            UIManagerBoss.AjusteSliderEsquive();
+
+           if(!activeSliderBarreHP)
+           {
+            UIManagerBoss.SliderBoss(hpBoss.hp);
+            activeSliderBarreHP = true;
+           }
         }
+        
 
         switch (state)
         {
@@ -279,7 +286,7 @@ public class Boss : MonoBehaviour
         if (sliderBoss.setUpTimerSliderNormal > 0)
         {
             UIManagerBoss.UpdateSliderAttack(sliderBoss.setUpTimerSliderNormal * (1f / sliderBoss.baseSetUpTimerSliderNormal));
-            Debug.Log("Démarage Slider Attack" + (1 - sliderBoss.setUpStartPerfectFrameAttack));
+            Debug.Log("Dï¿½marage Slider Attack" + (1 - sliderBoss.setUpStartPerfectFrameAttack));
 
             if (sliderBoss.setUpTimerSliderNormal * (1f / sliderBoss.baseSetUpTimerSliderNormal) <= 1 - sliderBoss.setUpStartPerfectFrameAttack && sliderBoss.sliderPerfectAttacSize > 0)
             {

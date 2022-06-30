@@ -94,6 +94,7 @@ public class EnnemiManager : MonoBehaviour
 
     IEnumerator RecoverBlood()
     {
+        //bloodRecover = true;
         yield return new WaitForSeconds(0.75f);
 
         canRecoverBlood = true;
@@ -105,7 +106,7 @@ public class EnnemiManager : MonoBehaviour
                 bloodList[i].SetActive(true);
             }
             PlayerBlood.GetBlood(bloodQuantity);
-            bloodRecover = true;
+             bloodRecover = true;
             yield break;
         }
     }

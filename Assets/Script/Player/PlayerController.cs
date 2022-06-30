@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
 
-    float horizontalAxis;
-    float verticalAxis;
+    [SerializeField]float horizontalAxis;
+    [SerializeField]float verticalAxis;
 
     public bool lookZone;
 
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
         }*/
     }
 
-    void CameraLibreNoMove() // change le déplacement de camera quand le player ne bouge pas
+    void CameraLibreNoMove() // change le dï¿½placement de camera quand le player ne bouge pas
     {
         playerVelocity = controller.velocity.magnitude;
         if (playerVelocity == 0)
@@ -216,8 +216,22 @@ public class PlayerController : MonoBehaviour
             isWalking = false;
         }
 
-        horizontalAxis = Input.GetAxisRaw("Horizontal");
-        verticalAxis = Input.GetAxisRaw("Vertical");
+        if (Input.GetAxis("Horizontal") >0)
+        {
+            horizontalAxis = 1;
+        }
+        if (Input.GetAxis("Horizontal")<0)
+        {
+            horizontalAxis = -1;
+        }
+        if (Input.GetAxis("Vertical")>0)
+        {
+            verticalAxis = 1;
+        }
+        if (Input.GetAxis("Vertical")<0)
+        {
+            verticalAxis = -1;
+        }
 
         Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis).normalized;
 
@@ -297,7 +311,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("RunButton"))
         {
-            if(!isRunning && Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+            if(!isRunning && Input.GetAxis("Horizontal") != 0 || !isRunning && Input.GetAxis("Vertical") != 0)
             {
                 isRunning = true;
                 isWalking = false;
