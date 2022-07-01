@@ -22,6 +22,7 @@ public class PlayerBlood : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine("GetBloodSmooth",100);
         myAnimator = GameObject.Find("PlayerAnim").GetComponent<Animator>();
         firstRecoverBlood = false;
     }
@@ -82,8 +83,8 @@ public class PlayerBlood : MonoBehaviour
 
     IEnumerator GetBloodSmooth(float blood)
     {
-        Debug.LogError("coroutine blood");
         bloodQuantity += 0.2f;
+        Debug.LogError("coroutine blood " + bloodQuantity);
         recoveringBlood = true;
 
         if (bloodQuantity > 100)
@@ -95,6 +96,7 @@ public class PlayerBlood : MonoBehaviour
         if (bloodQuantity >= blood)
         {
             recoveringBlood = false;
+            StopCoroutine("GetBloodSmooth");
             // bloodQuantity = 100;
             //ForceGetBlood(bloodQuantity + blood);
             yield break;
