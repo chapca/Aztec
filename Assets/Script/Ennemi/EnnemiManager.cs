@@ -105,8 +105,8 @@ public class EnnemiManager : MonoBehaviour
             {
                 bloodList[i].SetActive(true);
             }
-            PlayerBlood.GetBlood(bloodQuantity);
-             bloodRecover = true;
+            PlayerBlood.GetBlood(PlayerBlood.bloodQuantity + bloodQuantity);
+            bloodRecover = true;
             yield break;
         }
     }
@@ -192,6 +192,7 @@ public class EnnemiManager : MonoBehaviour
         clone.transform.parent = transform;
         clone.transform.localPosition = new Vector3(0,0,0);
         clone.GetComponent<EnnemiManager>().prefabEnnemiManager = prefabEnnemiManager;
+        clone.GetComponent<EnnemiManager>().bloodQuantity = bloodQuantity;
         clone.SetActive(true);
         yield break;
     }

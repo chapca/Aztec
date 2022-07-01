@@ -233,6 +233,14 @@ public class PlayerController : MonoBehaviour
             verticalAxis = -1;
         }
 
+        if(Input.GetAxis("Horizontal") ==0 )
+        {
+            horizontalAxis =0;
+        }
+        if(Input.GetAxis("Vertical") ==0 )
+        {
+            verticalAxis =0;
+        }
         Vector3 direction = new Vector3(horizontalAxis, 0f, verticalAxis).normalized;
 
         Vector3 inputValues = new Vector3(horizontalAxis, 0f, verticalAxis);

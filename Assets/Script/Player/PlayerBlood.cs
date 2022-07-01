@@ -75,6 +75,7 @@ public class PlayerBlood : MonoBehaviour
 
     void LaunchGetBloodCoroutine(float blood)
     {
+        Debug.LogError("Launche coroutine get blood");
         StartCoroutine(GetBloodSmooth(blood));
         myAnimator.SetTrigger("RecoverBlood");
     }
@@ -95,7 +96,7 @@ public class PlayerBlood : MonoBehaviour
         {
             recoveringBlood = false;
             // bloodQuantity = 100;
-            ForceGetBlood(blood);
+            //ForceGetBlood(bloodQuantity + blood);
             yield break;
             
         }
