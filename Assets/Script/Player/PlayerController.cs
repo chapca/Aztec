@@ -113,7 +113,6 @@ public class PlayerController : MonoBehaviour
 
         AnimationDeclancheur();
     }
-
     void LateUpdate()
     {
         ennemiDebug = ennemi;
